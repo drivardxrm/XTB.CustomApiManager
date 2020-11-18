@@ -164,6 +164,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Proxy\CustomApiResponsePropertyProxy.cs" />
+    <Compile Include="Proxy\CustomApiRequestParameterProxy.cs" />
     <Compile Include="Proxy\CustomApiProxy.cs" />
     <Compile Include="Proxy\SolutionProxy.cs" />
     <Compile Include="Settings.cs" />

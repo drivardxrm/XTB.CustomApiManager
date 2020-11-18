@@ -125,6 +125,62 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
+
+        public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Guid customapiid)
+        {
+            var fetchXml = $@"
+            <fetch>
+              <entity name='customapirequestparameter'>
+                <attribute name='isoptional' />
+                <attribute name='description' />
+                <attribute name='entitylogicalname' />
+                <attribute name='logicalentityname' />
+                <attribute name='name' />
+                <attribute name='customapiid' />
+                <attribute name='displayname' />
+                <attribute name='componentstate' />
+                <attribute name='uniquename' />
+                <attribute name='type' />
+                <attribute name='customapirequestparameterid' />
+                <attribute name='customapiid' />
+                <filter>
+                  <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
+                </filter>
+              </entity>
+            </fetch>"; 
+
+
+            var fetch = new FetchExpression(fetchXml);
+            return service.RetrieveMultiple(fetch);
+        }
+
+        public static EntityCollection GetCustomApisResponsePropertiesFor(this IOrganizationService service, Guid customapiid)
+        {
+            var fetchXml = $@"
+            <fetch>
+              <entity name='customapiresponseproperty'>
+                <attribute name='description' />
+                <attribute name='entitylogicalname' />
+                <attribute name='logicalentityname' />
+                <attribute name='name' />
+                <attribute name='customapiid' />
+                <attribute name='displayname' />
+                <attribute name='componentstate' />
+                <attribute name='uniquename' />
+                <attribute name='type' />
+                <attribute name='customapiresponsepropertyid' />
+                <attribute name='customapiid' />
+                <filter>
+                  <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
+                </filter>
+              </entity>
+            </fetch>";
+
+
+            var fetch = new FetchExpression(fetchXml);
+            return service.RetrieveMultiple(fetch);
+        }
+
         //public EntityCollection GetCustomApiFor(Guid solutionid)
         //{
         //    return new EntityCollection();

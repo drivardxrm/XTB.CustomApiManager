@@ -232,6 +232,85 @@ namespace XTB.CustomApiManager
 
         }
 
+        private void LoadCustomApiRequestParameters()
+        {
+            gridCustomApiRequestParameter.DataSource = null;
+            
+            var customapi = gridCustomApi.CurrentRow.DataBoundItem as CustomApiProxy;
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading customapi request parameters...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCustomApisRequestParametersFor(customapi.CustomApiRow.Id);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var requestparameters = (EntityCollection)args.Result;
+                            var proxiedrequestparameters = requestparameters.Entities.Select(c => new CustomApiRequestParameterProxy(c)).OrderBy(s => s.UniqueName).ToList();
+                            var bindingList = new BindingList<CustomApiRequestParameterProxy>(proxiedrequestparameters);
+                            var source = new BindingSource(bindingList, null);
+                            UpdateUI(() =>
+                            {
+                                gridCustomApiRequestParameter.DataSource = source;
+                                gridCustomApiRequestParameter.Enabled = true;
+                                gridCustomApiRequestParameter.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                            });
+                        }
+                    }
+                }
+            });
+
+        }
+
+        private void LoadCustomApiResponseProperties()
+        {
+            gridCustomApiResponseProperty.DataSource = null;
+            var customapi = gridCustomApi.CurrentRow.DataBoundItem as CustomApiProxy;
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading customapi response properties...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCustomApisResponsePropertiesFor(customapi.CustomApiRow.Id);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var responseproperties = (EntityCollection)args.Result;
+                            var proxiedresponseproperties = responseproperties.Entities.Select(c => new CustomApiResponsePropertyProxy(c)).OrderBy(s => s.UniqueName).ToList();
+                            var bindingList = new BindingList<CustomApiResponsePropertyProxy>(proxiedresponseproperties);
+                            var source = new BindingSource(bindingList, null);
+                            UpdateUI(() =>
+                            {
+                                gridCustomApiResponseProperty.DataSource = source;
+                                gridCustomApiResponseProperty.Enabled = true;
+                                gridCustomApiResponseProperty.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                            });
+                        }
+                    }
+                }
+            });
+
+        }
+
         private void tslAbout_Click(object sender, EventArgs e)
         {
             //LogUse("OpenAbout");
@@ -267,6 +346,15 @@ namespace XTB.CustomApiManager
             }
         }
 
-        
+        private void gridCustomApi_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (gridCustomApi.CurrentRow != null) 
+            {
+                LoadCustomApiRequestParameters();
+                LoadCustomApiResponseProperties();
+            }
+            
+
+        }
     }
 }

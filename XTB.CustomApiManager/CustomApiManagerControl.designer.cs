@@ -34,16 +34,21 @@
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbSample = new System.Windows.Forms.ToolStripButton();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gridCustomApiResponseProperty = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.gridCustomApiRequestParameter = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label2 = new System.Windows.Forms.Label();
             this.gridCustomApi = new System.Windows.Forms.DataGridView();
+            this.colCustomApiName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.chkUnmanaged = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbSolution = new System.Windows.Forms.ComboBox();
-            this.colCustomApiName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label2 = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiResponseProperty)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiRequestParameter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApi)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,18 +97,10 @@
             this.tslAbout.Text = "by David Rivard";
             this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(364, 403);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.gridCustomApiResponseProperty);
+            this.groupBox1.Controls.Add(this.gridCustomApiRequestParameter);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.gridCustomApi);
             this.groupBox1.Controls.Add(this.chkUnmanaged);
@@ -111,10 +108,53 @@
             this.groupBox1.Controls.Add(this.cmbSolution);
             this.groupBox1.Location = new System.Drawing.Point(3, 45);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 263);
+            this.groupBox1.Size = new System.Drawing.Size(414, 601);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Custom Api";
+            // 
+            // gridCustomApiResponseProperty
+            // 
+            this.gridCustomApiResponseProperty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCustomApiResponseProperty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2});
+            this.gridCustomApiResponseProperty.Location = new System.Drawing.Point(10, 433);
+            this.gridCustomApiResponseProperty.Name = "gridCustomApiResponseProperty";
+            this.gridCustomApiResponseProperty.Size = new System.Drawing.Size(240, 150);
+            this.gridCustomApiResponseProperty.TabIndex = 7;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 250;
+            // 
+            // gridCustomApiRequestParameter
+            // 
+            this.gridCustomApiRequestParameter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridCustomApiRequestParameter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1});
+            this.gridCustomApiRequestParameter.Location = new System.Drawing.Point(10, 267);
+            this.gridCustomApiRequestParameter.Name = "gridCustomApiRequestParameter";
+            this.gridCustomApiRequestParameter.Size = new System.Drawing.Size(240, 150);
+            this.gridCustomApiRequestParameter.TabIndex = 6;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 250;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Custom Apis";
             // 
             // gridCustomApi
             // 
@@ -125,6 +165,14 @@
             this.gridCustomApi.Name = "gridCustomApi";
             this.gridCustomApi.Size = new System.Drawing.Size(240, 150);
             this.gridCustomApi.TabIndex = 4;
+            this.gridCustomApi.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridCustomApi_RowEnter);
+            // 
+            // colCustomApiName
+            // 
+            this.colCustomApiName.DataPropertyName = "Name";
+            this.colCustomApiName.HeaderText = "Name";
+            this.colCustomApiName.Name = "colCustomApiName";
+            this.colCustomApiName.Width = 250;
             // 
             // chkUnmanaged
             // 
@@ -154,37 +202,22 @@
             this.cmbSolution.TabIndex = 0;
             this.cmbSolution.SelectedIndexChanged += new System.EventHandler(this.cmbSolution_SelectedIndexChanged);
             // 
-            // colCustomApiName
-            // 
-            this.colCustomApiName.DataPropertyName = "Name";
-            this.colCustomApiName.HeaderText = "Name";
-            this.colCustomApiName.Name = "colCustomApiName";
-            this.colCustomApiName.Width = 250;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 77);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Custom Apis";
-            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStripMenu);
             this.Name = "CustomApiManagerControl";
-            this.Size = new System.Drawing.Size(982, 646);
+            this.Size = new System.Drawing.Size(982, 703);
             this.Load += new System.EventHandler(this.CustomApiManagerControl_Load);
             this.toolStripMenu.ResumeLayout(false);
             this.toolStripMenu.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiResponseProperty)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiRequestParameter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApi)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -197,7 +230,6 @@
         private System.Windows.Forms.ToolStripSeparator tssSeparator1;
         private System.Windows.Forms.ToolStripButton tsbClose;
         private System.Windows.Forms.ToolStripLabel tslAbout;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbSolution;
         private System.Windows.Forms.Label label1;
@@ -205,5 +237,9 @@
         private System.Windows.Forms.DataGridView gridCustomApi;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCustomApiName;
+        private System.Windows.Forms.DataGridView gridCustomApiResponseProperty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridView gridCustomApiRequestParameter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }
