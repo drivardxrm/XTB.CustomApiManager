@@ -1,0 +1,16 @@
+<fetch>
+  <entity name="solution">
+    <attribute name="friendlyname" />
+    <attribute name="publisherid" />
+    <attribute name="version" />
+    <attribute name="ismanaged" />
+    <attribute name="uniquename" />
+    <attribute name="organizationid" />
+    <attribute name="publisheridname" />
+    <attribute name="publisheridprefix" />
+    <link-entity name="publisher" from="publisherid" to="publisherid" link-type="outer">
+      <attribute name="uniquename" />
+      <attribute name="customizationprefix" />
+    </link-entity>
+  </entity>
+</fetch>
