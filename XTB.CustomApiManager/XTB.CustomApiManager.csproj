@@ -145,6 +145,8 @@
     <Compile Include="Entities\CustomAPI.cs" />
     <Compile Include="Entities\CustomAPIRequestParameter.cs" />
     <Compile Include="Entities\CustomAPIResponseProperty.cs" />
+    <Compile Include="Entities\SolutionComponent.cs" />
+    <Compile Include="Entities\SolutionComponentTypes.cs" />
     <Compile Include="Entities\EntityCodes.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Solution.cs" />
@@ -162,6 +164,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Proxy\CustomApiProxy.cs" />
+    <Compile Include="Proxy\SolutionProxy.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>
   <ItemGroup>

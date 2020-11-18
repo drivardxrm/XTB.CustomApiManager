@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace XTB.CustomApiManager.Entities
 {
-    public enum EntityCode
+    public enum SolutionComponentTypes
     {
-        CustomApi = 10546,
-        CustomApiRequestParameter = 10547,
-        CustomApiResponseProperty = 10548,
+        CustomApi = 10101,
+        CustomApiRequestParameter = 10102,
+        CustomApiResponseProperty = 10103,
     }
 
     

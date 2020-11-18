@@ -28,7 +28,7 @@ namespace XTB.CustomApiManager.Helpers
                                 <attribute name='organizationid' />
                                 <attribute name='publisheridname' />
                                 <attribute name='publisheridprefix' />
-                                <link-entity name='publisher' from='publisherid' to='publisherid' link-type='outer' >
+                                <link-entity name='publisher' from='publisherid' to='publisherid' link-type='outer' alias='P'>
                                   <attribute name='uniquename' />
                                   <attribute name='customizationprefix' />
                                 </link-entity>
@@ -52,7 +52,7 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
-        public static EntityCollection GetCustomApis(this IOrganizationService service)
+        public static EntityCollection GetCustomApisFor(this IOrganizationService service, Guid solutionid)
         {
             var fetchXml = $@"
             <fetch top='50'>
@@ -108,6 +108,15 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='executeprivilegename' />
                 <attribute name='isprivatename' />
                 <attribute name='ownerid' />
+                <link-entity name='solutioncomponent' from='objectid' to='customapiid' link-type='inner' alias='SC'>
+                    <attribute name='componenttype' />
+                    <attribute name='solutionid' />
+                    <filter>
+                        <condition attribute='solutionid' operator='eq' value='{solutionid}'/>
+                    </filter>
+                    
+                </link-entity>
+
               </entity>
             </fetch>";
 

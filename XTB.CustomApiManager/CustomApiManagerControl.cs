@@ -13,6 +13,7 @@ using Microsoft.Xrm.Sdk;
 using McTools.Xrm.Connection;
 using System.Reflection;
 using XTB.CustomApiManager.Helpers;
+using XTB.CustomApiManager.Proxy;
 
 namespace XTB.CustomApiManager
 {
@@ -28,7 +29,7 @@ namespace XTB.CustomApiManager
 
         private void CustomApiManagerControl_Load(object sender, EventArgs e)
         {
-            ShowInfoNotification("This is a notification that can lead to XrmToolBox repository", new Uri("https://github.com/MscrmTools/XrmToolBox"));
+            ShowInfoNotification("Disclaimer : Dataverse Custom APIs are still considered a preview feature.", new Uri("https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/custom-api"));
 
             // Loads or creates the settings for the plugin
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
@@ -41,6 +42,8 @@ namespace XTB.CustomApiManager
             {
                 LogInfo("Settings found and loaded");
             }
+
+            LoadSolutions();
         }
 
         private void tsbClose_Click(object sender, EventArgs e)
@@ -52,7 +55,7 @@ namespace XTB.CustomApiManager
         {
             // The ExecuteMethod method handles connecting to an
             // organization if XrmToolBox is not yet connected
-            ExecuteMethod(GetCustomApis);
+            //ExecuteMethod(GetCustomApis);
         }
 
         private void GetAccounts()
@@ -81,29 +84,29 @@ namespace XTB.CustomApiManager
             });
         }
 
-        private void GetCustomApis()
-        {
-            WorkAsync(new WorkAsyncInfo
-            {
-                Message = "Getting Custom Apis",
-                Work = (worker, args) =>
-                {
-                     args.Result = Service.GetCustomApis();
+        //private void GetCustomApis()
+        //{
+        //    WorkAsync(new WorkAsyncInfo
+        //    {
+        //        Message = "Getting Custom Apis",
+        //        Work = (worker, args) =>
+        //        {
+        //             args.Result = Service.GetCustomApis();
                     
-                },
-                PostWorkCallBack = (args) =>
-                {
-                    if (args.Error != null)
-                    {
-                        MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    if (args.Result is EntityCollection result)
-                    {
-                        MessageBox.Show($"Found {result.Entities.Count} custom apis");
-                    }
-                }
-            });
-        }
+        //        },
+        //        PostWorkCallBack = (args) =>
+        //        {
+        //            if (args.Error != null)
+        //            {
+        //                MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //            if (args.Result is EntityCollection result)
+        //            {
+        //                MessageBox.Show($"Found {result.Entities.Count} custom apis");
+        //            }
+        //        }
+        //    });
+        //}
 
 
         private void CreateCustomApi()
@@ -152,7 +155,81 @@ namespace XTB.CustomApiManager
             {
                 mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
+
+                LoadSolutions();
             }
+        }
+
+        private void LoadSolutions()
+        {
+            cmbSolution.Items.Clear();
+            cmbSolution.Enabled = false;
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading solutions...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetSolutions();
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var solutions = (EntityCollection)args.Result;
+                            var proxiedsolutions = solutions.Entities.Select(s => new SolutionProxy(s)).OrderBy(s => s.ToString());
+                            cmbSolution.Items.AddRange(proxiedsolutions.ToArray());
+                            cmbSolution.Enabled = true;
+                        }
+                    }
+                }
+            });
+                
+        }
+
+        private void LoadSolutionCustomApis()
+        {
+            gridCustomApi.DataSource = null;
+            var solution = cmbSolution.SelectedItem as SolutionProxy;
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading solutions customapis...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCustomApisFor(solution.SolutionRow.Id);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var customapis = (EntityCollection)args.Result;
+                            var proxiedcustomapis = customapis.Entities.Select(c => new CustomApiProxy(c)).OrderBy(s => s.UniqueName).ToList();
+                            var bindingList = new BindingList<CustomApiProxy>(proxiedcustomapis);
+                            var source = new BindingSource(bindingList, null);
+                            UpdateUI(() =>
+                            {
+                                gridCustomApi.DataSource = source;
+                                gridCustomApi.Enabled = true;
+                                gridCustomApi.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
+                            });
+                        }
+                    }
+                }
+            });
+
         }
 
         private void tslAbout_Click(object sender, EventArgs e)
@@ -168,5 +245,28 @@ namespace XTB.CustomApiManager
         {
             ExecuteMethod(CreateCustomApi);
         }
+
+        private void cmbSolution_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadSolutionCustomApis();
+        }
+
+        internal void UpdateUI(Action action)
+        {
+            MethodInvoker mi = delegate
+            {
+                action();
+            };
+            if (InvokeRequired)
+            {
+                Invoke(mi);
+            }
+            else
+            {
+                mi();
+            }
+        }
+
+        
     }
 }
