@@ -55,13 +55,19 @@
             this.txtUniqueName = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSaveCustomApi = new System.Windows.Forms.Button();
             this.cboBindingType = new System.Windows.Forms.ComboBox();
             this.cboAllowedCustomProcessingStep = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
+            this.btnAddNew = new System.Windows.Forms.Button();
+            this.btnAddExisting = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.cboBoundEntity = new System.Windows.Forms.ComboBox();
+            this.lblPlugintype = new System.Windows.Forms.Label();
+            this.cboPluginType = new System.Windows.Forms.ComboBox();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiResponseProperty)).BeginInit();
@@ -116,6 +122,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAddExisting);
+            this.groupBox1.Controls.Add(this.btnAddNew);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.gridCustomApi);
             this.groupBox1.Controls.Add(this.chkUnmanaged);
@@ -133,7 +141,7 @@
             this.gridCustomApiResponseProperty.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCustomApiResponseProperty.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn2});
-            this.gridCustomApiResponseProperty.Location = new System.Drawing.Point(435, 435);
+            this.gridCustomApiResponseProperty.Location = new System.Drawing.Point(435, 496);
             this.gridCustomApiResponseProperty.Name = "gridCustomApiResponseProperty";
             this.gridCustomApiResponseProperty.Size = new System.Drawing.Size(240, 150);
             this.gridCustomApiResponseProperty.TabIndex = 7;
@@ -150,7 +158,7 @@
             this.gridCustomApiRequestParameter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridCustomApiRequestParameter.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            this.gridCustomApiRequestParameter.Location = new System.Drawing.Point(435, 279);
+            this.gridCustomApiRequestParameter.Location = new System.Drawing.Point(435, 340);
             this.gridCustomApiRequestParameter.Name = "gridCustomApiRequestParameter";
             this.gridCustomApiRequestParameter.Size = new System.Drawing.Size(240, 150);
             this.gridCustomApiRequestParameter.TabIndex = 6;
@@ -301,19 +309,19 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "IsPrivate";
             // 
-            // button1
+            // btnSaveCustomApi
             // 
-            this.button1.Location = new System.Drawing.Point(788, 279);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnSaveCustomApi.Location = new System.Drawing.Point(771, 292);
+            this.btnSaveCustomApi.Name = "btnSaveCustomApi";
+            this.btnSaveCustomApi.Size = new System.Drawing.Size(75, 23);
+            this.btnSaveCustomApi.TabIndex = 17;
+            this.btnSaveCustomApi.Text = "Save";
+            this.btnSaveCustomApi.UseVisualStyleBackColor = true;
             // 
             // cboBindingType
             // 
             this.cboBindingType.FormattingEnabled = true;
-            this.cboBindingType.Location = new System.Drawing.Point(532, 206);
+            this.cboBindingType.Location = new System.Drawing.Point(532, 237);
             this.cboBindingType.Name = "cboBindingType";
             this.cboBindingType.Size = new System.Drawing.Size(180, 21);
             this.cboBindingType.TabIndex = 6;
@@ -321,7 +329,7 @@
             // cboAllowedCustomProcessingStep
             // 
             this.cboAllowedCustomProcessingStep.FormattingEnabled = true;
-            this.cboAllowedCustomProcessingStep.Location = new System.Drawing.Point(649, 233);
+            this.cboAllowedCustomProcessingStep.Location = new System.Drawing.Point(649, 210);
             this.cboAllowedCustomProcessingStep.Name = "cboAllowedCustomProcessingStep";
             this.cboAllowedCustomProcessingStep.Size = new System.Drawing.Size(180, 21);
             this.cboAllowedCustomProcessingStep.TabIndex = 18;
@@ -329,7 +337,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(454, 209);
+            this.label8.Location = new System.Drawing.Point(454, 240);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 19;
@@ -338,7 +346,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(454, 236);
+            this.label9.Location = new System.Drawing.Point(454, 213);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(189, 13);
             this.label9.TabIndex = 20;
@@ -360,18 +368,74 @@
             this.txtDisplayName.Size = new System.Drawing.Size(359, 20);
             this.txtDisplayName.TabIndex = 21;
             // 
+            // btnAddNew
+            // 
+            this.btnAddNew.Location = new System.Drawing.Point(266, 122);
+            this.btnAddNew.Name = "btnAddNew";
+            this.btnAddNew.Size = new System.Drawing.Size(75, 23);
+            this.btnAddNew.TabIndex = 18;
+            this.btnAddNew.Text = "Add New";
+            this.btnAddNew.UseVisualStyleBackColor = true;
+            // 
+            // btnAddExisting
+            // 
+            this.btnAddExisting.Location = new System.Drawing.Point(266, 93);
+            this.btnAddExisting.Name = "btnAddExisting";
+            this.btnAddExisting.Size = new System.Drawing.Size(75, 23);
+            this.btnAddExisting.TabIndex = 19;
+            this.btnAddExisting.Text = "Add Existing";
+            this.btnAddExisting.UseVisualStyleBackColor = true;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(454, 270);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 13);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "BoundEntity";
+            // 
+            // cboBoundEntity
+            // 
+            this.cboBoundEntity.FormattingEnabled = true;
+            this.cboBoundEntity.Location = new System.Drawing.Point(532, 267);
+            this.cboBoundEntity.Name = "cboBoundEntity";
+            this.cboBoundEntity.Size = new System.Drawing.Size(180, 21);
+            this.cboBoundEntity.TabIndex = 23;
+            // 
+            // lblPlugintype
+            // 
+            this.lblPlugintype.AutoSize = true;
+            this.lblPlugintype.Location = new System.Drawing.Point(454, 297);
+            this.lblPlugintype.Name = "lblPlugintype";
+            this.lblPlugintype.Size = new System.Drawing.Size(60, 13);
+            this.lblPlugintype.TabIndex = 26;
+            this.lblPlugintype.Text = "PluginType";
+            // 
+            // cboPluginType
+            // 
+            this.cboPluginType.FormattingEnabled = true;
+            this.cboPluginType.Location = new System.Drawing.Point(532, 294);
+            this.cboPluginType.Name = "cboPluginType";
+            this.cboPluginType.Size = new System.Drawing.Size(180, 21);
+            this.cboPluginType.TabIndex = 25;
+            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.lblPlugintype);
+            this.Controls.Add(this.cboPluginType);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.cboBoundEntity);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.txtDisplayName);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.cboAllowedCustomProcessingStep);
             this.Controls.Add(this.cboBindingType);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSaveCustomApi);
             this.Controls.Add(this.gridCustomApiResponseProperty);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.gridCustomApiRequestParameter);
@@ -428,12 +492,18 @@
         private System.Windows.Forms.TextBox txtUniqueName;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSaveCustomApi;
         private System.Windows.Forms.ComboBox cboBindingType;
         private System.Windows.Forms.ComboBox cboAllowedCustomProcessingStep;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDisplayName;
+        private System.Windows.Forms.Button btnAddExisting;
+        private System.Windows.Forms.Button btnAddNew;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cboBoundEntity;
+        private System.Windows.Forms.Label lblPlugintype;
+        private System.Windows.Forms.ComboBox cboPluginType;
     }
 }
