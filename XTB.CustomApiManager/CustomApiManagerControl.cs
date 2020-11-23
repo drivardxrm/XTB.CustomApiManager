@@ -14,6 +14,7 @@ using McTools.Xrm.Connection;
 using System.Reflection;
 using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
+using XTB.CustomApiManager.Entities;
 
 namespace XTB.CustomApiManager
 {
@@ -44,6 +45,7 @@ namespace XTB.CustomApiManager
             }
 
             LoadSolutions();
+            Initialize();
         }
 
         private void tsbClose_Click(object sender, EventArgs e)
@@ -150,6 +152,7 @@ namespace XTB.CustomApiManager
         public override void UpdateConnection(IOrganizationService newService, ConnectionDetail detail, string actionName, object parameter)
         {
             base.UpdateConnection(newService, detail, actionName, parameter);
+            
 
             if (mySettings != null && detail != null)
             {
@@ -157,9 +160,20 @@ namespace XTB.CustomApiManager
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 LoadSolutions();
+                Initialize();
             }
         }
 
+
+        private void Initialize() 
+        {
+            solutionsDropdownControl1.Service = Service;
+            solutionsDropdownControl1.LoadData();
+
+            dlgLookupPluginType.Service = Service;
+        }
+
+        
         private void LoadSolutions()
         {
             cmbSolution.Items.Clear();
@@ -355,6 +369,29 @@ namespace XTB.CustomApiManager
             }
             
 
+        }
+
+        private void btnLookupPluginType_Click(object sender, EventArgs e)
+        {
+            Cursor = Cursors.WaitCursor;
+            switch (dlgLookupPluginType.ShowDialog(this))
+            {
+                case DialogResult.OK:
+                    txtLookupPluginType.Entity = dlgLookupPluginType.Entity;
+                    txtLookupPluginType.Text = dlgLookupPluginType.Entity.Attributes[Plug_inType.PrimaryName].ToString();
+
+                    break;
+                case DialogResult.Abort:
+                    //txtLookupPluginType.Entity = null;
+                    break;
+            }
+            //cmbValue.Text = (txtLookup?.Entity?.Id ?? Guid.Empty).ToString();
+            Cursor = Cursors.Default;
+        }
+
+        private void solutionsDropdownControl1_SelectedItemChanged(object sender, EventArgs e)
+        {
+            var selected = solutionsDropdownControl1.SelectedSolution;
         }
     }
 }
