@@ -35,6 +35,7 @@
             this.tsbSample = new System.Windows.Forms.ToolStripButton();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.crmGridView1 = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.btnAddExisting = new System.Windows.Forms.Button();
             this.btnAddNew = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -71,13 +72,12 @@
             this.btnLookupPluginType = new System.Windows.Forms.Button();
             this.txtLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.solutionsDropdownControl1 = new xrmtb.XrmToolBox.Controls.SolutionsDropdownControl();
-            this.crmGridView1 = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crmGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiResponseProperty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiRequestParameter)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crmGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -141,6 +141,19 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Custom Api";
+            // 
+            // crmGridView1
+            // 
+            this.crmGridView1.AllowUserToOrderColumns = true;
+            this.crmGridView1.AllowUserToResizeRows = false;
+            this.crmGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.crmGridView1.ColumnOrder = "";
+            this.crmGridView1.FilterColumns = "";
+            this.crmGridView1.Location = new System.Drawing.Point(10, 267);
+            this.crmGridView1.Name = "crmGridView1";
+            this.crmGridView1.OrganizationService = null;
+            this.crmGridView1.Size = new System.Drawing.Size(240, 150);
+            this.crmGridView1.TabIndex = 20;
             // 
             // btnAddExisting
             // 
@@ -469,19 +482,6 @@
             this.solutionsDropdownControl1.TabIndex = 37;
             this.solutionsDropdownControl1.SelectedItemChanged += new System.EventHandler(this.solutionsDropdownControl1_SelectedItemChanged);
             // 
-            // crmGridView1
-            // 
-            this.crmGridView1.AllowUserToOrderColumns = true;
-            this.crmGridView1.AllowUserToResizeRows = false;
-            this.crmGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.crmGridView1.ColumnOrder = "";
-            this.crmGridView1.FilterColumns = "";
-            this.crmGridView1.Location = new System.Drawing.Point(10, 267);
-            this.crmGridView1.Name = "crmGridView1";
-            this.crmGridView1.OrganizationService = null;
-            this.crmGridView1.Size = new System.Drawing.Size(240, 150);
-            this.crmGridView1.TabIndex = 20;
-            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,10 +521,10 @@
             this.toolStripMenu.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.crmGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiResponseProperty)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridCustomApiRequestParameter)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crmGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

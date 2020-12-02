@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XTB.CustomApiManager.Entities;
+using static XTB.CustomApiManager.Entities.CustomAPI;
 
 namespace XTB.CustomApiManager.Proxy
 {
@@ -27,7 +28,11 @@ namespace XTB.CustomApiManager.Proxy
         public string UniqueName => CustomApiRow[CustomAPI.UniqueName].ToString();
 
 
+        public BindingType_OptionSet BindingType => (BindingType_OptionSet)(CustomApiRow[CustomAPI.BindingType] as OptionSetValue).Value;
 
-        
+        public AllowedCustomProcessingStepType_OptionSet AllowedProcesingStep => (AllowedCustomProcessingStepType_OptionSet)(CustomApiRow[CustomAPI.AllowedCustomProcessingStepType] as OptionSetValue).Value;
+
+        public EntityReference PluginType => CustomApiRow[CustomAPI.PluginType] as EntityReference;
+
     }
 }

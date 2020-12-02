@@ -15,6 +15,7 @@ using System.Reflection;
 using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
 using XTB.CustomApiManager.Entities;
+using static XTB.CustomApiManager.Entities.CustomAPI;
 
 namespace XTB.CustomApiManager
 {
@@ -31,6 +32,12 @@ namespace XTB.CustomApiManager
         private void CustomApiManagerControl_Load(object sender, EventArgs e)
         {
             ShowInfoNotification("Disclaimer : Dataverse Custom APIs are still considered a preview feature.", new Uri("https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/custom-api"));
+
+            cboBindingType.DataSource = Enum.GetValues(typeof(BindingType_OptionSet));
+            cboBindingType.SelectedIndex = -1;
+            cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(AllowedCustomProcessingStepType_OptionSet));
+            cboAllowedCustomProcessingStep.SelectedIndex = -1;
+
 
             // Loads or creates the settings for the plugin
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
@@ -246,6 +253,23 @@ namespace XTB.CustomApiManager
 
         }
 
+        private void LoadCustomApiInfo()
+        {
+            
+
+            var customapi = gridCustomApi.CurrentRow.DataBoundItem as CustomApiProxy;
+            txtUniqueName.Text = customapi.UniqueName;
+            txtDisplayName.Text = customapi.Name;
+            cboBindingType.SelectedItem = customapi.BindingType;
+            cboAllowedCustomProcessingStep.SelectedItem = customapi.AllowedProcesingStep;
+
+            txtLookupPluginType.Entity = dlgLookupPluginType.Entity;
+            txtLookupPluginType.Text = dlgLookupPluginType.Entity.Attributes[Plug_inType.PrimaryName].ToString();
+
+
+        }
+
+
         private void LoadCustomApiRequestParameters()
         {
             gridCustomApiRequestParameter.DataSource = null;
@@ -364,6 +388,7 @@ namespace XTB.CustomApiManager
         {
             if (gridCustomApi.CurrentRow != null) 
             {
+                LoadCustomApiInfo();
                 LoadCustomApiRequestParameters();
                 LoadCustomApiResponseProperties();
             }
