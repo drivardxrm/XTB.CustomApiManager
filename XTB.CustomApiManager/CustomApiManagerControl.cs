@@ -88,7 +88,18 @@ namespace XTB.CustomApiManager
             cdsTxtRequestDisplayName.OrganizationService = Service;
             cdsTxtRequestDescription.OrganizationService = Service;
             cdsTxtRequestIsOptional.OrganizationService = Service;
-            
+            cdsTxtRequestBoundEntity.OrganizationService = Service;
+            cdsTxtRequestType.OrganizationService = Service;
+
+            //output props
+            cdsGridOutputs.OrganizationService = Service;
+            cdsTxtResponseUniqueName.OrganizationService = Service;
+            cdsTxtResponseName.OrganizationService = Service;
+            cdsTxtResponseDisplayName.OrganizationService = Service;
+            cdsTxtResponseDescription.OrganizationService = Service;
+            cdsTxtResponseBoundEntity.OrganizationService = Service;
+            cdsTxtResponseType.OrganizationService = Service;
+
 
             LoadCustomApis();
         }
@@ -97,54 +108,7 @@ namespace XTB.CustomApiManager
 
 
 
-        //private void GetCustomApis()
-        //{
-        //    WorkAsync(new WorkAsyncInfo
-        //    {
-        //        Message = "Getting Custom Apis",
-        //        Work = (worker, args) =>
-        //        {
-        //             args.Result = Service.GetCustomApis();
-
-        //        },
-        //        PostWorkCallBack = (args) =>
-        //        {
-        //            if (args.Error != null)
-        //            {
-        //                MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //            if (args.Result is EntityCollection result)
-        //            {
-        //                MessageBox.Show($"Found {result.Entities.Count} custom apis");
-        //            }
-        //        }
-        //    });
-        //}
-
-
-        //private void CreateCustomApi()
-        //{
-        //    WorkAsync(new WorkAsyncInfo
-        //    {
-        //        Message = "Creating Custom Api",
-        //        Work = (worker, args) =>
-        //        {
-        //            args.Result = Service.CreateCustomApi();
-
-        //        },
-        //        PostWorkCallBack = (args) =>
-        //        {
-        //            if (args.Error != null)
-        //            {
-        //                MessageBox.Show(args.Error.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //            }
-        //            if (args.Result is Guid result)
-        //            {
-        //                MessageBox.Show($"Created custom api : {result}");
-        //            }
-        //        }
-        //    });
-        //}
+        
 
         /// <summary>
         /// This event occurs when the plugin is closed
@@ -239,15 +203,7 @@ namespace XTB.CustomApiManager
             about.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            //ExecuteMethod(CreateCustomApi);
-        }
-
-        //private void cmbSolution_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    LoadSolutionCustomApis();
-        //}
+       
 
         internal void UpdateUI(Action action)
         {
@@ -276,7 +232,7 @@ namespace XTB.CustomApiManager
 
         private void menuNewCustomApi_Click(object sender, EventArgs e)
         {
-            var inputdlg = new NewCustomApi(Service);
+            var inputdlg = new CustomApiEditor(Service);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -321,6 +277,8 @@ namespace XTB.CustomApiManager
                 //Get Inputs
                 cdsGridInputs.DataSource = Service.GetCustomApisRequestParametersFor(customapiref.Id);
 
+                cdsGridOutputs.DataSource = Service.GetCustomApisResponsePropertiesFor(customapiref.Id);
+
             }
             else 
             {
@@ -332,17 +290,28 @@ namespace XTB.CustomApiManager
         private void cdsGridInputs_RecordClick(object sender, CRMRecordEventArgs e)
         {
 
-            cdsTxtRequestUniqueName.Entity = e.Entity;
-            cdsTxtUniqueName.Entity = e.Entity;
-            cdsTxtRequestDisplayName.Entity = e.Entity;
-            cdsTxtRequestDescription.Entity = e.Entity;
-            cdsTxtRequestBoundEntity.Entity = e.Entity;
-            cdsTxtRequestType.Entity = e.Entity;
-            cdsTxtRequestIsOptional.Entity = e.Entity;
+            cdsTxtRequestUniqueName.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtRequestName.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtRequestDisplayName.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtRequestDescription.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtRequestBoundEntity.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtRequestType.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtRequestIsOptional.EntityReference = e.Entity.ToEntityReference();
 
 
         }
 
+        private void cdsGridOutputs_RecordClick(object sender, CRMRecordEventArgs e)
+        {
+            cdsTxtResponseUniqueName.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtResponseName.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtResponseDisplayName.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtResponseDescription.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtResponseBoundEntity.EntityReference = e.Entity.ToEntityReference();
+            cdsTxtResponseType.EntityReference = e.Entity.ToEntityReference();
+            
+        }
 
+        
     }
 }

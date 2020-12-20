@@ -10,7 +10,7 @@ using XTB.CustomApiManager.Helpers;
 
 namespace XTB.CustomApiManager
 {
-    public partial class NewCustomApi : Form
+    public partial class CustomApiEditor : Form
     {
         #region Private Fields
 
@@ -21,7 +21,7 @@ namespace XTB.CustomApiManager
 
         #region Public Constructors
 
-        public NewCustomApi(IOrganizationService service)
+        public CustomApiEditor(IOrganizationService service)
         {
             InitializeComponent();
             this.service = service;
