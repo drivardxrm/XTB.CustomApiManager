@@ -55,7 +55,7 @@ namespace XTB.CustomApiManager.Helpers
         public static EntityCollection GetCustomApisFor(this IOrganizationService service, Guid solutionid)
         {
             var fetchXml = $@"
-            <fetch top='50'>
+            <fetch>
               <entity name='customapi'>
                 <attribute name='createdonbehalfbyyominame' />
                 <attribute name='owninguser' />
@@ -125,29 +125,174 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
+        public static EntityCollection GetAllCustomApis(this IOrganizationService service)
+        {
+            var fetchXml = $@"
+            <fetch>
+              <entity name='customapi'>
+                <attribute name='createdonbehalfbyyominame' />
+                <attribute name='owninguser' />
+                <attribute name='statecode' />
+                <attribute name='owneridname' />
+                <attribute name='description' />
+                <attribute name='statecodename' />
+                <attribute name='ismanagedname' />
+                <attribute name='createdonbehalfby' />
+                <attribute name='isfunctionname' />
+                <attribute name='sdkmessageidname' />
+                <attribute name='name' />
+                <attribute name='componentidunique' />
+                <attribute name='iscustomizable' />
+                <attribute name='isprivate' />
+                <attribute name='customapiid' />
+                <attribute name='importsequencenumber' />
+                <attribute name='bindingtypename' />
+                <attribute name='modifiedbyyominame' />
+                <attribute name='allowedcustomprocessingsteptype' />
+                <attribute name='componentstate' />
+                <attribute name='allowedcustomprocessingsteptypename' />
+                <attribute name='utcconversiontimezonecode' />
+                <attribute name='createdbyyominame' />
+                <attribute name='owningbusinessunit' />
+                <attribute name='modifiedbyname' />
+                <attribute name='owningteam' />
+                <attribute name='isfunction' />
+                <attribute name='modifiedby' />
+                <attribute name='createdby' />
+                <attribute name='timezoneruleversionnumber' />
+                <attribute name='sdkmessageid' />
+                <attribute name='plugintypeid' />
+                <attribute name='owneridtype' />
+                <attribute name='statuscodename' />
+                <attribute name='overwritetime' />
+                <attribute name='uniquename' />
+                <attribute name='solutionid' />
+                <attribute name='owneridyominame' />
+                <attribute name='modifiedon' />
+                <attribute name='displayname' />
+                <attribute name='bindingtype' />
+                <attribute name='ismanaged' />
+                <attribute name='statuscode' />
+                <attribute name='createdbyname' />
+                <attribute name='createdon' />
+                <attribute name='plugintypeidname' />
+                <attribute name='componentstatename' />
+                <attribute name='boundentitylogicalname' />
+                <attribute name='executeprivilegename' />
+                <attribute name='isprivatename' />
+                <attribute name='ownerid' />
+                
+
+              </entity>
+            </fetch>";
+
+
+            var fetch = new FetchExpression(fetchXml);
+            return service.RetrieveMultiple(fetch);
+        }
+
+
+        public static string FetchAllCustomApis() 
+            => $@"
+                <fetch>
+                    <entity name='customapi'>
+                    <attribute name='createdonbehalfbyyominame' />
+                    <attribute name='owninguser' />
+                    <attribute name='statecode' />
+                    <attribute name='owneridname' />
+                    <attribute name='description' />
+                    <attribute name='statecodename' />
+                    <attribute name='ismanagedname' />
+                    <attribute name='createdonbehalfby' />
+                    <attribute name='isfunctionname' />
+                    <attribute name='sdkmessageidname' />
+                    <attribute name='name' />
+                    <attribute name='componentidunique' />
+                    <attribute name='iscustomizable' />
+                    <attribute name='isprivate' />
+                    <attribute name='customapiid' />
+                    <attribute name='importsequencenumber' />
+                    <attribute name='bindingtypename' />
+                    <attribute name='modifiedbyyominame' />
+                    <attribute name='allowedcustomprocessingsteptype' />
+                    <attribute name='componentstate' />
+                    <attribute name='allowedcustomprocessingsteptypename' />
+                    <attribute name='utcconversiontimezonecode' />
+                    <attribute name='createdbyyominame' />
+                    <attribute name='owningbusinessunit' />
+                    <attribute name='modifiedbyname' />
+                    <attribute name='owningteam' />
+                    <attribute name='isfunction' />
+                    <attribute name='modifiedby' />
+                    <attribute name='createdby' />
+                    <attribute name='timezoneruleversionnumber' />
+                    <attribute name='sdkmessageid' />
+                    <attribute name='plugintypeid' />
+                    <attribute name='owneridtype' />
+                    <attribute name='statuscodename' />
+                    <attribute name='overwritetime' />
+                    <attribute name='uniquename' />
+                    <attribute name='solutionid' />
+                    <attribute name='owneridyominame' />
+                    <attribute name='modifiedon' />
+                    <attribute name='displayname' />
+                    <attribute name='bindingtype' />
+                    <attribute name='ismanaged' />
+                    <attribute name='statuscode' />
+                    <attribute name='createdbyname' />
+                    <attribute name='createdon' />
+                    <attribute name='plugintypeidname' />
+                    <attribute name='componentstatename' />
+                    <attribute name='boundentitylogicalname' />
+                    <attribute name='executeprivilegename' />
+                    <attribute name='isprivatename' />
+                    <attribute name='ownerid' />
+                
+
+                    </entity>
+                </fetch>";
+
+        //public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Guid customapiid)
+        //{
+        //    var fetchXml = $@"
+        //    <fetch>
+        //      <entity name='customapirequestparameter'>
+        //        <attribute name='isoptional' />
+        //        <attribute name='description' />
+        //        <attribute name='entitylogicalname' />
+        //        <attribute name='logicalentityname' />
+        //        <attribute name='name' />
+        //        <attribute name='customapiid' />
+        //        <attribute name='displayname' />
+        //        <attribute name='componentstate' />
+        //        <attribute name='uniquename' />
+        //        <attribute name='type' />
+        //        <attribute name='customapirequestparameterid' />
+        //        <attribute name='customapiid' />
+        //        <filter>
+        //          <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
+        //        </filter>
+        //      </entity>
+        //    </fetch>"; 
+
+
+        //    var fetch = new FetchExpression(fetchXml);
+        //    return service.RetrieveMultiple(fetch);
+        //}
 
         public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Guid customapiid)
         {
             var fetchXml = $@"
             <fetch>
               <entity name='customapirequestparameter'>
-                <attribute name='isoptional' />
-                <attribute name='description' />
-                <attribute name='entitylogicalname' />
-                <attribute name='logicalentityname' />
-                <attribute name='name' />
-                <attribute name='customapiid' />
-                <attribute name='displayname' />
-                <attribute name='componentstate' />
                 <attribute name='uniquename' />
                 <attribute name='type' />
-                <attribute name='customapirequestparameterid' />
-                <attribute name='customapiid' />
+                <attribute name='isoptional' />
                 <filter>
                   <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
                 </filter>
               </entity>
-            </fetch>"; 
+            </fetch>";
 
 
             var fetch = new FetchExpression(fetchXml);
