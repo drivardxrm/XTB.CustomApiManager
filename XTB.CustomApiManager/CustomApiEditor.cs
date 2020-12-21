@@ -15,16 +15,18 @@ namespace XTB.CustomApiManager
         #region Private Fields
 
         private Control focus;
-        private IOrganizationService service;
+        private IOrganizationService _service;
+        private FormAction _action;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public CustomApiEditor(IOrganizationService service)
+        public CustomApiEditor(IOrganizationService service, Entity customapitoupdate, FormAction action)
         {
             InitializeComponent();
-            this.service = service;
+            _service = service;
+            _action = action; 
 
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
@@ -32,10 +34,18 @@ namespace XTB.CustomApiManager
             cboEntities.Service = service;
             cboEntities.Update();
 
-            cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));
-            cboBindingType.SelectedIndex = -1;
+            cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
-            cboAllowedCustomProcessingStep.SelectedIndex = -1;
+
+
+            if (_action == FormAction.Create) 
+            {
+                cboBindingType.SelectedIndex = (int)CustomAPI.BindingType_OptionSet.Global;
+                cboAllowedCustomProcessingStep.SelectedIndex = (int)CustomAPI.AllowedCustomProcessingStepType_OptionSet.None;
+            }
+
+            //cboBindingType.SelectedIndex = -1;
+            //cboAllowedCustomProcessingStep.SelectedIndex = -1;
 
         }
 
@@ -43,41 +53,41 @@ namespace XTB.CustomApiManager
 
         #region Public Properties
 
-        public object FormattedResult { get; private set; }
+       
 
-        public object Result { get; private set; }
+        public Guid Result { get; private set; }
 
         #endregion Public Properties
 
         #region Public Methods
 
-        public DialogResult ShowDialog(Entity input, IWin32Window owner)
-        {
-            //var type = GetType(input);
-            //lblName.Text = input["name"].ToString();
-            //lblType.Text = type.ToString();
-            //txtRecord.OrganizationService = service;
-            ////if (!ParseInput(type, input))
-            ////{
-            ////    MessageBox.Show($"Type {type} is not yet supported by CAT.", "Input Parameter", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-            ////    return DialogResult.Cancel;
-            ////}
-            //var result = ShowDialog(owner);
-            //if (result == DialogResult.OK)
-            //{
-            //    result = HandleInput(type);
-            //}
-            //return result;
-            return DialogResult.OK;
-        }
+        //public DialogResult ShowDialog(Entity input, IWin32Window owner)
+        //{
+        //    //var type = GetType(input);
+        //    //lblName.Text = input["name"].ToString();
+        //    //lblType.Text = type.ToString();
+        //    //txtRecord.OrganizationService = service;
+        //    ////if (!ParseInput(type, input))
+        //    ////{
+        //    ////    MessageBox.Show($"Type {type} is not yet supported by CAT.", "Input Parameter", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+        //    ////    return DialogResult.Cancel;
+        //    ////}
+        //    //var result = ShowDialog(owner);
+        //    //if (result == DialogResult.OK)
+        //    //{
+        //    //    result = HandleInput(type);
+        //    //}
+        //    //return result;
+        //    return DialogResult.OK;
+        //}
 
         #endregion Public Methods
 
         #region Private Event Handlers
 
-       
 
-        
+
+
 
         private void InputValue_Shown(object sender, EventArgs e)
         {
@@ -118,7 +128,7 @@ namespace XTB.CustomApiManager
                 case DialogResult.OK:
                     txtLookupPublisher.Entity = dlgLookupPublisher.Entity;
                     txtLookupPublisher.Text = dlgLookupPublisher.Entity.Attributes[Publisher.PrimaryName].ToString();
-                    var prefix = service.GetPublisherPrefix((Guid)dlgLookupPublisher.Entity.Attributes[Publisher.PrimaryKey]);
+                    var prefix = _service.GetPublisherPrefix((Guid)dlgLookupPublisher.Entity.Attributes[Publisher.PrimaryKey]);
                     txtPrefix.Text = $"{prefix}_";
 
                     //unlock
@@ -139,11 +149,11 @@ namespace XTB.CustomApiManager
 
             api[CustomAPI.UniqueName] = txtPrefix.Text + txtUniqueName.Text;  
 
-            api[CustomAPI.AllowedCustomProcessingStepType] = new OptionSetValue(cboAllowedCustomProcessingStep.SelectedIndex);  //none
-            api[CustomAPI.BindingType] = new OptionSetValue(cboBindingType.SelectedIndex);  //Global
+            api[CustomAPI.AllowedCustomProcessingStepType] = new OptionSetValue(cboAllowedCustomProcessingStep.SelectedIndex);  
+            api[CustomAPI.BindingType] = new OptionSetValue(cboBindingType.SelectedIndex); 
             api[CustomAPI.Description] = txtDescription.Text;
             api[CustomAPI.DisplayName] = txtDisplayName.Text;
-            //api[CustomAPI.ExecutePrivilegeName] = null; TODO
+            api[CustomAPI.ExecutePrivilegeName] = txtExecutePrivilegeName.Text;
             api[CustomAPI.IsFunction] = chkIsFunction.Checked;
             api[CustomAPI.IsPrivate] = chkIsPrivate.Checked;
             api[CustomAPI.PrimaryName] = txtName.Text;
@@ -166,11 +176,13 @@ namespace XTB.CustomApiManager
         {
             try
             {
-                service.Create(AsEntity());
-            }
-            catch (Exception)
-            {
+                //todo modify for Update
 
+                Result = _service.Create(AsEntity());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 throw;
             }
 
@@ -188,5 +200,19 @@ namespace XTB.CustomApiManager
         {
             return !string.IsNullOrEmpty(txtLookupPublisher.Text);
         }
+
+        private bool CanCreate() 
+        {
+            return !string.IsNullOrEmpty(txtPrefix.Text) &&
+                    !string.IsNullOrEmpty(txtUniqueName.Text) &&
+                    !string.IsNullOrEmpty(txtName.Text) &&
+                    !string.IsNullOrEmpty(txtDisplayName.Text) &&
+                    (IsBoundToEntity() && !string.IsNullOrEmpty(cboEntities.SelectedEntity?.LogicalName)
+                      ||
+                    !IsBoundToEntity());
+
+
+        }
+
     }
 }

@@ -155,6 +155,7 @@
     <Compile Include="Entities\EntityCodes.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Solution.cs" />
+    <Compile Include="Helpers\FormAction.cs" />
     <Compile Include="Helpers\PublisherHelper.cs" />
     <Compile Include="Helpers\CustomApiHelper.cs" />
     <Compile Include="CustomApiManagerPlugin.cs" />

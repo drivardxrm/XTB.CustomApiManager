@@ -175,6 +175,7 @@ namespace XTB.CustomApiManager
                             UpdateUI(() =>
                             {
                                 cdsCboCustomApi.DataSource = customapis;
+                                cdsCboCustomApi.SelectedIndex = -1;
                                 cdsCboCustomApi.Enabled = true;
                             });
                         }
@@ -232,22 +233,7 @@ namespace XTB.CustomApiManager
 
         private void menuNewCustomApi_Click(object sender, EventArgs e)
         {
-            var inputdlg = new CustomApiEditor(Service);
-            var dlgresult = inputdlg.ShowDialog();
-            if (dlgresult == DialogResult.Cancel)
-            {
-                return;
-            }
-            if (dlgresult == DialogResult.OK && inputdlg.Result != null)
-            {
-                //e.Entity["rawvalue"] = inputdlg.Result;
-                //e.Entity["value"] = inputdlg.FormattedResult;
-            }
-            else if (dlgresult == DialogResult.Ignore)
-            {
-                //e.Entity.Attributes.Remove("value");
-                //e.Entity.Attributes.Remove("rawvalue");
-            }
+            
 
         }
 
@@ -282,7 +268,24 @@ namespace XTB.CustomApiManager
             }
             else 
             {
-                //todo clear
+                cdsTxtUniqueName.EntityReference = null;
+                cdsTxtName.EntityReference = null;
+                cdsTxtDisplayName.EntityReference = null;
+                cdsTxtDescription.EntityReference = null;
+                cdsTxtAllowedCustomProcessingStep.EntityReference = null;
+                cdsTxtBindingType.EntityReference = null;
+                cdsTxtBoundEntity.EntityReference = null;
+
+                cdsTxtPluginType.EntityReference = null;
+                cdsTxtIsFunction.EntityReference = null;
+                cdsTxtExecutePrivilegeName.EntityReference = null;
+                cdsTxtIsPrivate.EntityReference = null;
+
+
+                //Get Inputs
+                cdsGridInputs.DataSource = null;
+
+                cdsGridOutputs.DataSource = null;
             }
             
         }
@@ -312,6 +315,42 @@ namespace XTB.CustomApiManager
             
         }
 
-        
+        private void btnNewApi_Click(object sender, EventArgs e)
+        {
+            CreateApiDialog();
+        }
+
+        private void CreateApiDialog() 
+        {
+            var inputdlg = new CustomApiEditor(Service, null, FormAction.Create);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.Result != null)
+            {
+                //e.Entity["rawvalue"] = inputdlg.Result;
+                //e.Entity["value"] = inputdlg.FormattedResult;
+
+                //refresh custom api list
+                LoadCustomApis();
+
+                //SElect newly created
+                cdsCboCustomApi.SelectedItem = new Entity(CustomAPI.EntityName, inputdlg.Result);
+
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+                //e.Entity.Attributes.Remove("value");
+                //e.Entity.Attributes.Remove("rawvalue");
+            }
+        }
+
+        private void menuRefresh_Click(object sender, EventArgs e)
+        {
+            LoadCustomApis();
+        }
     }
 }
