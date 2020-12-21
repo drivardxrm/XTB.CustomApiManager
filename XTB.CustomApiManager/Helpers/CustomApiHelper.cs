@@ -254,7 +254,7 @@ namespace XTB.CustomApiManager.Helpers
 
         //public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Guid customapiid)
         //{
-        //    var fetchXml = $@"
+        //var fetchXml = $@"
         //    <fetch>
         //      <entity name='customapirequestparameter'>
         //        <attribute name='isoptional' />
@@ -273,7 +273,7 @@ namespace XTB.CustomApiManager.Helpers
         //          <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
         //        </filter>
         //      </entity>
-        //    </fetch>"; 
+        //    </fetch>";
 
 
         //    var fetch = new FetchExpression(fetchXml);
@@ -285,9 +285,17 @@ namespace XTB.CustomApiManager.Helpers
             var fetchXml = $@"
             <fetch>
               <entity name='customapirequestparameter'>
+                <attribute name='isoptional' />
+                <attribute name='description' />
+                <attribute name='logicalentityname' />
+                <attribute name='name' />
+                <attribute name='customapiid' />
+                <attribute name='displayname' />
+                <attribute name='componentstate' />
                 <attribute name='uniquename' />
                 <attribute name='type' />
-                <attribute name='isoptional' />
+                <attribute name='customapirequestparameterid' />
+                <attribute name='customapiid' />
                 <filter>
                   <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
                 </filter>
@@ -304,8 +312,10 @@ namespace XTB.CustomApiManager.Helpers
             var fetchXml = $@"
             <fetch>
               <entity name='customapiresponseproperty'>
+                
+                <attribute name='uniquename' />
+                <attribute name='type' />
                 <attribute name='description' />
-                <attribute name='entitylogicalname' />
                 <attribute name='logicalentityname' />
                 <attribute name='name' />
                 <attribute name='customapiid' />
@@ -326,45 +336,7 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
-        //public EntityCollection GetCustomApiFor(Guid solutionid)
-        //{
-        //    return new EntityCollection();
-        //}
-
-        //public EntityCollection GetCustomApiRequestParametersFor(Guid customapiid)
-        //{
-        //    return new EntityCollection();
-        //}
-
-        //public EntityCollection GetCustomApiResponseParametersFor(Guid customapiid)
-        //{
-        //    return new EntityCollection();
-        //}
-
-        public static Guid CreateCustomApi(this IOrganizationService service)
-        {
-            var api = new Entity(CustomAPI.EntityName);
-            api[CustomAPI.AllowedCustomProcessingStepType] = new OptionSetValue(0);  //none
-            api[CustomAPI.BindingType] = new OptionSetValue(0);  //Global
-            api[CustomAPI.Description] = "A simple example of a Custom API";
-            api[CustomAPI.DisplayName] = "Custom API Example";
-            api[CustomAPI.ExecutePrivilegeName] = null;
-            api[CustomAPI.IsFunction] = false;
-            api[CustomAPI.IsPrivate] = false;
-            api[CustomAPI.PrimaryName] = "CustomApiExample";
-            //api[CustomAPI.PluginType] =  //entityref TODO
-            api[CustomAPI.UniqueName] = "xrm_CustomApiExample";  //need publisher name here
-
-            return service.Create(api);
-        }
-        //public void UpdateCustomApi()
-        //{
-        //    throw new NotImplementedException();
-        //}
-        //public void DeleteCustomApi()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        
 
         public static Guid CreateCustomApiRequestParameter(this IOrganizationService service, EntityReference customapiref)
         {

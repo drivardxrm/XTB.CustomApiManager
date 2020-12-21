@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomApiManagerControl));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomApiManagerControl));
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
+            this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
@@ -44,7 +45,7 @@
             this.btnDeleteApi = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.grpOutputs = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -133,11 +134,10 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.grpOutputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -174,6 +174,15 @@
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
+            // menuRefresh
+            // 
+            this.menuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("menuRefresh.Image")));
+            this.menuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuRefresh.Name = "menuRefresh";
+            this.menuRefresh.Size = new System.Drawing.Size(116, 28);
+            this.menuRefresh.Text = "Refresh API List";
+            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
+            // 
             // menuNewApi
             // 
             this.menuNewApi.Image = ((System.Drawing.Image)(resources.GetObject("menuNewApi.Image")));
@@ -202,7 +211,7 @@
             this.groupBox1.Controls.Add(this.btnNewApi);
             this.groupBox1.Controls.Add(this.btnDeleteApi);
             this.groupBox1.Controls.Add(this.groupBox3);
-            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.grpOutputs);
             this.groupBox1.Controls.Add(this.grpInputs);
             this.groupBox1.Controls.Add(this.pictureBox7);
             this.groupBox1.Controls.Add(this.pictureBox6);
@@ -293,36 +302,37 @@
             this.textBox1.Size = new System.Drawing.Size(661, 72);
             this.textBox1.TabIndex = 0;
             // 
-            // groupBox2
+            // grpOutputs
             // 
-            this.groupBox2.Controls.Add(this.button3);
-            this.groupBox2.Controls.Add(this.pictureBox10);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.cdsTxtResponseBoundEntity);
-            this.groupBox2.Controls.Add(this.cdsTxtResponseDescription);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.label22);
-            this.groupBox2.Controls.Add(this.pictureBox14);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.btnAddOutput);
-            this.groupBox2.Controls.Add(this.pictureBox16);
-            this.groupBox2.Controls.Add(this.cdsTxtResponseType);
-            this.groupBox2.Controls.Add(this.label24);
-            this.groupBox2.Controls.Add(this.cdsTxtResponseDisplayName);
-            this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.cdsTxtResponseName);
-            this.groupBox2.Controls.Add(this.label26);
-            this.groupBox2.Controls.Add(this.pictureBox17);
-            this.groupBox2.Controls.Add(this.cdsTxtResponseUniqueName);
-            this.groupBox2.Controls.Add(this.label27);
-            this.groupBox2.Controls.Add(this.cdsGridOutputs);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(422, 431);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(684, 261);
-            this.groupBox2.TabIndex = 80;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Response Properties (Output)";
+            this.grpOutputs.Controls.Add(this.button3);
+            this.grpOutputs.Controls.Add(this.pictureBox10);
+            this.grpOutputs.Controls.Add(this.label20);
+            this.grpOutputs.Controls.Add(this.cdsTxtResponseBoundEntity);
+            this.grpOutputs.Controls.Add(this.cdsTxtResponseDescription);
+            this.grpOutputs.Controls.Add(this.label21);
+            this.grpOutputs.Controls.Add(this.label22);
+            this.grpOutputs.Controls.Add(this.pictureBox14);
+            this.grpOutputs.Controls.Add(this.button2);
+            this.grpOutputs.Controls.Add(this.btnAddOutput);
+            this.grpOutputs.Controls.Add(this.pictureBox16);
+            this.grpOutputs.Controls.Add(this.cdsTxtResponseType);
+            this.grpOutputs.Controls.Add(this.label24);
+            this.grpOutputs.Controls.Add(this.cdsTxtResponseDisplayName);
+            this.grpOutputs.Controls.Add(this.label25);
+            this.grpOutputs.Controls.Add(this.cdsTxtResponseName);
+            this.grpOutputs.Controls.Add(this.label26);
+            this.grpOutputs.Controls.Add(this.pictureBox17);
+            this.grpOutputs.Controls.Add(this.cdsTxtResponseUniqueName);
+            this.grpOutputs.Controls.Add(this.label27);
+            this.grpOutputs.Controls.Add(this.cdsGridOutputs);
+            this.grpOutputs.Enabled = false;
+            this.grpOutputs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grpOutputs.Location = new System.Drawing.Point(422, 431);
+            this.grpOutputs.Name = "grpOutputs";
+            this.grpOutputs.Size = new System.Drawing.Size(684, 261);
+            this.grpOutputs.TabIndex = 80;
+            this.grpOutputs.TabStop = false;
+            this.grpOutputs.Text = "Response Properties (Output)";
             // 
             // button3
             // 
@@ -342,7 +352,7 @@
             // 
             this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
             this.pictureBox10.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.InitialImage")));
-            this.pictureBox10.Location = new System.Drawing.Point(535, 221);
+            this.pictureBox10.Location = new System.Drawing.Point(634, 222);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(20, 19);
             this.pictureBox10.TabIndex = 78;
@@ -353,9 +363,9 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(308, 225);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(67, 13);
+            this.label20.Size = new System.Drawing.Size(101, 13);
             this.label20.TabIndex = 77;
-            this.label20.Text = "Bound Entity";
+            this.label20.Text = "Logical Entity Name";
             // 
             // cdsTxtResponseBoundEntity
             // 
@@ -364,11 +374,11 @@
             this.cdsTxtResponseBoundEntity.Entity = null;
             this.cdsTxtResponseBoundEntity.EntityReference = null;
             this.cdsTxtResponseBoundEntity.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtResponseBoundEntity.Location = new System.Drawing.Point(387, 220);
+            this.cdsTxtResponseBoundEntity.Location = new System.Drawing.Point(414, 221);
             this.cdsTxtResponseBoundEntity.LogicalName = "customapiresponseproperty";
             this.cdsTxtResponseBoundEntity.Name = "cdsTxtResponseBoundEntity";
             this.cdsTxtResponseBoundEntity.OrganizationService = null;
-            this.cdsTxtResponseBoundEntity.Size = new System.Drawing.Size(147, 20);
+            this.cdsTxtResponseBoundEntity.Size = new System.Drawing.Size(219, 20);
             this.cdsTxtResponseBoundEntity.TabIndex = 76;
             // 
             // cdsTxtResponseDescription
@@ -536,6 +546,7 @@
             this.cdsTxtResponseUniqueName.DisplayFormat = "uniquename";
             this.cdsTxtResponseUniqueName.Entity = null;
             this.cdsTxtResponseUniqueName.EntityReference = null;
+            this.cdsTxtResponseUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cdsTxtResponseUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.cdsTxtResponseUniqueName.Location = new System.Drawing.Point(388, 72);
             this.cdsTxtResponseUniqueName.LogicalName = "customapiresponseproperty";
@@ -591,6 +602,7 @@
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.cdsGridOutputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridOutputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridOutputs.ShowFriendlyNames = true;
             this.cdsGridOutputs.ShowIdColumn = false;
@@ -625,6 +637,7 @@
             this.grpInputs.Controls.Add(this.cdsTxtRequestUniqueName);
             this.grpInputs.Controls.Add(this.label11);
             this.grpInputs.Controls.Add(this.cdsGridInputs);
+            this.grpInputs.Enabled = false;
             this.grpInputs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpInputs.Location = new System.Drawing.Point(423, 152);
             this.grpInputs.Name = "grpInputs";
@@ -651,20 +664,20 @@
             // 
             this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
             this.pictureBox9.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.InitialImage")));
-            this.pictureBox9.Location = new System.Drawing.Point(535, 224);
+            this.pictureBox9.Location = new System.Drawing.Point(632, 246);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox9.Size = new System.Drawing.Size(21, 19);
             this.pictureBox9.TabIndex = 78;
             this.pictureBox9.TabStop = false;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(308, 228);
+            this.label19.Location = new System.Drawing.Point(308, 251);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(67, 13);
+            this.label19.Size = new System.Drawing.Size(101, 13);
             this.label19.TabIndex = 77;
-            this.label19.Text = "Bound Entity";
+            this.label19.Text = "Logical Entity Name";
             // 
             // cdsTxtRequestBoundEntity
             // 
@@ -673,11 +686,11 @@
             this.cdsTxtRequestBoundEntity.Entity = null;
             this.cdsTxtRequestBoundEntity.EntityReference = null;
             this.cdsTxtRequestBoundEntity.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtRequestBoundEntity.Location = new System.Drawing.Point(387, 223);
+            this.cdsTxtRequestBoundEntity.Location = new System.Drawing.Point(409, 246);
             this.cdsTxtRequestBoundEntity.LogicalName = "customapirequestparameter";
             this.cdsTxtRequestBoundEntity.Name = "cdsTxtRequestBoundEntity";
             this.cdsTxtRequestBoundEntity.OrganizationService = null;
-            this.cdsTxtRequestBoundEntity.Size = new System.Drawing.Size(147, 20);
+            this.cdsTxtRequestBoundEntity.Size = new System.Drawing.Size(223, 20);
             this.cdsTxtRequestBoundEntity.TabIndex = 76;
             // 
             // cdsTxtRequestDescription
@@ -754,7 +767,7 @@
             // 
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
             this.pictureBox12.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.InitialImage")));
-            this.pictureBox12.Location = new System.Drawing.Point(455, 247);
+            this.pictureBox12.Location = new System.Drawing.Point(455, 197);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(20, 19);
             this.pictureBox12.TabIndex = 69;
@@ -767,7 +780,7 @@
             this.cdsTxtRequestIsOptional.Entity = null;
             this.cdsTxtRequestIsOptional.EntityReference = null;
             this.cdsTxtRequestIsOptional.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtRequestIsOptional.Location = new System.Drawing.Point(388, 247);
+            this.cdsTxtRequestIsOptional.Location = new System.Drawing.Point(388, 197);
             this.cdsTxtRequestIsOptional.LogicalName = "customapirequestparameter";
             this.cdsTxtRequestIsOptional.Name = "cdsTxtRequestIsOptional";
             this.cdsTxtRequestIsOptional.OrganizationService = null;
@@ -777,7 +790,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(309, 250);
+            this.label16.Location = new System.Drawing.Point(309, 200);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 67;
@@ -787,7 +800,7 @@
             // 
             this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
             this.pictureBox11.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.InitialImage")));
-            this.pictureBox11.Location = new System.Drawing.Point(633, 199);
+            this.pictureBox11.Location = new System.Drawing.Point(633, 221);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(20, 19);
             this.pictureBox11.TabIndex = 66;
@@ -800,7 +813,7 @@
             this.cdsTxtRequestType.Entity = null;
             this.cdsTxtRequestType.EntityReference = null;
             this.cdsTxtRequestType.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtRequestType.Location = new System.Drawing.Point(388, 198);
+            this.cdsTxtRequestType.Location = new System.Drawing.Point(388, 221);
             this.cdsTxtRequestType.LogicalName = "customapirequestparameter";
             this.cdsTxtRequestType.Name = "cdsTxtRequestType";
             this.cdsTxtRequestType.OrganizationService = null;
@@ -810,7 +823,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(306, 203);
+            this.label15.Location = new System.Drawing.Point(306, 226);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 13);
             this.label15.TabIndex = 64;
@@ -878,6 +891,7 @@
             this.cdsTxtRequestUniqueName.DisplayFormat = "uniquename";
             this.cdsTxtRequestUniqueName.Entity = null;
             this.cdsTxtRequestUniqueName.EntityReference = null;
+            this.cdsTxtRequestUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cdsTxtRequestUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.cdsTxtRequestUniqueName.Location = new System.Drawing.Point(388, 75);
             this.cdsTxtRequestUniqueName.LogicalName = "customapirequestparameter";
@@ -898,7 +912,6 @@
             // 
             // cdsGridInputs
             // 
-            this.cdsGridInputs.AllowUserToOrderColumns = true;
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ControlLight;
@@ -933,6 +946,8 @@
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.cdsGridInputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.cdsGridInputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridInputs.ShowFriendlyNames = true;
             this.cdsGridInputs.ShowIdColumn = false;
             this.cdsGridInputs.ShowIndexColumn = false;
@@ -1176,6 +1191,7 @@
             this.cdsTxtUniqueName.DisplayFormat = "uniquename";
             this.cdsTxtUniqueName.Entity = null;
             this.cdsTxtUniqueName.EntityReference = null;
+            this.cdsTxtUniqueName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cdsTxtUniqueName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
             this.cdsTxtUniqueName.Location = new System.Drawing.Point(117, 209);
             this.cdsTxtUniqueName.LogicalName = "customapi";
@@ -1419,15 +1435,6 @@
             this.dlgLookupPublisher.Service = null;
             this.dlgLookupPublisher.Title = "Custom Api - PluginType";
             // 
-            // menuRefresh
-            // 
-            this.menuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("menuRefresh.Image")));
-            this.menuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuRefresh.Name = "menuRefresh";
-            this.menuRefresh.Size = new System.Drawing.Size(116, 28);
-            this.menuRefresh.Text = "Refresh API List";
-            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
-            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1444,8 +1451,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.grpOutputs.ResumeLayout(false);
+            this.grpOutputs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
@@ -1524,7 +1531,7 @@
         private System.Windows.Forms.Button btnDeleteApi;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox grpOutputs;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label20;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseBoundEntity;
