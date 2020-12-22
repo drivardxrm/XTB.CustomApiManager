@@ -13,7 +13,7 @@ namespace XTB.CustomApiManager
     // To generate Base64 string for Images below, you can use https://www.base64-image.de/
     [Export(typeof(IXrmToolBoxPlugin)),
         ExportMetadata("Name", "Custom API Manager"),
-        ExportMetadata("Description", "Manage and Test your CDS Custom APIs"),
+        ExportMetadata("Description", "Manager for Dataverse Custom APIs"),
         // Please specify the base64 content of a 32x32 pixels image
         ExportMetadata("SmallImageBase64", null),
         // Please specify the base64 content of a 80x80 pixels image

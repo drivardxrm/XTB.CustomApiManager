@@ -52,8 +52,6 @@
             this.cdsTxtResponseBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtResponseDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
             this.btnAddOutput = new System.Windows.Forms.Button();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
@@ -74,8 +72,6 @@
             this.cdsTxtRequestBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtRequestDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.btnEditInput = new System.Windows.Forms.Button();
             this.btnAddInput = new System.Windows.Forms.Button();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
@@ -139,13 +135,11 @@
             this.groupBox3.SuspendLayout();
             this.grpOutputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdsGridOutputs)).BeginInit();
             this.grpInputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -310,8 +304,6 @@
             this.grpOutputs.Controls.Add(this.cdsTxtResponseBoundEntity);
             this.grpOutputs.Controls.Add(this.cdsTxtResponseDescription);
             this.grpOutputs.Controls.Add(this.label21);
-            this.grpOutputs.Controls.Add(this.label22);
-            this.grpOutputs.Controls.Add(this.pictureBox14);
             this.grpOutputs.Controls.Add(this.button2);
             this.grpOutputs.Controls.Add(this.btnAddOutput);
             this.grpOutputs.Controls.Add(this.pictureBox16);
@@ -329,7 +321,7 @@
             this.grpOutputs.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grpOutputs.Location = new System.Drawing.Point(422, 431);
             this.grpOutputs.Name = "grpOutputs";
-            this.grpOutputs.Size = new System.Drawing.Size(684, 261);
+            this.grpOutputs.Size = new System.Drawing.Size(684, 250);
             this.grpOutputs.TabIndex = 80;
             this.grpOutputs.TabStop = false;
             this.grpOutputs.Text = "Response Properties (Output)";
@@ -404,26 +396,6 @@
             this.label21.Size = new System.Drawing.Size(60, 13);
             this.label21.TabIndex = 74;
             this.label21.Text = "Description";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(411, 54);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(213, 13);
-            this.label22.TabIndex = 73;
-            this.label22.Text = "Fields that cannot be modified after creation";
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox14.Image")));
-            this.pictureBox14.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox14.InitialImage")));
-            this.pictureBox14.Location = new System.Drawing.Point(389, 51);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox14.TabIndex = 72;
-            this.pictureBox14.TabStop = false;
             // 
             // button2
             // 
@@ -570,7 +542,7 @@
             this.cdsGridOutputs.AllowUserToOrderColumns = true;
             this.cdsGridOutputs.AllowUserToResizeRows = false;
             this.cdsGridOutputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.cdsGridOutputs.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.cdsGridOutputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -607,7 +579,7 @@
             this.cdsGridOutputs.ShowFriendlyNames = true;
             this.cdsGridOutputs.ShowIdColumn = false;
             this.cdsGridOutputs.ShowIndexColumn = false;
-            this.cdsGridOutputs.Size = new System.Drawing.Size(272, 150);
+            this.cdsGridOutputs.Size = new System.Drawing.Size(272, 189);
             this.cdsGridOutputs.TabIndex = 0;
             this.cdsGridOutputs.RecordClick += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridOutputs_RecordClick);
             // 
@@ -619,8 +591,6 @@
             this.grpInputs.Controls.Add(this.cdsTxtRequestBoundEntity);
             this.grpInputs.Controls.Add(this.cdsTxtRequestDescription);
             this.grpInputs.Controls.Add(this.label18);
-            this.grpInputs.Controls.Add(this.label17);
-            this.grpInputs.Controls.Add(this.pictureBox13);
             this.grpInputs.Controls.Add(this.btnEditInput);
             this.grpInputs.Controls.Add(this.btnAddInput);
             this.grpInputs.Controls.Add(this.pictureBox12);
@@ -716,26 +686,6 @@
             this.label18.Size = new System.Drawing.Size(60, 13);
             this.label18.TabIndex = 74;
             this.label18.Text = "Description";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(405, 55);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(213, 13);
-            this.label17.TabIndex = 73;
-            this.label17.Text = "Fields that cannot be modified after creation";
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
-            this.pictureBox13.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.InitialImage")));
-            this.pictureBox13.Location = new System.Drawing.Point(388, 52);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox13.TabIndex = 72;
-            this.pictureBox13.TabStop = false;
             // 
             // btnEditInput
             // 
@@ -912,9 +862,10 @@
             // 
             // cdsGridInputs
             // 
+            this.cdsGridInputs.AllowUserToOrderColumns = true;
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ControlLight;
+            this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -951,7 +902,7 @@
             this.cdsGridInputs.ShowFriendlyNames = true;
             this.cdsGridInputs.ShowIdColumn = false;
             this.cdsGridInputs.ShowIndexColumn = false;
-            this.cdsGridInputs.Size = new System.Drawing.Size(272, 150);
+            this.cdsGridInputs.Size = new System.Drawing.Size(272, 212);
             this.cdsGridInputs.TabIndex = 0;
             this.cdsGridInputs.RecordClick += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridInputs_RecordClick);
             // 
@@ -1018,7 +969,7 @@
             // 
             this.lblInfoLock.AutoSize = true;
             this.lblInfoLock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoLock.Location = new System.Drawing.Point(140, 190);
+            this.lblInfoLock.Location = new System.Drawing.Point(450, 123);
             this.lblInfoLock.Name = "lblInfoLock";
             this.lblInfoLock.Size = new System.Drawing.Size(213, 13);
             this.lblInfoLock.TabIndex = 53;
@@ -1028,7 +979,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(117, 187);
+            this.pictureBox2.Location = new System.Drawing.Point(427, 120);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 19);
             this.pictureBox2.TabIndex = 52;
@@ -1454,14 +1405,12 @@
             this.grpOutputs.ResumeLayout(false);
             this.grpOutputs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdsGridOutputs)).EndInit();
             this.grpInputs.ResumeLayout(false);
             this.grpInputs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -1537,8 +1486,6 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseBoundEntity;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseDescription;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnAddOutput;
         private System.Windows.Forms.PictureBox pictureBox16;
@@ -1558,8 +1505,6 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtRequestBoundEntity;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtRequestDescription;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.PictureBox pictureBox13;
         private System.Windows.Forms.Button btnEditInput;
         private System.Windows.Forms.Button btnAddInput;
         private System.Windows.Forms.PictureBox pictureBox12;

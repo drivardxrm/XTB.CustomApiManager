@@ -48,7 +48,7 @@ namespace XTB.CustomApiManager
                 LogInfo("Settings found and loaded");
             }
 
-            Initialize();
+            ExecuteMethod(Initialize);
         }
 
         private void Initialize()
@@ -93,15 +93,9 @@ namespace XTB.CustomApiManager
             cdsTxtResponseBoundEntity.OrganizationService = Service;
             cdsTxtResponseType.OrganizationService = Service;
 
-
+            //todo d we want to load on statrtup or make the user chose filters and load
             LoadCustomApis();
         }
-
-
-
-
-
-        
 
         /// <summary>
         /// This event occurs when the plugin is closed
@@ -128,7 +122,7 @@ namespace XTB.CustomApiManager
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 //LoadSolutions();
-                Initialize();
+                ExecuteMethod(Initialize);
             }
         }
 
@@ -137,7 +131,7 @@ namespace XTB.CustomApiManager
         #region Form Events
         private void menuRefresh_Click(object sender, EventArgs e)
         {
-            LoadCustomApis();
+            ExecuteMethod(LoadCustomApis);
         }
         private void menuNewCustomApi_Click(object sender, EventArgs e)
         {
@@ -160,106 +154,26 @@ namespace XTB.CustomApiManager
             about.ShowDialog();
         }
 
-       
 
         private void solutionsDropdownControl1_SelectedItemChanged(object sender, EventArgs e)
         {
             var selected = solutionsDropdownControl1.SelectedSolution;
         }
 
-        
 
         private void cdsCboCustomApi_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            
-            if (cdsCboCustomApi.SelectedEntity != null)
-            {
-                var customapiref = cdsCboCustomApi.SelectedEntity.ToEntityReference();
-                var customapiproxy = new CustomApiProxy(cdsCboCustomApi.SelectedEntity);
-
-
-                
-
-                cdsTxtUniqueName.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtName.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtDisplayName.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtDescription.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtAllowedCustomProcessingStep.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtBindingType.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtBoundEntity.Entity = cdsCboCustomApi.SelectedEntity;
-
-                cdsTxtPluginType.EntityReference = customapiproxy.PluginType;
-                cdsTxtIsFunction.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtExecutePrivilegeName.Entity = cdsCboCustomApi.SelectedEntity;
-                cdsTxtIsPrivate.Entity = cdsCboCustomApi.SelectedEntity;
-
-
-                grpInputs.Enabled = true;
-                grpOutputs.Enabled = true;
-                
-                //Get Inputs
-
-
-                cdsGridInputs.DataSource = Service.GetCustomApisRequestParametersFor(customapiref.Id);
-
-                cdsGridOutputs.DataSource = Service.GetCustomApisResponsePropertiesFor(customapiref.Id);
-
-            }
-            else
-            {
-                cdsTxtUniqueName.Entity = null;
-                cdsTxtName.Entity = null;
-                cdsTxtDisplayName.Entity = null;
-                cdsTxtDescription.Entity = null;
-                cdsTxtAllowedCustomProcessingStep.Entity = null;
-                cdsTxtBindingType.Entity = null;
-                cdsTxtBoundEntity.Entity = null;
-
-                cdsTxtPluginType.EntityReference = null;
-                cdsTxtIsFunction.Entity = null;
-                cdsTxtExecutePrivilegeName.Entity = null;
-                cdsTxtIsPrivate.Entity = null;
-
-
-                grpInputs.Enabled = false;
-                grpOutputs.Enabled = false;
-                //Get Inputs
-                cdsGridInputs.DataSource = null;
-
-                cdsGridOutputs.DataSource = null;
-            }
-           
-
-            
-            
+            ExecuteMethod(SetCustomApi, cdsCboCustomApi.SelectedEntity);
         }
 
         private void cdsGridInputs_RecordClick(object sender, CRMRecordEventArgs e)
         {
-
-            cdsTxtRequestUniqueName.Entity = e.Entity;
-            cdsTxtRequestName.Entity = e.Entity;
-            cdsTxtRequestDisplayName.Entity = e.Entity;
-            cdsTxtRequestDescription.Entity = e.Entity;
-            cdsTxtRequestBoundEntity.Entity = e.Entity;
-            cdsTxtRequestType.Entity = e.Entity;
-            cdsTxtRequestIsOptional.Entity = e.Entity;
-
+            ExecuteMethod(SetRequestParameter, e.Entity);
         }
-
-        
 
         private void cdsGridOutputs_RecordClick(object sender, CRMRecordEventArgs e)
         {
-
-            cdsTxtResponseUniqueName.Entity = e.Entity;
-            cdsTxtResponseName.Entity = e.Entity;
-            cdsTxtResponseDisplayName.Entity = e.Entity;
-            cdsTxtResponseDescription.Entity = e.Entity;
-            cdsTxtResponseBoundEntity.Entity = e.Entity;
-            cdsTxtResponseType.Entity = e.Entity;
-
+            ExecuteMethod(SetResponseProperty, e.Entity);
         }
         #endregion
 
@@ -300,6 +214,118 @@ namespace XTB.CustomApiManager
                     }
                 }
             });
+
+        }
+
+        private void SetCustomApi(Entity customapi) 
+        {
+
+            var customapiproxy = customapi != null ? new CustomApiProxy(customapi) : null;
+
+            cdsTxtUniqueName.Entity = customapi;
+            cdsTxtName.Entity = customapi;
+            cdsTxtDisplayName.Entity = customapi;
+            cdsTxtDescription.Entity = customapi;
+            cdsTxtAllowedCustomProcessingStep.Entity = customapi;
+            cdsTxtBindingType.Entity = customapi;
+            cdsTxtBoundEntity.Entity = customapi;
+
+            cdsTxtPluginType.EntityReference = customapiproxy?.PluginType;
+            cdsTxtIsFunction.Entity = customapi;
+            cdsTxtExecutePrivilegeName.Entity = customapi;
+            cdsTxtIsPrivate.Entity = customapi;
+
+
+            grpInputs.Enabled = true;
+            grpOutputs.Enabled = true;
+
+            SetRequestParameters(customapi);
+
+            SetResponseProperties(customapi);
+           
+        }
+
+        private void SetRequestParameters(Entity customapi) 
+        {
+            //Get Inputs
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading customapirequestparameters...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCustomApisRequestParametersFor(customapi);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var requestparameters = (EntityCollection)args.Result;
+                            cdsGridInputs.DataSource = requestparameters;
+
+
+                        }
+                    }
+                }
+            });
+        }
+
+        private void SetRequestParameter(Entity requestparameter) 
+        {
+            cdsTxtRequestUniqueName.Entity = requestparameter;
+            cdsTxtRequestName.Entity = requestparameter;
+            cdsTxtRequestDisplayName.Entity = requestparameter;
+            cdsTxtRequestDescription.Entity = requestparameter;
+            cdsTxtRequestBoundEntity.Entity = requestparameter;
+            cdsTxtRequestType.Entity = requestparameter;
+            cdsTxtRequestIsOptional.Entity = requestparameter;
+        }
+
+
+        private void SetResponseProperties(Entity customapi)
+        {
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading customapiresponseproperties...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCustomApisResponsePropertiesFor(customapi);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var responseproperties = (EntityCollection)args.Result;
+                            cdsGridOutputs.DataSource = responseproperties;
+
+
+                        }
+                    }
+                }
+            });
+        }
+
+        private void SetResponseProperty(Entity responseproperty)
+        {
+            cdsTxtResponseUniqueName.Entity = responseproperty;
+            cdsTxtResponseName.Entity = responseproperty;
+            cdsTxtResponseDisplayName.Entity = responseproperty;
+            cdsTxtResponseDescription.Entity = responseproperty;
+            cdsTxtResponseBoundEntity.Entity = responseproperty;
+            cdsTxtResponseType.Entity = responseproperty;
 
         }
 

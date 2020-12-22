@@ -280,8 +280,14 @@ namespace XTB.CustomApiManager.Helpers
         //    return service.RetrieveMultiple(fetch);
         //}
 
-        public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Guid customapiid)
+        public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Entity customapi)
         {
+            if (customapi == null) 
+            {
+                return null;
+            }
+
+            
             var fetchXml = $@"
             <fetch>
               <entity name='customapirequestparameter'>
@@ -297,7 +303,7 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='customapirequestparameterid' />
                 <attribute name='customapiid' />
                 <filter>
-                  <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
+                  <condition attribute='customapiid' operator='eq' value='{customapi.Id}'/>
                 </filter>
               </entity>
             </fetch>";
@@ -307,8 +313,13 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
-        public static EntityCollection GetCustomApisResponsePropertiesFor(this IOrganizationService service, Guid customapiid)
+        public static EntityCollection GetCustomApisResponsePropertiesFor(this IOrganizationService service, Entity customapi)
         {
+            if (customapi == null)
+            {
+                return null;
+            }
+
             var fetchXml = $@"
             <fetch>
               <entity name='customapiresponseproperty'>
@@ -326,7 +337,7 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='customapiresponsepropertyid' />
                 <attribute name='customapiid' />
                 <filter>
-                  <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
+                  <condition attribute='customapiid' operator='eq' value='{customapi.Id}'/>
                 </filter>
               </entity>
             </fetch>";
