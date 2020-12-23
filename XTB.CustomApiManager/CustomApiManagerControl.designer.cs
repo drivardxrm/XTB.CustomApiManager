@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomApiManagerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
@@ -114,12 +114,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.lblPlugintype = new System.Windows.Forms.Label();
             this.grpFilter = new System.Windows.Forms.GroupBox();
-            this.txtPublisherLookup = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.solutionsDropdownControl1 = new xrmtb.XrmToolBox.Controls.SolutionsDropdownControl();
-            this.chkFilterSolution = new System.Windows.Forms.CheckBox();
-            this.chkFilterAll = new System.Windows.Forms.CheckBox();
-            this.chkFilterPublisher = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -130,6 +124,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.rbAll = new System.Windows.Forms.RadioButton();
+            this.rbSolution = new System.Windows.Forms.RadioButton();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -254,7 +250,7 @@
             this.btnNewApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewApi.Image = ((System.Drawing.Image)(resources.GetObject("btnNewApi.Image")));
             this.btnNewApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewApi.Location = new System.Drawing.Point(11, 149);
+            this.btnNewApi.Location = new System.Drawing.Point(10, 132);
             this.btnNewApi.Name = "btnNewApi";
             this.btnNewApi.Size = new System.Drawing.Size(98, 29);
             this.btnNewApi.TabIndex = 83;
@@ -269,7 +265,7 @@
             this.btnDeleteApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteApi.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteApi.Image")));
             this.btnDeleteApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteApi.Location = new System.Drawing.Point(278, 149);
+            this.btnDeleteApi.Location = new System.Drawing.Point(275, 132);
             this.btnDeleteApi.Name = "btnDeleteApi";
             this.btnDeleteApi.Size = new System.Drawing.Size(98, 29);
             this.btnDeleteApi.TabIndex = 82;
@@ -543,37 +539,37 @@
             this.cdsGridOutputs.AllowUserToResizeRows = false;
             this.cdsGridOutputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridOutputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridOutputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridOutputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.cdsGridOutputs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cdsGridOutputs.ColumnOrder = "uniquename, type";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cdsGridOutputs.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cdsGridOutputs.DefaultCellStyle = dataGridViewCellStyle8;
             this.cdsGridOutputs.FilterColumns = "";
             this.cdsGridOutputs.Location = new System.Drawing.Point(17, 52);
             this.cdsGridOutputs.MultiSelect = false;
             this.cdsGridOutputs.Name = "cdsGridOutputs";
             this.cdsGridOutputs.OrganizationService = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.cdsGridOutputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridOutputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridOutputs.ShowFriendlyNames = true;
@@ -866,37 +862,37 @@
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridInputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridInputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.cdsGridInputs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cdsGridInputs.ColumnOrder = "uniquename, type, isoptional";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cdsGridInputs.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cdsGridInputs.DefaultCellStyle = dataGridViewCellStyle11;
             this.cdsGridInputs.FilterColumns = "";
             this.cdsGridInputs.Location = new System.Drawing.Point(17, 52);
             this.cdsGridInputs.MultiSelect = false;
             this.cdsGridInputs.Name = "cdsGridInputs";
             this.cdsGridInputs.OrganizationService = null;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.cdsGridInputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridInputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridInputs.ShowFriendlyNames = true;
@@ -969,7 +965,7 @@
             // 
             this.lblInfoLock.AutoSize = true;
             this.lblInfoLock.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoLock.Location = new System.Drawing.Point(450, 123);
+            this.lblInfoLock.Location = new System.Drawing.Point(48, 185);
             this.lblInfoLock.Name = "lblInfoLock";
             this.lblInfoLock.Size = new System.Drawing.Size(213, 13);
             this.lblInfoLock.TabIndex = 53;
@@ -979,7 +975,7 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(427, 120);
+            this.pictureBox2.Location = new System.Drawing.Point(25, 182);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(20, 19);
             this.pictureBox2.TabIndex = 52;
@@ -1000,7 +996,7 @@
             this.btnEditCustomApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditCustomApi.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomApi.Image")));
             this.btnEditCustomApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditCustomApi.Location = new System.Drawing.Point(153, 149);
+            this.btnEditCustomApi.Location = new System.Drawing.Point(143, 132);
             this.btnEditCustomApi.Name = "btnEditCustomApi";
             this.btnEditCustomApi.Size = new System.Drawing.Size(98, 29);
             this.btnEditCustomApi.TabIndex = 19;
@@ -1179,7 +1175,7 @@
             this.cdsCboCustomApi.DisplayFormat = "{{name}}    ({{uniquename}})";
             this.cdsCboCustomApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cdsCboCustomApi.FormattingEnabled = true;
-            this.cdsCboCustomApi.Location = new System.Drawing.Point(16, 120);
+            this.cdsCboCustomApi.Location = new System.Drawing.Point(10, 95);
             this.cdsCboCustomApi.Name = "cdsCboCustomApi";
             this.cdsCboCustomApi.OrganizationService = null;
             this.cdsCboCustomApi.Size = new System.Drawing.Size(363, 21);
@@ -1190,7 +1186,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(13, 104);
+            this.label12.Location = new System.Drawing.Point(7, 79);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(112, 13);
             this.label12.TabIndex = 23;
@@ -1207,91 +1203,14 @@
             // 
             // grpFilter
             // 
-            this.grpFilter.Controls.Add(this.txtPublisherLookup);
-            this.grpFilter.Controls.Add(this.button1);
-            this.grpFilter.Controls.Add(this.solutionsDropdownControl1);
-            this.grpFilter.Controls.Add(this.chkFilterSolution);
-            this.grpFilter.Controls.Add(this.chkFilterAll);
-            this.grpFilter.Controls.Add(this.chkFilterPublisher);
+            this.grpFilter.Controls.Add(this.rbSolution);
+            this.grpFilter.Controls.Add(this.rbAll);
             this.grpFilter.Location = new System.Drawing.Point(10, 19);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Size = new System.Drawing.Size(366, 74);
+            this.grpFilter.Size = new System.Drawing.Size(366, 57);
             this.grpFilter.TabIndex = 21;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Filter APIs";
-            // 
-            // txtPublisherLookup
-            // 
-            this.txtPublisherLookup.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPublisherLookup.Clickable = true;
-            this.txtPublisherLookup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtPublisherLookup.DisplayFormat = "";
-            this.txtPublisherLookup.Entity = null;
-            this.txtPublisherLookup.EntityReference = null;
-            this.txtPublisherLookup.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline);
-            this.txtPublisherLookup.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.txtPublisherLookup.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtPublisherLookup.Location = new System.Drawing.Point(88, 48);
-            this.txtPublisherLookup.LogicalName = "publisher";
-            this.txtPublisherLookup.Name = "txtPublisherLookup";
-            this.txtPublisherLookup.OrganizationService = null;
-            this.txtPublisherLookup.Size = new System.Drawing.Size(232, 20);
-            this.txtPublisherLookup.TabIndex = 38;
-            this.txtPublisherLookup.Visible = false;
-            // 
-            // button1
-            // 
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(326, 47);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(23, 23);
-            this.button1.TabIndex = 37;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            // 
-            // solutionsDropdownControl1
-            // 
-            this.solutionsDropdownControl1.AutoLoadData = false;
-            this.solutionsDropdownControl1.LanguageCode = 1033;
-            this.solutionsDropdownControl1.Location = new System.Drawing.Point(85, 22);
-            this.solutionsDropdownControl1.Margin = new System.Windows.Forms.Padding(1);
-            this.solutionsDropdownControl1.Name = "solutionsDropdownControl1";
-            this.solutionsDropdownControl1.PublisherPrefixes = ((System.Collections.Generic.List<string>)(resources.GetObject("solutionsDropdownControl1.PublisherPrefixes")));
-            this.solutionsDropdownControl1.Service = null;
-            this.solutionsDropdownControl1.Size = new System.Drawing.Size(264, 25);
-            this.solutionsDropdownControl1.TabIndex = 37;
-            this.solutionsDropdownControl1.Visible = false;
-            this.solutionsDropdownControl1.SelectedItemChanged += new System.EventHandler(this.solutionsDropdownControl1_SelectedItemChanged);
-            // 
-            // chkFilterSolution
-            // 
-            this.chkFilterSolution.AutoSize = true;
-            this.chkFilterSolution.Location = new System.Drawing.Point(6, 30);
-            this.chkFilterSolution.Name = "chkFilterSolution";
-            this.chkFilterSolution.Size = new System.Drawing.Size(79, 17);
-            this.chkFilterSolution.TabIndex = 23;
-            this.chkFilterSolution.Text = "By Solution";
-            this.chkFilterSolution.UseVisualStyleBackColor = true;
-            // 
-            // chkFilterAll
-            // 
-            this.chkFilterAll.AutoSize = true;
-            this.chkFilterAll.Location = new System.Drawing.Point(6, 13);
-            this.chkFilterAll.Name = "chkFilterAll";
-            this.chkFilterAll.Size = new System.Drawing.Size(37, 17);
-            this.chkFilterAll.TabIndex = 22;
-            this.chkFilterAll.Text = "All";
-            this.chkFilterAll.UseVisualStyleBackColor = true;
-            // 
-            // chkFilterPublisher
-            // 
-            this.chkFilterPublisher.AutoSize = true;
-            this.chkFilterPublisher.Location = new System.Drawing.Point(6, 49);
-            this.chkFilterPublisher.Name = "chkFilterPublisher";
-            this.chkFilterPublisher.Size = new System.Drawing.Size(84, 17);
-            this.chkFilterPublisher.TabIndex = 2;
-            this.chkFilterPublisher.Text = "By Publisher";
-            this.chkFilterPublisher.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -1386,6 +1305,29 @@
             this.dlgLookupPublisher.Service = null;
             this.dlgLookupPublisher.Title = "Custom Api - PluginType";
             // 
+            // rbAll
+            // 
+            this.rbAll.AutoSize = true;
+            this.rbAll.Location = new System.Drawing.Point(12, 15);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(36, 17);
+            this.rbAll.TabIndex = 38;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "All";
+            this.rbAll.UseVisualStyleBackColor = true;
+            this.rbAll.CheckedChanged += new System.EventHandler(this.rbAll_CheckedChanged);
+            // 
+            // rbSolution
+            // 
+            this.rbSolution.AutoSize = true;
+            this.rbSolution.Location = new System.Drawing.Point(12, 34);
+            this.rbSolution.Name = "rbSolution";
+            this.rbSolution.Size = new System.Drawing.Size(78, 17);
+            this.rbSolution.TabIndex = 39;
+            this.rbSolution.TabStop = true;
+            this.rbSolution.Text = "By Solution";
+            this.rbSolution.UseVisualStyleBackColor = true;
+            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1434,7 +1376,6 @@
         private System.Windows.Forms.ToolStripSeparator tssSeparator1;
         private System.Windows.Forms.ToolStripLabel tslAbout;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox chkFilterPublisher;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -1446,14 +1387,9 @@
         private System.Windows.Forms.Button btnEditCustomApi;
         private System.Windows.Forms.Label lblPlugintype;
         private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPluginType;
-        private xrmtb.XrmToolBox.Controls.SolutionsDropdownControl solutionsDropdownControl1;
         private System.Windows.Forms.ToolStripButton menuNewApi;
         private System.Windows.Forms.GroupBox grpFilter;
-        private System.Windows.Forms.CheckBox chkFilterSolution;
-        private System.Windows.Forms.CheckBox chkFilterAll;
         private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPublisher;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox txtPublisherLookup;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label12;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboCustomApi;
         private System.Windows.Forms.Label label1;
@@ -1525,5 +1461,7 @@
         private System.Windows.Forms.Button btnDeleteInput;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.ToolStripButton menuRefresh;
+        private System.Windows.Forms.RadioButton rbAll;
+        private System.Windows.Forms.RadioButton rbSolution;
     }
 }

@@ -53,8 +53,8 @@ namespace XTB.CustomApiManager
 
         private void Initialize()
         {
-            solutionsDropdownControl1.Service = Service;
-            solutionsDropdownControl1.LoadData();
+
+
 
             dlgLookupPluginType.Service = Service;
             dlgLookupPublisher.Service = Service;
@@ -93,8 +93,9 @@ namespace XTB.CustomApiManager
             cdsTxtResponseBoundEntity.OrganizationService = Service;
             cdsTxtResponseType.OrganizationService = Service;
 
-            //todo d we want to load on statrtup or make the user chose filters and load
-            LoadCustomApis();
+            //select the all radio button
+            rbAll.Checked = true;
+            cdsCboCustomApi.Select();
         }
 
         /// <summary>
@@ -131,7 +132,7 @@ namespace XTB.CustomApiManager
         #region Form Events
         private void menuRefresh_Click(object sender, EventArgs e)
         {
-            ExecuteMethod(LoadCustomApis);
+            ExecuteMethod(LoadCustomApis,Guid.Empty);
         }
         private void menuNewCustomApi_Click(object sender, EventArgs e)
         {
@@ -154,11 +155,14 @@ namespace XTB.CustomApiManager
             about.ShowDialog();
         }
 
+        
 
-        private void solutionsDropdownControl1_SelectedItemChanged(object sender, EventArgs e)
+        private void cdsSolutions_SelectedItemChanged(object sender, EventArgs e)
         {
-            var selected = solutionsDropdownControl1.SelectedSolution;
+            //Filter APIs
         }
+
+        
 
 
         private void cdsCboCustomApi_SelectedIndexChanged(object sender, EventArgs e)
@@ -178,7 +182,7 @@ namespace XTB.CustomApiManager
         #endregion
 
         #region Private Methods
-        private void LoadCustomApis()
+        private void LoadCustomApis(Guid selected)
         {
             cdsCboCustomApi.DataSource = null;
 
@@ -205,9 +209,16 @@ namespace XTB.CustomApiManager
                     {
                         if (args.Result is EntityCollection)
                         {
+                            
+                            
+                            
                             var customapis = (EntityCollection)args.Result;
+                            //Find the index of the selected API in the list
+                            var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(selected);
+                            
+
                             cdsCboCustomApi.DataSource = customapis;
-                            cdsCboCustomApi.SelectedIndex = -1;
+                            cdsCboCustomApi.SelectedIndex = index;
                             cdsCboCustomApi.Enabled = true;
 
                         }
@@ -342,11 +353,10 @@ namespace XTB.CustomApiManager
                 //e.Entity["rawvalue"] = inputdlg.Result;
                 //e.Entity["value"] = inputdlg.FormattedResult;
 
-                //refresh custom api list
-                LoadCustomApis();
+                //refresh custom api list and select newly created
+                ExecuteMethod(LoadCustomApis,inputdlg.Result);
 
-                //SElect newly created
-                cdsCboCustomApi.SelectedItem = new Entity(CustomAPI.EntityName, inputdlg.Result);
+
 
 
             }
@@ -358,7 +368,22 @@ namespace XTB.CustomApiManager
         }
 
 
+
+
+
         #endregion
 
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rbAll_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbAll.Checked) 
+            {
+                ExecuteMethod(LoadCustomApis,Guid.Empty);
+            }
+        }
     }
 }
