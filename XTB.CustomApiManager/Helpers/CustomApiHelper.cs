@@ -16,28 +16,7 @@ namespace XTB.CustomApiManager.Helpers
 
 
 
-        public static EntityCollection GetSolutions(this IOrganizationService service)
-        {
-            var fetchxml = @"<fetch>
-                              <entity name='solution' >
-                                <attribute name='friendlyname' />
-                                <attribute name='publisherid' />
-                                <attribute name='version' />
-                                <attribute name='ismanaged' />
-                                <attribute name='uniquename' />
-                                <attribute name='organizationid' />
-                                <attribute name='publisheridname' />
-                                <attribute name='publisheridprefix' />
-                                <link-entity name='publisher' from='publisherid' to='publisherid' link-type='outer' alias='P'>
-                                  <attribute name='uniquename' />
-                                  <attribute name='customizationprefix' />
-                                </link-entity>
-                              </entity>
-                            </fetch>";
-
-            var fetch = new FetchExpression(fetchxml);
-            return service.RetrieveMultiple(fetch);
-        }
+        
 
         public static EntityCollection GetPublishers(this IOrganizationService service)
         {
@@ -116,7 +95,7 @@ namespace XTB.CustomApiManager.Helpers
                     </filter>
                     
                 </link-entity>
-
+                <order attribute='name' />
               </entity>
             </fetch>";
 
@@ -181,7 +160,7 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='executeprivilegename' />
                 <attribute name='isprivatename' />
                 <attribute name='ownerid' />
-                
+                <order attribute='name' />
 
               </entity>
             </fetch>";
@@ -284,7 +263,7 @@ namespace XTB.CustomApiManager.Helpers
         {
             if (customapi == null) 
             {
-                return null;
+                return new EntityCollection();
             }
 
             
@@ -317,7 +296,7 @@ namespace XTB.CustomApiManager.Helpers
         {
             if (customapi == null)
             {
-                return null;
+                return new EntityCollection();
             }
 
             var fetchXml = $@"

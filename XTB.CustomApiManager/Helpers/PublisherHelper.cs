@@ -25,6 +25,14 @@ namespace XTB.CustomApiManager.Helpers
                             .Attributes[Publisher.Prefix].ToString();
         }
 
-        
+        public static Entity GetPublisher(this IOrganizationService service, Guid publisherid)
+        {
+
+            return service.Retrieve(Publisher.EntityName,
+                                    publisherid,
+                                   new ColumnSet(new string[] { Publisher.Name, Publisher.PrimaryName, Publisher.Prefix }));
+        }
+
+
     }
 }

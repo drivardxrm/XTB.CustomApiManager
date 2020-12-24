@@ -15,7 +15,6 @@ using System.Reflection;
 using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
 using XTB.CustomApiManager.Entities;
-using static XTB.CustomApiManager.Entities.CustomAPI;
 using xrmtb.XrmToolBox.Controls.Controls;
 using xrmtb.XrmToolBox.Controls;
 
@@ -24,7 +23,11 @@ namespace XTB.CustomApiManager
     public partial class CustomApiManagerControl : PluginControlBase
     {
         private Settings mySettings;
+        private Entity SelectedSolution { get; set; } = null;
 
+        private Entity SelectedCustomApi { get; set; } = null;
+
+        private Entity SelectedPublisher { get; set; } = null;
 
         public CustomApiManagerControl()
         {
@@ -48,10 +51,14 @@ namespace XTB.CustomApiManager
                 LogInfo("Settings found and loaded");
             }
 
-            ExecuteMethod(Initialize);
+            ExecuteMethod(InitializeService);
+
+            //select the all radio button
+            rbAll.Checked = true;
+            cdsCboCustomApi.Select();
         }
 
-        private void Initialize()
+        private void InitializeService()
         {
 
 
@@ -93,9 +100,7 @@ namespace XTB.CustomApiManager
             cdsTxtResponseBoundEntity.OrganizationService = Service;
             cdsTxtResponseType.OrganizationService = Service;
 
-            //select the all radio button
-            rbAll.Checked = true;
-            cdsCboCustomApi.Select();
+            
         }
 
         /// <summary>
@@ -122,8 +127,15 @@ namespace XTB.CustomApiManager
                 mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
+                
+
                 //LoadSolutions();
-                ExecuteMethod(Initialize);
+                ExecuteMethod(InitializeService);
+                
+
+                //select the all radio button
+                rbAll.Checked = true;
+                cdsCboCustomApi.Select();
             }
         }
 
@@ -132,7 +144,7 @@ namespace XTB.CustomApiManager
         #region Form Events
         private void menuRefresh_Click(object sender, EventArgs e)
         {
-            ExecuteMethod(LoadCustomApis,Guid.Empty);
+            ExecuteMethod(LoadCustomApis);
         }
         private void menuNewCustomApi_Click(object sender, EventArgs e)
         {
@@ -155,19 +167,68 @@ namespace XTB.CustomApiManager
             about.ShowDialog();
         }
 
-        
-
-        private void cdsSolutions_SelectedItemChanged(object sender, EventArgs e)
+        private void rbAll_CheckedChanged(object sender, EventArgs e)
         {
-            //Filter APIs
+            if (rbAll.Checked)
+            {
+                cdsCboCustomApi.SelectedIndex = -1;
+                ExecuteMethod(LoadCustomApis);
+            }
         }
 
-        
+        private void rbSolution_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbSolution.Checked)
+            {
+                cdsCboCustomApi.DataSource = null;
+                cdsCboCustomApi.SelectedIndex = -1;
+
+                cdsCboSolutions.Enabled = true;
+
+                ExecuteMethod(LoadSolutions, Guid.Empty);
+                cdsCboSolutions.Select();
+
+            }
+            else
+            {
+                cdsCboSolutions.Enabled = false;
+                cdsCboSolutions.DataSource = null;
+                
+                cdsCboSolutions.Text = null;
+            }
+        }
+
+
+        private void cdsCboSolutions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            SelectedSolution = cdsCboSolutions.SelectedIndex != -1 ?
+                                            cdsCboSolutions.SelectedEntity :
+                                            null;
+
+            SelectedPublisher = cdsCboSolutions.SelectedIndex != -1 ?
+                                            Service.GetPublisher(((EntityReference)SelectedSolution.Attributes[Solution.Publisher]).Id)  
+                                            : null; 
+
+        }
+
+
 
 
         private void cdsCboCustomApi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ExecuteMethod(SetCustomApi, cdsCboCustomApi.SelectedEntity);
+            if (cdsCboCustomApi.SelectedIndex != -1)
+            {
+                SelectedCustomApi = cdsCboCustomApi.SelectedEntity;
+                ExecuteMethod(SetCustomApi);
+            }
+            else 
+            {
+                SelectedCustomApi = null;
+                ExecuteMethod(SetCustomApi);
+                //cdsGridInputs.DataSource = null;
+                //cdsGridOutputs.DataSource = null;
+            }
+            
         }
 
         private void cdsGridInputs_RecordClick(object sender, CRMRecordEventArgs e)
@@ -182,9 +243,10 @@ namespace XTB.CustomApiManager
         #endregion
 
         #region Private Methods
-        private void LoadCustomApis(Guid selected)
+
+        private void LoadSolutions(Guid selected)
         {
-            cdsCboCustomApi.DataSource = null;
+            cdsCboSolutions.DataSource = null;
 
 
             //TODO Apply filters
@@ -193,10 +255,10 @@ namespace XTB.CustomApiManager
 
             WorkAsync(new WorkAsyncInfo
             {
-                Message = "Loading solutions customapis...",
+                Message = "Loading solutions...",
                 Work = (worker, args) =>
                 {
-                    args.Result = Service.GetAllCustomApis();
+                    args.Result = Service.GetSolutions();
 
                 },
                 PostWorkCallBack = (args) =>
@@ -209,17 +271,16 @@ namespace XTB.CustomApiManager
                     {
                         if (args.Result is EntityCollection)
                         {
-                            
-                            
-                            
-                            var customapis = (EntityCollection)args.Result;
-                            //Find the index of the selected API in the list
-                            var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(selected);
-                            
 
-                            cdsCboCustomApi.DataSource = customapis;
-                            cdsCboCustomApi.SelectedIndex = index;
-                            cdsCboCustomApi.Enabled = true;
+
+                            var solutions = (EntityCollection)args.Result;
+                            //Find the index of the selected solution
+                            var index = solutions.Entities.Select(e => e.Id).ToList().IndexOf(selected);
+
+
+                            cdsCboSolutions.DataSource = solutions;
+                            cdsCboSolutions.SelectedIndex = index;
+                            cdsCboSolutions.Enabled = true;
 
                         }
                     }
@@ -228,35 +289,102 @@ namespace XTB.CustomApiManager
 
         }
 
-        private void SetCustomApi(Entity customapi) 
+        private void LoadCustomApis()
+        {
+            cdsCboCustomApi.DataSource = null;
+
+
+            //TODO Apply filters
+
+
+
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading customapis...",
+                Work = (worker, args) =>
+                {
+                    if (rbAll.Checked)
+                    {
+                        args.Result = Service.GetAllCustomApis();
+                    }
+                    else if (rbSolution.Checked && SelectedSolution != null) 
+                    {
+                        args.Result = Service.GetCustomApisFor(SelectedSolution.Id);
+                    }
+                    else 
+                    {
+                        args.Result = null;
+                    }
+                        
+                    
+                    
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+
+                            var customapis = (EntityCollection)args.Result;
+                            //Find the index of the selected API in the list
+                            var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
+
+
+                            cdsCboCustomApi.DataSource = customapis;
+                            cdsCboCustomApi.SelectedIndex = index;
+                            cdsCboCustomApi.Enabled = true;
+
+                        }
+                        else 
+                        {
+                            cdsCboCustomApi.DataSource = null;
+                            cdsCboCustomApi.SelectedIndex = -1;
+                            cdsCboCustomApi.Enabled = false;
+                        }
+                    }
+                }
+            });
+
+        }
+
+        private void SetCustomApi() 
         {
 
-            var customapiproxy = customapi != null ? new CustomApiProxy(customapi) : null;
+            var customapiproxy = SelectedCustomApi != null ? new CustomApiProxy(SelectedCustomApi) : null;
 
-            cdsTxtUniqueName.Entity = customapi;
-            cdsTxtName.Entity = customapi;
-            cdsTxtDisplayName.Entity = customapi;
-            cdsTxtDescription.Entity = customapi;
-            cdsTxtAllowedCustomProcessingStep.Entity = customapi;
-            cdsTxtBindingType.Entity = customapi;
-            cdsTxtBoundEntity.Entity = customapi;
+            cdsTxtUniqueName.Entity = SelectedCustomApi;
+            cdsTxtName.Entity = SelectedCustomApi;
+            cdsTxtDisplayName.Entity = SelectedCustomApi;
+            cdsTxtDescription.Entity = SelectedCustomApi;
+            cdsTxtAllowedCustomProcessingStep.Entity = SelectedCustomApi;
+            cdsTxtBindingType.Entity = SelectedCustomApi;
+            cdsTxtBoundEntity.Entity = SelectedCustomApi;
 
-            cdsTxtPluginType.EntityReference = customapiproxy?.PluginType;
-            cdsTxtIsFunction.Entity = customapi;
-            cdsTxtExecutePrivilegeName.Entity = customapi;
-            cdsTxtIsPrivate.Entity = customapi;
+            cdsTxtPluginType.EntityReference = customapiproxy?.PluginType; //todo try to move out from proxy
+            cdsTxtIsFunction.Entity = SelectedCustomApi;
+            cdsTxtExecutePrivilegeName.Entity = SelectedCustomApi;
+            cdsTxtIsPrivate.Entity = SelectedCustomApi;
 
 
-            grpInputs.Enabled = true;
-            grpOutputs.Enabled = true;
+            grpInputs.Enabled = SelectedCustomApi != null;
+            grpOutputs.Enabled = SelectedCustomApi != null;
 
-            SetRequestParameters(customapi);
 
-            SetResponseProperties(customapi);
+            SetRequestParameters();
+            SetResponseProperties();
+
+
+            
            
         }
 
-        private void SetRequestParameters(Entity customapi) 
+        private void SetRequestParameters() 
         {
             //Get Inputs
             WorkAsync(new WorkAsyncInfo
@@ -264,7 +392,7 @@ namespace XTB.CustomApiManager
                 Message = "Loading customapirequestparameters...",
                 Work = (worker, args) =>
                 {
-                    args.Result = Service.GetCustomApisRequestParametersFor(customapi);
+                    args.Result = Service.GetCustomApisRequestParametersFor(SelectedCustomApi);
 
                 },
                 PostWorkCallBack = (args) =>
@@ -299,14 +427,14 @@ namespace XTB.CustomApiManager
         }
 
 
-        private void SetResponseProperties(Entity customapi)
+        private void SetResponseProperties()
         {
             WorkAsync(new WorkAsyncInfo
             {
                 Message = "Loading customapiresponseproperties...",
                 Work = (worker, args) =>
                 {
-                    args.Result = Service.GetCustomApisResponsePropertiesFor(customapi);
+                    args.Result = Service.GetCustomApisResponsePropertiesFor(SelectedCustomApi);
 
                 },
                 PostWorkCallBack = (args) =>
@@ -342,7 +470,7 @@ namespace XTB.CustomApiManager
 
         private void CreateApiDialog() 
         {
-            var inputdlg = new CustomApiEditor(Service, null, FormAction.Create);
+            var inputdlg = new CustomApiEditor(Service, null, SelectedPublisher, FormAction.Create);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -354,7 +482,8 @@ namespace XTB.CustomApiManager
                 //e.Entity["value"] = inputdlg.FormattedResult;
 
                 //refresh custom api list and select newly created
-                ExecuteMethod(LoadCustomApis,inputdlg.Result);
+                SelectedCustomApi = Service.Retrieve(CustomAPI.EntityName, inputdlg.Result, new ColumnSet() { AllColumns = true });
+                ExecuteMethod(LoadCustomApis);
 
 
 
@@ -373,17 +502,10 @@ namespace XTB.CustomApiManager
 
         #endregion
 
-        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
+       
 
-        }
+        
 
-        private void rbAll_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbAll.Checked) 
-            {
-                ExecuteMethod(LoadCustomApis,Guid.Empty);
-            }
-        }
+        
     }
 }

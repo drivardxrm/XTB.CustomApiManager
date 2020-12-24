@@ -22,7 +22,7 @@ namespace XTB.CustomApiManager
 
         #region Public Constructors
 
-        public CustomApiEditor(IOrganizationService service, Entity customapitoupdate, FormAction action)
+        public CustomApiEditor(IOrganizationService service, Entity customapitoupdate,Entity publisher, FormAction action)
         {
             InitializeComponent();
             _service = service;
@@ -42,6 +42,13 @@ namespace XTB.CustomApiManager
             {
                 cboBindingType.SelectedIndex = (int)CustomAPI.BindingType_OptionSet.Global;
                 cboAllowedCustomProcessingStep.SelectedIndex = (int)CustomAPI.AllowedCustomProcessingStepType_OptionSet.None;
+            }
+
+            if(publisher != null) 
+            {
+                txtLookupPublisher.Entity = publisher;
+                txtLookupPublisher.Text = publisher.Attributes[Publisher.PrimaryName].ToString();
+                txtPrefix.Text = publisher.Attributes[Publisher.Prefix].ToString();
             }
 
             //cboBindingType.SelectedIndex = -1;
@@ -214,5 +221,18 @@ namespace XTB.CustomApiManager
 
         }
 
+        private void cboBindingType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cboEntities.Enabled = cboBindingType.SelectedIndex == (int)(CustomAPI.BindingType_OptionSet.Entity);
+            if (cboEntities.Enabled == true) 
+            {
+                cboEntities.LoadData();
+            }
+            else 
+            {
+                cboEntities.ClearData();
+            }
+        }
     }
 }
