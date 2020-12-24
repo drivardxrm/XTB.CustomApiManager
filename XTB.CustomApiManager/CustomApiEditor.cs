@@ -30,6 +30,8 @@ namespace XTB.CustomApiManager
 
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
+            cdsCboPrivileges.OrganizationService = service;
+            cdsCboPrivileges.DataSource = 
 
             cboEntities.Service = service;
             cboEntities.Update();
@@ -51,6 +53,8 @@ namespace XTB.CustomApiManager
                 txtPrefix.Text = publisher.Attributes[Publisher.Prefix].ToString();
             }
 
+
+            LoadPrivileges();
             //cboBindingType.SelectedIndex = -1;
             //cboAllowedCustomProcessingStep.SelectedIndex = -1;
 
@@ -160,7 +164,7 @@ namespace XTB.CustomApiManager
             api[CustomAPI.BindingType] = new OptionSetValue(cboBindingType.SelectedIndex); 
             api[CustomAPI.Description] = txtDescription.Text;
             api[CustomAPI.DisplayName] = txtDisplayName.Text;
-            api[CustomAPI.ExecutePrivilegeName] = txtExecutePrivilegeName.Text;
+            api[CustomAPI.ExecutePrivilegeName] = cdsCboPrivileges.Text;
             api[CustomAPI.IsFunction] = chkIsFunction.Checked;
             api[CustomAPI.IsPrivate] = chkIsPrivate.Checked;
             api[CustomAPI.PrimaryName] = txtName.Text;
@@ -190,7 +194,7 @@ namespace XTB.CustomApiManager
             catch (Exception ex)
             {
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                throw;
+                DialogResult = DialogResult.None;
             }
 
         }
@@ -233,6 +237,56 @@ namespace XTB.CustomApiManager
             {
                 cboEntities.ClearData();
             }
+        }
+
+        private void txtUniqueName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LockFields(object sender, EventArgs e)
+        {
+            if (_action == FormAction.Update)
+            {
+                txtUniqueName.Enabled = false;
+                cboAllowedCustomProcessingStep.Enabled = false;
+                cboBindingType.Enabled = false;
+                chkIsFunction.Enabled = false;
+            }
+           
+        }
+
+        private void LoadPrivileges()
+        {
+            
+             var privileges = _service.GetPrivileges();
+
+                
+            //todo on update, will need to
+            //Find the index of the selected API in the list
+            //var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
+
+
+            cdsCboPrivileges.DataSource = privileges;
+            cdsCboPrivileges.SelectedIndex = -1;
+           // cdsCboPrivileges.Enabled = true;
+
+                       
+
+        }
+
+        private void txtUniqueName_Leave(object sender, EventArgs e)
+        {
+            if (txtName.Text == string.Empty) 
+            {
+                txtName.Text = txtUniqueName.Text;
+            }
+
+            if (txtDisplayName.Text == string.Empty)
+            {
+                txtDisplayName.Text = txtUniqueName.Text;
+            }
+
         }
     }
 }

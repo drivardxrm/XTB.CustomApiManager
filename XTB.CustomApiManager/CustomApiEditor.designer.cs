@@ -37,7 +37,6 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtExecutePrivilegeName = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -69,6 +68,7 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.cdsCboPrivileges = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -94,6 +94,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.cdsCboPrivileges);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.pictureBox13);
             this.panel2.Controls.Add(this.lblTitle);
@@ -101,7 +102,6 @@
             this.panel2.Controls.Add(this.btnOk);
             this.panel2.Controls.Add(this.pictureBox5);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Controls.Add(this.txtExecutePrivilegeName);
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox2);
             this.panel2.Controls.Add(this.pictureBox1);
@@ -201,13 +201,6 @@
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 69;
             this.label1.Text = "Execute Privilege Name";
-            // 
-            // txtExecutePrivilegeName
-            // 
-            this.txtExecutePrivilegeName.Location = new System.Drawing.Point(152, 320);
-            this.txtExecutePrivilegeName.Name = "txtExecutePrivilegeName";
-            this.txtExecutePrivilegeName.Size = new System.Drawing.Size(213, 20);
-            this.txtExecutePrivilegeName.TabIndex = 68;
             // 
             // pictureBox4
             // 
@@ -428,6 +421,7 @@
             this.txtUniqueName.Name = "txtUniqueName";
             this.txtUniqueName.Size = new System.Drawing.Size(302, 20);
             this.txtUniqueName.TabIndex = 45;
+            this.txtUniqueName.Leave += new System.EventHandler(this.txtUniqueName_Leave);
             // 
             // chkIsPrivate
             // 
@@ -508,6 +502,16 @@
             this.dlgLookupPluginType.Service = null;
             this.dlgLookupPluginType.Title = "Custom Api - PluginType";
             // 
+            // cdsCboPrivileges
+            // 
+            this.cdsCboPrivileges.DisplayFormat = "";
+            this.cdsCboPrivileges.FormattingEnabled = true;
+            this.cdsCboPrivileges.Location = new System.Drawing.Point(145, 318);
+            this.cdsCboPrivileges.Name = "cdsCboPrivileges";
+            this.cdsCboPrivileges.OrganizationService = null;
+            this.cdsCboPrivileges.Size = new System.Drawing.Size(220, 21);
+            this.cdsCboPrivileges.TabIndex = 76;
+            // 
             // CustomApiEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -568,7 +572,6 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPluginType;
         private xrmtb.XrmToolBox.Controls.EntitiesDropdownControl cboEntities;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtExecutePrivilegeName;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -578,5 +581,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox13;
+        private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboPrivileges;
     }
 }
