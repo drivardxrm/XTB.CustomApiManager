@@ -9,7 +9,7 @@ using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
 //using static XTB.CustomApiManager.Entities.CustomAPI;
 
-namespace XTB.CustomApiManager
+namespace XTB.CustomApiManager.Forms
 {
     public partial class NewRequestParameterForm : Form
     {

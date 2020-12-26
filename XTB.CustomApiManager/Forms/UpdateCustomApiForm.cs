@@ -9,7 +9,7 @@ using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
 //using static XTB.CustomApiManager.Entities.CustomAPI;
 
-namespace XTB.CustomApiManager
+namespace XTB.CustomApiManager.Forms
 {
     public partial class UpdateCustomApiForm : Form
     {
@@ -181,6 +181,7 @@ namespace XTB.CustomApiManager
                 if (_shouldupdate)
                 {
                     _service.Update(customapitoupdate);
+                    CustomApiUpdated = true;
                 }
                 else 
                 {
@@ -188,7 +189,7 @@ namespace XTB.CustomApiManager
                     DialogResult = DialogResult.None;
                 }
                 
-                CustomApiUpdated = true;
+                
             }
             catch (Exception ex)
             {

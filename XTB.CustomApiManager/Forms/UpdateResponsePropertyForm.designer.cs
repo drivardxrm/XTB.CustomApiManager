@@ -1,6 +1,6 @@
-﻿namespace XTB.CustomApiManager
+﻿namespace XTB.CustomApiManager.Forms
 {
-    partial class NewResponsePropertyForm
+    partial class UpdateResponsePropertyForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResponsePropertyForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateResponsePropertyForm));
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtBoundEntityName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -40,7 +41,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.cboEntities = new xrmtb.XrmToolBox.Controls.EntitiesDropdownControl();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
@@ -75,6 +75,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.txtBoundEntityName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.cdsCustomApiName);
             this.panel2.Controls.Add(this.label17);
@@ -85,7 +86,6 @@
             this.panel2.Controls.Add(this.pictureBox4);
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.pictureBox3);
-            this.panel2.Controls.Add(this.cboEntities);
             this.panel2.Controls.Add(this.label11);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.txtDisplayName);
@@ -102,6 +102,14 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(525, 345);
             this.panel2.TabIndex = 5;
+            // 
+            // txtBoundEntityName
+            // 
+            this.txtBoundEntityName.Enabled = false;
+            this.txtBoundEntityName.Location = new System.Drawing.Point(127, 237);
+            this.txtBoundEntityName.Name = "txtBoundEntityName";
+            this.txtBoundEntityName.Size = new System.Drawing.Size(210, 20);
+            this.txtBoundEntityName.TabIndex = 79;
             // 
             // label2
             // 
@@ -154,9 +162,9 @@
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.Location = new System.Drawing.Point(19, 11);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(260, 20);
+            this.lblTitle.Size = new System.Drawing.Size(226, 20);
             this.lblTitle.TabIndex = 73;
-            this.lblTitle.Text = "Create New Response Property";
+            this.lblTitle.Text = "Update Response Property";
             // 
             // btnOk
             // 
@@ -169,7 +177,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 72;
-            this.btnOk.Text = "Create";
+            this.btnOk.Text = "Update";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
@@ -203,19 +211,6 @@
             this.pictureBox3.Size = new System.Drawing.Size(20, 19);
             this.pictureBox3.TabIndex = 64;
             this.pictureBox3.TabStop = false;
-            // 
-            // cboEntities
-            // 
-            this.cboEntities.AutoLoadData = false;
-            this.cboEntities.Enabled = false;
-            this.cboEntities.LanguageCode = 1033;
-            this.cboEntities.Location = new System.Drawing.Point(127, 233);
-            this.cboEntities.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.cboEntities.Name = "cboEntities";
-            this.cboEntities.Service = null;
-            this.cboEntities.Size = new System.Drawing.Size(215, 25);
-            this.cboEntities.SolutionFilter = null;
-            this.cboEntities.TabIndex = 63;
             // 
             // label11
             // 
@@ -253,6 +248,7 @@
             // 
             // cboType
             // 
+            this.cboType.Enabled = false;
             this.cboType.FormattingEnabled = true;
             this.cboType.Location = new System.Drawing.Point(104, 209);
             this.cboType.Name = "cboType";
@@ -270,11 +266,11 @@
             // 
             // txtUniqueName
             // 
+            this.txtUniqueName.Enabled = false;
             this.txtUniqueName.Location = new System.Drawing.Point(104, 74);
             this.txtUniqueName.Name = "txtUniqueName";
             this.txtUniqueName.Size = new System.Drawing.Size(319, 20);
             this.txtUniqueName.TabIndex = 45;
-            this.txtUniqueName.Leave += new System.EventHandler(this.txtUniqueName_Leave);
             // 
             // label4
             // 
@@ -309,7 +305,7 @@
             this.txtDescription.Size = new System.Drawing.Size(319, 49);
             this.txtDescription.TabIndex = 38;
             // 
-            // NewResponsePropertyForm
+            // UpdateResponsePropertyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -321,10 +317,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "NewResponsePropertyForm";
+            this.Name = "UpdateResponsePropertyForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New Response Property";
+            this.Text = "Update Response Property";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -349,7 +345,6 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescription;
-        private xrmtb.XrmToolBox.Controls.EntitiesDropdownControl cboEntities;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -359,5 +354,6 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCustomApiName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtBoundEntityName;
     }
 }

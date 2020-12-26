@@ -155,6 +155,18 @@
     <Compile Include="Entities\EntityCodes.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Solution.cs" />
+    <Compile Include="Forms\UpdateResponsePropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateResponsePropertyForm.designer.cs">
+      <DependentUpon>UpdateResponsePropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\UpdateRequestParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\UpdateRequestParameterForm.designer.cs">
+      <DependentUpon>UpdateRequestParameterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Helpers\PrivilegeHelper.cs" />
     <Compile Include="Helpers\SolutionHelper.cs" />
     <Compile Include="Helpers\FormAction.cs" />
@@ -168,28 +180,28 @@
       <DependentUpon>CustomApiManagerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\NewCustomApi.cs" />
-    <Compile Include="NewResponsePropertyForm.cs">
+    <Compile Include="Forms\NewResponsePropertyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewResponsePropertyForm.designer.cs">
+    <Compile Include="Forms\NewResponsePropertyForm.designer.cs">
       <DependentUpon>NewResponsePropertyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewRequestParameterForm.cs">
+    <Compile Include="Forms\NewRequestParameterForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewRequestParameterForm.designer.cs">
+    <Compile Include="Forms\NewRequestParameterForm.designer.cs">
       <DependentUpon>NewRequestParameterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="UpdateCustomApiForm.cs">
+    <Compile Include="Forms\UpdateCustomApiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UpdateCustomApiForm.designer.cs">
+    <Compile Include="Forms\UpdateCustomApiForm.designer.cs">
       <DependentUpon>UpdateCustomApiForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="NewCustomApiForm.cs">
+    <Compile Include="Forms\NewCustomApiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NewCustomApiForm.designer.cs">
+    <Compile Include="Forms\NewCustomApiForm.designer.cs">
       <DependentUpon>NewCustomApiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -215,16 +227,22 @@
     <EmbeddedResource Include="CustomApiManagerControl.resx">
       <DependentUpon>CustomApiManagerControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewResponsePropertyForm.resx">
+    <EmbeddedResource Include="Forms\UpdateResponsePropertyForm.resx">
+      <DependentUpon>UpdateResponsePropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\UpdateRequestParameterForm.resx">
+      <DependentUpon>UpdateRequestParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\NewResponsePropertyForm.resx">
       <DependentUpon>NewResponsePropertyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewRequestParameterForm.resx">
+    <EmbeddedResource Include="Forms\NewRequestParameterForm.resx">
       <DependentUpon>NewRequestParameterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UpdateCustomApiForm.resx">
+    <EmbeddedResource Include="Forms\UpdateCustomApiForm.resx">
       <DependentUpon>UpdateCustomApiForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NewCustomApiForm.resx">
+    <EmbeddedResource Include="Forms\NewCustomApiForm.resx">
       <DependentUpon>NewCustomApiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

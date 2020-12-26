@@ -31,14 +31,7 @@ namespace XTB.CustomApiManager.Proxy
                                                     CustomApiRow[CustomAPI.UniqueName].ToString() :
                                                     string.Empty;
 
-        public string UniquenamePrefix => UniqueName.Substring(0, UniqueName.IndexOf("_") + 1);
-
-        public string UniquenameTruncated => UniqueName.Substring(UniqueName.IndexOf("_") + 1);
-
-
         
-
-
 
         public string DisplayName => CustomApiRow.Attributes.Contains(CustomAPI.DisplayName) ?
                                                     CustomApiRow[CustomAPI.DisplayName].ToString() :

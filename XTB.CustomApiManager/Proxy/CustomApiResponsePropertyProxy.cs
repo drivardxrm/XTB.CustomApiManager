@@ -12,22 +12,46 @@ namespace XTB.CustomApiManager.Proxy
     {
 
 
-        public Entity CustomApiResponsePropertyRow;
+        public Entity ResponsePropertyRow;
 
 
 
-        public CustomApiResponsePropertyProxy(Entity customapiresponsepropertyrow)
+        public CustomApiResponsePropertyProxy(Entity responsepropertyrow)
         {
-            CustomApiResponsePropertyRow = customapiresponsepropertyrow;
+            ResponsePropertyRow = responsepropertyrow;
         }
 
-       
-
-        public string Name => CustomApiResponsePropertyRow[CustomAPI.PrimaryName].ToString();
-        public string UniqueName => CustomApiResponsePropertyRow[CustomAPI.UniqueName].ToString();
 
 
+        public string Name => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.PrimaryName) ?
+                                                    ResponsePropertyRow[CustomAPIResponseProperty.PrimaryName].ToString() :
+                                                    string.Empty;
+        public string UniqueName => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.UniqueName) ?
+                                                    ResponsePropertyRow[CustomAPIResponseProperty.UniqueName].ToString() :
+                                                    string.Empty;
 
-        
+
+
+        public string DisplayName => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.DisplayName) ?
+                                                    ResponsePropertyRow[CustomAPIResponseProperty.DisplayName].ToString() :
+                                                    string.Empty;
+
+        public string Description => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.Description) ?
+                                                    ResponsePropertyRow[CustomAPIResponseProperty.Description].ToString() :
+                                                    string.Empty;
+
+        public string BoundEntityLogicalName => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.BoundEntityLogicalName) ?
+                                                    ResponsePropertyRow[CustomAPIResponseProperty.BoundEntityLogicalName].ToString() :
+                                                    string.Empty;
+
+
+
+        public CustomAPIResponseProperty.Type_OptionSet Type => (CustomAPIResponseProperty.Type_OptionSet)(ResponsePropertyRow[CustomAPIResponseProperty.Type] as OptionSetValue).Value;
+
+
+
+
+
+
     }
 }

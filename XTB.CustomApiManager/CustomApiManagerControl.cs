@@ -17,6 +17,7 @@ using XTB.CustomApiManager.Proxy;
 using XTB.CustomApiManager.Entities;
 using xrmtb.XrmToolBox.Controls.Controls;
 using xrmtb.XrmToolBox.Controls;
+using XTB.CustomApiManager.Forms;
 
 namespace XTB.CustomApiManager
 {
