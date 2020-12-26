@@ -168,11 +168,17 @@
       <DependentUpon>CustomApiManagerControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\NewCustomApi.cs" />
-    <Compile Include="CustomApiEditor.cs">
+    <Compile Include="UpdateCustomApiForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomApiEditor.designer.cs">
-      <DependentUpon>CustomApiEditor.cs</DependentUpon>
+    <Compile Include="UpdateCustomApiForm.designer.cs">
+      <DependentUpon>UpdateCustomApiForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewCustomApiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewCustomApiForm.designer.cs">
+      <DependentUpon>NewCustomApiForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -197,8 +203,11 @@
     <EmbeddedResource Include="CustomApiManagerControl.resx">
       <DependentUpon>CustomApiManagerControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomApiEditor.resx">
-      <DependentUpon>CustomApiEditor.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateCustomApiForm.resx">
+      <DependentUpon>UpdateCustomApiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewCustomApiForm.resx">
+      <DependentUpon>NewCustomApiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

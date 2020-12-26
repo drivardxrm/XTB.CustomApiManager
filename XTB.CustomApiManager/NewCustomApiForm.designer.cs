@@ -1,6 +1,6 @@
 ﻿namespace XTB.CustomApiManager
 {
-    partial class CustomApiEditor
+    partial class NewCustomApiForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomApiEditor));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCustomApiForm));
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.cdsCboPrivileges = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -68,7 +69,6 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.cdsCboPrivileges = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -134,8 +134,18 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(500, 428);
+            this.panel2.Size = new System.Drawing.Size(500, 444);
             this.panel2.TabIndex = 5;
+            // 
+            // cdsCboPrivileges
+            // 
+            this.cdsCboPrivileges.DisplayFormat = "";
+            this.cdsCboPrivileges.FormattingEnabled = true;
+            this.cdsCboPrivileges.Location = new System.Drawing.Point(145, 318);
+            this.cdsCboPrivileges.Name = "cdsCboPrivileges";
+            this.cdsCboPrivileges.OrganizationService = null;
+            this.cdsCboPrivileges.Size = new System.Drawing.Size(220, 21);
+            this.cdsCboPrivileges.TabIndex = 76;
             // 
             // label17
             // 
@@ -268,7 +278,7 @@
             this.txtLookupPublisher.BackColor = System.Drawing.SystemColors.Window;
             this.txtLookupPublisher.Clickable = true;
             this.txtLookupPublisher.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtLookupPublisher.DisplayFormat = "";
+            this.txtLookupPublisher.DisplayFormat = "{{friendlyname}}";
             this.txtLookupPublisher.Entity = null;
             this.txtLookupPublisher.EntityReference = null;
             this.txtLookupPublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline);
@@ -305,7 +315,7 @@
             this.txtLookupPluginType.BackColor = System.Drawing.SystemColors.Window;
             this.txtLookupPluginType.Clickable = true;
             this.txtLookupPluginType.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.txtLookupPluginType.DisplayFormat = "";
+            this.txtLookupPluginType.DisplayFormat = "{{name}}";
             this.txtLookupPluginType.Entity = null;
             this.txtLookupPluginType.EntityReference = null;
             this.txtLookupPluginType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline);
@@ -502,17 +512,7 @@
             this.dlgLookupPluginType.Service = null;
             this.dlgLookupPluginType.Title = "Custom Api - PluginType";
             // 
-            // cdsCboPrivileges
-            // 
-            this.cdsCboPrivileges.DisplayFormat = "";
-            this.cdsCboPrivileges.FormattingEnabled = true;
-            this.cdsCboPrivileges.Location = new System.Drawing.Point(145, 318);
-            this.cdsCboPrivileges.Name = "cdsCboPrivileges";
-            this.cdsCboPrivileges.OrganizationService = null;
-            this.cdsCboPrivileges.Size = new System.Drawing.Size(220, 21);
-            this.cdsCboPrivileges.TabIndex = 76;
-            // 
-            // CustomApiEditor
+            // NewCustomApiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -524,11 +524,10 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "CustomApiEditor";
+            this.Name = "NewCustomApiForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Custon Api Editor";
-            this.Shown += new System.EventHandler(this.InputValue_Shown);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();

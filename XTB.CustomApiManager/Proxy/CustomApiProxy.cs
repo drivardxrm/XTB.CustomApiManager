@@ -31,12 +31,26 @@ namespace XTB.CustomApiManager.Proxy
                                                     CustomApiRow[CustomAPI.UniqueName].ToString() :
                                                     string.Empty;
 
+        public string UniquenamePrefix => UniqueName.Substring(0, UniqueName.IndexOf("_") + 1);
+
+        public string UniquenameTruncated => UniqueName.Substring(UniqueName.IndexOf("_") + 1);
+
+
+        
+
+
+
         public string DisplayName => CustomApiRow.Attributes.Contains(CustomAPI.DisplayName) ?
                                                     CustomApiRow[CustomAPI.DisplayName].ToString() :
                                                     string.Empty;
 
         public string Description => CustomApiRow.Attributes.Contains(CustomAPI.Description) ?
                                                     CustomApiRow[CustomAPI.Description].ToString() :
+                                                    string.Empty;
+
+
+        public string BoundEntityLogicalName => CustomApiRow.Attributes.Contains(CustomAPI.BoundEntityLogicalName) ?
+                                                    CustomApiRow[CustomAPI.BoundEntityLogicalName].ToString() :
                                                     string.Empty;
 
 

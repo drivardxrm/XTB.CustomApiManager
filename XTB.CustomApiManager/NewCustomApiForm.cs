@@ -6,27 +6,28 @@ using xrmtb.XrmToolBox.Controls.Controls;
 using XrmToolBox.Extensibility;
 using XTB.CustomApiManager.Entities;
 using XTB.CustomApiManager.Helpers;
+using XTB.CustomApiManager.Proxy;
 //using static XTB.CustomApiManager.Entities.CustomAPI;
 
 namespace XTB.CustomApiManager
 {
-    public partial class CustomApiEditor : Form
+    public partial class NewCustomApiForm : Form
     {
         #region Private Fields
 
-        private Control focus;
+        //private Control focus;
         private IOrganizationService _service;
-        private FormAction _action;
+        
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public CustomApiEditor(IOrganizationService service, Entity customapitoupdate,Entity publisher, FormAction action)
+        public NewCustomApiForm(IOrganizationService service,Entity publisher)
         {
             InitializeComponent();
             _service = service;
-            _action = action; 
+            
 
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
@@ -39,14 +40,7 @@ namespace XTB.CustomApiManager
             cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
 
-
-            if (_action == FormAction.Create) 
-            {
-                cboBindingType.SelectedIndex = (int)CustomAPI.BindingType_OptionSet.Global;
-                cboAllowedCustomProcessingStep.SelectedIndex = (int)CustomAPI.AllowedCustomProcessingStepType_OptionSet.None;
-            }
-
-            if(publisher != null) 
+            if (publisher != null)
             {
                 txtLookupPublisher.Entity = publisher;
                 txtLookupPublisher.Text = publisher.Attributes[Publisher.PrimaryName].ToString();
@@ -55,8 +49,11 @@ namespace XTB.CustomApiManager
 
 
             LoadPrivileges();
-            //cboBindingType.SelectedIndex = -1;
-            //cboAllowedCustomProcessingStep.SelectedIndex = -1;
+
+            //default values
+            cboBindingType.SelectedIndex = (int)CustomAPI.BindingType_OptionSet.Global;
+            cboAllowedCustomProcessingStep.SelectedIndex = (int)CustomAPI.AllowedCustomProcessingStepType_OptionSet.None;
+
 
         }
 
@@ -64,45 +61,59 @@ namespace XTB.CustomApiManager
 
         #region Public Properties
 
-       
-
-        public Guid Result { get; private set; }
+        /// <summary>
+        /// GUID of the Custom API Created
+        /// </summary>
+        public Guid NewCustomApiId { get; private set; }
 
         #endregion Public Properties
 
-        #region Public Methods
 
-        //public DialogResult ShowDialog(Entity input, IWin32Window owner)
-        //{
-        //    //var type = GetType(input);
-        //    //lblName.Text = input["name"].ToString();
-        //    //lblType.Text = type.ToString();
-        //    //txtRecord.OrganizationService = service;
-        //    ////if (!ParseInput(type, input))
-        //    ////{
-        //    ////    MessageBox.Show($"Type {type} is not yet supported by CAT.", "Input Parameter", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-        //    ////    return DialogResult.Cancel;
-        //    ////}
-        //    //var result = ShowDialog(owner);
-        //    //if (result == DialogResult.OK)
-        //    //{
-        //    //    result = HandleInput(type);
-        //    //}
-        //    //return result;
-        //    return DialogResult.OK;
-        //}
-
-        #endregion Public Methods
 
         #region Private Event Handlers
-
-
-
-
-
-        private void InputValue_Shown(object sender, EventArgs e)
+        private void btnOk_Click(object sender, EventArgs e)
         {
-            focus?.Focus();
+            try
+            {
+                //todo modify for Update
+
+                NewCustomApiId = _service.Create(CustomApiToCreate());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                DialogResult = DialogResult.None;
+            }
+
+        }
+
+
+        private void txtUniqueName_Leave(object sender, EventArgs e)
+        {
+            if (txtName.Text == string.Empty)
+            {
+                txtName.Text = txtUniqueName.Text;
+            }
+
+            if (txtDisplayName.Text == string.Empty)
+            {
+                txtDisplayName.Text = txtUniqueName.Text;
+            }
+
+        }
+
+        private void cboBindingType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            cboEntities.Enabled = cboBindingType.SelectedIndex == (int)CustomAPI.BindingType_OptionSet.Entity;
+            if (cboEntities.Enabled == true)
+            {
+                cboEntities.LoadData();
+            }
+            else
+            {
+                cboEntities.ClearData();
+            }
         }
 
         #endregion Private Event Handlers
@@ -120,7 +131,6 @@ namespace XTB.CustomApiManager
             {
                 case DialogResult.OK:
                     txtLookupPluginType.Entity = dlgLookupPluginType.Entity;
-                    txtLookupPluginType.Text = dlgLookupPluginType.Entity.Attributes[Plug_inType.PrimaryName].ToString();
 
                     break;
                 case DialogResult.Abort:
@@ -138,7 +148,6 @@ namespace XTB.CustomApiManager
             {
                 case DialogResult.OK:
                     txtLookupPublisher.Entity = dlgLookupPublisher.Entity;
-                    txtLookupPublisher.Text = dlgLookupPublisher.Entity.Attributes[Publisher.PrimaryName].ToString();
                     var prefix = _service.GetPublisherPrefix((Guid)dlgLookupPublisher.Entity.Attributes[Publisher.PrimaryKey]);
                     txtPrefix.Text = $"{prefix}_";
 
@@ -146,15 +155,16 @@ namespace XTB.CustomApiManager
 
                     break;
                 case DialogResult.Abort:
-                    //txtLookupPluginType.Entity = null;
+                    
                     break;
             }
-            //cmbValue.Text = (txtLookup?.Entity?.Id ?? Guid.Empty).ToString();
+           
             Cursor = Cursors.Default;
         }
 
 
-        private Entity AsEntity() 
+
+        private Entity CustomApiToCreate() 
         {
             var api = new Entity(CustomAPI.EntityName);
 
@@ -176,28 +186,14 @@ namespace XTB.CustomApiManager
 
             if (!string.IsNullOrEmpty(txtLookupPluginType.Text)) 
             {
-                api[CustomAPI.PluginType] = new EntityReference(Plug_inType.EntityName, txtLookupPluginType.Id); //todo skip if null
+                api[CustomAPI.PluginType] = new EntityReference(Plug_inType.EntityName, txtLookupPluginType.Id);
             }
 
 
             return api;
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //todo modify for Update
-
-                Result = _service.Create(AsEntity());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                DialogResult = DialogResult.None;
-            }
-
-        }
+        
 
         
         private bool IsBoundToEntity()
@@ -225,68 +221,23 @@ namespace XTB.CustomApiManager
 
         }
 
-        private void cboBindingType_SelectedIndexChanged(object sender, EventArgs e)
-        {
+        
 
-            cboEntities.Enabled = cboBindingType.SelectedIndex == (int)(CustomAPI.BindingType_OptionSet.Entity);
-            if (cboEntities.Enabled == true) 
-            {
-                cboEntities.LoadData();
-            }
-            else 
-            {
-                cboEntities.ClearData();
-            }
-        }
+        
 
-        private void txtUniqueName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void LockFields(object sender, EventArgs e)
-        {
-            if (_action == FormAction.Update)
-            {
-                txtUniqueName.Enabled = false;
-                cboAllowedCustomProcessingStep.Enabled = false;
-                cboBindingType.Enabled = false;
-                chkIsFunction.Enabled = false;
-            }
-           
-        }
+       
 
         private void LoadPrivileges()
         {
             
              var privileges = _service.GetPrivileges();
 
-                
-            //todo on update, will need to
-            //Find the index of the selected API in the list
-            //var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
-
 
             cdsCboPrivileges.DataSource = privileges;
             cdsCboPrivileges.SelectedIndex = -1;
-           // cdsCboPrivileges.Enabled = true;
-
-                       
 
         }
 
-        private void txtUniqueName_Leave(object sender, EventArgs e)
-        {
-            if (txtName.Text == string.Empty) 
-            {
-                txtName.Text = txtUniqueName.Text;
-            }
-
-            if (txtDisplayName.Text == string.Empty)
-            {
-                txtDisplayName.Text = txtUniqueName.Text;
-            }
-
-        }
+        
     }
 }

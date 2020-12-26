@@ -157,6 +157,11 @@ namespace XTB.CustomApiManager
             CreateApiDialog();
         }
 
+        private void btnEditCustomApi_Click(object sender, EventArgs e)
+        {
+            UpdateApiDialog();
+        }
+
 
         private void tslAbout_Click(object sender, EventArgs e)
         {
@@ -468,31 +473,50 @@ namespace XTB.CustomApiManager
 
         }
 
+        
+
         private void CreateApiDialog() 
         {
-            var inputdlg = new CustomApiEditor(Service, null, SelectedPublisher, FormAction.Create);
+            var inputdlg = new NewCustomApiForm(Service, SelectedPublisher);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
                 return;
             }
-            if (dlgresult == DialogResult.OK && inputdlg.Result != null)
+            if (dlgresult == DialogResult.OK && inputdlg.NewCustomApiId != null)
             {
-                //e.Entity["rawvalue"] = inputdlg.Result;
-                //e.Entity["value"] = inputdlg.FormattedResult;
 
                 //refresh custom api list and select newly created
-                SelectedCustomApi = Service.Retrieve(CustomAPI.EntityName, inputdlg.Result, new ColumnSet() { AllColumns = true });
+                SelectedCustomApi = Service.Retrieve(CustomAPI.EntityName, inputdlg.NewCustomApiId, new ColumnSet() { AllColumns = true });
                 ExecuteMethod(LoadCustomApis);
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+                
+            }
+        }
+
+        private void UpdateApiDialog()
+        {
+            //todo validations = api must be selected
+            var inputdlg = new UpdateCustomApiForm(Service, SelectedCustomApi);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.CustomApiUpdated)
+            {
 
 
-
+                //refresh custom api list and select newly updated
+                SelectedCustomApi = Service.Retrieve(CustomAPI.EntityName, SelectedCustomApi.Id, new ColumnSet() { AllColumns = true });
+                ExecuteMethod(LoadCustomApis);
 
             }
             else if (dlgresult == DialogResult.Ignore)
             {
-                //e.Entity.Attributes.Remove("value");
-                //e.Entity.Attributes.Remove("rawvalue");
+                
             }
         }
 
@@ -500,12 +524,13 @@ namespace XTB.CustomApiManager
 
 
 
+
+
+
+
+
         #endregion
 
-       
 
-        
-
-        
     }
 }
