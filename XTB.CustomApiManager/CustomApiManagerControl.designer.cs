@@ -46,13 +46,13 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.grpOutputs = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnDeleteOutput = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.cdsTxtResponseBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtResponseDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnEditOutput = new System.Windows.Forms.Button();
             this.btnAddOutput = new System.Windows.Forms.Button();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.cdsTxtResponseType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -271,6 +271,7 @@
             this.btnDeleteApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteApi.UseVisualStyleBackColor = true;
+            this.btnDeleteApi.Click += new System.EventHandler(this.btnDeleteApi_Click);
             // 
             // groupBox3
             // 
@@ -292,13 +293,13 @@
             // 
             // grpOutputs
             // 
-            this.grpOutputs.Controls.Add(this.button3);
+            this.grpOutputs.Controls.Add(this.btnDeleteOutput);
             this.grpOutputs.Controls.Add(this.pictureBox10);
             this.grpOutputs.Controls.Add(this.label20);
             this.grpOutputs.Controls.Add(this.cdsTxtResponseBoundEntity);
             this.grpOutputs.Controls.Add(this.cdsTxtResponseDescription);
             this.grpOutputs.Controls.Add(this.label21);
-            this.grpOutputs.Controls.Add(this.button2);
+            this.grpOutputs.Controls.Add(this.btnEditOutput);
             this.grpOutputs.Controls.Add(this.btnAddOutput);
             this.grpOutputs.Controls.Add(this.pictureBox16);
             this.grpOutputs.Controls.Add(this.cdsTxtResponseType);
@@ -320,19 +321,20 @@
             this.grpOutputs.TabStop = false;
             this.grpOutputs.Text = "Response Properties (Output)";
             // 
-            // button3
+            // btnDeleteOutput
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
-            this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.Location = new System.Drawing.Point(451, 16);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 29);
-            this.button3.TabIndex = 85;
-            this.button3.Text = "Delete Response Prop";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnDeleteOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteOutput.Image")));
+            this.btnDeleteOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteOutput.Location = new System.Drawing.Point(451, 16);
+            this.btnDeleteOutput.Name = "btnDeleteOutput";
+            this.btnDeleteOutput.Size = new System.Drawing.Size(164, 29);
+            this.btnDeleteOutput.TabIndex = 85;
+            this.btnDeleteOutput.Text = "Delete Response Prop";
+            this.btnDeleteOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteOutput.UseVisualStyleBackColor = true;
+            this.btnDeleteOutput.Click += new System.EventHandler(this.btnDeleteOutput_Click);
             // 
             // pictureBox10
             // 
@@ -391,18 +393,19 @@
             this.label21.TabIndex = 74;
             this.label21.Text = "Description";
             // 
-            // button2
+            // btnEditOutput
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.Location = new System.Drawing.Point(295, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(149, 30);
-            this.button2.TabIndex = 71;
-            this.button2.Text = "Edit Response Prop";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnEditOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditOutput.Image")));
+            this.btnEditOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditOutput.Location = new System.Drawing.Point(295, 16);
+            this.btnEditOutput.Name = "btnEditOutput";
+            this.btnEditOutput.Size = new System.Drawing.Size(149, 30);
+            this.btnEditOutput.TabIndex = 71;
+            this.btnEditOutput.Text = "Edit Response Prop";
+            this.btnEditOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditOutput.UseVisualStyleBackColor = true;
+            this.btnEditOutput.Click += new System.EventHandler(this.btnEditOutput_Click);
             // 
             // btnAddOutput
             // 
@@ -416,6 +419,7 @@
             this.btnAddOutput.Text = "New Response Prop";
             this.btnAddOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddOutput.UseVisualStyleBackColor = true;
+            this.btnAddOutput.Click += new System.EventHandler(this.btnAddOutput_Click);
             // 
             // pictureBox16
             // 
@@ -623,6 +627,7 @@
             this.btnDeleteInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteInput.UseVisualStyleBackColor = true;
+            this.btnDeleteInput.Click += new System.EventHandler(this.btnDeleteInput_Click);
             // 
             // pictureBox9
             // 
@@ -693,6 +698,7 @@
             this.btnEditInput.Text = "Edit Request Param";
             this.btnEditInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditInput.UseVisualStyleBackColor = true;
+            this.btnEditInput.Click += new System.EventHandler(this.btnEditInput_Click);
             // 
             // btnAddInput
             // 
@@ -706,6 +712,7 @@
             this.btnAddInput.Text = "New Request Param";
             this.btnAddInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddInput.UseVisualStyleBackColor = true;
+            this.btnAddInput.Click += new System.EventHandler(this.btnAddInput_Click);
             // 
             // pictureBox12
             // 
@@ -856,7 +863,6 @@
             // 
             // cdsGridInputs
             // 
-            this.cdsGridInputs.AllowUserToOrderColumns = true;
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -1423,7 +1429,7 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseBoundEntity;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseDescription;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnEditOutput;
         private System.Windows.Forms.Button btnAddOutput;
         private System.Windows.Forms.PictureBox pictureBox16;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseType;
@@ -1460,7 +1466,7 @@
         private xrmtb.XrmToolBox.Controls.CRMGridView cdsGridInputs;
         private System.Windows.Forms.Button btnNewApi;
         private System.Windows.Forms.Button btnDeleteInput;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnDeleteOutput;
         private System.Windows.Forms.ToolStripButton menuRefresh;
         private System.Windows.Forms.RadioButton rbAll;
         private System.Windows.Forms.RadioButton rbSolution;

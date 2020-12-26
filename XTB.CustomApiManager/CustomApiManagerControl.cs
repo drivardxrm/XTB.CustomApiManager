@@ -27,6 +27,10 @@ namespace XTB.CustomApiManager
 
         private Entity SelectedCustomApi { get; set; } = null;
 
+        private Entity SelectedRequestParameter { get; set; } = null;
+
+        private Entity SelectedResponseProperty { get; set; } = null;
+
         private Entity SelectedPublisher { get; set; } = null;
 
         public CustomApiManagerControl()
@@ -152,6 +156,7 @@ namespace XTB.CustomApiManager
 
         }
 
+
         private void btnNewApi_Click(object sender, EventArgs e)
         {
             CreateApiDialog();
@@ -160,6 +165,48 @@ namespace XTB.CustomApiManager
         private void btnEditCustomApi_Click(object sender, EventArgs e)
         {
             UpdateApiDialog();
+        }
+
+
+
+        private void btnAddInput_Click(object sender, EventArgs e)
+        {
+            CreateRequestParameterDialog();
+        }
+
+        private void btnEditInput_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+        private void btnAddOutput_Click(object sender, EventArgs e)
+        {
+            CreateResponsePropertyDialog();
+        }
+
+
+
+        private void btnEditOutput_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void btnDeleteApi_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteOutput_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteInput_Click(object sender, EventArgs e)
+        {
+
         }
 
 
@@ -422,6 +469,8 @@ namespace XTB.CustomApiManager
 
         private void SetRequestParameter(Entity requestparameter) 
         {
+
+            SelectedRequestParameter = requestparameter;
             cdsTxtRequestUniqueName.Entity = requestparameter;
             cdsTxtRequestName.Entity = requestparameter;
             cdsTxtRequestDisplayName.Entity = requestparameter;
@@ -464,6 +513,8 @@ namespace XTB.CustomApiManager
 
         private void SetResponseProperty(Entity responseproperty)
         {
+            SelectedResponseProperty = responseproperty;
+
             cdsTxtResponseUniqueName.Entity = responseproperty;
             cdsTxtResponseName.Entity = responseproperty;
             cdsTxtResponseDisplayName.Entity = responseproperty;
@@ -521,6 +572,57 @@ namespace XTB.CustomApiManager
         }
 
 
+        private void CreateRequestParameterDialog()
+        {
+            var inputdlg = new NewRequestParameterForm(Service, SelectedCustomApi);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.NewCustomApiRequestParameterId != null)
+            {
+
+                //refresh custom api list and select newly created
+                //SelectedRequestParameter = Service.Retrieve(CustomAPIRequestParameter.EntityName, inputdlg.NewCustomApiRequestParameterId, new ColumnSet() { AllColumns = true });
+                SetRequestParameters();
+
+                //todo find a way to select newly created
+                //var index = grpInputs.da.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
+
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
+        private void CreateResponsePropertyDialog()
+        {
+            var inputdlg = new NewResponsePropertyForm(Service, SelectedCustomApi);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.NewCustomApiResponsePropertyId != null)
+            {
+
+                //refresh custom api list and select newly created
+                //SelectedRequestParameter = Service.Retrieve(CustomAPIRequestParameter.EntityName, inputdlg.NewCustomApiRequestParameterId, new ColumnSet() { AllColumns = true });
+                SetResponseProperties();
+
+                //todo find a way to select newly created
+                //var index = grpInputs.da.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
+
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
 
 
 
