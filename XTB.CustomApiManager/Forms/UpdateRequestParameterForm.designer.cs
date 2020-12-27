@@ -176,7 +176,7 @@
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 72;
-            this.btnOk.Text = "Create";
+            this.btnOk.Text = "Update";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);

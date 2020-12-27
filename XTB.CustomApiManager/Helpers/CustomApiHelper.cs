@@ -13,23 +13,14 @@ namespace XTB.CustomApiManager.Helpers
     public static class CustomApiHelper
     {
 
+        public static Entity GetCustomApi(this IOrganizationService service, Guid customapiid)
+            => service.Retrieve(CustomAPI.EntityName, customapiid, new ColumnSet() { AllColumns = true });
 
+        public static Entity GetRequestParameter(this IOrganizationService service, Guid requestparameterid)
+            => service.Retrieve(CustomAPIRequestParameter.EntityName, requestparameterid, new ColumnSet() { AllColumns = true });
 
-
-        
-
-        public static EntityCollection GetPublishers(this IOrganizationService service)
-        {
-            var fetchxml = @"<fetch>
-                              <entity name='publisher' >
-                                  <attribute name='uniquename' />
-                                  <attribute name='customizationprefix' />    
-                              </entity>
-                            </fetch>";
-
-            var fetch = new FetchExpression(fetchxml);
-            return service.RetrieveMultiple(fetch);
-        }
+        public static Entity GetResponseProperty(this IOrganizationService service, Guid responsepropertyid)
+            => service.Retrieve(CustomAPIResponseProperty.EntityName, responsepropertyid, new ColumnSet() { AllColumns = true });
 
         public static EntityCollection GetCustomApisFor(this IOrganizationService service, Guid solutionid)
         {
@@ -171,94 +162,8 @@ namespace XTB.CustomApiManager.Helpers
         }
 
 
-        public static string FetchAllCustomApis() 
-            => $@"
-                <fetch>
-                    <entity name='customapi'>
-                    <attribute name='createdonbehalfbyyominame' />
-                    <attribute name='owninguser' />
-                    <attribute name='statecode' />
-                    <attribute name='owneridname' />
-                    <attribute name='description' />
-                    <attribute name='statecodename' />
-                    <attribute name='ismanagedname' />
-                    <attribute name='createdonbehalfby' />
-                    <attribute name='isfunctionname' />
-                    <attribute name='sdkmessageidname' />
-                    <attribute name='name' />
-                    <attribute name='componentidunique' />
-                    <attribute name='iscustomizable' />
-                    <attribute name='isprivate' />
-                    <attribute name='customapiid' />
-                    <attribute name='importsequencenumber' />
-                    <attribute name='bindingtypename' />
-                    <attribute name='modifiedbyyominame' />
-                    <attribute name='allowedcustomprocessingsteptype' />
-                    <attribute name='componentstate' />
-                    <attribute name='allowedcustomprocessingsteptypename' />
-                    <attribute name='utcconversiontimezonecode' />
-                    <attribute name='createdbyyominame' />
-                    <attribute name='owningbusinessunit' />
-                    <attribute name='modifiedbyname' />
-                    <attribute name='owningteam' />
-                    <attribute name='isfunction' />
-                    <attribute name='modifiedby' />
-                    <attribute name='createdby' />
-                    <attribute name='timezoneruleversionnumber' />
-                    <attribute name='sdkmessageid' />
-                    <attribute name='plugintypeid' />
-                    <attribute name='owneridtype' />
-                    <attribute name='statuscodename' />
-                    <attribute name='overwritetime' />
-                    <attribute name='uniquename' />
-                    <attribute name='solutionid' />
-                    <attribute name='owneridyominame' />
-                    <attribute name='modifiedon' />
-                    <attribute name='displayname' />
-                    <attribute name='bindingtype' />
-                    <attribute name='ismanaged' />
-                    <attribute name='statuscode' />
-                    <attribute name='createdbyname' />
-                    <attribute name='createdon' />
-                    <attribute name='plugintypeidname' />
-                    <attribute name='componentstatename' />
-                    <attribute name='boundentitylogicalname' />
-                    <attribute name='executeprivilegename' />
-                    <attribute name='isprivatename' />
-                    <attribute name='ownerid' />
-                
-
-                    </entity>
-                </fetch>";
-
-        //public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Guid customapiid)
-        //{
-        //var fetchXml = $@"
-        //    <fetch>
-        //      <entity name='customapirequestparameter'>
-        //        <attribute name='isoptional' />
-        //        <attribute name='description' />
-        //        <attribute name='entitylogicalname' />
-        //        <attribute name='logicalentityname' />
-        //        <attribute name='name' />
-        //        <attribute name='customapiid' />
-        //        <attribute name='displayname' />
-        //        <attribute name='componentstate' />
-        //        <attribute name='uniquename' />
-        //        <attribute name='type' />
-        //        <attribute name='customapirequestparameterid' />
-        //        <attribute name='customapiid' />
-        //        <filter>
-        //          <condition attribute='customapiid' operator='eq' value='{customapiid}'/>
-        //        </filter>
-        //      </entity>
-        //    </fetch>";
-
-
-        //    var fetch = new FetchExpression(fetchXml);
-        //    return service.RetrieveMultiple(fetch);
-        //}
-
+        
+        //For Grid
         public static EntityCollection GetCustomApisRequestParametersFor(this IOrganizationService service, Entity customapi)
         {
             if (customapi == null) 
@@ -270,17 +175,10 @@ namespace XTB.CustomApiManager.Helpers
             var fetchXml = $@"
             <fetch>
               <entity name='customapirequestparameter'>
-                <attribute name='isoptional' />
-                <attribute name='description' />
-                <attribute name='logicalentityname' />
-                <attribute name='name' />
-                <attribute name='customapiid' />
-                <attribute name='displayname' />
-                <attribute name='componentstate' />
                 <attribute name='uniquename' />
                 <attribute name='type' />
-                <attribute name='customapirequestparameterid' />
-                <attribute name='customapiid' />
+                <attribute name='isoptional' />
+                
                 <filter>
                   <condition attribute='customapiid' operator='eq' value='{customapi.Id}'/>
                 </filter>
@@ -292,6 +190,8 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
+        
+        //For Grid
         public static EntityCollection GetCustomApisResponsePropertiesFor(this IOrganizationService service, Entity customapi)
         {
             if (customapi == null)
@@ -305,16 +205,6 @@ namespace XTB.CustomApiManager.Helpers
                 
                 <attribute name='uniquename' />
                 <attribute name='type' />
-                <attribute name='description' />
-                <attribute name='logicalentityname' />
-                <attribute name='name' />
-                <attribute name='customapiid' />
-                <attribute name='displayname' />
-                <attribute name='componentstate' />
-                <attribute name='uniquename' />
-                <attribute name='type' />
-                <attribute name='customapiresponsepropertyid' />
-                <attribute name='customapiid' />
                 <filter>
                   <condition attribute='customapiid' operator='eq' value='{customapi.Id}'/>
                 </filter>
@@ -328,48 +218,7 @@ namespace XTB.CustomApiManager.Helpers
 
         
 
-        public static Guid CreateCustomApiRequestParameter(this IOrganizationService service, EntityReference customapiref)
-        {
-            var parameter = new Entity(CustomAPIRequestParameter.EntityName);
-            parameter[CustomAPIRequestParameter.Description] = "The StringParameter request parameter for Custom API Example";
-            parameter[CustomAPIRequestParameter.DisplayName] = "Custom API Example String Parameter";
-            parameter[CustomAPIRequestParameter.IsOptional] = false;
-            parameter[CustomAPIRequestParameter.PrimaryName] = "";
-            parameter[CustomAPIRequestParameter.Type] = new OptionSetValue(10); //string
-            parameter[CustomAPIRequestParameter.UniqueName] = "StringParameter";
-            parameter[CustomAPIRequestParameter.CustomAPI] = customapiref;
-
-            return service.Create(parameter);
-        }
-        //public void UpdateCustomApiRequestParameter()
-        //{
-        //    throw new NotImplementedException();
-        //}
-        //public void DeleteCustomApiRequestParameter()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        public static Guid CreateCustomApiResponseProperty(this IOrganizationService service, EntityReference customapiref)
-        {
-            var property = new Entity(CustomAPIResponseProperty.EntityName);
-            property[CustomAPIResponseProperty.Description] = "The StringProperty response property for Custom API Example";
-            property[CustomAPIResponseProperty.DisplayName] = "Custom API Example String Property";
-            property[CustomAPIResponseProperty.PrimaryName] = "";
-            property[CustomAPIResponseProperty.Type] = new OptionSetValue(10); //string
-            property[CustomAPIResponseProperty.UniqueName] = "StringProperty";
-            property[CustomAPIResponseProperty.CustomAPI] = customapiref;
-
-            return service.Create(property);
-        }
-        //public void UpdateCustomApiResponseParameter()
-        //{
-        //    throw new NotImplementedException();
-        //}
-        //public void DeleteCustomApiResponseParameter()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        
 
         public static void AddToSolution(this IOrganizationService service, Guid componentid, EntityCode componentcode, string solutionname)
         {

@@ -323,6 +323,7 @@
             // 
             // btnDeleteOutput
             // 
+            this.btnDeleteOutput.Enabled = false;
             this.btnDeleteOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteOutput.Image")));
             this.btnDeleteOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -395,6 +396,7 @@
             // 
             // btnEditOutput
             // 
+            this.btnEditOutput.Enabled = false;
             this.btnEditOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditOutput.Image")));
             this.btnEditOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -579,7 +581,7 @@
             this.cdsGridOutputs.ShowIndexColumn = false;
             this.cdsGridOutputs.Size = new System.Drawing.Size(272, 189);
             this.cdsGridOutputs.TabIndex = 0;
-            this.cdsGridOutputs.RecordClick += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridOutputs_RecordClick);
+            this.cdsGridOutputs.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridOutputs_RecordEnter);
             // 
             // grpInputs
             // 
@@ -616,6 +618,7 @@
             // 
             // btnDeleteInput
             // 
+            this.btnDeleteInput.Enabled = false;
             this.btnDeleteInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteInput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteInput.Image")));
             this.btnDeleteInput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -688,6 +691,7 @@
             // 
             // btnEditInput
             // 
+            this.btnEditInput.Enabled = false;
             this.btnEditInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditInput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditInput.Image")));
             this.btnEditInput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -863,6 +867,7 @@
             // 
             // cdsGridInputs
             // 
+            this.cdsGridInputs.AllowUserToOrderColumns = true;
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
@@ -904,7 +909,7 @@
             this.cdsGridInputs.ShowIndexColumn = false;
             this.cdsGridInputs.Size = new System.Drawing.Size(272, 212);
             this.cdsGridInputs.TabIndex = 0;
-            this.cdsGridInputs.RecordClick += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridInputs_RecordClick);
+            this.cdsGridInputs.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridInputs_RecordEnter);
             // 
             // pictureBox7
             // 

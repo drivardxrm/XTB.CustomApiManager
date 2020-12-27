@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewRequestParameterForm));
             this.btnCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
-            this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -109,6 +109,31 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(525, 345);
             this.panel2.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(27, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "Custom API";
+            // 
+            // cdsCustomApiName
+            // 
+            this.cdsCustomApiName.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsCustomApiName.DisplayFormat = "{{name}} ({{uniquename}})";
+            this.cdsCustomApiName.Entity = null;
+            this.cdsCustomApiName.EntityReference = null;
+            this.cdsCustomApiName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cdsCustomApiName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsCustomApiName.Location = new System.Drawing.Point(106, 43);
+            this.cdsCustomApiName.LogicalName = "customapi";
+            this.cdsCustomApiName.Name = "cdsCustomApiName";
+            this.cdsCustomApiName.OrganizationService = null;
+            this.cdsCustomApiName.Size = new System.Drawing.Size(317, 20);
+            this.cdsCustomApiName.TabIndex = 77;
             // 
             // label17
             // 
@@ -199,7 +224,6 @@
             // cboEntities
             // 
             this.cboEntities.AutoLoadData = false;
-            this.cboEntities.Enabled = false;
             this.cboEntities.LanguageCode = 1033;
             this.cboEntities.Location = new System.Drawing.Point(127, 233);
             this.cboEntities.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -318,31 +342,6 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(319, 49);
             this.txtDescription.TabIndex = 38;
-            // 
-            // cdsCustomApiName
-            // 
-            this.cdsCustomApiName.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsCustomApiName.DisplayFormat = "{{name}} ({{uniquename}})";
-            this.cdsCustomApiName.Entity = null;
-            this.cdsCustomApiName.EntityReference = null;
-            this.cdsCustomApiName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cdsCustomApiName.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsCustomApiName.Location = new System.Drawing.Point(106, 43);
-            this.cdsCustomApiName.LogicalName = "customapi";
-            this.cdsCustomApiName.Name = "cdsCustomApiName";
-            this.cdsCustomApiName.OrganizationService = null;
-            this.cdsCustomApiName.Size = new System.Drawing.Size(317, 20);
-            this.cdsCustomApiName.TabIndex = 77;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 13);
-            this.label2.TabIndex = 78;
-            this.label2.Text = "Custom API";
             // 
             // NewRequestParameterForm
             // 

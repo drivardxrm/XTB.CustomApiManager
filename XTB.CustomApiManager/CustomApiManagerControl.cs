@@ -177,7 +177,7 @@ namespace XTB.CustomApiManager
 
         private void btnEditInput_Click(object sender, EventArgs e)
         {
-
+            UpdateRequestParameterDialog();
         }
 
 
@@ -191,7 +191,7 @@ namespace XTB.CustomApiManager
 
         private void btnEditOutput_Click(object sender, EventArgs e)
         {
-
+            UpdateResponsePropertyDialog();
         }
 
 
@@ -269,30 +269,45 @@ namespace XTB.CustomApiManager
 
         private void cdsCboCustomApi_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Clear SElected Input / Output if needed
+            SelectedRequestParameter = null;
+            SelectedResponseProperty = null;
+            ExecuteMethod(SetRequestParameter);
+            ExecuteMethod(SetResponseProperty);
+
+
             if (cdsCboCustomApi.SelectedIndex != -1)
             {
                 SelectedCustomApi = cdsCboCustomApi.SelectedEntity;
                 ExecuteMethod(SetCustomApi);
+
+                
             }
             else 
             {
                 SelectedCustomApi = null;
                 ExecuteMethod(SetCustomApi);
-                //cdsGridInputs.DataSource = null;
-                //cdsGridOutputs.DataSource = null;
             }
+
+
             
         }
 
-        private void cdsGridInputs_RecordClick(object sender, CRMRecordEventArgs e)
+        
+
+        private void cdsGridInputs_RecordEnter(object sender, CRMRecordEventArgs e)
         {
-            ExecuteMethod(SetRequestParameter, e.Entity);
+            SelectedRequestParameter = Service.GetRequestParameter(e.Entity.Id);
+            ExecuteMethod(SetRequestParameter);
         }
 
-        private void cdsGridOutputs_RecordClick(object sender, CRMRecordEventArgs e)
+        private void cdsGridOutputs_RecordEnter(object sender, CRMRecordEventArgs e)
         {
-            ExecuteMethod(SetResponseProperty, e.Entity);
+            SelectedResponseProperty = Service.GetResponseProperty(e.Entity.Id);
+            ExecuteMethod(SetResponseProperty);
         }
+
+
         #endregion
 
         #region Private Methods
@@ -429,15 +444,15 @@ namespace XTB.CustomApiManager
             grpOutputs.Enabled = SelectedCustomApi != null;
 
 
-            SetRequestParameters();
-            SetResponseProperties();
+            LoadRequestParameters();
+            LoadResponseProperties();
 
 
             
            
         }
 
-        private void SetRequestParameters() 
+        private void LoadRequestParameters(Guid? selected = null) 
         {
             //Get Inputs
             WorkAsync(new WorkAsyncInfo
@@ -460,29 +475,44 @@ namespace XTB.CustomApiManager
                         {
                             var requestparameters = (EntityCollection)args.Result;
                             cdsGridInputs.DataSource = requestparameters;
+                            cdsGridInputs.ClearSelection();
 
+                            if (cdsGridInputs.Rows.Count > 0)
+                            {
+                                int index = GetGridSelectedIndex(cdsGridInputs, selected);
+                                cdsGridInputs.CurrentCell = cdsGridInputs.Rows[index].Cells[2];
 
+                            }
                         }
                     }
                 }
             });
         }
 
-        private void SetRequestParameter(Entity requestparameter) 
+
+        
+
+        private void SetRequestParameter() 
         {
 
-            SelectedRequestParameter = requestparameter;
-            cdsTxtRequestUniqueName.Entity = requestparameter;
-            cdsTxtRequestName.Entity = requestparameter;
-            cdsTxtRequestDisplayName.Entity = requestparameter;
-            cdsTxtRequestDescription.Entity = requestparameter;
-            cdsTxtRequestBoundEntity.Entity = requestparameter;
-            cdsTxtRequestType.Entity = requestparameter;
-            cdsTxtRequestIsOptional.Entity = requestparameter;
+            
+            cdsTxtRequestUniqueName.Entity = SelectedRequestParameter;
+            cdsTxtRequestName.Entity = SelectedRequestParameter;
+            cdsTxtRequestDisplayName.Entity = SelectedRequestParameter;
+            cdsTxtRequestDescription.Entity = SelectedRequestParameter;
+            cdsTxtRequestBoundEntity.Entity = SelectedRequestParameter;
+            cdsTxtRequestType.Entity = SelectedRequestParameter;
+            cdsTxtRequestIsOptional.Entity = SelectedRequestParameter;
+
+
+            //enable buttons
+            btnEditInput.Enabled = SelectedRequestParameter != null;
+            btnDeleteInput.Enabled = SelectedRequestParameter != null;
+
         }
 
 
-        private void SetResponseProperties()
+        private void LoadResponseProperties(Guid? selected = null)
         {
             WorkAsync(new WorkAsyncInfo
             {
@@ -504,7 +534,14 @@ namespace XTB.CustomApiManager
                         {
                             var responseproperties = (EntityCollection)args.Result;
                             cdsGridOutputs.DataSource = responseproperties;
+                            cdsGridOutputs.ClearSelection();
 
+                            if (cdsGridOutputs.Rows.Count > 0)
+                            {
+                                int index = GetGridSelectedIndex(cdsGridOutputs, selected);
+                                cdsGridOutputs.CurrentCell = cdsGridOutputs.Rows[index].Cells[2];
+
+                            }
 
                         }
                     }
@@ -512,20 +549,43 @@ namespace XTB.CustomApiManager
             });
         }
 
-        private void SetResponseProperty(Entity responseproperty)
+        private void SetResponseProperty()
         {
-            SelectedResponseProperty = responseproperty;
 
-            cdsTxtResponseUniqueName.Entity = responseproperty;
-            cdsTxtResponseName.Entity = responseproperty;
-            cdsTxtResponseDisplayName.Entity = responseproperty;
-            cdsTxtResponseDescription.Entity = responseproperty;
-            cdsTxtResponseBoundEntity.Entity = responseproperty;
-            cdsTxtResponseType.Entity = responseproperty;
+            cdsTxtResponseUniqueName.Entity = SelectedResponseProperty;
+            cdsTxtResponseName.Entity = SelectedResponseProperty;
+            cdsTxtResponseDisplayName.Entity = SelectedResponseProperty;
+            cdsTxtResponseDescription.Entity = SelectedResponseProperty;
+            cdsTxtResponseBoundEntity.Entity = SelectedResponseProperty;
+            cdsTxtResponseType.Entity = SelectedResponseProperty;
+
+            //enable buttons
+            btnEditOutput.Enabled = SelectedResponseProperty != null;
+            btnDeleteOutput.Enabled = SelectedResponseProperty != null;
 
         }
 
-        
+
+        /// Method to find the index of a given ID (Guid) in a CRMGridView. A bit shady but it works.
+        private int GetGridSelectedIndex(CRMGridView crmgridview, Guid? selected)
+        {
+            var index = 0;
+            if (selected != null)
+            {
+
+                foreach (DataGridViewRow row in crmgridview.Rows)
+                {
+
+                    DataRow datarow = ((DataRowView)row.DataBoundItem).Row;
+                    if (datarow != null && datarow.Field<Guid>("#id") == selected)
+                    {
+                        index = datarow.Field<int>("#no") - 1;
+                    }
+                }
+            }
+            return index;
+        }
+
 
         private void CreateApiDialog() 
         {
@@ -539,7 +599,7 @@ namespace XTB.CustomApiManager
             {
 
                 //refresh custom api list and select newly created
-                SelectedCustomApi = Service.Retrieve(CustomAPI.EntityName, inputdlg.NewCustomApiId, new ColumnSet() { AllColumns = true });
+                SelectedCustomApi = Service.GetCustomApi(inputdlg.NewCustomApiId);
                 ExecuteMethod(LoadCustomApis);
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -584,13 +644,32 @@ namespace XTB.CustomApiManager
             if (dlgresult == DialogResult.OK && inputdlg.NewCustomApiRequestParameterId != null)
             {
 
-                //refresh custom api list and select newly created
-                //SelectedRequestParameter = Service.Retrieve(CustomAPIRequestParameter.EntityName, inputdlg.NewCustomApiRequestParameterId, new ColumnSet() { AllColumns = true });
-                SetRequestParameters();
+                
+                LoadRequestParameters(inputdlg.NewCustomApiRequestParameterId);
 
-                //todo find a way to select newly created
-                //var index = grpInputs.da.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
+               
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
 
+            }
+        }
+
+        private void UpdateRequestParameterDialog()
+        {
+            //todo validations = api must be selected
+            var inputdlg = new UpdateRequestParameterForm(Service, SelectedCustomApi, SelectedRequestParameter);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.RequestParameterUpdated)
+            {
+
+
+                //refresh custom api list and refresh form
+                LoadRequestParameters(SelectedRequestParameter.Id);
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -611,12 +690,30 @@ namespace XTB.CustomApiManager
             {
 
                 //refresh custom api list and select newly created
-                //SelectedRequestParameter = Service.Retrieve(CustomAPIRequestParameter.EntityName, inputdlg.NewCustomApiRequestParameterId, new ColumnSet() { AllColumns = true });
-                SetResponseProperties();
+                LoadResponseProperties(inputdlg.NewCustomApiResponsePropertyId);
 
-                //todo find a way to select newly created
-                //var index = grpInputs.da.Entities.Select(e => e.Id).ToList().IndexOf(SelectedCustomApi?.Id ?? Guid.Empty);
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
 
+            }
+        }
+
+
+        private void UpdateResponsePropertyDialog()
+        {
+            //todo validations = api must be selected
+            var inputdlg = new UpdateResponsePropertyForm(Service, SelectedCustomApi, SelectedResponseProperty);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.ResponsePropertyUpdated)
+            {
+
+                //refresh custom api list and select newly updated
+                LoadResponseProperties(SelectedResponseProperty.Id);
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -632,8 +729,10 @@ namespace XTB.CustomApiManager
 
 
 
+
+
         #endregion
 
-
+        
     }
 }

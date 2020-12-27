@@ -207,7 +207,6 @@
             // cboEntities
             // 
             this.cboEntities.AutoLoadData = false;
-            this.cboEntities.Enabled = false;
             this.cboEntities.LanguageCode = 1033;
             this.cboEntities.Location = new System.Drawing.Point(127, 233);
             this.cboEntities.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
