@@ -155,6 +155,24 @@
     <Compile Include="Entities\EntityCodes.cs" />
     <Compile Include="Entities\Publisher.cs" />
     <Compile Include="Entities\Solution.cs" />
+    <Compile Include="Forms\DeleteResponsePropertyForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteResponsePropertyForm.designer.cs">
+      <DependentUpon>DeleteResponsePropertyForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteRequestParameterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteRequestParameterForm.designer.cs">
+      <DependentUpon>DeleteRequestParameterForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteCustomApiForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteCustomApiForm.designer.cs">
+      <DependentUpon>DeleteCustomApiForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateResponsePropertyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +244,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomApiManagerControl.resx">
       <DependentUpon>CustomApiManagerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteResponsePropertyForm.resx">
+      <DependentUpon>DeleteResponsePropertyForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteRequestParameterForm.resx">
+      <DependentUpon>DeleteRequestParameterForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteCustomApiForm.resx">
+      <DependentUpon>DeleteCustomApiForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateResponsePropertyForm.resx">
       <DependentUpon>UpdateResponsePropertyForm.cs</DependentUpon>

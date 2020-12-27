@@ -43,8 +43,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnNewApi = new System.Windows.Forms.Button();
             this.btnDeleteApi = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.grpOutputs = new System.Windows.Forms.GroupBox();
             this.btnDeleteOutput = new System.Windows.Forms.Button();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
@@ -128,7 +126,6 @@
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.toolStripMenu.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.grpOutputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
@@ -199,7 +196,6 @@
             // 
             this.groupBox1.Controls.Add(this.btnNewApi);
             this.groupBox1.Controls.Add(this.btnDeleteApi);
-            this.groupBox1.Controls.Add(this.groupBox3);
             this.groupBox1.Controls.Add(this.grpOutputs);
             this.groupBox1.Controls.Add(this.grpInputs);
             this.groupBox1.Controls.Add(this.pictureBox7);
@@ -272,24 +268,6 @@
             this.btnDeleteApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDeleteApi.UseVisualStyleBackColor = true;
             this.btnDeleteApi.Click += new System.EventHandler(this.btnDeleteApi_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.textBox1);
-            this.groupBox3.Location = new System.Drawing.Point(423, 19);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(684, 98);
-            this.groupBox3.TabIndex = 81;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Messages";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(17, 20);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(661, 72);
-            this.textBox1.TabIndex = 0;
             // 
             // grpOutputs
             // 
@@ -1356,8 +1334,6 @@
             this.toolStripMenu.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.grpOutputs.ResumeLayout(false);
             this.grpOutputs.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
@@ -1426,8 +1402,6 @@
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.Button btnDeleteApi;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.GroupBox grpOutputs;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label20;

@@ -197,17 +197,19 @@ namespace XTB.CustomApiManager
 
         private void btnDeleteApi_Click(object sender, EventArgs e)
         {
+            DeleteApiDialog();
+        }
 
+       
+
+        private void btnDeleteInput_Click(object sender, EventArgs e)
+        {
+            DeleteRequestParameterDialog();
         }
 
         private void btnDeleteOutput_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btnDeleteInput_Click(object sender, EventArgs e)
-        {
-
+            DeleteResponsePropertyDialog();
         }
 
 
@@ -632,6 +634,38 @@ namespace XTB.CustomApiManager
             }
         }
 
+        private void DeleteApiDialog()
+        {
+            //todo validations = api must be selected
+            var inputdlg = new DeleteCustomApiForm(Service, SelectedCustomApi);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.CustomApiDeleted)
+            {
+
+
+                //refresh custom api list and select newly updated
+                
+                SelectedCustomApi = null;
+                ExecuteMethod(LoadCustomApis);
+
+                //Clear SElected Input / Output if needed
+                SelectedRequestParameter = null;
+                SelectedResponseProperty = null;
+                ExecuteMethod(SetRequestParameter);
+                ExecuteMethod(SetResponseProperty);
+
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
 
         private void CreateRequestParameterDialog()
         {
@@ -670,6 +704,52 @@ namespace XTB.CustomApiManager
 
                 //refresh custom api list and refresh form
                 LoadRequestParameters(SelectedRequestParameter.Id);
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
+        private void DeleteRequestParameterDialog()
+        {
+
+            var inputdlg = new DeleteRequestParameterForm(Service, SelectedCustomApi, SelectedRequestParameter);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.RequestParameterDeleted)
+            {
+
+                SelectedRequestParameter = null;
+                SetRequestParameter();
+                LoadRequestParameters();
+
+            }
+            else if (dlgresult == DialogResult.Ignore)
+            {
+
+            }
+        }
+
+        private void DeleteResponsePropertyDialog()
+        {
+
+            var inputdlg = new DeleteResponsePropertyForm(Service, SelectedCustomApi, SelectedResponseProperty);
+            var dlgresult = inputdlg.ShowDialog();
+            if (dlgresult == DialogResult.Cancel)
+            {
+                return;
+            }
+            if (dlgresult == DialogResult.OK && inputdlg.ResponseParameterDeleted)
+            {
+
+                SelectedResponseProperty = null;
+                SetResponseProperty();
+                LoadResponseProperties();
 
             }
             else if (dlgresult == DialogResult.Ignore)
