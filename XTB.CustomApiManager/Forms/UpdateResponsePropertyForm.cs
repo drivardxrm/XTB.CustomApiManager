@@ -66,8 +66,11 @@ namespace XTB.CustomApiManager.Forms
                 var responsepropertytoupdate = ResponsePropertyToUpdate();
                 if (_shouldupdate)
                 {
+
+                    Cursor = Cursors.WaitCursor;
                     _service.Update(responsepropertytoupdate);
                     ResponsePropertyUpdated = true;
+                    Cursor = Cursors.Default;
                 }
                 else
                 {
@@ -79,6 +82,7 @@ namespace XTB.CustomApiManager.Forms
             }
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 DialogResult = DialogResult.None;
             }

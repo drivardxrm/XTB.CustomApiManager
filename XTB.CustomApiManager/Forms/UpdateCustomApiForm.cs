@@ -180,8 +180,10 @@ namespace XTB.CustomApiManager.Forms
                 var customapitoupdate = CustomApiToUpdate();
                 if (_shouldupdate)
                 {
+                    Cursor = Cursors.WaitCursor;
                     _service.Update(customapitoupdate);
                     CustomApiUpdated = true;
+                    Cursor = Cursors.Default;
                 }
                 else 
                 {
@@ -193,6 +195,7 @@ namespace XTB.CustomApiManager.Forms
             }
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 DialogResult = DialogResult.None;
             }

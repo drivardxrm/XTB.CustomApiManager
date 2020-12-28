@@ -224,6 +224,7 @@
             // cboEntities
             // 
             this.cboEntities.AutoLoadData = false;
+            this.cboEntities.Enabled = false;
             this.cboEntities.LanguageCode = 1033;
             this.cboEntities.Location = new System.Drawing.Point(127, 233);
             this.cboEntities.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -232,6 +233,7 @@
             this.cboEntities.Size = new System.Drawing.Size(215, 25);
             this.cboEntities.SolutionFilter = null;
             this.cboEntities.TabIndex = 63;
+
             // 
             // label11
             // 
@@ -274,6 +276,7 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 48;
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // label6
             // 

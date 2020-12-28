@@ -67,8 +67,10 @@ namespace XTB.CustomApiManager.Forms
                 var requestparamtoupdate = RequestParameterToUpdate();
                 if (_shouldupdate)
                 {
+                    Cursor = Cursors.WaitCursor;
                     _service.Update(requestparamtoupdate);
                     RequestParameterUpdated = true;
+                    Cursor = Cursors.Default;
                 }
                 else
                 {
@@ -80,6 +82,7 @@ namespace XTB.CustomApiManager.Forms
             }
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 DialogResult = DialogResult.None;
             }

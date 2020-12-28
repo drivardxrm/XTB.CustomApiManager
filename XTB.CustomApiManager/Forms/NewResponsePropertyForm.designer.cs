@@ -257,6 +257,7 @@
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(211, 21);
             this.cboType.TabIndex = 48;
+            this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // label6
             // 

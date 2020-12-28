@@ -54,26 +54,13 @@ namespace XTB.CustomApiManager.Forms
 
 
         #region Private Event Handlers
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                NewCustomApiResponsePropertyId = _service.Create(ResponsePropertyToCreate());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                DialogResult = DialogResult.None;
-            }
-
-        }
+       
 
 
         private void txtUniqueName_Leave(object sender, EventArgs e)
         {
             //todo make compositename configurable in settings
-            var compositename = $"{cdsCustomApiName.EntityReference.Name}-Out-{txtUniqueName.Text}"; ;
+            var compositename = $"{cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName]}-Out-{txtUniqueName.Text}";
             if (txtName.Text == string.Empty)
             {
                 txtName.Text = compositename;
@@ -86,7 +73,37 @@ namespace XTB.CustomApiManager.Forms
 
         }
 
-        
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsBoundToEntity())
+            {
+                cboEntities.LoadData();
+                cboEntities.Enabled = true;
+            }
+            else
+            {
+                cboEntities.ClearData();
+                cboEntities.Enabled = false;
+            }
+
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                NewCustomApiResponsePropertyId = _service.Create(ResponsePropertyToCreate());
+                Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor = Cursors.Default;
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                DialogResult = DialogResult.None;
+            }
+
+        }
 
         #endregion Private Event Handlers
 
@@ -96,9 +113,9 @@ namespace XTB.CustomApiManager.Forms
 
         #endregion Private Methods
 
-       
 
-        
+
+
 
 
 
@@ -139,20 +156,6 @@ namespace XTB.CustomApiManager.Forms
                     cboType.SelectedIndex == (int)CustomAPIResponseProperty.Type_OptionSet.EntityReference;
         }
 
-        
-
-        //private bool CanCreate() 
-        //{
-        //    return 
-        //            !string.IsNullOrEmpty(txtUniqueName.Text) &&
-        //            !string.IsNullOrEmpty(txtName.Text) &&
-        //            !string.IsNullOrEmpty(txtDisplayName.Text) &&
-        //            (IsBoundToEntity() && !string.IsNullOrEmpty(cboEntities.SelectedEntity?.LogicalName)
-        //              ||
-        //            !IsBoundToEntity());
-
-
-        //}
         
     }
 }

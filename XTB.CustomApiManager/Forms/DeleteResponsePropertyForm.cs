@@ -37,14 +37,15 @@ namespace XTB.CustomApiManager.Forms
         {
             try
             {
-
+                Cursor = Cursors.WaitCursor;
                 _service.Delete(CustomAPIResponseProperty.EntityName, _responsepropertytodelete.Id);
                 ResponseParameterDeleted = true;
-
+                Cursor = Cursors.Default;
             }
 
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 DialogResult = DialogResult.None;
             }

@@ -34,7 +34,7 @@ namespace XTB.CustomApiManager.Forms
             cdsCboPrivileges.DataSource = 
 
             cboEntities.Service = service;
-            cboEntities.Update();
+            //cboEntities.Update();
 
             cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
@@ -74,12 +74,14 @@ namespace XTB.CustomApiManager.Forms
         {
             try
             {
-                //todo modify for Update
 
+                Cursor = Cursors.WaitCursor;
                 NewCustomApiId = _service.Create(CustomApiToCreate());
+                Cursor = Cursors.Default;
             }
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 DialogResult = DialogResult.None;
             }
@@ -104,8 +106,8 @@ namespace XTB.CustomApiManager.Forms
         private void cboBindingType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            cboEntities.Enabled = cboBindingType.SelectedIndex == (int)CustomAPI.BindingType_OptionSet.Entity;
-            if (cboEntities.Enabled == true)
+            cboEntities.Enabled = IsBoundToEntity();
+            if (IsBoundToEntity())
             {
                 cboEntities.LoadData();
             }
@@ -114,14 +116,6 @@ namespace XTB.CustomApiManager.Forms
                 cboEntities.ClearData();
             }
         }
-
-        #endregion Private Event Handlers
-
-        #region Private Methods
-
-
-
-        #endregion Private Methods
 
         private void btnLookupPluginType_Click(object sender, EventArgs e)
         {
@@ -136,7 +130,7 @@ namespace XTB.CustomApiManager.Forms
                     //txtLookupPluginType.Entity = null;
                     break;
             }
-            //cmbValue.Text = (txtLookup?.Entity?.Id ?? Guid.Empty).ToString();
+
             Cursor = Cursors.Default;
         }
 
@@ -154,12 +148,22 @@ namespace XTB.CustomApiManager.Forms
 
                     break;
                 case DialogResult.Abort:
-                    
+
                     break;
             }
-           
+
             Cursor = Cursors.Default;
         }
+
+        #endregion Private Event Handlers
+
+        #region Private Methods
+
+
+
+        #endregion Private Methods
+
+
 
 
 
@@ -207,24 +211,7 @@ namespace XTB.CustomApiManager.Forms
             return !string.IsNullOrEmpty(txtLookupPublisher.Text);
         }
 
-        private bool CanCreate() 
-        {
-            return !string.IsNullOrEmpty(txtPrefix.Text) &&
-                    !string.IsNullOrEmpty(txtUniqueName.Text) &&
-                    !string.IsNullOrEmpty(txtName.Text) &&
-                    !string.IsNullOrEmpty(txtDisplayName.Text) &&
-                    (IsBoundToEntity() && !string.IsNullOrEmpty(cboEntities.SelectedEntity?.LogicalName)
-                      ||
-                    !IsBoundToEntity());
-
-
-        }
-
         
-
-        
-
-       
 
         private void LoadPrivileges()
         {

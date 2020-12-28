@@ -30,7 +30,7 @@ namespace XTB.CustomApiManager.Forms
 
 
             cboEntities.Service = service;
-            cboEntities.Update();
+            //cboEntities.Update();
 
             cboType.DataSource = Enum.GetValues(typeof(CustomAPIRequestParameter.Type_OptionSet));           
 
@@ -54,26 +54,13 @@ namespace XTB.CustomApiManager.Forms
 
 
         #region Private Event Handlers
-        private void btnOk_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-                NewCustomApiRequestParameterId = _service.Create(RequestParameterToCreate());
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                DialogResult = DialogResult.None;
-            }
-
-        }
+        
 
 
         private void txtUniqueName_Leave(object sender, EventArgs e)
         {
             //todo make compositename configurable in settings
-            var compositename = $"{cdsCustomApiName.Text}-In-{txtUniqueName.Text}"; ;
+            var compositename = $"{cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName]}-In-{txtUniqueName.Text}"; 
             if (txtName.Text == string.Empty)
             {
                 txtName.Text = compositename;
@@ -86,7 +73,38 @@ namespace XTB.CustomApiManager.Forms
 
         }
 
-        
+        private void cboType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsBoundToEntity())
+            {
+                cboEntities.LoadData();
+                cboEntities.Enabled = true;
+            }
+            else 
+            {
+                cboEntities.ClearData();
+                cboEntities.Enabled = false;
+            }
+
+        }
+
+        private void btnOk_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Cursor = Cursors.WaitCursor;
+                NewCustomApiRequestParameterId = _service.Create(RequestParameterToCreate());
+                Cursor = Cursors.Default;
+            }
+            catch (Exception ex)
+            {
+                Cursor = Cursors.Default;
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                DialogResult = DialogResult.None;
+            }
+
+        }
+
 
         #endregion Private Event Handlers
 
@@ -96,9 +114,9 @@ namespace XTB.CustomApiManager.Forms
 
         #endregion Private Methods
 
-       
 
-        
+
+
 
 
 
@@ -156,6 +174,7 @@ namespace XTB.CustomApiManager.Forms
 
 
         }
+
         
     }
 }

@@ -27,9 +27,6 @@ namespace XTB.CustomApiManager.Forms
 
         }
 
-       
-
-       
 
         public bool CustomApiDeleted { get; private set; }
 
@@ -41,14 +38,15 @@ namespace XTB.CustomApiManager.Forms
         {
             try
             {
-
+                Cursor = Cursors.WaitCursor;
                 _service.Delete(CustomAPI.EntityName, _customapitodelete.Id);
                 CustomApiDeleted = true;
-
+                Cursor = Cursors.Default;
             }
 
             catch (Exception ex)
             {
+                Cursor = Cursors.Default;
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                 DialogResult = DialogResult.None;
             }
