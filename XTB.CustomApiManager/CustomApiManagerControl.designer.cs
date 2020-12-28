@@ -38,6 +38,7 @@
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
+            this.menuTestApi = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
             this.grpCustomApi = new System.Windows.Forms.GroupBox();
@@ -154,6 +155,7 @@
             this.toolStripMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuRefresh,
             this.menuNewApi,
+            this.menuTestApi,
             this.tssSeparator1,
             this.tslAbout});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
@@ -178,7 +180,17 @@
             this.menuNewApi.Name = "menuNewApi";
             this.menuNewApi.Size = new System.Drawing.Size(117, 28);
             this.menuNewApi.Text = "Create New API";
-            this.menuNewApi.Click += new System.EventHandler(this.menuNewCustomApi_Click);
+            this.menuNewApi.Click += new System.EventHandler(this.menuNewApi_Click);
+            // 
+            // menuTestApi
+            // 
+            this.menuTestApi.Enabled = false;
+            this.menuTestApi.Image = ((System.Drawing.Image)(resources.GetObject("menuTestApi.Image")));
+            this.menuTestApi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuTestApi.Name = "menuTestApi";
+            this.menuTestApi.Size = new System.Drawing.Size(176, 28);
+            this.menuTestApi.Text = "Open in Custom API Tester";
+            this.menuTestApi.Click += new System.EventHandler(this.menuTestApi_Click);
             // 
             // tssSeparator1
             // 
@@ -1401,7 +1413,7 @@
         private System.Windows.Forms.Button btnEditCustomApi;
         private System.Windows.Forms.Label lblPlugintype;
         private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPluginType;
-        private System.Windows.Forms.ToolStripButton menuNewApi;
+        private System.Windows.Forms.ToolStripButton menuTestApi;
         private System.Windows.Forms.GroupBox grpFilter;
         private xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog dlgLookupPublisher;
         private System.Windows.Forms.Label label12;
@@ -1477,5 +1489,6 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboSolutions;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.ToolStripButton menuNewApi;
     }
 }

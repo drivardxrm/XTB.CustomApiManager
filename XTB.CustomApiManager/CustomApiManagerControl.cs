@@ -18,12 +18,15 @@ using XTB.CustomApiManager.Entities;
 using xrmtb.XrmToolBox.Controls.Controls;
 using xrmtb.XrmToolBox.Controls;
 using XTB.CustomApiManager.Forms;
+using XrmToolBox.Extensibility.Interfaces;
 
 namespace XTB.CustomApiManager
 {
-    public partial class CustomApiManagerControl : PluginControlBase
+    public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
         private Settings mySettings;
+
+        private Guid _inArgument;
 
         private Entity _selectedSolution;
 
@@ -35,6 +38,12 @@ namespace XTB.CustomApiManager
 
         private Entity _selectedPublisher;
 
+        public string RepositoryName => "XTB.CustomApiManager";
+
+        public string UserName => "drivardxrm";
+
+        public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
+
         public CustomApiManagerControl()
         {
             InitializeComponent();
@@ -43,9 +52,6 @@ namespace XTB.CustomApiManager
         private void CustomApiManagerControl_Load(object sender, EventArgs e)
         {
             ShowInfoNotification("Disclaimer : Dataverse Custom APIs are still considered a preview feature.", new Uri("https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/custom-api"));
-            
-
-            
 
             // Loads or creates the settings for the plugin
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
@@ -111,6 +117,27 @@ namespace XTB.CustomApiManager
             
         }
 
+        //If PLugin is opened from INtegration with another plugin
+        //TargetArgumet = GUID of Custom API to display (string format)
+        public void OnIncomingMessage(MessageBusEventArgs message)
+        {
+            
+            if (message.TargetArgument is string arg && Guid.TryParse(arg, out Guid argid))
+            {
+                _inArgument = argid;
+                if (cdsCboCustomApi.DataSource != null) 
+                {
+                    var index = ((EntityCollection)cdsCboCustomApi.DataSource).Entities.Select(e => e.Id).ToList().IndexOf(argid);
+
+                    cdsCboCustomApi.SelectedIndex = index;
+                    cdsCboCustomApi.Enabled = true;
+                }
+                
+
+            }
+        }
+
+
         /// <summary>
         /// This event occurs when the plugin is closed
         /// </summary>
@@ -154,12 +181,25 @@ namespace XTB.CustomApiManager
         {
             ExecuteMethod(LoadCustomApis);
         }
-        private void menuNewCustomApi_Click(object sender, EventArgs e)
+
+
+        private void menuNewApi_Click(object sender, EventArgs e)
         {
             CreateApiDialog();
+        }
+        private void menuTestApi_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Tester") { TargetArgument = _selectedCustomApi.Id.ToString() });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
 
         }
-
 
         private void btnNewApi_Click(object sender, EventArgs e)
         {
@@ -301,6 +341,8 @@ namespace XTB.CustomApiManager
             //Refresh Inputs / Outputs
             LoadRequestParameters();
             LoadResponseProperties();
+
+            menuTestApi.Enabled = cdsCboCustomApi.SelectedIndex != -1;
 
         }
 
@@ -865,7 +907,11 @@ namespace XTB.CustomApiManager
 
 
 
+
+
         #endregion
+
+        
 
         
     }
