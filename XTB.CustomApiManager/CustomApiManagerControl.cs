@@ -114,11 +114,11 @@ namespace XTB.CustomApiManager
             cdsTxtResponseBoundEntity.OrganizationService = Service;
             cdsTxtResponseType.OrganizationService = Service;
 
-            
+
         }
 
-        //If PLugin is opened from INtegration with another plugin
-        //TargetArgumet = GUID of Custom API to display (string format)
+        //If Plugin is opened from Integration with another plugin
+        //TargetArgumet = GUID of Custom API to display (string format)	Id
         public void OnIncomingMessage(MessageBusEventArgs message)
         {
             
@@ -127,7 +127,10 @@ namespace XTB.CustomApiManager
                 _inArgument = argid;
                 if (cdsCboCustomApi.DataSource != null) 
                 {
-                    var index = ((EntityCollection)cdsCboCustomApi.DataSource).Entities.Select(e => e.Id).ToList().IndexOf(argid);
+                    var type = cdsCboCustomApi.DataSource.GetType();
+
+
+                    var index = ((DataCollection<Entity>)cdsCboCustomApi.DataSource).Select(e => e.Id).ToList().IndexOf(argid);
 
                     cdsCboCustomApi.SelectedIndex = index;
                     cdsCboCustomApi.Enabled = true;
