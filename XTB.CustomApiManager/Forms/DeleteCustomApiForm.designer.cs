@@ -29,31 +29,17 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteCustomApiForm));
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.btnOk = new System.Windows.Forms.Button();
-            this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.label2 = new System.Windows.Forms.Label();
             this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnOk = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(375, 159);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(78, 32);
-            this.btnCancel.TabIndex = 1;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -68,66 +54,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 205);
             this.panel2.TabIndex = 5;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(104, 86);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(320, 52);
-            this.textBox1.TabIndex = 75;
-            this.textBox1.Text = "Warning : this operation will delete the selected Custom API and all related Requ" +
-    "est parameters and Response properties. This action is irreversible.";
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(19, 11);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(162, 20);
-            this.lblTitle.TabIndex = 73;
-            this.lblTitle.Text = "Delete Custom API";
-            // 
-            // btnOk
-            // 
-            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.BackColor = System.Drawing.Color.Red;
-            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
-            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(291, 159);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(78, 32);
-            this.btnOk.TabIndex = 72;
-            this.btnOk.Text = "Delete";
-            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOk.UseVisualStyleBackColor = false;
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
-            // 
-            // dlgLookupPublisher
-            // 
-            this.dlgLookupPublisher.Entity = null;
-            this.dlgLookupPublisher.LogicalName = "publisher";
-            this.dlgLookupPublisher.LogicalNames = new string[] {
-        "publisher"};
-            this.dlgLookupPublisher.Service = null;
-            this.dlgLookupPublisher.Title = null;
-            // 
-            // dlgLookupPluginType
-            // 
-            this.dlgLookupPluginType.Entity = null;
-            this.dlgLookupPluginType.IncludePersonalViews = true;
-            this.dlgLookupPluginType.LogicalName = "plugintype";
-            this.dlgLookupPluginType.LogicalNames = new string[] {
-        "plugintype"};
-            this.dlgLookupPluginType.Service = null;
-            this.dlgLookupPluginType.Title = "Custom Api - PluginType";
             // 
             // label2
             // 
@@ -153,6 +79,80 @@
             this.cdsCustomApiName.OrganizationService = null;
             this.cdsCustomApiName.Size = new System.Drawing.Size(317, 20);
             this.cdsCustomApiName.TabIndex = 79;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(104, 86);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(320, 52);
+            this.textBox1.TabIndex = 75;
+            this.textBox1.Text = "Warning : this operation will delete the selected Custom API and all related Requ" +
+    "est parameters and Response properties. This action is irreversible.";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(19, 11);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(162, 20);
+            this.lblTitle.TabIndex = 73;
+            this.lblTitle.Text = "Delete Custom API";
+            // 
+            // dlgLookupPublisher
+            // 
+            this.dlgLookupPublisher.Entity = null;
+            this.dlgLookupPublisher.LogicalName = "publisher";
+            this.dlgLookupPublisher.LogicalNames = new string[] {
+        "publisher"};
+            this.dlgLookupPublisher.Service = null;
+            this.dlgLookupPublisher.Title = null;
+            // 
+            // dlgLookupPluginType
+            // 
+            this.dlgLookupPluginType.Entity = null;
+            this.dlgLookupPluginType.IncludePersonalViews = true;
+            this.dlgLookupPluginType.LogicalName = "plugintype";
+            this.dlgLookupPluginType.LogicalNames = new string[] {
+        "plugintype"};
+            this.dlgLookupPluginType.Service = null;
+            this.dlgLookupPluginType.Title = "Custom Api - PluginType";
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
+            this.btnCancel.Location = new System.Drawing.Point(375, 159);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(78, 32);
+            this.btnCancel.TabIndex = 1;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnOk
+            // 
+            this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOk.BackColor = System.Drawing.Color.Red;
+            this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
+            this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOk.Location = new System.Drawing.Point(291, 159);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(78, 32);
+            this.btnOk.TabIndex = 72;
+            this.btnOk.Text = "Delete";
+            this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOk.UseVisualStyleBackColor = false;
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // DeleteCustomApiForm
             // 

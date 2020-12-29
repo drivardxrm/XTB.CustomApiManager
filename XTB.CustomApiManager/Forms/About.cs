@@ -1,48 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
 
-namespace XTB.CustomApiManager
+namespace XTB.CustomApiManager.Forms
 {
     public partial class About : Form
     {
-        #region Private Fields
+        
 
-        private CustomApiManagerControl _customApiManagerControl;
-
-        #endregion Private Fields
-
-        #region Public Constructors
-
-        public About(CustomApiManagerControl customApiManagerControl)
+        public About()
         {
             InitializeComponent();
-            this._customApiManagerControl = customApiManagerControl;
             PopulateAssemblies();
-        }
-
-        #endregion Public Constructors
-
-        #region Private Methods
-
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //autoNumMgr.LogUse("About-OpenHomepage");
-            System.Diagnostics.Process.Start("http://anm.xrmtoolbox.com");
-        }
-
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //autoNumMgr.LogUse("About-OpenBlog");
-            System.Diagnostics.Process.Start("http://jonasrapp.net");
-        }
-
-        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            //autoNumMgr.LogUse("About-OpenTwitter");
-            System.Diagnostics.Process.Start("https://twitter.com/david_rivard");
         }
 
         private void PopulateAssemblies()
@@ -76,21 +48,27 @@ namespace XTB.CustomApiManager
                 assemblyName.Equals("XrmToolBox") ? "AAAAAAAAAAAA" :
                 assemblyName.Contains("XrmToolBox") ? "AAAAAAAAAAAB" :
                 assemblyName.Equals(Assembly.GetExecutingAssembly().GetName().Name) ? "AAAAAAAAAAAC" :
-                assemblyName.Contains("Jonas") ? "AAAAAAAAAAAD" :
-                assemblyName.Contains("Innofactor") ? "AAAAAAAAAAAE" :
-                assemblyName.Contains("Cinteros") ? "AAAAAAAAAAAF" :
+     
                 assemblyName;
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/drivardxrm/XTB.CustomApiManager");
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/drivardxrm");
         }
 
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(@"The evolution of Auto Number Manager is based on feedback issues and anonymous statistics collected about usage.
+            MessageBox.Show(@"The evolution of Custom Action Tester is based on feedback issues and anonymous statistics collected about usage.
 The statistics are a valuable source of information for continuing the development to make the tool even easier to use and improve the most popular features.
 
 Thank You,
 Jonas", "Anonymous statistics", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        #endregion Private Methods
     }
 }

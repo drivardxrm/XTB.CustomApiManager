@@ -28,73 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomApiManagerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
-            this.menuRefresh = new System.Windows.Forms.ToolStripButton();
-            this.menuNewApi = new System.Windows.Forms.ToolStripButton();
-            this.menuTestApi = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.tslAbout = new System.Windows.Forms.ToolStripLabel();
             this.grpCustomApi = new System.Windows.Forms.GroupBox();
-            this.btnDeleteApi = new System.Windows.Forms.Button();
             this.grpOutputs = new System.Windows.Forms.GroupBox();
-            this.btnDeleteOutput = new System.Windows.Forms.Button();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
             this.cdsTxtResponseBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtResponseDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.btnEditOutput = new System.Windows.Forms.Button();
-            this.btnAddOutput = new System.Windows.Forms.Button();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.cdsTxtResponseType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.cdsTxtResponseDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.cdsTxtResponseName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.cdsTxtResponseUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.cdsGridOutputs = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.grpInputs = new System.Windows.Forms.GroupBox();
-            this.btnDeleteInput = new System.Windows.Forms.Button();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.cdsTxtRequestBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtRequestDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.btnEditInput = new System.Windows.Forms.Button();
-            this.btnAddInput = new System.Windows.Forms.Button();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.cdsTxtRequestIsOptional = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.cdsTxtRequestType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.cdsTxtRequestDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.cdsTxtRequestName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.cdsTxtRequestUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cdsGridInputs = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.lblInfoLock = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnEditCustomApi = new System.Windows.Forms.Button();
             this.cdsTxtExecutePrivilegeName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBindingType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -116,7 +91,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnNewApi = new System.Windows.Forms.Button();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -127,26 +101,52 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.btnDeleteApi = new System.Windows.Forms.Button();
+            this.btnDeleteOutput = new System.Windows.Forms.Button();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.btnEditOutput = new System.Windows.Forms.Button();
+            this.btnAddOutput = new System.Windows.Forms.Button();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.btnDeleteInput = new System.Windows.Forms.Button();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.btnEditInput = new System.Windows.Forms.Button();
+            this.btnAddInput = new System.Windows.Forms.Button();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnEditCustomApi = new System.Windows.Forms.Button();
+            this.menuRefresh = new System.Windows.Forms.ToolStripButton();
+            this.menuNewApi = new System.Windows.Forms.ToolStripButton();
+            this.menuTestApi = new System.Windows.Forms.ToolStripButton();
+            this.tslAbout = new System.Windows.Forms.ToolStripLabel();
+            this.btnNewApi = new System.Windows.Forms.Button();
             this.toolStripMenu.SuspendLayout();
             this.grpCustomApi.SuspendLayout();
             this.grpOutputs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdsGridOutputs)).BeginInit();
+            this.grpInputs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdsGridInputs)).BeginInit();
+            this.grpFilter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cdsGridOutputs)).BeginInit();
-            this.grpInputs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cdsGridInputs)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            this.grpFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripMenu
@@ -164,47 +164,10 @@
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
-            // menuRefresh
-            // 
-            this.menuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("menuRefresh.Image")));
-            this.menuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuRefresh.Name = "menuRefresh";
-            this.menuRefresh.Size = new System.Drawing.Size(116, 28);
-            this.menuRefresh.Text = "Refresh API List";
-            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
-            // 
-            // menuNewApi
-            // 
-            this.menuNewApi.Image = ((System.Drawing.Image)(resources.GetObject("menuNewApi.Image")));
-            this.menuNewApi.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuNewApi.Name = "menuNewApi";
-            this.menuNewApi.Size = new System.Drawing.Size(117, 28);
-            this.menuNewApi.Text = "Create New API";
-            this.menuNewApi.Click += new System.EventHandler(this.menuNewApi_Click);
-            // 
-            // menuTestApi
-            // 
-            this.menuTestApi.Enabled = false;
-            this.menuTestApi.Image = ((System.Drawing.Image)(resources.GetObject("menuTestApi.Image")));
-            this.menuTestApi.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuTestApi.Name = "menuTestApi";
-            this.menuTestApi.Size = new System.Drawing.Size(176, 28);
-            this.menuTestApi.Text = "Open in Custom API Tester";
-            this.menuTestApi.Click += new System.EventHandler(this.menuTestApi_Click);
-            // 
             // tssSeparator1
             // 
             this.tssSeparator1.Name = "tssSeparator1";
             this.tssSeparator1.Size = new System.Drawing.Size(6, 31);
-            // 
-            // tslAbout
-            // 
-            this.tslAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.tslAbout.IsLink = true;
-            this.tslAbout.Name = "tslAbout";
-            this.tslAbout.Size = new System.Drawing.Size(89, 28);
-            this.tslAbout.Text = "by David Rivard";
-            this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
             // 
             // grpCustomApi
             // 
@@ -250,21 +213,6 @@
             this.grpCustomApi.TabStop = false;
             this.grpCustomApi.Text = "Custom Api";
             // 
-            // btnDeleteApi
-            // 
-            this.btnDeleteApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteApi.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteApi.Image")));
-            this.btnDeleteApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteApi.Location = new System.Drawing.Point(255, 30);
-            this.btnDeleteApi.Name = "btnDeleteApi";
-            this.btnDeleteApi.Size = new System.Drawing.Size(98, 29);
-            this.btnDeleteApi.TabIndex = 82;
-            this.btnDeleteApi.Text = "Delete API";
-            this.btnDeleteApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteApi.UseVisualStyleBackColor = true;
-            this.btnDeleteApi.Click += new System.EventHandler(this.btnDeleteApi_Click);
-            // 
             // grpOutputs
             // 
             this.grpOutputs.Controls.Add(this.btnDeleteOutput);
@@ -294,32 +242,6 @@
             this.grpOutputs.TabIndex = 80;
             this.grpOutputs.TabStop = false;
             this.grpOutputs.Text = "Response Properties (Output)";
-            // 
-            // btnDeleteOutput
-            // 
-            this.btnDeleteOutput.Enabled = false;
-            this.btnDeleteOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteOutput.Image")));
-            this.btnDeleteOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteOutput.Location = new System.Drawing.Point(451, 16);
-            this.btnDeleteOutput.Name = "btnDeleteOutput";
-            this.btnDeleteOutput.Size = new System.Drawing.Size(164, 29);
-            this.btnDeleteOutput.TabIndex = 85;
-            this.btnDeleteOutput.Text = "Delete Response Prop";
-            this.btnDeleteOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteOutput.UseVisualStyleBackColor = true;
-            this.btnDeleteOutput.Click += new System.EventHandler(this.btnDeleteOutput_Click);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.InitialImage")));
-            this.pictureBox10.Location = new System.Drawing.Point(634, 222);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox10.TabIndex = 78;
-            this.pictureBox10.TabStop = false;
             // 
             // label20
             // 
@@ -367,45 +289,6 @@
             this.label21.Size = new System.Drawing.Size(60, 13);
             this.label21.TabIndex = 74;
             this.label21.Text = "Description";
-            // 
-            // btnEditOutput
-            // 
-            this.btnEditOutput.Enabled = false;
-            this.btnEditOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditOutput.Image")));
-            this.btnEditOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditOutput.Location = new System.Drawing.Point(295, 16);
-            this.btnEditOutput.Name = "btnEditOutput";
-            this.btnEditOutput.Size = new System.Drawing.Size(149, 30);
-            this.btnEditOutput.TabIndex = 71;
-            this.btnEditOutput.Text = "Edit Response Prop";
-            this.btnEditOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditOutput.UseVisualStyleBackColor = true;
-            this.btnEditOutput.Click += new System.EventHandler(this.btnEditOutput_Click);
-            // 
-            // btnAddOutput
-            // 
-            this.btnAddOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnAddOutput.Image")));
-            this.btnAddOutput.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAddOutput.Location = new System.Drawing.Point(17, 17);
-            this.btnAddOutput.Name = "btnAddOutput";
-            this.btnAddOutput.Size = new System.Drawing.Size(155, 29);
-            this.btnAddOutput.TabIndex = 70;
-            this.btnAddOutput.Text = "New Response Prop";
-            this.btnAddOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddOutput.UseVisualStyleBackColor = true;
-            this.btnAddOutput.Click += new System.EventHandler(this.btnAddOutput_Click);
-            // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
-            this.pictureBox16.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.InitialImage")));
-            this.pictureBox16.Location = new System.Drawing.Point(633, 196);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox16.TabIndex = 66;
-            this.pictureBox16.TabStop = false;
             // 
             // cdsTxtResponseType
             // 
@@ -476,16 +359,6 @@
             this.label26.TabIndex = 58;
             this.label26.Text = "Name";
             // 
-            // pictureBox17
-            // 
-            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
-            this.pictureBox17.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.InitialImage")));
-            this.pictureBox17.Location = new System.Drawing.Point(633, 73);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox17.TabIndex = 57;
-            this.pictureBox17.TabStop = false;
-            // 
             // cdsTxtResponseUniqueName
             // 
             this.cdsTxtResponseUniqueName.BackColor = System.Drawing.SystemColors.Window;
@@ -517,37 +390,37 @@
             this.cdsGridOutputs.AllowUserToResizeRows = false;
             this.cdsGridOutputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridOutputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridOutputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridOutputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.cdsGridOutputs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cdsGridOutputs.ColumnOrder = "uniquename, type";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cdsGridOutputs.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cdsGridOutputs.DefaultCellStyle = dataGridViewCellStyle26;
             this.cdsGridOutputs.FilterColumns = "";
             this.cdsGridOutputs.Location = new System.Drawing.Point(17, 52);
             this.cdsGridOutputs.MultiSelect = false;
             this.cdsGridOutputs.Name = "cdsGridOutputs";
             this.cdsGridOutputs.OrganizationService = null;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.cdsGridOutputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridOutputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridOutputs.ShowFriendlyNames = true;
@@ -589,32 +462,6 @@
             this.grpInputs.TabIndex = 60;
             this.grpInputs.TabStop = false;
             this.grpInputs.Text = "Request Parameters (Input)";
-            // 
-            // btnDeleteInput
-            // 
-            this.btnDeleteInput.Enabled = false;
-            this.btnDeleteInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteInput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteInput.Image")));
-            this.btnDeleteInput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteInput.Location = new System.Drawing.Point(456, 18);
-            this.btnDeleteInput.Name = "btnDeleteInput";
-            this.btnDeleteInput.Size = new System.Drawing.Size(164, 29);
-            this.btnDeleteInput.TabIndex = 84;
-            this.btnDeleteInput.Text = "Delete Request Param";
-            this.btnDeleteInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDeleteInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDeleteInput.UseVisualStyleBackColor = true;
-            this.btnDeleteInput.Click += new System.EventHandler(this.btnDeleteInput_Click);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
-            this.pictureBox9.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.InitialImage")));
-            this.pictureBox9.Location = new System.Drawing.Point(632, 246);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(21, 19);
-            this.pictureBox9.TabIndex = 78;
-            this.pictureBox9.TabStop = false;
             // 
             // label19
             // 
@@ -663,45 +510,6 @@
             this.label18.TabIndex = 74;
             this.label18.Text = "Description";
             // 
-            // btnEditInput
-            // 
-            this.btnEditInput.Enabled = false;
-            this.btnEditInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditInput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditInput.Image")));
-            this.btnEditInput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditInput.Location = new System.Drawing.Point(305, 17);
-            this.btnEditInput.Name = "btnEditInput";
-            this.btnEditInput.Size = new System.Drawing.Size(145, 30);
-            this.btnEditInput.TabIndex = 71;
-            this.btnEditInput.Text = "Edit Request Param";
-            this.btnEditInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditInput.UseVisualStyleBackColor = true;
-            this.btnEditInput.Click += new System.EventHandler(this.btnEditInput_Click);
-            // 
-            // btnAddInput
-            // 
-            this.btnAddInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddInput.Image = ((System.Drawing.Image)(resources.GetObject("btnAddInput.Image")));
-            this.btnAddInput.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnAddInput.Location = new System.Drawing.Point(17, 17);
-            this.btnAddInput.Name = "btnAddInput";
-            this.btnAddInput.Size = new System.Drawing.Size(163, 29);
-            this.btnAddInput.TabIndex = 70;
-            this.btnAddInput.Text = "New Request Param";
-            this.btnAddInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddInput.UseVisualStyleBackColor = true;
-            this.btnAddInput.Click += new System.EventHandler(this.btnAddInput_Click);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.InitialImage")));
-            this.pictureBox12.Location = new System.Drawing.Point(455, 197);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox12.TabIndex = 69;
-            this.pictureBox12.TabStop = false;
-            // 
             // cdsTxtRequestIsOptional
             // 
             this.cdsTxtRequestIsOptional.BackColor = System.Drawing.SystemColors.Window;
@@ -724,16 +532,6 @@
             this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 67;
             this.label16.Text = "IsOptional";
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
-            this.pictureBox11.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.InitialImage")));
-            this.pictureBox11.Location = new System.Drawing.Point(633, 221);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox11.TabIndex = 66;
-            this.pictureBox11.TabStop = false;
             // 
             // cdsTxtRequestType
             // 
@@ -804,16 +602,6 @@
             this.label13.TabIndex = 58;
             this.label13.Text = "Name";
             // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.InitialImage")));
-            this.pictureBox8.Location = new System.Drawing.Point(633, 76);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox8.TabIndex = 57;
-            this.pictureBox8.TabStop = false;
-            // 
             // cdsTxtRequestUniqueName
             // 
             this.cdsTxtRequestUniqueName.BackColor = System.Drawing.SystemColors.Window;
@@ -845,37 +633,37 @@
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridInputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridInputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             this.cdsGridInputs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cdsGridInputs.ColumnOrder = "uniquename, type, isoptional";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cdsGridInputs.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cdsGridInputs.DefaultCellStyle = dataGridViewCellStyle29;
             this.cdsGridInputs.FilterColumns = "";
             this.cdsGridInputs.Location = new System.Drawing.Point(17, 52);
             this.cdsGridInputs.MultiSelect = false;
             this.cdsGridInputs.Name = "cdsGridInputs";
             this.cdsGridInputs.OrganizationService = null;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.cdsGridInputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridInputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridInputs.ShowFriendlyNames = true;
@@ -895,46 +683,6 @@
             this.lblInfoLock.TabIndex = 53;
             this.lblInfoLock.Text = "Fields that cannot be modified after creation";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(423, 13);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox2.TabIndex = 52;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
-            this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
-            this.pictureBox7.Location = new System.Drawing.Point(170, 327);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox7.TabIndex = 59;
-            this.pictureBox7.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(255, 246);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox6.TabIndex = 58;
-            this.pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(200, 217);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox5.TabIndex = 57;
-            this.pictureBox5.TabStop = false;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -943,41 +691,6 @@
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 56;
             this.label2.Text = "Bound Entity";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(353, 191);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox4.TabIndex = 55;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(353, 67);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox3.TabIndex = 54;
-            this.pictureBox3.TabStop = false;
-            // 
-            // btnEditCustomApi
-            // 
-            this.btnEditCustomApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditCustomApi.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomApi.Image")));
-            this.btnEditCustomApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditCustomApi.Location = new System.Drawing.Point(111, 30);
-            this.btnEditCustomApi.Name = "btnEditCustomApi";
-            this.btnEditCustomApi.Size = new System.Drawing.Size(98, 29);
-            this.btnEditCustomApi.TabIndex = 19;
-            this.btnEditCustomApi.Text = "Edit API";
-            this.btnEditCustomApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditCustomApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEditCustomApi.UseVisualStyleBackColor = true;
-            this.btnEditCustomApi.Click += new System.EventHandler(this.btnEditCustomApi_Click);
             // 
             // cdsTxtExecutePrivilegeName
             // 
@@ -1226,21 +939,6 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "IsPrivate";
             // 
-            // btnNewApi
-            // 
-            this.btnNewApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNewApi.Image = ((System.Drawing.Image)(resources.GetObject("btnNewApi.Image")));
-            this.btnNewApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewApi.Location = new System.Drawing.Point(518, 26);
-            this.btnNewApi.Name = "btnNewApi";
-            this.btnNewApi.Size = new System.Drawing.Size(131, 29);
-            this.btnNewApi.TabIndex = 83;
-            this.btnNewApi.Text = "Create New API";
-            this.btnNewApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNewApi.UseVisualStyleBackColor = true;
-            this.btnNewApi.Click += new System.EventHandler(this.btnNewApi_Click);
-            // 
             // grpFilter
             // 
             this.grpFilter.Controls.Add(this.label22);
@@ -1356,6 +1054,309 @@
             this.dlgLookupPublisher.Service = null;
             this.dlgLookupPublisher.Title = "Custom Api - PluginType";
             // 
+            // btnDeleteApi
+            // 
+            this.btnDeleteApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteApi.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteApi.Image")));
+            this.btnDeleteApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteApi.Location = new System.Drawing.Point(255, 30);
+            this.btnDeleteApi.Name = "btnDeleteApi";
+            this.btnDeleteApi.Size = new System.Drawing.Size(98, 29);
+            this.btnDeleteApi.TabIndex = 82;
+            this.btnDeleteApi.Text = "Delete API";
+            this.btnDeleteApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteApi.UseVisualStyleBackColor = true;
+            this.btnDeleteApi.Click += new System.EventHandler(this.btnDeleteApi_Click);
+            // 
+            // btnDeleteOutput
+            // 
+            this.btnDeleteOutput.Enabled = false;
+            this.btnDeleteOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteOutput.Image")));
+            this.btnDeleteOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteOutput.Location = new System.Drawing.Point(451, 16);
+            this.btnDeleteOutput.Name = "btnDeleteOutput";
+            this.btnDeleteOutput.Size = new System.Drawing.Size(164, 29);
+            this.btnDeleteOutput.TabIndex = 85;
+            this.btnDeleteOutput.Text = "Delete Response Prop";
+            this.btnDeleteOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteOutput.UseVisualStyleBackColor = true;
+            this.btnDeleteOutput.Click += new System.EventHandler(this.btnDeleteOutput_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox10.InitialImage")));
+            this.pictureBox10.Location = new System.Drawing.Point(634, 222);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox10.TabIndex = 78;
+            this.pictureBox10.TabStop = false;
+            // 
+            // btnEditOutput
+            // 
+            this.btnEditOutput.Enabled = false;
+            this.btnEditOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditOutput.Image")));
+            this.btnEditOutput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditOutput.Location = new System.Drawing.Point(295, 16);
+            this.btnEditOutput.Name = "btnEditOutput";
+            this.btnEditOutput.Size = new System.Drawing.Size(149, 30);
+            this.btnEditOutput.TabIndex = 71;
+            this.btnEditOutput.Text = "Edit Response Prop";
+            this.btnEditOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditOutput.UseVisualStyleBackColor = true;
+            this.btnEditOutput.Click += new System.EventHandler(this.btnEditOutput_Click);
+            // 
+            // btnAddOutput
+            // 
+            this.btnAddOutput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddOutput.Image = ((System.Drawing.Image)(resources.GetObject("btnAddOutput.Image")));
+            this.btnAddOutput.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAddOutput.Location = new System.Drawing.Point(17, 17);
+            this.btnAddOutput.Name = "btnAddOutput";
+            this.btnAddOutput.Size = new System.Drawing.Size(155, 29);
+            this.btnAddOutput.TabIndex = 70;
+            this.btnAddOutput.Text = "New Response Prop";
+            this.btnAddOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddOutput.UseVisualStyleBackColor = true;
+            this.btnAddOutput.Click += new System.EventHandler(this.btnAddOutput_Click);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
+            this.pictureBox16.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.InitialImage")));
+            this.pictureBox16.Location = new System.Drawing.Point(633, 196);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox16.TabIndex = 66;
+            this.pictureBox16.TabStop = false;
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
+            this.pictureBox17.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.InitialImage")));
+            this.pictureBox17.Location = new System.Drawing.Point(633, 73);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox17.TabIndex = 57;
+            this.pictureBox17.TabStop = false;
+            // 
+            // btnDeleteInput
+            // 
+            this.btnDeleteInput.Enabled = false;
+            this.btnDeleteInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteInput.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteInput.Image")));
+            this.btnDeleteInput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteInput.Location = new System.Drawing.Point(456, 18);
+            this.btnDeleteInput.Name = "btnDeleteInput";
+            this.btnDeleteInput.Size = new System.Drawing.Size(164, 29);
+            this.btnDeleteInput.TabIndex = 84;
+            this.btnDeleteInput.Text = "Delete Request Param";
+            this.btnDeleteInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeleteInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDeleteInput.UseVisualStyleBackColor = true;
+            this.btnDeleteInput.Click += new System.EventHandler(this.btnDeleteInput_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox9.InitialImage")));
+            this.pictureBox9.Location = new System.Drawing.Point(632, 246);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(21, 19);
+            this.pictureBox9.TabIndex = 78;
+            this.pictureBox9.TabStop = false;
+            // 
+            // btnEditInput
+            // 
+            this.btnEditInput.Enabled = false;
+            this.btnEditInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditInput.Image = ((System.Drawing.Image)(resources.GetObject("btnEditInput.Image")));
+            this.btnEditInput.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditInput.Location = new System.Drawing.Point(305, 17);
+            this.btnEditInput.Name = "btnEditInput";
+            this.btnEditInput.Size = new System.Drawing.Size(145, 30);
+            this.btnEditInput.TabIndex = 71;
+            this.btnEditInput.Text = "Edit Request Param";
+            this.btnEditInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditInput.UseVisualStyleBackColor = true;
+            this.btnEditInput.Click += new System.EventHandler(this.btnEditInput_Click);
+            // 
+            // btnAddInput
+            // 
+            this.btnAddInput.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddInput.Image = ((System.Drawing.Image)(resources.GetObject("btnAddInput.Image")));
+            this.btnAddInput.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnAddInput.Location = new System.Drawing.Point(17, 17);
+            this.btnAddInput.Name = "btnAddInput";
+            this.btnAddInput.Size = new System.Drawing.Size(163, 29);
+            this.btnAddInput.TabIndex = 70;
+            this.btnAddInput.Text = "New Request Param";
+            this.btnAddInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddInput.UseVisualStyleBackColor = true;
+            this.btnAddInput.Click += new System.EventHandler(this.btnAddInput_Click);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox12.InitialImage")));
+            this.pictureBox12.Location = new System.Drawing.Point(455, 197);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox12.TabIndex = 69;
+            this.pictureBox12.TabStop = false;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox11.Image")));
+            this.pictureBox11.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox11.InitialImage")));
+            this.pictureBox11.Location = new System.Drawing.Point(633, 221);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox11.TabIndex = 66;
+            this.pictureBox11.TabStop = false;
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.InitialImage")));
+            this.pictureBox8.Location = new System.Drawing.Point(633, 76);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox8.TabIndex = 57;
+            this.pictureBox8.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(423, 13);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox2.TabIndex = 52;
+            this.pictureBox2.TabStop = false;
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox7.Image")));
+            this.pictureBox7.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.InitialImage")));
+            this.pictureBox7.Location = new System.Drawing.Point(170, 327);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox7.TabIndex = 59;
+            this.pictureBox7.TabStop = false;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(255, 246);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox6.TabIndex = 58;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
+            this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
+            this.pictureBox5.Location = new System.Drawing.Point(200, 217);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox5.TabIndex = 57;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
+            this.pictureBox4.Location = new System.Drawing.Point(353, 191);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox4.TabIndex = 55;
+            this.pictureBox4.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
+            this.pictureBox3.Location = new System.Drawing.Point(353, 67);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox3.TabIndex = 54;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnEditCustomApi
+            // 
+            this.btnEditCustomApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditCustomApi.Image = ((System.Drawing.Image)(resources.GetObject("btnEditCustomApi.Image")));
+            this.btnEditCustomApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditCustomApi.Location = new System.Drawing.Point(111, 30);
+            this.btnEditCustomApi.Name = "btnEditCustomApi";
+            this.btnEditCustomApi.Size = new System.Drawing.Size(98, 29);
+            this.btnEditCustomApi.TabIndex = 19;
+            this.btnEditCustomApi.Text = "Edit API";
+            this.btnEditCustomApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEditCustomApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEditCustomApi.UseVisualStyleBackColor = true;
+            this.btnEditCustomApi.Click += new System.EventHandler(this.btnEditCustomApi_Click);
+            // 
+            // menuRefresh
+            // 
+            this.menuRefresh.Image = ((System.Drawing.Image)(resources.GetObject("menuRefresh.Image")));
+            this.menuRefresh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuRefresh.Name = "menuRefresh";
+            this.menuRefresh.Size = new System.Drawing.Size(116, 28);
+            this.menuRefresh.Text = "Refresh API List";
+            this.menuRefresh.Click += new System.EventHandler(this.menuRefresh_Click);
+            // 
+            // menuNewApi
+            // 
+            this.menuNewApi.Image = ((System.Drawing.Image)(resources.GetObject("menuNewApi.Image")));
+            this.menuNewApi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuNewApi.Name = "menuNewApi";
+            this.menuNewApi.Size = new System.Drawing.Size(117, 28);
+            this.menuNewApi.Text = "Create New API";
+            this.menuNewApi.Click += new System.EventHandler(this.menuNewApi_Click);
+            // 
+            // menuTestApi
+            // 
+            this.menuTestApi.Enabled = false;
+            this.menuTestApi.Image = ((System.Drawing.Image)(resources.GetObject("menuTestApi.Image")));
+            this.menuTestApi.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuTestApi.Name = "menuTestApi";
+            this.menuTestApi.Size = new System.Drawing.Size(176, 28);
+            this.menuTestApi.Text = "Open in Custom API Tester";
+            this.menuTestApi.Click += new System.EventHandler(this.menuTestApi_Click);
+            // 
+            // tslAbout
+            // 
+            this.tslAbout.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tslAbout.Image = ((System.Drawing.Image)(resources.GetObject("tslAbout.Image")));
+            this.tslAbout.IsLink = true;
+            this.tslAbout.Name = "tslAbout";
+            this.tslAbout.Size = new System.Drawing.Size(113, 28);
+            this.tslAbout.Text = "by David Rivard";
+            this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
+            // 
+            // btnNewApi
+            // 
+            this.btnNewApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNewApi.Image = ((System.Drawing.Image)(resources.GetObject("btnNewApi.Image")));
+            this.btnNewApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewApi.Location = new System.Drawing.Point(518, 26);
+            this.btnNewApi.Name = "btnNewApi";
+            this.btnNewApi.Size = new System.Drawing.Size(131, 29);
+            this.btnNewApi.TabIndex = 83;
+            this.btnNewApi.Text = "Create New API";
+            this.btnNewApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNewApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNewApi.UseVisualStyleBackColor = true;
+            this.btnNewApi.Click += new System.EventHandler(this.btnNewApi_Click);
+            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1373,25 +1374,25 @@
             this.grpCustomApi.PerformLayout();
             this.grpOutputs.ResumeLayout(false);
             this.grpOutputs.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cdsGridOutputs)).EndInit();
             this.grpInputs.ResumeLayout(false);
             this.grpInputs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cdsGridInputs)).EndInit();
+            this.grpFilter.ResumeLayout(false);
+            this.grpFilter.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cdsGridInputs)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            this.grpFilter.ResumeLayout(false);
-            this.grpFilter.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

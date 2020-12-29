@@ -261,8 +261,9 @@ namespace XTB.CustomApiManager
 
         private void tslAbout_Click(object sender, EventArgs e)
         {
-            //LogUse("OpenAbout");
-            var about = new About(this);
+
+
+            var about = new About();
             about.StartPosition = FormStartPosition.CenterParent;
             about.lblVersion.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             about.ShowDialog();
@@ -912,9 +913,10 @@ namespace XTB.CustomApiManager
 
 
 
-        #endregion
 
-        
+
+
+        #endregion
 
         
     }

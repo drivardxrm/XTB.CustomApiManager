@@ -224,6 +224,6 @@ namespace XTB.CustomApiManager.Forms
 
         }
 
-        
+       
     }
 }
