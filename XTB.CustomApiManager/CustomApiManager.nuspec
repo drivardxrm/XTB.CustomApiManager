@@ -25,6 +25,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\XTB.CustomApiManager.dll" target="lib\net472\Plugins" />
+    <file src="bin\Release\XTB.CustomApiManager.dll" target="lib\net452\Plugins" />
   </files>
 </package>
