@@ -43,19 +43,7 @@ namespace XTB.CustomApiManager.Helpers
             return service.RetrieveMultiple(fetch);
         }
 
-        public static EntityCollection GetPublishers(this IOrganizationService service)
-        {
-            var fetchxml = @"<fetch>
-                              <entity name='publisher' >
-                                  <attribute name='uniquename' />
-                                  <attribute name='customizationprefix' />    
-                              </entity>
-                              <order attribute='uniquename' />
-                            </fetch>";
-
-            var fetch = new FetchExpression(fetchxml);
-            return service.RetrieveMultiple(fetch);
-        }
+       
 
         
     }
