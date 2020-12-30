@@ -43,7 +43,7 @@ namespace XTB.CustomApiManager.Forms
             {
                 txtLookupPublisher.Entity = publisher;
                 txtLookupPublisher.Text = publisher.Attributes[Publisher.PrimaryName].ToString();
-                txtPrefix.Text = publisher.Attributes[Publisher.Prefix].ToString();
+                txtPrefix.Text = $"{publisher.Attributes[Publisher.Prefix]}_";
             }
 
 
