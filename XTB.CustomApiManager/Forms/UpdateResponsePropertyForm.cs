@@ -102,7 +102,7 @@ namespace XTB.CustomApiManager.Forms
 
         private Entity ResponsePropertyToUpdate() 
         {
-            var requestparam = new Entity(CustomAPIRequestParameter.EntityName, _responsepropertyproxi.ResponsePropertyRow.Id);
+            var requestparam = new Entity(CustomAPIResponseProperty.EntityName, _responsepropertyproxi.ResponsePropertyRow.Id);
 
             //Update only if needed
             _shouldupdate = false;
