@@ -2,7 +2,7 @@
 using System;
 using System.Windows.Forms;
 using XTB.CustomApiManager.Entities;
-
+using XTB.CustomApiManager.Proxy;
 
 namespace XTB.CustomApiManager.Forms
 {
@@ -10,16 +10,16 @@ namespace XTB.CustomApiManager.Forms
     {
 
         private IOrganizationService _service;
-        private Entity _requestparametertodelete;
+        private CustomApiRequestParameterProxy _requestparametertodelete;
 
-        public DeleteRequestParameterForm(IOrganizationService service, Entity customapi, Entity requestparametertodelete)
+        public DeleteRequestParameterForm(IOrganizationService service, CustomApiProxy customapi, CustomApiRequestParameterProxy requestparametertodelete)
         {
             InitializeComponent();
             _service = service;
             _requestparametertodelete = requestparametertodelete;
 
-            cdsCustomApiName.Entity = customapi;
-            cdsRequestParameterName.Entity = _requestparametertodelete;
+            cdsCustomApiName.Entity = customapi?.CustomApiRow;
+            cdsRequestParameterName.Entity = _requestparametertodelete.RequestParameterRow;
 
         }
 
@@ -38,7 +38,7 @@ namespace XTB.CustomApiManager.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                _service.Delete(CustomAPIRequestParameter.EntityName, _requestparametertodelete.Id);
+                _service.Delete(CustomAPIRequestParameter.EntityName, _requestparametertodelete.RequestParameterRow.Id);
                 RequestParameterDeleted = true;
                 Cursor = Cursors.Default;
             }

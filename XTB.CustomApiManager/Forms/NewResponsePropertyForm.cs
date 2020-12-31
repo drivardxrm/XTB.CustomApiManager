@@ -23,7 +23,7 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public NewResponsePropertyForm(IOrganizationService service,Entity customapi)
+        public NewResponsePropertyForm(IOrganizationService service,CustomApiProxy customapi)
         {
             InitializeComponent();
             _service = service;
@@ -36,7 +36,7 @@ namespace XTB.CustomApiManager.Forms
 
             cboType.SelectedIndex = (int)CustomAPIResponseProperty.Type_OptionSet.Boolean;
 
-            cdsCustomApiName.Entity = customapi;
+            cdsCustomApiName.Entity = customapi.CustomApiRow;
 
         }
 

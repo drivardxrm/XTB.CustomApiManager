@@ -24,15 +24,15 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public UpdateRequestParameterForm(IOrganizationService service,Entity customapi, Entity requestparameter)
+        public UpdateRequestParameterForm(IOrganizationService service,CustomApiProxy customapi, CustomApiRequestParameterProxy requestparameter)
         {
             InitializeComponent();
             _service = service;
 
 
-            cdsCustomApiName.Entity = customapi;
+            cdsCustomApiName.Entity = customapi.CustomApiRow;
 
-            _requestparameterproxi = new CustomApiRequestParameterProxy(requestparameter);
+            _requestparameterproxi = requestparameter;
 
             txtUniqueName.Text = _requestparameterproxi.UniqueName;
             txtName.Text = _requestparameterproxi.Name;

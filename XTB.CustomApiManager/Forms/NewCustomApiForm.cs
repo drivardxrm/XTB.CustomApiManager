@@ -6,7 +6,7 @@ using xrmtb.XrmToolBox.Controls.Controls;
 using XrmToolBox.Extensibility;
 using XTB.CustomApiManager.Entities;
 using XTB.CustomApiManager.Helpers;
-
+using XTB.CustomApiManager.Proxy;
 
 namespace XTB.CustomApiManager.Forms
 {
@@ -22,7 +22,7 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public NewCustomApiForm(IOrganizationService service,Entity publisher)
+        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution)
         {
             InitializeComponent();
             _service = service;
@@ -34,16 +34,16 @@ namespace XTB.CustomApiManager.Forms
             cdsCboPrivileges.DataSource = 
 
             cboEntities.Service = service;
-            //cboEntities.Update();
+
 
             cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
 
-            if (publisher != null)
+            if (solution?.PublisherRef != null)
             {
-                txtLookupPublisher.Entity = publisher;
-                txtLookupPublisher.Text = publisher.Attributes[Publisher.PrimaryName].ToString();
-                txtPrefix.Text = $"{publisher.Attributes[Publisher.Prefix]}_";
+                txtLookupPublisher.EntityReference = solution.PublisherRef;
+                txtLookupPublisher.Text = solution.PublisherRef.Name;
+                txtPrefix.Text = $"{solution.Prefix}_";
             }
 
 

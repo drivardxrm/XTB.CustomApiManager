@@ -8,7 +8,7 @@ using XTB.CustomApiManager.Entities;
 
 namespace XTB.CustomApiManager.Proxy
 {
-    internal class SolutionProxy
+    public class SolutionProxy
     {
         
 
@@ -16,28 +16,23 @@ namespace XTB.CustomApiManager.Proxy
 
         
 
-        public SolutionProxy(Entity solutionentity)
+        public SolutionProxy(Entity solution)
         {
-            SolutionRow = solutionentity;
+            SolutionRow = solution;
         }
 
        
 
-        public string Prefix => $"{SolutionRow[$"P.{Publisher.Prefix}"]}_";
+        public string Prefix => ((AliasedValue)SolutionRow[$"P.{Publisher.Prefix}"]).Value.ToString();
 
 
         public string FriendlyName => SolutionRow[Solution.PrimaryName].ToString();
-        public string UniqueName => SolutionRow[Solution.Name].ToString(); 
+        public string UniqueName => SolutionRow[Solution.Name].ToString();
 
-       
 
-        #region Public Methods
+        public EntityReference PublisherRef => SolutionRow.Attributes.Contains(Solution.Publisher) ?
+                                                    SolutionRow[Solution.Publisher] as EntityReference :
+                                                    null;
 
-        public override string ToString()
-        {
-            return $"{FriendlyName} ({UniqueName})";
-        }
-
-        #endregion Public Methods
     }
 }

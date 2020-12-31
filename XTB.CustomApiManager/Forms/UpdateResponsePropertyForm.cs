@@ -24,15 +24,15 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public UpdateResponsePropertyForm(IOrganizationService service,Entity customapi, Entity responseproperty)
+        public UpdateResponsePropertyForm(IOrganizationService service,CustomApiProxy customapi, CustomApiResponsePropertyProxy responseproperty)
         {
             InitializeComponent();
             _service = service;
 
 
-            cdsCustomApiName.Entity = customapi;
+            cdsCustomApiName.Entity = customapi.CustomApiRow;
 
-            _responsepropertyproxi = new CustomApiResponsePropertyProxy(responseproperty);
+            _responsepropertyproxi = responseproperty;
 
             txtUniqueName.Text = _responsepropertyproxi.UniqueName;
             txtName.Text = _responsepropertyproxi.Name;

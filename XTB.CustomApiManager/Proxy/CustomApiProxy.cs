@@ -9,7 +9,7 @@ using XTB.CustomApiManager.Entities;
 
 namespace XTB.CustomApiManager.Proxy
 {
-    internal class CustomApiProxy
+    public class CustomApiProxy
     {
 
 
@@ -17,9 +17,9 @@ namespace XTB.CustomApiManager.Proxy
 
 
 
-        public CustomApiProxy(Entity customapirow)
+        public CustomApiProxy(Entity customapi)
         {
-            CustomApiRow = customapirow;
+            CustomApiRow = customapi;
         }
 
        
@@ -68,6 +68,12 @@ namespace XTB.CustomApiManager.Proxy
 
         public bool IsManaged => CustomApiRow.Attributes.Contains(CustomAPI.IsManaged) &&
                                     (bool)CustomApiRow[CustomAPI.IsManaged];
+
+        public bool IsCustomizable => CustomApiRow.Attributes.Contains(CustomAPI.IsCustomizable) &&
+                                   ((BooleanManagedProperty)CustomApiRow[CustomAPI.IsCustomizable]).Value;
+
+
+        public bool CanCustomize => !IsManaged || (IsManaged && IsCustomizable);
 
 
     }

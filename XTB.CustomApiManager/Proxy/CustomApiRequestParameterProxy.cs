@@ -8,7 +8,7 @@ using XTB.CustomApiManager.Entities;
 
 namespace XTB.CustomApiManager.Proxy
 {
-    internal class CustomApiRequestParameterProxy
+    public class CustomApiRequestParameterProxy
     {
 
 
@@ -16,9 +16,9 @@ namespace XTB.CustomApiManager.Proxy
 
 
 
-        public CustomApiRequestParameterProxy(Entity requestparameterrow)
+        public CustomApiRequestParameterProxy(Entity requestparameter)
         {
-            RequestParameterRow = requestparameterrow;
+            RequestParameterRow = requestparameter;
         }
 
 

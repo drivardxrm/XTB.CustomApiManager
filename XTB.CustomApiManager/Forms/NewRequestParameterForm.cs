@@ -23,20 +23,19 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public NewRequestParameterForm(IOrganizationService service,Entity customapi)
+        public NewRequestParameterForm(IOrganizationService service,CustomApiProxy customapi)
         {
             InitializeComponent();
             _service = service;
 
 
             cboEntities.Service = service;
-            //cboEntities.Update();
 
             cboType.DataSource = Enum.GetValues(typeof(CustomAPIRequestParameter.Type_OptionSet));           
 
             cboType.SelectedIndex = (int)CustomAPIRequestParameter.Type_OptionSet.Boolean;
 
-            cdsCustomApiName.Entity = customapi;
+            cdsCustomApiName.Entity = customapi.CustomApiRow;
 
         }
 

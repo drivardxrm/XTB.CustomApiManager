@@ -8,7 +8,7 @@ using XTB.CustomApiManager.Entities;
 
 namespace XTB.CustomApiManager.Proxy
 {
-    internal class CustomApiResponsePropertyProxy
+    public class CustomApiResponsePropertyProxy
     {
 
 
@@ -16,9 +16,9 @@ namespace XTB.CustomApiManager.Proxy
 
 
 
-        public CustomApiResponsePropertyProxy(Entity responsepropertyrow)
+        public CustomApiResponsePropertyProxy(Entity responseproperty)
         {
-            ResponsePropertyRow = responsepropertyrow;
+            ResponsePropertyRow = responseproperty;
         }
 
 

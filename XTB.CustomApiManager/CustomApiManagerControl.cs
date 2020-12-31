@@ -26,17 +26,15 @@ namespace XTB.CustomApiManager
     {
         private Settings mySettings;
 
-        private Guid _inArgument;
+        private SolutionProxy _selectedSolution;
 
-        private Entity _selectedSolution;
+        private CustomApiProxy _selectedCustomApi;
 
-        private Entity _selectedCustomApi;
+        private CustomApiRequestParameterProxy _selectedRequestParameter;
 
-        private Entity _selectedRequestParameter;
+        private CustomApiResponsePropertyProxy _selectedResponseProperty;
 
-        private Entity _selectedResponseProperty;
-
-        private Entity _selectedPublisher;
+        //private Entity _selectedPublisher;
 
         public string RepositoryName => "XTB.CustomApiManager";
 
@@ -94,6 +92,8 @@ namespace XTB.CustomApiManager
 
             cdsTxtIsFunction.OrganizationService = Service;
             cdsTxtIsPrivate.OrganizationService = Service;
+            cdsTxtIsManaged.OrganizationService = Service;
+            cdsTxtIsCustomizable.OrganizationService = Service;
 
             //input params
             cdsGridInputs.OrganizationService = Service;
@@ -124,7 +124,6 @@ namespace XTB.CustomApiManager
             
             if (message.TargetArgument is string arg && Guid.TryParse(arg, out Guid argid))
             {
-                _inArgument = argid;
                 if (cdsCboCustomApi.DataSource != null) 
                 {
                     var type = cdsCboCustomApi.DataSource.GetType();
@@ -135,8 +134,6 @@ namespace XTB.CustomApiManager
                     cdsCboCustomApi.SelectedIndex = index;
                     cdsCboCustomApi.Enabled = true;
                 }
-                
-
             }
         }
 
@@ -165,7 +162,8 @@ namespace XTB.CustomApiManager
                 mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
-                
+                SetCdsCboCustomApiDataSource(null);
+
 
                 //LoadSolutions();
                 ExecuteMethod(InitializeService);
@@ -173,6 +171,7 @@ namespace XTB.CustomApiManager
 
                 //select the all radio button
                 rbAll.Checked = true;
+                ExecuteMethod(LoadCustomApis);
                 cdsCboCustomApi.Select();
             }
         }
@@ -195,7 +194,7 @@ namespace XTB.CustomApiManager
 
             try
             {
-                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Tester") { TargetArgument = _selectedCustomApi.Id.ToString() });
+                OnOutgoingMessage(this, new MessageBusEventArgs("Custom API Tester") { TargetArgument = _selectedCustomApi.CustomApiRow.Id.ToString() });
             }
             catch (Exception ex)
             {
@@ -303,7 +302,7 @@ namespace XTB.CustomApiManager
 
                 cdsCboSolutions.SelectedIndex = -1;
                 _selectedSolution = null;
-                _selectedPublisher = null;
+
             }
         }
 
@@ -311,13 +310,8 @@ namespace XTB.CustomApiManager
         private void cdsCboSolutions_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedSolution = cdsCboSolutions.SelectedIndex != -1 ?
-                                            cdsCboSolutions.SelectedEntity :
+                                            new SolutionProxy(cdsCboSolutions.SelectedEntity) :
                                             null;
-
-            _selectedPublisher = cdsCboSolutions.SelectedIndex != -1 ?
-                                            Service.GetPublisher(((EntityReference)_selectedSolution.Attributes[Solution.Publisher]).Id)
-                                            : null;
-
 
             ExecuteMethod(LoadCustomApis);
 
@@ -431,7 +425,7 @@ namespace XTB.CustomApiManager
                     }
                     else if (rbSolution.Checked && _selectedSolution != null) 
                     {
-                        args.Result = Service.GetCustomApisFor(_selectedSolution.Id);
+                        args.Result = Service.GetCustomApisFor(_selectedSolution.SolutionRow.Id);
                     }
                     else 
                     {
@@ -455,7 +449,7 @@ namespace XTB.CustomApiManager
 
                             var customapis = (EntityCollection)args.Result;
                             //Find the index of the selected API in the list
-                            var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCustomApi?.Id ?? Guid.Empty);
+                            var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
 
                             SetCdsCboCustomApiDataSource(customapis);
 
@@ -509,24 +503,39 @@ namespace XTB.CustomApiManager
 
         private void SetSelectedCustomApi(Entity customapi) 
         {
-            _selectedCustomApi = customapi;
+            _selectedCustomApi = customapi != null ? new CustomApiProxy(customapi) : null;
 
-            var customapiproxy = _selectedCustomApi != null ? new CustomApiProxy(_selectedCustomApi) : null;
+            
 
-            cdsTxtUniqueName.Entity = _selectedCustomApi;
-            cdsTxtName.Entity = _selectedCustomApi;
-            cdsTxtDisplayName.Entity = _selectedCustomApi;
-            cdsTxtDescription.Entity = _selectedCustomApi;
-            cdsTxtAllowedCustomProcessingStep.Entity = _selectedCustomApi;
-            cdsTxtBindingType.Entity = _selectedCustomApi;
-            cdsTxtBoundEntity.Entity = _selectedCustomApi;
+            cdsTxtUniqueName.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtName.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtDisplayName.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtDescription.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtAllowedCustomProcessingStep.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtBindingType.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtBoundEntity.Entity = _selectedCustomApi?.CustomApiRow;
 
-            cdsTxtPluginType.EntityReference = customapiproxy?.PluginType; //todo try to move out from proxy
-            cdsTxtIsFunction.Entity = _selectedCustomApi;
-            cdsTxtExecutePrivilegeName.Entity = _selectedCustomApi;
-            cdsTxtIsPrivate.Entity = _selectedCustomApi;
+            cdsTxtPluginType.EntityReference = _selectedCustomApi?.PluginType; //todo try to move out from proxy
+            cdsTxtIsFunction.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtExecutePrivilegeName.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtIsPrivate.Entity = _selectedCustomApi?.CustomApiRow;
 
+            cdsTxtIsManaged.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtIsCustomizable.Entity = _selectedCustomApi?.CustomApiRow;
 
+            if (_selectedCustomApi != null)
+            {
+                txtCustomizableWarning.Visible = !_selectedCustomApi.CanCustomize;
+                btnEditCustomApi.Enabled = _selectedCustomApi.CanCustomize;
+                btnDeleteApi.Enabled = _selectedCustomApi.CanCustomize;
+                btnAddInput.Enabled = _selectedCustomApi.CanCustomize;
+                btnEditInput.Enabled = _selectedCustomApi.CanCustomize;
+                btnDeleteInput.Enabled = _selectedCustomApi.CanCustomize;
+                btnAddOutput.Enabled = _selectedCustomApi.CanCustomize;
+                btnEditOutput.Enabled = _selectedCustomApi.CanCustomize;
+                btnDeleteOutput.Enabled = _selectedCustomApi.CanCustomize;
+            }
+            
             
             grpCustomApi.Enabled = _selectedCustomApi != null;
             grpInputs.Enabled = _selectedCustomApi != null;
@@ -549,7 +558,7 @@ namespace XTB.CustomApiManager
                 Message = "Loading customapirequestparameters...",
                 Work = (worker, args) =>
                 {
-                    args.Result = Service.GetCustomApisRequestParametersFor(_selectedCustomApi);
+                    args.Result = Service.GetCustomApisRequestParametersFor(_selectedCustomApi?.CustomApiRow);
 
                 },
                 PostWorkCallBack = (args) =>
@@ -591,20 +600,25 @@ namespace XTB.CustomApiManager
         private void SetSelectedRequestParameter(Entity requestparameter) 
         {
 
-            _selectedRequestParameter = requestparameter;
+            _selectedRequestParameter = new CustomApiRequestParameterProxy(requestparameter);
 
-            cdsTxtRequestUniqueName.Entity = _selectedRequestParameter;
-            cdsTxtRequestName.Entity = _selectedRequestParameter;
-            cdsTxtRequestDisplayName.Entity = _selectedRequestParameter;
-            cdsTxtRequestDescription.Entity = _selectedRequestParameter;
-            cdsTxtRequestBoundEntity.Entity = _selectedRequestParameter;
-            cdsTxtRequestType.Entity = _selectedRequestParameter;
-            cdsTxtRequestIsOptional.Entity = _selectedRequestParameter;
+            cdsTxtRequestUniqueName.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestName.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestDisplayName.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestDescription.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestBoundEntity.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestType.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestIsOptional.Entity = _selectedRequestParameter?.RequestParameterRow;
 
 
             //enable buttons
-            btnEditInput.Enabled = _selectedRequestParameter != null;
-            btnDeleteInput.Enabled = _selectedRequestParameter != null;
+            btnEditInput.Enabled = _selectedRequestParameter != null
+                                        && _selectedCustomApi != null
+                                        && _selectedCustomApi.CanCustomize;
+
+            btnDeleteInput.Enabled = _selectedRequestParameter != null
+                                        && _selectedCustomApi != null
+                                        && _selectedCustomApi.CanCustomize;
 
         }
 
@@ -621,7 +635,7 @@ namespace XTB.CustomApiManager
                 Message = "Loading customapiresponseproperties...",
                 Work = (worker, args) =>
                 {
-                    args.Result = Service.GetCustomApisResponsePropertiesFor(_selectedCustomApi);
+                    args.Result = Service.GetCustomApisResponsePropertiesFor(_selectedCustomApi?.CustomApiRow);
 
                 },
                 PostWorkCallBack = (args) =>
@@ -659,18 +673,23 @@ namespace XTB.CustomApiManager
 
         private void SetSelectedResponseProperty(Entity responseproperty)
         {
-            _selectedResponseProperty = responseproperty;
+            _selectedResponseProperty = new CustomApiResponsePropertyProxy(responseproperty);
             
-            cdsTxtResponseUniqueName.Entity = _selectedResponseProperty;
-            cdsTxtResponseName.Entity = _selectedResponseProperty;
-            cdsTxtResponseDisplayName.Entity = _selectedResponseProperty;
-            cdsTxtResponseDescription.Entity = _selectedResponseProperty;
-            cdsTxtResponseBoundEntity.Entity = _selectedResponseProperty;
-            cdsTxtResponseType.Entity = _selectedResponseProperty;
+            cdsTxtResponseUniqueName.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseName.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseDisplayName.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseDescription.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseBoundEntity.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseType.Entity = _selectedResponseProperty.ResponsePropertyRow;
 
             //enable buttons
-            btnEditOutput.Enabled = _selectedResponseProperty != null;
-            btnDeleteOutput.Enabled = _selectedResponseProperty != null;
+            btnEditOutput.Enabled = _selectedResponseProperty != null
+                                        && _selectedCustomApi != null
+                                        && _selectedCustomApi.CanCustomize;
+
+            btnDeleteOutput.Enabled = _selectedResponseProperty != null
+                                        && _selectedCustomApi != null
+                                        && _selectedCustomApi.CanCustomize;
 
         }
 
@@ -698,7 +717,7 @@ namespace XTB.CustomApiManager
 
         private void CreateApiDialog() 
         {
-            var inputdlg = new NewCustomApiForm(Service, _selectedPublisher);
+            var inputdlg = new NewCustomApiForm(Service, _selectedSolution);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -731,7 +750,7 @@ namespace XTB.CustomApiManager
 
 
                 //refresh custom api list and select newly updated
-                SetSelectedCustomApi(Service.GetCustomApi(_selectedCustomApi.Id));
+                SetSelectedCustomApi(Service.GetCustomApi(_selectedCustomApi.CustomApiRow.Id));
                 ExecuteMethod(LoadCustomApis);
 
             }
@@ -800,9 +819,7 @@ namespace XTB.CustomApiManager
             if (dlgresult == DialogResult.OK && inputdlg.RequestParameterUpdated)
             {
 
-
-                //refresh custom api list and refresh form
-                LoadRequestParameters(_selectedRequestParameter.Id);
+                LoadRequestParameters(_selectedRequestParameter.RequestParameterRow.Id);
 
             }
             else if (dlgresult == DialogResult.Ignore)
@@ -890,7 +907,7 @@ namespace XTB.CustomApiManager
             {
 
                 //refresh custom api list and select newly updated
-                LoadResponseProperties(_selectedResponseProperty.Id);
+                LoadResponseProperties(_selectedResponseProperty.ResponsePropertyRow.Id);
 
             }
             else if (dlgresult == DialogResult.Ignore)

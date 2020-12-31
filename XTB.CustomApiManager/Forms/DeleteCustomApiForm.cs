@@ -15,15 +15,15 @@ namespace XTB.CustomApiManager.Forms
     {
 
         private IOrganizationService _service;
-        private Entity _customapitodelete;
+        private CustomApiProxy _customapitodelete;
 
-        public DeleteCustomApiForm(IOrganizationService service, Entity customapitodelete)
+        public DeleteCustomApiForm(IOrganizationService service, CustomApiProxy customapitodelete)
         {
             InitializeComponent();
             _service = service;
             _customapitodelete = customapitodelete;
 
-            cdsCustomApiName.Entity = customapitodelete;
+            cdsCustomApiName.Entity = customapitodelete.CustomApiRow;
 
         }
 
@@ -39,7 +39,7 @@ namespace XTB.CustomApiManager.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                _service.Delete(CustomAPI.EntityName, _customapitodelete.Id);
+                _service.Delete(CustomAPI.EntityName, _customapitodelete.CustomApiRow.Id);
                 CustomApiDeleted = true;
                 Cursor = Cursors.Default;
             }

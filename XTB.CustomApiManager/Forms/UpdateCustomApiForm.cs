@@ -24,11 +24,11 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public UpdateCustomApiForm(IOrganizationService service, Entity customapitoupdate)
+        public UpdateCustomApiForm(IOrganizationService service, CustomApiProxy customapitoupdate)
         {
             InitializeComponent();
             _service = service;
-            _customapiproxy = new CustomApiProxy(customapitoupdate);
+            _customapiproxy = customapitoupdate;
 
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
