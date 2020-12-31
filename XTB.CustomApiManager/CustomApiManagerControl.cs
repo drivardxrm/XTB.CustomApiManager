@@ -67,6 +67,7 @@ namespace XTB.CustomApiManager
 
             //select the all radio button
             rbAll.Checked = true;
+            //ExecuteMethod(LoadCustomApis);
             cdsCboCustomApi.Select();
         }
 
@@ -124,16 +125,9 @@ namespace XTB.CustomApiManager
             
             if (message.TargetArgument is string arg && Guid.TryParse(arg, out Guid argid))
             {
-                if (cdsCboCustomApi.DataSource != null) 
-                {
-                    var type = cdsCboCustomApi.DataSource.GetType();
-
-
-                    var index = ((DataCollection<Entity>)cdsCboCustomApi.DataSource).Select(e => e.Id).ToList().IndexOf(argid);
-
-                    cdsCboCustomApi.SelectedIndex = index;
-                    cdsCboCustomApi.Enabled = true;
-                }
+                var customapi = Service.GetCustomApi(argid);
+                SetSelectedCustomApi(customapi);
+                
             }
         }
 
@@ -452,7 +446,12 @@ namespace XTB.CustomApiManager
                             var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
 
                             SetCdsCboCustomApiDataSource(customapis);
-
+                            
+                            //hack to force a refresh... must be a better way
+                            if (cdsCboCustomApi.SelectedIndex == index) 
+                            {
+                                cdsCboCustomApi.SelectedIndex = -1;
+                            }
                             cdsCboCustomApi.SelectedIndex = index;
                             cdsCboCustomApi.Enabled = true;
 
