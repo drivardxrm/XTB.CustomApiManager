@@ -3,6 +3,7 @@
 
 Management tool that provides 360° View of Dataverse Custom APIs.
 Provides CRUD operations on Custom API, Request Parameters (Inputs) and Response Properties (Outputs).
+Integrates with [Custom API Tester](https://github.com/rappen/CustomActionTester) Tool
 
 ## Disclaimer 
 > Custom API functionality is still considered as a Preview feature. While unlikely, some breaking changes might occur and will be fixed ASAP.
