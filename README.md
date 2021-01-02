@@ -2,7 +2,9 @@
 ### Dataverse Custom Api Manager for XrmToolBox
 
 Management tool that provides 360° View of Dataverse Custom APIs.
+
 Provides CRUD operations on Custom API, Request Parameters (Inputs) and Response Properties (Outputs).
+
 Integrates with [Custom API Tester](https://github.com/rappen/CustomActionTester) Tool
 
 ## Disclaimer 
