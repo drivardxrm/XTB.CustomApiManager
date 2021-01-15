@@ -124,33 +124,33 @@
   <data name="menuRefresh.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="menuNewApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -311,6 +311,9 @@
         WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
   <data name="pictureBox4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -370,6 +373,57 @@
         ZcQAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>Indicates if the custom API is a function. A function requires the HTTP GET method. Otherwise the Http POST method is required.
+Value: 0 Label: No
+Value: 1 Label: Yes
+Important: A function MUST include at least one Response Property to be valid.
+More information: Use Web API functions
+Cannot be changed after it is saved.</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <data name="label9.ToolTip" xml:space="preserve">
+    <value>The type of custom processing steps allowed for this Custom API. This allows you to control whether other plug-ins can be registered
+Value: 0 Label: None Meaning: No custom processing steps allowed.
+Value: 1 Label: Async Only Meaning: Only asynchronous custom processing steps allowed
+Value: 2 Label: Sync and Async Meaning: No restriction. 3rd party plug-ins can add synchronous logic to change the behavior of the message.
+Cannot be changed after it is saved.</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value>Unique name for the custom API. 
+This will be the name of the message created.
+This value must include a customization prefix that matches the prefix set for your solution publisher.
+Cannot be changed after it is saved.</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>460, 17</value>
+  </metadata>
   <data name="btnDeleteOutput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

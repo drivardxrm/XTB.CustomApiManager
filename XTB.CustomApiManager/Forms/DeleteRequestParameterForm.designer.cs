@@ -36,10 +36,10 @@
             this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
+            this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -133,25 +133,6 @@
             this.lblTitle.TabIndex = 73;
             this.lblTitle.Text = "Delete Request Parameter";
             // 
-            // dlgLookupPublisher
-            // 
-            this.dlgLookupPublisher.Entity = null;
-            this.dlgLookupPublisher.LogicalName = "publisher";
-            this.dlgLookupPublisher.LogicalNames = new string[] {
-        "publisher"};
-            this.dlgLookupPublisher.Service = null;
-            this.dlgLookupPublisher.Title = null;
-            // 
-            // dlgLookupPluginType
-            // 
-            this.dlgLookupPluginType.Entity = null;
-            this.dlgLookupPluginType.IncludePersonalViews = true;
-            this.dlgLookupPluginType.LogicalName = "plugintype";
-            this.dlgLookupPluginType.LogicalNames = new string[] {
-        "plugintype"};
-            this.dlgLookupPluginType.Service = null;
-            this.dlgLookupPluginType.Title = "Custom Api - PluginType";
-            // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -183,6 +164,25 @@
             this.btnOk.UseVisualStyleBackColor = false;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
+            // dlgLookupPublisher
+            // 
+            this.dlgLookupPublisher.Entity = null;
+            this.dlgLookupPublisher.LogicalName = "publisher";
+            this.dlgLookupPublisher.LogicalNames = new string[] {
+        "publisher"};
+            this.dlgLookupPublisher.Service = null;
+            this.dlgLookupPublisher.Title = null;
+            // 
+            // dlgLookupPluginType
+            // 
+            this.dlgLookupPluginType.Entity = null;
+            this.dlgLookupPluginType.IncludePersonalViews = true;
+            this.dlgLookupPluginType.LogicalName = "plugintype";
+            this.dlgLookupPluginType.LogicalNames = new string[] {
+        "plugintype"};
+            this.dlgLookupPluginType.Service = null;
+            this.dlgLookupPluginType.Title = "Custom Api - PluginType";
+            // 
             // DeleteRequestParameterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,7 +198,7 @@
             this.Name = "DeleteRequestParameterForm";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Delete Request Parameter";
+            this.Text = "Custom Api Manager";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
