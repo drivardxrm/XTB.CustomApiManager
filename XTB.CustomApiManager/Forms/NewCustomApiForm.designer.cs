@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCustomApiForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.cdsCboPrivileges = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
@@ -69,6 +70,7 @@
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -211,6 +213,7 @@
             this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 69;
             this.label1.Text = "Execute Privilege Name";
+            this.ttInfo.SetToolTip(this.label1, "(Optional) Name of the privilege that allows execution of the custom API");
             // 
             // pictureBox4
             // 
@@ -346,6 +349,8 @@
             this.lblPlugintype.Size = new System.Drawing.Size(60, 13);
             this.lblPlugintype.TabIndex = 55;
             this.lblPlugintype.Text = "PluginType";
+            this.ttInfo.SetToolTip(this.lblPlugintype, "A reference to the plug-in type that provides the main operation for this Custom " +
+        "API");
             // 
             // label11
             // 
@@ -355,6 +360,8 @@
             this.label11.Size = new System.Drawing.Size(64, 13);
             this.label11.TabIndex = 54;
             this.label11.Text = "BoundEntity";
+            this.ttInfo.SetToolTip(this.label11, "The logical name of the entity bound to the custom API if it is not Global.\r\nCann" +
+        "ot be changed after it is saved.");
             // 
             // label10
             // 
@@ -364,6 +371,8 @@
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 52;
             this.label10.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
             // 
             // txtDisplayName
             // 
@@ -380,6 +389,7 @@
             this.label9.Size = new System.Drawing.Size(189, 13);
             this.label9.TabIndex = 50;
             this.label9.Text = "Allowed Custom Processing Step Type";
+            this.ttInfo.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // label8
             // 
@@ -389,6 +399,8 @@
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 49;
             this.label8.Text = "Binding type";
+            this.ttInfo.SetToolTip(this.label8, "The binding type of the custom API.\r\nValue: 0 Label: Global\r\nValue: 1 Label: Enti" +
+        "ty\r\nValue: 2 Label: EntityCollection\r\nCannot be changed after it is saved.");
             // 
             // cboAllowedCustomProcessingStep
             // 
@@ -415,6 +427,8 @@
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 47;
             this.label7.Text = "IsPrivate";
+            this.ttInfo.SetToolTip(this.label7, "Indicates if the custom API is private (hidden from metadata and documentation) \r" +
+        "\nMore information: Private Messages\r\nValue: 0 Label: No\r\nValue: 1 Label: Yes");
             // 
             // label6
             // 
@@ -424,6 +438,7 @@
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 46;
             this.label6.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // txtUniqueName
             // 
@@ -450,6 +465,7 @@
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 43;
             this.label5.Text = "IsFunction";
+            this.ttInfo.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // chkIsFunction
             // 
@@ -468,6 +484,8 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 41;
             this.label4.Text = "Name";
+            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
             // 
             // txtName
             // 
@@ -484,6 +502,8 @@
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 39;
             this.label3.Text = "Description";
+            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. For example, as a ToolTip.");
             // 
             // txtDescription
             // 
@@ -511,6 +531,14 @@
         "plugintype"};
             this.dlgLookupPluginType.Service = null;
             this.dlgLookupPluginType.Title = "Custom Api - PluginType";
+            // 
+            // ttInfo
+            // 
+            this.ttInfo.AutoPopDelay = 10000;
+            this.ttInfo.InitialDelay = 500;
+            this.ttInfo.ReshowDelay = 100;
+            this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
             // NewCustomApiForm
             // 
@@ -581,5 +609,6 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox13;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboPrivileges;
+        private System.Windows.Forms.ToolTip ttInfo;
     }
 }

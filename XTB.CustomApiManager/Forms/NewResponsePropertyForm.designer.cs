@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewResponsePropertyForm));
             this.panel2 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
+            this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -224,6 +226,8 @@
             this.label11.Size = new System.Drawing.Size(101, 13);
             this.label11.TabIndex = 54;
             this.label11.Text = "Logical Entity Name";
+            this.ttInfo.SetToolTip(this.label11, "The logical name of the entity bound to the custom API response property .\r\nCanno" +
+        "t be changed after it is saved.");
             // 
             // label10
             // 
@@ -233,6 +237,8 @@
             this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 52;
             this.label10.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label10, "Localized display name for custom API response property instances. \r\nFor use when" +
+        " the message parameter is exposed to be called in an app.");
             // 
             // txtDisplayName
             // 
@@ -249,6 +255,7 @@
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 50;
             this.label9.Text = "Type";
+            this.ttInfo.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
             // 
             // cboType
             // 
@@ -267,6 +274,8 @@
             this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 46;
             this.label6.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label6, "Unique name for the custom API response property. \r\nThis will be the name of the " +
+        "parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
             // 
             // txtUniqueName
             // 
@@ -284,6 +293,7 @@
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 41;
             this.label4.Text = "Name";
+            this.ttInfo.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // txtName
             // 
@@ -300,6 +310,9 @@
             this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 39;
             this.label3.Text = "Description";
+            this.ttInfo.SetToolTip(this.label3, "Localized description for custom API response property instances. \r\nFor use when " +
+        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
+        "lTip.");
             // 
             // txtDescription
             // 
@@ -308,6 +321,14 @@
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(319, 49);
             this.txtDescription.TabIndex = 38;
+            // 
+            // ttInfo
+            // 
+            this.ttInfo.AutoPopDelay = 10000;
+            this.ttInfo.InitialDelay = 500;
+            this.ttInfo.ReshowDelay = 100;
+            this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
             // NewResponsePropertyForm
             // 
@@ -359,5 +380,6 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCustomApiName;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip ttInfo;
     }
 }

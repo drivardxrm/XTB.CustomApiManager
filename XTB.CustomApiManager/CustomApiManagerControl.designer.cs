@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomApiManagerControl));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
             this.toolStripMenu = new System.Windows.Forms.ToolStrip();
             this.menuRefresh = new System.Windows.Forms.ToolStripButton();
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
@@ -414,6 +414,8 @@
             this.label20.Size = new System.Drawing.Size(101, 13);
             this.label20.TabIndex = 77;
             this.label20.Text = "Logical Entity Name";
+            this.ttInfo.SetToolTip(this.label20, "The logical name of the entity bound to the custom API response property .\r\nCanno" +
+        "t be changed after it is saved.");
             // 
             // cdsTxtResponseBoundEntity
             // 
@@ -452,6 +454,9 @@
             this.label21.Size = new System.Drawing.Size(60, 13);
             this.label21.TabIndex = 74;
             this.label21.Text = "Description";
+            this.ttInfo.SetToolTip(this.label21, "Localized description for custom API response property instances. \r\nFor use when " +
+        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
+        "lTip.");
             // 
             // btnEditOutput
             // 
@@ -514,6 +519,7 @@
             this.label24.Size = new System.Drawing.Size(31, 13);
             this.label24.TabIndex = 64;
             this.label24.Text = "Type";
+            this.ttInfo.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
             // 
             // cdsTxtResponseDisplayName
             // 
@@ -537,6 +543,8 @@
             this.label25.Size = new System.Drawing.Size(69, 13);
             this.label25.TabIndex = 61;
             this.label25.Text = "DisplayName";
+            this.ttInfo.SetToolTip(this.label25, "Localized display name for custom API response property instances. \r\nFor use when" +
+        " the message parameter is exposed to be called in an app.");
             // 
             // cdsTxtResponseName
             // 
@@ -560,6 +568,7 @@
             this.label26.Size = new System.Drawing.Size(35, 13);
             this.label26.TabIndex = 58;
             this.label26.Text = "Name";
+            this.ttInfo.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
             // 
             // pictureBox17
             // 
@@ -595,6 +604,8 @@
             this.label27.Size = new System.Drawing.Size(83, 13);
             this.label27.TabIndex = 55;
             this.label27.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label27, "Unique name for the custom API response property . \r\nThis will be the name of the" +
+        " parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
             // 
             // cdsGridOutputs
             // 
@@ -602,37 +613,37 @@
             this.cdsGridOutputs.AllowUserToResizeRows = false;
             this.cdsGridOutputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridOutputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle85.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle85.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle85.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle85.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridOutputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle73.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle73.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle73.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle73.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridOutputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle73;
             this.cdsGridOutputs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cdsGridOutputs.ColumnOrder = "uniquename, type";
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle86.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle86.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle86.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cdsGridOutputs.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle74.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle74.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle74.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cdsGridOutputs.DefaultCellStyle = dataGridViewCellStyle74;
             this.cdsGridOutputs.FilterColumns = "";
             this.cdsGridOutputs.Location = new System.Drawing.Point(17, 52);
             this.cdsGridOutputs.MultiSelect = false;
             this.cdsGridOutputs.Name = "cdsGridOutputs";
             this.cdsGridOutputs.OrganizationService = null;
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle87.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle87.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle75.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle75.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle75.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle75.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridOutputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle75;
             this.cdsGridOutputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridOutputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridOutputs.ShowFriendlyNames = true;
@@ -709,6 +720,8 @@
             this.label19.Size = new System.Drawing.Size(101, 13);
             this.label19.TabIndex = 77;
             this.label19.Text = "Logical Entity Name";
+            this.ttInfo.SetToolTip(this.label19, "The logical name of the entity bound to the custom API request parameter.\r\nCannot" +
+        " be changed after it is saved.");
             // 
             // cdsTxtRequestBoundEntity
             // 
@@ -747,6 +760,9 @@
             this.label18.Size = new System.Drawing.Size(60, 13);
             this.label18.TabIndex = 74;
             this.label18.Text = "Description";
+            this.ttInfo.SetToolTip(this.label18, "Localized description for custom API request parameter instances. \r\nFor use when " +
+        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
+        "lTip.");
             // 
             // btnEditInput
             // 
@@ -809,6 +825,7 @@
             this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 67;
             this.label16.Text = "IsOptional";
+            this.ttInfo.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // pictureBox11
             // 
@@ -842,6 +859,7 @@
             this.label15.Size = new System.Drawing.Size(31, 13);
             this.label15.TabIndex = 64;
             this.label15.Text = "Type";
+            this.ttInfo.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
             // 
             // cdsTxtRequestDisplayName
             // 
@@ -865,6 +883,8 @@
             this.label14.Size = new System.Drawing.Size(69, 13);
             this.label14.TabIndex = 61;
             this.label14.Text = "DisplayName";
+            this.ttInfo.SetToolTip(this.label14, "Localized display name for custom API request parameter instances. \r\nFor use when" +
+        " the message parameter is exposed to be called in an app.");
             // 
             // cdsTxtRequestName
             // 
@@ -888,6 +908,7 @@
             this.label13.Size = new System.Drawing.Size(35, 13);
             this.label13.TabIndex = 58;
             this.label13.Text = "Name";
+            this.ttInfo.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
             // 
             // pictureBox8
             // 
@@ -923,6 +944,8 @@
             this.label11.Size = new System.Drawing.Size(83, 13);
             this.label11.TabIndex = 55;
             this.label11.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label11, "Unique name for the custom API request parameter. \r\nThis will be the name of the " +
+        "parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
             // 
             // cdsGridInputs
             // 
@@ -930,37 +953,37 @@
             this.cdsGridInputs.AllowUserToResizeRows = false;
             this.cdsGridInputs.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.cdsGridInputs.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle88.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle88.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle88.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle88.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridInputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle76.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle76.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle76.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle76.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle76.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle76.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridInputs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle76;
             this.cdsGridInputs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cdsGridInputs.ColumnOrder = "uniquename, type, isoptional";
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle89.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.cdsGridInputs.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.cdsGridInputs.DefaultCellStyle = dataGridViewCellStyle77;
             this.cdsGridInputs.FilterColumns = "";
             this.cdsGridInputs.Location = new System.Drawing.Point(17, 52);
             this.cdsGridInputs.MultiSelect = false;
             this.cdsGridInputs.Name = "cdsGridInputs";
             this.cdsGridInputs.OrganizationService = null;
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle90.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle90.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle90.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle90.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle90.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle90.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cdsGridInputs.RowHeadersDefaultCellStyle = dataGridViewCellStyle78;
             this.cdsGridInputs.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridInputs.ShowAllColumnsInColumnOrder = true;
             this.cdsGridInputs.ShowFriendlyNames = true;

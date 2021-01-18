@@ -263,6 +263,65 @@
         WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="label9.ToolTip" xml:space="preserve">
+    <value>The data type of the custom API request parameter.
+Value: 0 Label: Boolean
+Value: 1 Label: DateTime
+Value: 2 Label: Decimal
+Value: 3 Label: Entity
+Value: 4 Label: EntityCollection
+Value: 5 Label: EntityReference
+Value: 6 Label: Float
+Value: 7 Label: Integer
+Value: 8 Label: Money
+Value: 9 Label: Picklist
+Value: 10 Label: String
+Value: 11 Label: StringArray
+Value: 12 Label: Guid
+Cannot be changed after it is saved.</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>Indicates if the custom API request parameter is optional. 
+If it is not optional, it is required to pass a value for this parameter when using the message.
+Value: 0 Label: No
+Value: 1 Label: Yes
+Cannot be changed after it is saved.</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value>The primary name of the custom API request parameter. 
+This will display in the list of custom api request parameters when viewed in the solution. 
+Use this to differentiate this parameter from others that share a common Unique Name.
+This naming convention is recommended: {Custom API Unique Name}.{Parameter UniqueName}</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="txtName.ToolTip" xml:space="preserve">
+    <value>The primary name of the custom API request parameter. 
+This will display in the list of custom api request parameters when viewed in the solution. Use this to differentiate this parameter from others that share a common Unique Name.
+This naming convention is recommended: {Custom API Unique Name}.{Parameter UniqueName}</value>
+  </data>
+  <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAgBAAAMQOAADEDgAAAAAAAAAA
