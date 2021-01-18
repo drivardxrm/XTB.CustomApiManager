@@ -16,7 +16,7 @@
     </description>
     <releaseNotes>
       Full release notes:
-      https://github.com/drivardxrm/XTB.CustomApiManager/releases/tag/$buildnumber$
+      https://github.com/drivardxrm/XTB.CustomApiManager/releases/latest
     </releaseNotes>
     <copyright>Copyright David Rivard 2020-2021</copyright>
     <tags>XrmToolBox Plugins Dataverse Custom API</tags>
