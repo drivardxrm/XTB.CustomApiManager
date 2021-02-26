@@ -22,7 +22,7 @@ using XrmToolBox.Extensibility.Interfaces;
 
 namespace XTB.CustomApiManager
 {
-    public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
+    public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin, IPayPalPlugin
     {
         private Settings mySettings;
 
@@ -39,6 +39,10 @@ namespace XTB.CustomApiManager
         public string RepositoryName => "XTB.CustomApiManager";
 
         public string UserName => "drivardxrm";
+
+        public string DonationDescription => "Feel free to donate if you find this tool helpful.";
+
+        public string EmailAccount => "david.rivard@gmail.com";
 
         public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
