@@ -22,7 +22,7 @@ using XrmToolBox.Extensibility.Interfaces;
 
 namespace XTB.CustomApiManager
 {
-    public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin, IPayPalPlugin
+    public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
         private Settings mySettings;
 
@@ -40,9 +40,7 @@ namespace XTB.CustomApiManager
 
         public string UserName => "drivardxrm";
 
-        public string DonationDescription => "Feel free to donate if you find this tool helpful.";
-
-        public string EmailAccount => "david.rivard@gmail.com";
+       
 
         public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
@@ -53,8 +51,7 @@ namespace XTB.CustomApiManager
 
         private void CustomApiManagerControl_Load(object sender, EventArgs e)
         {
-            ShowInfoNotification("Disclaimer : Dataverse Custom APIs are still considered a preview feature.", new Uri("https://docs.microsoft.com/en-us/powerapps/developer/common-data-service/custom-api"));
-
+            
             // Loads or creates the settings for the plugin
             if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
             {
