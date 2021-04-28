@@ -71,6 +71,9 @@
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkWFEnabled = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -78,10 +81,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.pictureBox6);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.chkWFEnabled);
             this.panel2.Controls.Add(this.cdsCboPrivileges);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.pictureBox13);
@@ -199,7 +206,7 @@
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(121, 349);
+            this.pictureBox5.Location = new System.Drawing.Point(158, 348);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(20, 19);
             this.pictureBox5.TabIndex = 70;
@@ -422,7 +429,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(29, 377);
+            this.label7.Location = new System.Drawing.Point(29, 390);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 47;
@@ -451,7 +458,7 @@
             // chkIsPrivate
             // 
             this.chkIsPrivate.AutoSize = true;
-            this.chkIsPrivate.Location = new System.Drawing.Point(107, 377);
+            this.chkIsPrivate.Location = new System.Drawing.Point(142, 390);
             this.chkIsPrivate.Name = "chkIsPrivate";
             this.chkIsPrivate.Size = new System.Drawing.Size(15, 14);
             this.chkIsPrivate.TabIndex = 44;
@@ -470,7 +477,7 @@
             // chkIsFunction
             // 
             this.chkIsFunction.AutoSize = true;
-            this.chkIsFunction.Location = new System.Drawing.Point(106, 352);
+            this.chkIsFunction.Location = new System.Drawing.Point(142, 352);
             this.chkIsFunction.Name = "chkIsFunction";
             this.chkIsFunction.Size = new System.Drawing.Size(15, 14);
             this.chkIsFunction.TabIndex = 42;
@@ -540,6 +547,35 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(158, 368);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox6.TabIndex = 79;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 372);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 78;
+            this.label2.Text = "Enabled For Workflow";
+            this.ttInfo.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            // 
+            // chkWFEnabled
+            // 
+            this.chkWFEnabled.AutoSize = true;
+            this.chkWFEnabled.Location = new System.Drawing.Point(142, 371);
+            this.chkWFEnabled.Name = "chkWFEnabled";
+            this.chkWFEnabled.Size = new System.Drawing.Size(15, 14);
+            this.chkWFEnabled.TabIndex = 77;
+            this.chkWFEnabled.UseVisualStyleBackColor = true;
+            // 
             // NewCustomApiForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -564,6 +600,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -610,5 +647,8 @@
         private System.Windows.Forms.PictureBox pictureBox13;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboPrivileges;
         private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox chkWFEnabled;
     }
 }

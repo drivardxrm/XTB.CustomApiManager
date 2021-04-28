@@ -36,6 +36,8 @@ namespace XTB.CustomApiManager.Entities
         public const string Description = "description";
         /// <summary>Type: String, RequiredLevel: SystemRequired, MaxLength: 100, Format: Text</summary>
         public const string DisplayName = "displayname";
+        /// <summary>Type: Boolean, RequiredLevel: None, True: 1, False: 0, DefaultValue: False</summary>
+        public const string EnabledforWorkflow = "workflowsdkstepenabled";
         /// <summary>Type: String, RequiredLevel: None, MaxLength: 100, Format: Text</summary>
         public const string ExecutePrivilegeName = "executeprivilegename";
         /// <summary>Type: ManagedProperty, RequiredLevel: SystemRequired</summary>

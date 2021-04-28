@@ -93,6 +93,7 @@ namespace XTB.CustomApiManager
             cdsTxtExecutePrivilegeName.OrganizationService = Service;
 
             cdsTxtIsFunction.OrganizationService = Service;
+            cdsTxtIsWFEnabled.OrganizationService = Service;
             cdsTxtIsPrivate.OrganizationService = Service;
             cdsTxtIsManaged.OrganizationService = Service;
             cdsTxtIsCustomizable.OrganizationService = Service;
@@ -517,6 +518,7 @@ namespace XTB.CustomApiManager
 
             cdsTxtPluginType.EntityReference = _selectedCustomApi?.PluginType; //todo try to move out from proxy
             cdsTxtIsFunction.Entity = _selectedCustomApi?.CustomApiRow;
+            cdsTxtIsWFEnabled.Entity = _selectedCustomApi?.CustomApiRow;
             cdsTxtExecutePrivilegeName.Entity = _selectedCustomApi?.CustomApiRow;
             cdsTxtIsPrivate.Entity = _selectedCustomApi?.CustomApiRow;
 

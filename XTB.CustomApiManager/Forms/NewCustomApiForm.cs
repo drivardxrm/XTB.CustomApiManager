@@ -179,6 +179,7 @@ namespace XTB.CustomApiManager.Forms
             api[CustomAPI.DisplayName] = txtDisplayName.Text;
             api[CustomAPI.ExecutePrivilegeName] = cdsCboPrivileges.Text;
             api[CustomAPI.IsFunction] = chkIsFunction.Checked;
+            api[CustomAPI.EnabledforWorkflow] = chkWFEnabled.Checked;
             api[CustomAPI.IsPrivate] = chkIsPrivate.Checked;
             api[CustomAPI.PrimaryName] = txtName.Text;
 

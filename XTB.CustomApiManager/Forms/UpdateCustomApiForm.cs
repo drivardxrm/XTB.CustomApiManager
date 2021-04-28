@@ -55,6 +55,7 @@ namespace XTB.CustomApiManager.Forms
 
             cdsCboPrivileges.Text = _customapiproxy.ExecutePrivilegeName;
             chkIsFunction.Checked = _customapiproxy.IsFunction;
+            chkWFEnabled.Checked = _customapiproxy.EnabledforWorkflow;
             chkIsPrivate.Checked = _customapiproxy.IsPrivate;
             
             if (_customapiproxy.PluginType != null) 

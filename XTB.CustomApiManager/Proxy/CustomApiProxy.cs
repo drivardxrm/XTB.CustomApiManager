@@ -63,6 +63,9 @@ namespace XTB.CustomApiManager.Proxy
         public bool IsFunction => CustomApiRow.Attributes.Contains(CustomAPI.IsFunction) && 
                                     (bool)CustomApiRow[CustomAPI.IsFunction];
 
+        public bool EnabledforWorkflow => CustomApiRow.Attributes.Contains(CustomAPI.EnabledforWorkflow) &&
+                                    (bool)CustomApiRow[CustomAPI.EnabledforWorkflow];
+
         public bool IsPrivate => CustomApiRow.Attributes.Contains(CustomAPI.IsPrivate) &&
                                     (bool)CustomApiRow[CustomAPI.IsPrivate];
 
