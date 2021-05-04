@@ -54,6 +54,7 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='modifiedbyname' />
                 <attribute name='owningteam' />
                 <attribute name='isfunction' />
+                <attribute name='workflowsdkstepenabled' />
                 <attribute name='modifiedby' />
                 <attribute name='createdby' />
                 <attribute name='timezoneruleversionnumber' />
@@ -127,6 +128,7 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='modifiedbyname' />
                 <attribute name='owningteam' />
                 <attribute name='isfunction' />
+                <attribute name='workflowsdkstepenabled' />
                 <attribute name='modifiedby' />
                 <attribute name='createdby' />
                 <attribute name='timezoneruleversionnumber' />
