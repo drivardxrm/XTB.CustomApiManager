@@ -177,6 +177,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\ImageGroupBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -274,6 +277,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Controls\ImageGroupBox.resx">
+      <DependentUpon>ImageGroupBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>

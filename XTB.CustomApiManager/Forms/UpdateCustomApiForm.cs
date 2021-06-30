@@ -57,7 +57,8 @@ namespace XTB.CustomApiManager.Forms
             chkIsFunction.Checked = _customapiproxy.IsFunction;
             chkWFEnabled.Checked = _customapiproxy.EnabledforWorkflow;
             chkIsPrivate.Checked = _customapiproxy.IsPrivate;
-            
+            chkIsCustomizable.Checked = _customapiproxy.IsCustomizable;
+
             if (_customapiproxy.PluginType != null) 
             {
                 txtLookupPluginType.EntityReference = _customapiproxy.PluginType;
@@ -151,6 +152,11 @@ namespace XTB.CustomApiManager.Forms
             if (_customapiproxy.IsPrivate != chkIsPrivate.Checked)
             {
                 api[CustomAPI.IsPrivate] = chkIsPrivate.Checked;
+                _shouldupdate = true;
+            };
+            if (_customapiproxy.IsCustomizable != chkIsCustomizable.Checked)
+            {
+                api[CustomAPI.IsCustomizable] = chkIsCustomizable.Checked;
                 _shouldupdate = true;
             };
 

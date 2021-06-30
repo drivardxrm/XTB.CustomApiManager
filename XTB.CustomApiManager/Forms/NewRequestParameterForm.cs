@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -92,7 +93,16 @@ namespace XTB.CustomApiManager.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                NewCustomApiRequestParameterId = _service.Create(RequestParameterToCreate());
+
+                var createRequest = new CreateRequest
+                {
+                    Target = RequestParameterToCreate()
+                };
+                //createRequest["SolutionUniqueName"] = "{{SOLUTIONNAME}}"; //todo implement functionality to create as part of a solution
+
+                var createResponse = (CreateResponse)_service.Execute(createRequest);
+
+                NewCustomApiRequestParameterId = createResponse.id;
                 Cursor = Cursors.Default;
             }
             catch (Exception ex)
@@ -134,7 +144,8 @@ namespace XTB.CustomApiManager.Forms
             
            
             requestparam[CustomAPIRequestParameter.IsOptional] = chkIsOptional.Checked;
-            
+            requestparam[CustomAPIRequestParameter.IsCustomizable] = chkIsCustomizable.Checked;
+
 
             if (IsBoundToEntity()) 
             {

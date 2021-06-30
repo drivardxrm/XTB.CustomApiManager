@@ -42,7 +42,7 @@ namespace XTB.CustomApiManager.Forms
 
             cboType.DataSource = Enum.GetValues(typeof(CustomAPIResponseProperty.Type_OptionSet));
             cboType.SelectedIndex = (int)_responsepropertyproxi.Type;
-
+            chkIsCustomizable.Checked = _responsepropertyproxi.IsCustomizable;
 
         }
 
@@ -121,6 +121,12 @@ namespace XTB.CustomApiManager.Forms
             if (_responsepropertyproxi.DisplayName != txtDisplayName.Text)
             {
                 requestparam[CustomAPIResponseProperty.DisplayName] = txtDisplayName.Text;
+                _shouldupdate = true;
+            };
+
+            if (_responsepropertyproxi.IsCustomizable != chkIsCustomizable.Checked)
+            {
+                requestparam[CustomAPIResponseProperty.IsCustomizable] = chkIsCustomizable.Checked;
                 _shouldupdate = true;
             };
 

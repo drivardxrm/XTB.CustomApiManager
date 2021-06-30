@@ -57,6 +57,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -67,6 +69,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblCustomizable);
+            this.panel2.Controls.Add(this.chkIsCustomizable);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.cdsCustomApiName);
             this.panel2.Controls.Add(this.label17);
@@ -187,7 +191,7 @@
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(121, 263);
+            this.pictureBox5.Location = new System.Drawing.Point(123, 263);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(20, 19);
             this.pictureBox5.TabIndex = 70;
@@ -316,7 +320,7 @@
             // chkIsOptional
             // 
             this.chkIsOptional.AutoSize = true;
-            this.chkIsOptional.Location = new System.Drawing.Point(106, 266);
+            this.chkIsOptional.Location = new System.Drawing.Point(108, 266);
             this.chkIsOptional.Name = "chkIsOptional";
             this.chkIsOptional.Size = new System.Drawing.Size(15, 14);
             this.chkIsOptional.TabIndex = 42;
@@ -366,6 +370,26 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
+            // 
+            // lblCustomizable
+            // 
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(28, 285);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 104;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API Request Parameter can be customized or deleted wh" +
+        "en deployed as managed.");
+            // 
+            // chkIsCustomizable
+            // 
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(108, 285);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 103;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // NewRequestParameterForm
             // 
@@ -422,5 +446,7 @@
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsCustomApiName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.Label lblCustomizable;
+        private System.Windows.Forms.CheckBox chkIsCustomizable;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -76,7 +77,15 @@ namespace XTB.CustomApiManager.Forms
             {
 
                 Cursor = Cursors.WaitCursor;
-                NewCustomApiId = _service.Create(CustomApiToCreate());
+                var createRequest = new CreateRequest
+                {
+                    Target = CustomApiToCreate()
+                };
+                //createRequest["SolutionUniqueName"] = "{{SOLUTIONNAME}}"; //todo implement functionality to create as part of a solution
+
+                var createResponse = (CreateResponse)_service.Execute(createRequest);
+
+                NewCustomApiId = createResponse.id;
                 Cursor = Cursors.Default;
             }
             catch (Exception ex)
@@ -99,6 +108,11 @@ namespace XTB.CustomApiManager.Forms
             if (txtDisplayName.Text == string.Empty)
             {
                 txtDisplayName.Text = txtUniqueName.Text;
+            }
+
+            if (txtDescription.Text == string.Empty)
+            {
+                txtDescription.Text = txtUniqueName.Text;
             }
 
         }
@@ -182,6 +196,7 @@ namespace XTB.CustomApiManager.Forms
             api[CustomAPI.EnabledforWorkflow] = chkWFEnabled.Checked;
             api[CustomAPI.IsPrivate] = chkIsPrivate.Checked;
             api[CustomAPI.PrimaryName] = txtName.Text;
+            api[CustomAPI.IsCustomizable] = chkIsCustomizable.Checked;
 
             if (IsBoundToEntity()) 
             {
@@ -225,6 +240,14 @@ namespace XTB.CustomApiManager.Forms
 
         }
 
-       
+        private void txtLookupPluginType_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblPlugintype_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

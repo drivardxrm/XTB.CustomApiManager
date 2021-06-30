@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Messages;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -93,7 +94,16 @@ namespace XTB.CustomApiManager.Forms
             try
             {
                 Cursor = Cursors.WaitCursor;
-                NewCustomApiResponsePropertyId = _service.Create(ResponsePropertyToCreate());
+
+                var createRequest = new CreateRequest
+                {
+                    Target = ResponsePropertyToCreate()
+                };
+                //createRequest["SolutionUniqueName"] = "{{SOLUTIONNAME}}"; //todo implement functionality to create as part of a solution
+
+                var createResponse = (CreateResponse)_service.Execute(createRequest);
+
+                NewCustomApiResponsePropertyId = createResponse.id;
                 Cursor = Cursors.Default;
             }
             catch (Exception ex)
@@ -129,9 +139,9 @@ namespace XTB.CustomApiManager.Forms
             requestparam[CustomAPIResponseProperty.Description] = txtDescription.Text;
 
 
-            requestparam[CustomAPIResponseProperty.Type] = new OptionSetValue(cboType.SelectedIndex); 
+            requestparam[CustomAPIResponseProperty.Type] = new OptionSetValue(cboType.SelectedIndex);
+            requestparam[CustomAPIResponseProperty.IsCustomizable] = chkIsCustomizable.Checked;
 
-            
 
             if (IsBoundToEntity()) 
             {

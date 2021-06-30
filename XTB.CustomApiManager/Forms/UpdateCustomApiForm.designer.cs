@@ -31,6 +31,9 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateCustomApiForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.chkWFEnabled = new System.Windows.Forms.CheckBox();
             this.txtBoundEntity = new System.Windows.Forms.TextBox();
             this.cdsCboPrivileges = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.label17 = new System.Windows.Forms.Label();
@@ -67,21 +70,22 @@
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.chkWFEnabled = new System.Windows.Forms.CheckBox();
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblCustomizable);
+            this.panel2.Controls.Add(this.chkIsCustomizable);
             this.panel2.Controls.Add(this.pictureBox6);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.chkWFEnabled);
@@ -123,6 +127,36 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(500, 439);
             this.panel2.TabIndex = 5;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
+            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
+            this.pictureBox6.Location = new System.Drawing.Point(157, 339);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(20, 19);
+            this.pictureBox6.TabIndex = 82;
+            this.pictureBox6.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(28, 343);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 81;
+            this.label2.Text = "Enabled For Workflow";
+            this.ttInfo.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            // 
+            // chkWFEnabled
+            // 
+            this.chkWFEnabled.AutoSize = true;
+            this.chkWFEnabled.Enabled = false;
+            this.chkWFEnabled.Location = new System.Drawing.Point(142, 342);
+            this.chkWFEnabled.Name = "chkWFEnabled";
+            this.chkWFEnabled.Size = new System.Drawing.Size(15, 14);
+            this.chkWFEnabled.TabIndex = 80;
+            this.chkWFEnabled.UseVisualStyleBackColor = true;
             // 
             // txtBoundEntity
             // 
@@ -493,35 +527,25 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
-            // pictureBox6
+            // lblCustomizable
             // 
-            this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
-            this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(157, 339);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(20, 19);
-            this.pictureBox6.TabIndex = 82;
-            this.pictureBox6.TabStop = false;
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(29, 378);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 104;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API can be customized or deleted when deployed as man" +
+        "aged.");
             // 
-            // label2
+            // chkIsCustomizable
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(28, 343);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
-            this.label2.TabIndex = 81;
-            this.label2.Text = "Enabled For Workflow";
-            this.ttInfo.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
-            // 
-            // chkWFEnabled
-            // 
-            this.chkWFEnabled.AutoSize = true;
-            this.chkWFEnabled.Enabled = false;
-            this.chkWFEnabled.Location = new System.Drawing.Point(142, 342);
-            this.chkWFEnabled.Name = "chkWFEnabled";
-            this.chkWFEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chkWFEnabled.TabIndex = 80;
-            this.chkWFEnabled.UseVisualStyleBackColor = true;
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(142, 378);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 103;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // UpdateCustomApiForm
             // 
@@ -541,13 +565,13 @@
             this.Text = "Custom Api Manager";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -593,5 +617,7 @@
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox chkWFEnabled;
+        private System.Windows.Forms.Label lblCustomizable;
+        private System.Windows.Forms.CheckBox chkIsCustomizable;
     }
 }

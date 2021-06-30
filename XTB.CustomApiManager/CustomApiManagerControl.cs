@@ -107,6 +107,8 @@ namespace XTB.CustomApiManager
             cdsTxtRequestIsOptional.OrganizationService = Service;
             cdsTxtRequestBoundEntity.OrganizationService = Service;
             cdsTxtRequestType.OrganizationService = Service;
+            cdsTxtRequestIsCustomizable.OrganizationService = Service;
+            cdsTxtRequestIsManaged.OrganizationService = Service;
 
             //output props
             cdsGridOutputs.OrganizationService = Service;
@@ -116,6 +118,8 @@ namespace XTB.CustomApiManager
             cdsTxtResponseDescription.OrganizationService = Service;
             cdsTxtResponseBoundEntity.OrganizationService = Service;
             cdsTxtResponseType.OrganizationService = Service;
+            cdsTxtResponseIsCustomizable.OrganizationService = Service;
+            cdsTxtResponseIsManaged.OrganizationService = Service;
 
 
         }
@@ -531,17 +535,14 @@ namespace XTB.CustomApiManager
                 btnEditCustomApi.Enabled = _selectedCustomApi.CanCustomize;
                 btnDeleteApi.Enabled = _selectedCustomApi.CanCustomize;
                 btnAddInput.Enabled = _selectedCustomApi.CanCustomize;
-                btnEditInput.Enabled = _selectedCustomApi.CanCustomize;
-                btnDeleteInput.Enabled = _selectedCustomApi.CanCustomize;
                 btnAddOutput.Enabled = _selectedCustomApi.CanCustomize;
-                btnEditOutput.Enabled = _selectedCustomApi.CanCustomize;
-                btnDeleteOutput.Enabled = _selectedCustomApi.CanCustomize;
+
             }
             
             
-            grpCustomApi.Enabled = _selectedCustomApi != null;
-            grpInputs.Enabled = _selectedCustomApi != null;
-            grpOutputs.Enabled = _selectedCustomApi != null;
+            imgGrpCustomApi.Enabled = _selectedCustomApi != null;
+            imgGrpInputs.Enabled = _selectedCustomApi != null;
+            imgGrpOutputs.Enabled = _selectedCustomApi != null;
 
 
           
@@ -611,16 +612,16 @@ namespace XTB.CustomApiManager
             cdsTxtRequestBoundEntity.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestType.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestIsOptional.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestIsCustomizable.Entity = _selectedRequestParameter?.RequestParameterRow;
+            cdsTxtRequestIsManaged.Entity = _selectedRequestParameter?.RequestParameterRow;
 
 
             //enable buttons
-            btnEditInput.Enabled = _selectedRequestParameter != null
-                                        && _selectedCustomApi != null
-                                        && _selectedCustomApi.CanCustomize;
+            btnEditInput.Enabled = _selectedRequestParameter?.RequestParameterRow != null
+                                        && _selectedRequestParameter.CanCustomize;
 
-            btnDeleteInput.Enabled = _selectedRequestParameter != null
-                                        && _selectedCustomApi != null
-                                        && _selectedCustomApi.CanCustomize;
+            btnDeleteInput.Enabled = _selectedRequestParameter?.RequestParameterRow != null
+                                        && _selectedRequestParameter.CanCustomize;
 
         }
 
@@ -683,15 +684,15 @@ namespace XTB.CustomApiManager
             cdsTxtResponseDescription.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseBoundEntity.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseType.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseIsCustomizable.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            cdsTxtResponseIsManaged.Entity = _selectedResponseProperty.ResponsePropertyRow;
 
             //enable buttons
-            btnEditOutput.Enabled = _selectedResponseProperty != null
-                                        && _selectedCustomApi != null
-                                        && _selectedCustomApi.CanCustomize;
+            btnEditOutput.Enabled = _selectedResponseProperty?.ResponsePropertyRow != null
+                                        && _selectedResponseProperty.CanCustomize;
 
-            btnDeleteOutput.Enabled = _selectedResponseProperty != null
-                                        && _selectedCustomApi != null
-                                        && _selectedCustomApi.CanCustomize;
+            btnDeleteOutput.Enabled = _selectedResponseProperty?.ResponsePropertyRow != null
+                                        && _selectedResponseProperty.CanCustomize;
 
         }
 

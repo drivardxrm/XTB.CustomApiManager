@@ -54,6 +54,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -63,6 +65,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lblCustomizable);
+            this.panel2.Controls.Add(this.chkIsCustomizable);
             this.panel2.Controls.Add(this.txtBoundEntityName);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.cdsCustomApiName);
@@ -326,6 +330,26 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
+            // lblCustomizable
+            // 
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(26, 270);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 108;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API Request Parameter can be customized or deleted wh" +
+        "en deployed as managed.");
+            // 
+            // chkIsCustomizable
+            // 
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(106, 270);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 107;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
+            // 
             // UpdateResponsePropertyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -377,5 +401,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBoundEntityName;
         private System.Windows.Forms.ToolTip ttInfo;
+        private System.Windows.Forms.Label lblCustomizable;
+        private System.Windows.Forms.CheckBox chkIsCustomizable;
     }
 }

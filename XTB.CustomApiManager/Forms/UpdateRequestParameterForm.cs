@@ -40,6 +40,7 @@ namespace XTB.CustomApiManager.Forms
             txtDescription.Text = _requestparameterproxi.Description;
             chkIsOptional.Checked = _requestparameterproxi.IsOptional;
             txtBoundEntityName.Text = _requestparameterproxi.BoundEntityLogicalName;
+            chkIsCustomizable.Checked = _requestparameterproxi.IsCustomizable;
 
             cboType.DataSource = Enum.GetValues(typeof(CustomAPIRequestParameter.Type_OptionSet));
             cboType.SelectedIndex = (int)_requestparameterproxi.Type;
@@ -121,6 +122,12 @@ namespace XTB.CustomApiManager.Forms
             if (_requestparameterproxi.DisplayName != txtDisplayName.Text)
             {
                 requestparam[CustomAPIRequestParameter.DisplayName] = txtDisplayName.Text;
+                _shouldupdate = true;
+            };
+
+            if (_requestparameterproxi.IsCustomizable != chkIsCustomizable.Checked)
+            {
+                requestparam[CustomAPIRequestParameter.IsCustomizable] = chkIsCustomizable.Checked;
                 _shouldupdate = true;
             };
 

@@ -125,32 +125,32 @@
     <value>
         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
-        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
+        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
 </value>
   </data>
   <data name="menuNewApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -208,55 +208,28 @@
         nx7M1/fndSDR+OogU/8Bgk/UU/AWIz8AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnNewApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFBUBLR2j0lIAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
         cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAPBJREFU
+        OE/FlMEKgkAURf3SVmGroIIisK2L+oVW1sqUWrXJtCYhl/1CRRa16RNe3gcKDhQpgy6uPN6798w46GhE
+        pFT8aEz7nbZr2q3ZyNYLChlkwciAumWs/feR/GdI3kMUEjLIgpEBsQoGwU3Q9rrL6xKQiEMWanmODLJg
+        5IBYDYbN2c8JvfnJZX2bI/s3cB8fqOuYLNTyvBRwsByz6gd6yRAGkQQRhqJXRMPVhIU67cPDsF9AcQ+T
+        w3eotzCzXQHUtAwW6rQPD7zIVAdU/sowyIeOcLor1PKcobUDlX7Y6JX69ZReDsqvL+UXrDqR9gEhhrk1
+        vCYnJwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="pictureBox1.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
-</value>
-  </data>
+  <metadata name="dlgLookupPluginType.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>147, 17</value>
+  </metadata>
+  <metadata name="dlgLookupPublisher.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>300, 17</value>
+  </metadata>
   <metadata name="ttInfo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>460, 17</value>
   </metadata>
-  <data name="label29.ToolTip" xml:space="preserve">
-    <value>Indicates if the custom API is a function. A function requires the HTTP GET method. 
-Otherwise the Http POST method is required.
-Value: 0 Label: No
-Value: 1 Label: Yes
-Important: A function MUST include at least one Response Property to be valid.
-More information: Use Web API functions
-Cannot be changed after it is saved.</value>
-  </data>
-  <data name="btnDeleteApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFBQ2LYxmGFEAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAW1JREFU
-        OE9j+P//P1UwCmeXqanTLhMTO2QxXPiAubnnDmNjUxgfLnHEzs7hRUHBjxf5+V+3aWiYw8Sx4d2mpu5v
-        Skr+P83NfbPPxsYIJAaWmM/Dw38tOvrV//nz//+fOfP/s9zcdxt1dbEatsvY2PNVcfH3/7Nm/f8/d+7/
-        K6GhV+sZGJjhCk64u/uBFQANghuG5rKdJiYecEOgag7b29uD5OCKQBhuG5JhW/T0zEBye2CGIMkhBwGK
-        QSAM8v9rJA0PsrJeHrCyKn1SUPAVlyEgjGIIDINsBxs2Y8b/P5Mm/f/V3Pz/z5Qp/0H8Zzk5GF4GYRQO
-        Mt6mp2f9orDw/d+pU///mjz5/1+gQU+zs5+uV1TUwaYeQwCGqWIQXq9hiU0QRuGAMLbAPmhlVUJSYKNH
-        8XOghp1I0Y9sAbrL4IYcd3HxRTcE3Va4RbgSJNYsgiUcQJhgFgFl2peFhd9fFhR8ITvTwjBVihHK8H8G
-        ACigaMxt+qtTAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="btnDeleteOutput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
@@ -293,6 +266,34 @@ Cannot be changed after it is saved.</value>
         PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
         WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
 </value>
+  </data>
+  <data name="pictureBox17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox17.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="label26.ToolTip" xml:space="preserve">
+    <value>The primary name of the custom API response property . 
+This will display in the list of custom api request parameters when viewed in the solution. 
+Use this to differentiate this parameter from others that share a common Unique Name.
+This naming convention is recommended: {Custom API Unique Name}.{Property UniqueName}</value>
   </data>
   <data name="btnEditOutput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -361,72 +362,159 @@ Value: 11 Label: StringArray
 Value: 12 Label: Guid
 Cannot be changed after it is saved.</value>
   </data>
-  <data name="label26.ToolTip" xml:space="preserve">
-    <value>The primary name of the custom API response property . 
-This will display in the list of custom api request parameters when viewed in the solution. 
-Use this to differentiate this parameter from others that share a common Unique Name.
-This naming convention is recommended: {Custom API Unique Name}.{Property UniqueName}</value>
-  </data>
-  <data name="pictureBox17.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="imgGrpOutputs.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMMOAADDDgAAAAAAAAAA
+        AAD/////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////+zq5v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk
+        3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk
+        3v/n5N7/7Ovm///////////////////////////////////////Z1Mv/qqCL/6achv+nnIb/p5yG/6ec
+        hv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6ec
+        hv+nnIb/p5yG/6achv+qoIv/2NPJ////////////////////////////7erm/6qgi/+soo3/qZ6J/6ec
+        hv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6ec
+        hv+nnIb/p5yG/6echv+nnIb/qZ6J/6yijf+roIv/7evm///////////////////////n5N7/ppyG/6me
+        if/W0cf/6ebh/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk
+        3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+nm4f/W0cf/qZ6J/6echv/n5N7//////////////////////+fk
+        3v+nnIb/p5yG/+nn4f//////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////+nn4f+nnIb/p5yG/+fk3v//////////////
+        ////////5uPd/6OYgv+jmIL/5uPd////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////5uPd/6OYgv+jmIL/5uPd////
+        ///////////////////u7Of/wbmq/8G5qv/u7Of///////////////////////nx6//qzbT/6s20//ny
+        6///////////////////////+fLr/+rNtP/qzbT/+fLr///////////////////////u7Of/wbmq/8G5
+        qv/u7Of/////////////////////////////////////////////////////////////////6cqv/7VL
+        AP+1SwD/6s61///////////////////////qzbT/tUsA/7VLAP/qy7D/////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///pyq7/ulgC/7xbBv/u1b///////////////////////+7Uvv+8WwT/ulgC/+nLsf//////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////+TAoP+7WQP/vV8M/+/Zxv//////////////////////79nF/75fDP+7WQL/58Sn////
+        /////////////////////////////////////////////////////////////////////////fr4//Pk
+        1f//////////////////////w20i/71fC//FcCf/9+zi///////////////////////26+H/w28m/71d
+        Cf/Jezn///////////////////////Pj1f/9+vj/////////////////////////////////////////
+        ///05Nf/wWga////////////7dS+/8l8Of+8XQn/u1kD/9GPVP//////////////////////////////
+        ///RjlP/u1kE/7xaBv/Pi0//9une////////////wWgZ//Tk2P//////////////////////////////
+        /////////////9WYY/+4UwD/1Zll/9GQV/+4UgD/vWAN/7xcB//IeDL/////////////////////////
+        ///////////////////IdzD/vFsG/71eCv+3TwD/2qZ4/9aea/+4UgD/1Zhj////////////////////
+        ////////////////////////u1oE/79jE/+9Xgv/vV8M/71eC/+3TwD/2KFx//z59f//////////////
+        //////////////////////////////z49f/bqXz/t1AA/71eCv+9Xgv/vV4M/79jE/+7WQP/////////
+        /////////////////////////////96whf+7WgT/wGUV/79kFP+9Xwz/05Nc//bp3f//////////////
+        ////////+fLr/+rNtP/qzbT/+fLr///////////////////////26Nz/05Nc/71fC/+/ZBT/wGUV/7ta
+        BP/eroX////////////////////////////69O7/xXIp/7taBP+9Xwz/vmAO/7lVAP/049X/////////
+        ///////////////////qzrT/tUsA/7VLAP/qzrT////////////////////////////z49T/uVUA/75h
+        D/+9YA3/u1oE/8VyKf/69O7///////////////////////fs4//dq3//0pNb/86JS//Jezf/w20i/8h5
+        NP/79vH//////////////////////+zSuv+6WAH/ulgB/+zSuv//////////////////////+/Xx/8Z2
+        L//CaRz/x3cx/82FRf/SkVn/3auA//fs4/////////////////////////////////////////////v1
+        8f/26+H/8dvJ//v18f//////////////////////7NK6/7pYAf+6WAH/7NK6////////////////////
+        ///69fD/79jE//Xn2//58ev/////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////s0rr/ulgB/7pYAf/s0rr/////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////+zSuv+6WAH/ulgB/+zS
+        uv//////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////7NK6/7pY
+        Af+6WAH/7NK6////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///x387/ulgB/7pYAf/x387/////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////+/X
+        wv+0SQD/t08A/7pYAf/AZRX/wGUV/7pYAf+3TwD/tEgA/+7Xwv//////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////+O7mP+8Wwb/v2MS/8BlFf/AZRX/v2MT/7taBP/iuZX/////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////+bDpP+6VwD/v2QU/79kFP+6VgD/5cCf////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////9SYYv+6VwH/u1gA/9OUXf//////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////9OVXv/Sk1z/////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////+/Xx//v2
+        8f//////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="pictureBox17.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="imgGrpInputs.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMMOAADDDgAAAAAAAAAA
+        AAD/////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////+zq5v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk
+        3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk
+        3v/n5N7/7Ovm///////////////////////////////////////Z1Mv/qqCL/6achv+nnIb/p5yG/6ec
+        hv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6ec
+        hv+nnIb/p5yG/6achv+qoIv/2NPJ////////////////////////////7erm/6qgi/+soo3/qZ6J/6ec
+        hv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6echv+nnIb/p5yG/6ec
+        hv+nnIb/p5yG/6echv+nnIb/qZ6J/6yijf+roIv/7evm///////////////////////n5N7/ppyG/6me
+        if/W0cf/6ebh/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+fk
+        3v/n5N7/5+Te/+fk3v/n5N7/5+Te/+nm4f/W0cf/qZ6J/6echv/n5N7//////////////////////+fk
+        3v+nnIb/p5yG/+nn4f//////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////+nn4f+nnIb/p5yG/+fk3v//////////////
+        ////////5uPd/6OYgv+jmIL/5uPd////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////5uPd/6OYgv+jmIL/5uPd////
+        ///////////////////u7Of/wbmq/8G5qv/u7Of////////////////////////////69O7/9+zi////
+        //////////////////////////////fs4v/69O7////////////////////////////u7Of/wbmq/8G5
+        qv/u7Of/////////////////////////////////////////////////////////////////4LSN/8Vy
+        Kf/cq4D/////////////////////////////////3Kt//8VyKf/drYP/////////////////////////
+        //////////////////////////////////////////////////////////////37+v/15tj/159u/7tb
+        Bf+7WQP/u1oE/9KSWf/////////////////////////////////Sk1r/u1oE/7taBf+6WAH/05Vf//Tj
+        1f/9+vj/////////////////////////////////////////////////////////////////9OXZ/8Jp
+        G/+4UgD/v2MS/8BlFf+9Xw3/zYdJ/////////////////////////////////82HSf+9Xw3/wGUV/79j
+        E/+4UwD/v2QT//Lfz///////////////////////////////////////////////////////////////
+        /////////////9abaf+9Xgv/v2QU/75hD//IeTT/+vPt///////////////////////68+3/yHk0/75h
+        D/+/ZBT/vV8M/9edav//////////////////////////////////////////////////////////////
+        ////////////////////////0ZFX/71fDP++Xw3/ulYA/8FqHv/16d3///////////////////////Xp
+        3P/Cah3/uVYA/71fDP+9Xgv/26Z4////////////////////////////////////////////////////
+        /////////////////////////////+3Uvv+4UgD/vV4L/9KUXP/05dj/yHgx/+/Zxv//////////////
+        ////////7tjE/8d3Mf/z49T/05Nc/71eCv+3TwD/9une////////////////////////////////////
+        ////////////////////////////////////////yXw5/71gDf+3TwD/9une///////79fH/+/Xw////
+        ///////////////////69fD/+/Xw///////26Nz/t04A/71eCv/Qi0//////////////////////////
+        ////////////////////////+fLr/+rLsf/pya3/5cCh/8NsIf+8XQn/vFsH/9umeP//////////////
+        //////////////Tk1//z49X////////////////////////////apXb/vFwH/7tbBf/Jezj/5sWn/+nK
+        rf/rzbT/+fLr///////////////////////qzrT/tUsA/7pYAv+7WQP/vV8M/7tZA//IeDL//Pn2////
+        ///////////////////+/Pv/ynw5/8l8OP/+/Pz///////////////////////359v/HdzD/u1kE/71d
+        Cv+7WQL/ulgC/7VLAP/qzrT//////////////////////+rOtP+1SwD/u1oF/71fDP/EcCb/0Y9U////
+        /////////////////////////////8yCQP+7WgX/u1oF/8t+PP//////////////////////////////
+        ///RjlP/xHAm/71fDP+7WgX/tUsA/+rOtP//////////////////////+fLr/+rNs//t1L7/79nF//br
+        4f/////////////////////////////////hs43/ulcA/79kFP+/ZBT/ulYA/9+xif//////////////
+        ///////////////////26+H/79nF/+3Uvv/qzbP/+fLr////////////////////////////////////
+        ////////////////////////////////////////4LWO/7pZA/+/ZBP/wGUV/8BlFf+/ZBP/u1kD/+Cy
+        iv//////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////+zUvv+0SAD/t08A/7pYAf/AZRX/wGUV/7pY
+        Af+3TwD/s0cA/+zVvv//////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////8d/O/7pY
+        Af+6WAH/8d/O////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///s0rr/ulgB/7pYAf/s0rr/////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////+zSuv+6WAH/ulgB/+zSuv//////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////7NK6/7pYAf+6WAH/7NK6////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////s0rr/ulgB/7pYAf/s0rr/////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////+zSuv+6WAH/ulgB/+zSuv//////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////6s60/7VLAP+1SwD/6s60////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////58uv/6s20/+rN
+        tP/58uv/////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="btnDeleteInput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFBQ2LYxmGFEAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAW1JREFU
-        OE9j+P//P1UwCmeXqanTLhMTO2QxXPiAubnnDmNjUxgfLnHEzs7hRUHBjxf5+V+3aWiYw8Sx4d2mpu5v
-        Skr+P83NfbPPxsYIJAaWmM/Dw38tOvrV//nz//+fOfP/s9zcdxt1dbEatsvY2PNVcfH3/7Nm/f8/d+7/
-        K6GhV+sZGJjhCk64u/uBFQANghuG5rKdJiYecEOgag7b29uD5OCKQBhuG5JhW/T0zEBye2CGIMkhBwGK
-        QSAM8v9rJA0PsrJeHrCyKn1SUPAVlyEgjGIIDINsBxs2Y8b/P5Mm/f/V3Pz/z5Qp/0H8Zzk5GF4GYRQO
-        Mt6mp2f9orDw/d+pU///mjz5/1+gQU+zs5+uV1TUwaYeQwCGqWIQXq9hiU0QRuGAMLbAPmhlVUJSYKNH
-        8XOghp1I0Y9sAbrL4IYcd3HxRTcE3Va4RbgSJNYsgiUcQJhgFgFl2peFhd9fFhR8ITvTwjBVihHK8H8G
-        ACigaMxt+qtTAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pictureBox9.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="btnEditInput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnEditCustomApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAAd0SU1FB+QMFBIyElrhjNoAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
@@ -441,20 +529,7 @@ This naming convention is recommended: {Custom API Unique Name}.{Property Unique
         ZcQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnAddInput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFBUBLR2j0lIAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAPBJREFU
-        OE/FlMEKgkAURf3SVmGroIIisK2L+oVW1sqUWrXJtCYhl/1CRRa16RNe3gcKDhQpgy6uPN6798w46GhE
-        pFT8aEz7nbZr2q3ZyNYLChlkwciAumWs/feR/GdI3kMUEjLIgpEBsQoGwU3Q9rrL6xKQiEMWanmODLJg
-        5IBYDYbN2c8JvfnJZX2bI/s3cB8fqOuYLNTyvBRwsByz6gd6yRAGkQQRhqJXRMPVhIU67cPDsF9AcQ+T
-        w3eotzCzXQHUtAwW6rQPD7zIVAdU/sowyIeOcLor1PKcobUDlX7Y6JX69ZReDsqvL+UXrDqR9gEhhrk1
-        vCYnJwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
@@ -465,7 +540,7 @@ This naming convention is recommended: {Custom API Unique Name}.{Property Unique
         WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="pictureBox12.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox1.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
@@ -476,78 +551,49 @@ This naming convention is recommended: {Custom API Unique Name}.{Property Unique
         WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="label16.ToolTip" xml:space="preserve">
-    <value>Indicates if the custom API request parameter is optional. 
-If it is not optional, it is required to pass a value for this parameter when using the message.
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value>Unique name for the custom API. 
+This will be the name of the message created.
+This value must include a customization prefix that matches the prefix set for your solution publisher.
+Cannot be changed after it is saved.</value>
+  </data>
+  <data name="label9.ToolTip" xml:space="preserve">
+    <value>The type of custom processing steps allowed for this Custom API. This allows you to control whether other plug-ins can be registered
+Value: 0 Label: None Meaning: No custom processing steps allowed.
+Value: 1 Label: Async Only Meaning: Only asynchronous custom processing steps allowed
+Value: 2 Label: Sync and Async Meaning: No restriction. 3rd party plug-ins can add synchronous logic to change the behavior of the message.
+Cannot be changed after it is saved.</value>
+  </data>
+  <data name="label29.ToolTip" xml:space="preserve">
+    <value>Indicates if the custom API is a function. A function requires the HTTP GET method. 
+Otherwise the Http POST method is required.
 Value: 0 Label: No
 Value: 1 Label: Yes
+Important: A function MUST include at least one Response Property to be valid.
+More information: Use Web API functions
 Cannot be changed after it is saved.</value>
   </data>
-  <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pictureBox11.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="label15.ToolTip" xml:space="preserve">
-    <value>The data type of the custom API request parameter.
-Value: 0 Label: Boolean
-Value: 1 Label: DateTime
-Value: 2 Label: Decimal
-Value: 3 Label: Entity
-Value: 4 Label: EntityCollection
-Value: 5 Label: EntityReference
-Value: 6 Label: Float
-Value: 7 Label: Integer
-Value: 8 Label: Money
-Value: 9 Label: Picklist
-Value: 10 Label: String
-Value: 11 Label: StringArray
-Value: 12 Label: Guid
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value>Indicates if the custom API is a function. A function requires the HTTP GET method. Otherwise the Http POST method is required.
+Value: 0 Label: No
+Value: 1 Label: Yes
+Important: A function MUST include at least one Response Property to be valid.
+More information: Use Web API functions
 Cannot be changed after it is saved.</value>
   </data>
-  <data name="label13.ToolTip" xml:space="preserve">
-    <value>The primary name of the custom API request parameter. 
-This will display in the list of custom api request parameters when viewed in the solution. 
-Use this to differentiate this parameter from others that share a common Unique Name.
-This naming convention is recommended: {Custom API Unique Name}.{Parameter UniqueName}</value>
-  </data>
-  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnDeleteApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFBQ2LYxmGFEAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
         cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
-</value>
-  </data>
-  <data name="pictureBox8.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
-        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
-        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
-        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
-        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
-        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAW1JREFU
+        OE9j+P//P1UwCmeXqanTLhMTO2QxXPiAubnnDmNjUxgfLnHEzs7hRUHBjxf5+V+3aWiYw8Sx4d2mpu5v
+        Skr+P83NfbPPxsYIJAaWmM/Dw38tOvrV//nz//+fOfP/s9zcdxt1dbEatsvY2PNVcfH3/7Nm/f8/d+7/
+        K6GhV+sZGJjhCk64u/uBFQANghuG5rKdJiYecEOgag7b29uD5OCKQBhuG5JhW/T0zEBye2CGIMkhBwGK
+        QSAM8v9rJA0PsrJeHrCyKn1SUPAVlyEgjGIIDINsBxs2Y8b/P5Mm/f/V3Pz/z5Qp/0H8Zzk5GF4GYRQO
+        Mt6mp2f9orDw/d+pU///mjz5/1+gQU+zs5+uV1TUwaYeQwCGqWIQXq9hiU0QRuGAMLbAPmhlVUJSYKNH
+        8XOghp1I0Y9sAbrL4IYcd3HxRTcE3Va4RbgSJNYsgiUcQJhgFgFl2peFhd9fFhR8ITvTwjBVihHK8H8G
+        ACigaMxt+qtTAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -682,7 +728,98 @@ This naming convention is recommended: {Custom API Unique Name}.{Parameter Uniqu
         WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnEditCustomApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="imgGrpCustomApi.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAICAAAAEAIACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAMMOAADDDgAAAAAAAAAA
+        AAD//////////6Cbl/99dnD/enNu/3t0bv97dG7/e3Ru/3t0bv97dG7/e3Ru/3t0bv97dG7/e3Ru/3t0
+        bv97dG7/e3Ru/3t0bv97dG7/e3Ru/3t0bv97dG7/e3Ru/3t0bv97dG7/e3Ru/3t0bv96c27/fXZx/6Gb
+        l/////////////////9DOTH/OzAo/25nYf9zbGb/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3Jr
+        Zf9ya2X/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3Ns
+        Zv9uZ2D/OjAn/0M6Mv//////oJqX/zsxKP/9/f3/////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ///////////////////9/Pz/OjAo/6Gcl/9+d3L/bGRf////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////9sZF7/f3dy/353cv9vZ2L/////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////29nYv9+d3L/f3hz/29nYf//////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////b2dh/394c/9/eHP/b2dh////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////9vZ2H/f3hz/394
+        c/9vZ2H/////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////29n
+        Yf9/eHP/f3hz/29nYf/////////////////////////////8+v//yoT///7///////////////37///J
+        hP////////Hf///Qkv/////////////////////////////9+///yYP///38////////////////////
+        ////////b2dh/394c/9/eHP/b2dh//////////////////////////////r1//+zT///6tD/////////
+        ////6Mr//7NP///+/f//4Lb//7NP//////////////////////////////Li//+0UP//8uL/////////
+        //////////////////9vZ2H/f3hz/394c/9vZ2H//////////////////////////////////8Bu///F
+        eP//yoX//8qG///Edv//wW7////////huP//tlb/////////////////////////////8+X//7ZW///z
+        5f///////////////////////////29nYf9/eHP/f3hz/29nYf//////////////////////////////
+        ////1Z7//71l///Qkf//0JH//71l///Vnv///////+G4//++aP//tlX//7lb///RlP/////////////z
+        5f//tlb///Pl////////////////////////////b2dh/394c/9/eHP/b2dh////////////////////
+        ///////////////oyv//tlb/////////////tlb//+jK////////4bj//7pf///kwv//3LD//7pd///B
+        b/////////Tl//+2Vv//8+X///////////////////////////9vZ2H/f3hz/394c/9vZ2H/////////
+        //////////////////////////z4//+2Vf//69L//+zR//+2Vf///Pj////////huP//tlb/////////
+        ////9Of//7ZV///s0///9uv//7ZW///z5f///////////////////////////29nYf9/eHP/f3hz/29n
+        Yf///////////////////////////////////////75p///aqP//2af//75p/////////////+G4//+2
+        Vv//////////////////tlb//+K7///37f//tlb///Pl////////////////////////////b2dh/394
+        c/9/eHP/b2dh////////////////////////////////////////1Jv//8V5///FeP//1Jv/////////
+        ////4bj//7ZW/////////////+XC//+1VP//8+P///Xp//+2Vv//8+X/////////////////////////
+        //9vZ2H/f3hz/394c/9vZ2H////////////////////////////////////////oyv//uV3//7ld///o
+        yv/////////////fs///ul///8uI///GfP//tVT//86P////////8uL//7RQ///y4v//////////////
+        /////////////29nYf9/eHP/f3hz/29nYf/////////////////////////////////////////////U
+        mv//1Jv///////////////////Hf///Lhv//zYr//82M///lw//////////////9/P//yYL///38////
+        ////////////////////////b2dh/394c/9/eHP/b2dh////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////9vZ2H/f3hz/394c/9vZ2H/////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////29nYf9/eHP/fndy/25mYP//////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////b2dh/394c/93cGv/aWBb////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////9vZ2H/f3hz//r6
+        +v/4+Pj/////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////29n
+        Yf9/eHP/////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////b2dh/394c/+6tbP/aGBZ/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pj
+        XP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pi
+        XP9iWlP/1NLQ//////9vZ2H/f3hz/3x1b/9PRj//dm9q/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3Jr
+        Zf9ya2X/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3JrZf9ya2X/cmtl/3Jr
+        Zf9ya2X/cmtl/2hgWv/T0c///////29nYf9/eHP/f3hz/3JrZf//////////////////////////////
+        ////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////////////b2dh/394c/9+d3L/b2di//////+HgXz/qKOf////
+        //9kW1X//////6SgnP+jnpv/////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////9vZ2L/fndy/353cv9tZV///////4eB
+        fP+nop///////2JaVP//////paCc/6Oemv//////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////2xkX/9/d3L/n5qW/zsx
+        KP/+/v7/////////////////////////////////////////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////9/f3/OzAo/6Ca
+        l///////Qzkx/zsxKf9qYlz/a2Nd/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pj
+        XP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9qY1z/amNc/2pjXP9rY13/amJc/zsx
+        Kf9DOTH/////////////////npqW/4B5dP+Ce3b/gnt2/4J7dv+Ce3b/gnt2/4J7dv+Ce3b/gnt2/4J7
+        dv+Ce3b/gnt2/4J7dv+Ce3b/gnt2/4J7dv+Ce3b/gnt2/4J7dv+Ce3b/gnt2/4J7dv+Ce3b/gnt2/4J7
+        dv+AeXT/oJqW////////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
+</value>
+  </data>
+  <data name="btnDeleteInput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFBQ2LYxmGFEAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAW1JREFU
+        OE9j+P//P1UwCmeXqanTLhMTO2QxXPiAubnnDmNjUxgfLnHEzs7hRUHBjxf5+V+3aWiYw8Sx4d2mpu5v
+        Skr+P83NfbPPxsYIJAaWmM/Dw38tOvrV//nz//+fOfP/s9zcdxt1dbEatsvY2PNVcfH3/7Nm/f8/d+7/
+        K6GhV+sZGJjhCk64u/uBFQANghuG5rKdJiYecEOgag7b29uD5OCKQBhuG5JhW/T0zEBye2CGIMkhBwGK
+        QSAM8v9rJA0PsrJeHrCyKn1SUPAVlyEgjGIIDINsBxs2Y8b/P5Mm/f/V3Pz/z5Qp/0H8Zzk5GF4GYRQO
+        Mt6mp2f9orDw/d+pU///mjz5/1+gQU+zs5+uV1TUwaYeQwCGqWIQXq9hiU0QRuGAMLbAPmhlVUJSYKNH
+        8XOghp1I0Y9sAbrL4IYcd3HxRTcE3Va4RbgSJNYsgiUcQJhgFgFl2peFhd9fFhR8ITvTwjBVihHK8H8G
+        ACigaMxt+qtTAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="btnEditInput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAAd0SU1FB+QMFBIyElrhjNoAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
@@ -697,28 +834,57 @@ This naming convention is recommended: {Custom API Unique Name}.{Parameter Uniqu
         ZcQAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="label5.ToolTip" xml:space="preserve">
-    <value>Indicates if the custom API is a function. A function requires the HTTP GET method. Otherwise the Http POST method is required.
-Value: 0 Label: No
-Value: 1 Label: Yes
-Important: A function MUST include at least one Response Property to be valid.
-More information: Use Web API functions
-Cannot be changed after it is saved.</value>
+  <data name="pictureBox9.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="label9.ToolTip" xml:space="preserve">
-    <value>The type of custom processing steps allowed for this Custom API. This allows you to control whether other plug-ins can be registered
-Value: 0 Label: None Meaning: No custom processing steps allowed.
-Value: 1 Label: Async Only Meaning: Only asynchronous custom processing steps allowed
-Value: 2 Label: Sync and Async Meaning: No restriction. 3rd party plug-ins can add synchronous logic to change the behavior of the message.
-Cannot be changed after it is saved.</value>
+  <data name="pictureBox9.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="label6.ToolTip" xml:space="preserve">
-    <value>Unique name for the custom API. 
-This will be the name of the message created.
-This value must include a customization prefix that matches the prefix set for your solution publisher.
-Cannot be changed after it is saved.</value>
+  <data name="pictureBox8.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
   </data>
-  <data name="btnNewApi.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="pictureBox8.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="label13.ToolTip" xml:space="preserve">
+    <value>The primary name of the custom API request parameter. 
+This will display in the list of custom api request parameters when viewed in the solution. 
+Use this to differentiate this parameter from others that share a common Unique Name.
+This naming convention is recommended: {Custom API Unique Name}.{Parameter UniqueName}</value>
+  </data>
+  <data name="btnAddInput.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         xAAADsQBlSsOGwAAAAd0SU1FB+QMFBUBLR2j0lIAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
@@ -731,10 +897,72 @@ Cannot be changed after it is saved.</value>
         vCYnJwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="dlgLookupPluginType.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>147, 17</value>
-  </metadata>
-  <metadata name="dlgLookupPublisher.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>300, 17</value>
-  </metadata>
+  <data name="pictureBox12.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox12.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="label15.ToolTip" xml:space="preserve">
+    <value>The data type of the custom API request parameter.
+Value: 0 Label: Boolean
+Value: 1 Label: DateTime
+Value: 2 Label: Decimal
+Value: 3 Label: Entity
+Value: 4 Label: EntityCollection
+Value: 5 Label: EntityReference
+Value: 6 Label: Float
+Value: 7 Label: Integer
+Value: 8 Label: Money
+Value: 9 Label: Picklist
+Value: 10 Label: String
+Value: 11 Label: StringArray
+Value: 12 Label: Guid
+Cannot be changed after it is saved.</value>
+  </data>
+  <data name="label16.ToolTip" xml:space="preserve">
+    <value>Indicates if the custom API request parameter is optional. 
+If it is not optional, it is required to pass a value for this parameter when using the message.
+Value: 0 Label: No
+Value: 1 Label: Yes
+Cannot be changed after it is saved.</value>
+  </data>
+  <data name="pictureBox11.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="pictureBox11.InitialImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABEAAAASCAYAAAC9+TVUAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        xAAADsQBlSsOGwAAAAd0SU1FB+QMFA8oAuOFVkYAAAAHdEVYdEF1dGhvcgCprsxIAAAADHRFWHREZXNj
+        cmlwdGlvbgATCSEjAAAACnRFWHRDb3B5cmlnaHQArA/MOgAAAAl0RVh0U29mdHdhcmUAXXD/OgAAAAd0
+        RVh0U291cmNlAPX/g+sAAAAIdEVYdENvbW1lbnQA9syWvwAAAAZ0RVh0VGl0bGUAqO7SJwAAAIJJREFU
+        OE9j+E8FMMgNef78xf/+CVP+NzS1wjGIDxLHBrAa0t7RDdc4f+EiuIEgcWwAwxCQbTADkMH0GbPB4vcf
+        PICKIACGISBFIMUgFyADEJ9oQ67fuAlWDLIZpAGGYS4ByaMDDENACglhdDBqCL0MgaVWXBhbqsUwhBww
+        WAz5/x8A+yRDaocQptQAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

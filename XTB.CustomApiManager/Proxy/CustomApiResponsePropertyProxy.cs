@@ -44,13 +44,19 @@ namespace XTB.CustomApiManager.Proxy
                                                     ResponsePropertyRow[CustomAPIResponseProperty.BoundEntityLogicalName].ToString() :
                                                     string.Empty;
 
+        public bool IsManaged => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.IsManaged) &&
+                           (bool)ResponsePropertyRow[CustomAPIResponseProperty.IsManaged];
+
+        public bool IsCustomizable => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.IsCustomizable) &&
+                            ((BooleanManagedProperty)ResponsePropertyRow[CustomAPIResponseProperty.IsCustomizable]).Value;
+
 
 
         public CustomAPIResponseProperty.Type_OptionSet Type => (CustomAPIResponseProperty.Type_OptionSet)(ResponsePropertyRow[CustomAPIResponseProperty.Type] as OptionSetValue).Value;
 
 
 
-
+        public bool CanCustomize => !IsManaged || (IsManaged && IsCustomizable);
 
 
     }

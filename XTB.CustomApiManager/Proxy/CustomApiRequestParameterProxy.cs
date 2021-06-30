@@ -48,11 +48,17 @@ namespace XTB.CustomApiManager.Proxy
         public bool IsOptional => RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.IsOptional) &&
                                     (bool)RequestParameterRow[CustomAPIRequestParameter.IsOptional];
 
+        public bool IsManaged => RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.IsManaged) &&
+                                    (bool)RequestParameterRow[CustomAPIRequestParameter.IsManaged];
+
+        public bool IsCustomizable => RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.IsCustomizable) &&
+                                    ((BooleanManagedProperty)RequestParameterRow[CustomAPIRequestParameter.IsCustomizable]).Value;
+
         public CustomAPIRequestParameter.Type_OptionSet Type => (CustomAPIRequestParameter.Type_OptionSet)(RequestParameterRow[CustomAPIRequestParameter.Type] as OptionSetValue).Value;
 
-        
 
-        
+
+        public bool CanCustomize => !IsManaged || (IsManaged && IsCustomizable);
 
 
     }
