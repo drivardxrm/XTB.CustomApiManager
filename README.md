@@ -9,5 +9,5 @@ Integrates with [Custom API Tester](https://github.com/rappen/CustomActionTester
 Please submit any questions, ideas and feature request in the [discussions](https://github.com/drivardxrm/XTB.CustomApiManager/discussions).
 
 ## Screnshots
-![screnshot](https://github.com/drivardxrm/XTB.CustomApiManager/blob/main/images/MainForm.png?raw=true)
+![screnshot](https://github.com/drivardxrm/XTB.CustomApiManager/blob/main/images/MainForm2.png?raw=true)
 
