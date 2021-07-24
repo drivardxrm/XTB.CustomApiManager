@@ -17,7 +17,7 @@ namespace XTB.CustomApiManager.Forms
 
         //private Control focus;
         private IOrganizationService _service;
-        
+        private SolutionProxy _selectedSolution;
 
         #endregion Private Fields
 
@@ -32,7 +32,15 @@ namespace XTB.CustomApiManager.Forms
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
             cdsCboPrivileges.OrganizationService = service;
-            cdsCboPrivileges.DataSource = 
+            cdsCboSolutions.OrganizationService = service;
+
+            var unmanagedsolutions = _service.GetUnmanagedSolutions();
+            cdsCboSolutions.SelectedIndexChanged -= new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            cdsCboSolutions.DataSource = unmanagedsolutions;
+            cdsCboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
+            
+            cdsCboSolutions.SelectedIndex = unmanagedsolutions.Entities.Select(e => e.Id).ToList().IndexOf(solution?.SolutionRow?.Id ?? Guid.Empty);
+            
 
             cboEntities.Service = service;
 
@@ -54,7 +62,7 @@ namespace XTB.CustomApiManager.Forms
             cboBindingType.SelectedIndex = (int)CustomAPI.BindingType_OptionSet.Global;
             cboAllowedCustomProcessingStep.SelectedIndex = (int)CustomAPI.AllowedCustomProcessingStepType_OptionSet.None;
 
-
+            chkIsCustomizable.Checked = true; 
         }
 
         #endregion Public Constructors
@@ -81,7 +89,10 @@ namespace XTB.CustomApiManager.Forms
                 {
                     Target = CustomApiToCreate()
                 };
-                //createRequest["SolutionUniqueName"] = "{{SOLUTIONNAME}}"; //todo implement functionality to create as part of a solution
+                if (_selectedSolution != null) 
+                {
+                    createRequest["SolutionUniqueName"] = _selectedSolution.UniqueName;
+                }
 
                 var createResponse = (CreateResponse)_service.Execute(createRequest);
 
@@ -248,6 +259,22 @@ namespace XTB.CustomApiManager.Forms
         private void lblPlugintype_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cdsCboSolutions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedSolution = cdsCboSolutions.SelectedIndex != -1 ?
+                                            new SolutionProxy(cdsCboSolutions.SelectedEntity) :
+                                            null;
+
+        }
+
+        private void cdsCboSolutions_TextUpdate(object sender, EventArgs e)
+        {
+            if (cdsCboSolutions.SelectedText == "") 
+            {
+                cdsCboSolutions.SelectedIndex = -1;
+            }
         }
     }
 }

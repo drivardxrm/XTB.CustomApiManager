@@ -792,7 +792,7 @@ namespace XTB.CustomApiManager
 
         private void CreateRequestParameterDialog()
         {
-            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi);
+            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -877,7 +877,7 @@ namespace XTB.CustomApiManager
 
         private void CreateResponsePropertyDialog()
         {
-            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi);
+            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
