@@ -177,8 +177,6 @@ namespace XTB.CustomApiManager.Forms
         {
             return cboType.SelectedIndex == (int)CustomAPIRequestParameter.Type_OptionSet.Entity
                     ||
-                    cboType.SelectedIndex == (int)CustomAPIRequestParameter.Type_OptionSet.EntityCollection
-                    ||
                     cboType.SelectedIndex == (int)CustomAPIRequestParameter.Type_OptionSet.EntityReference;
         }
 
