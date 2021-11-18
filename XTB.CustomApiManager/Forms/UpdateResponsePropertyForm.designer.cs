@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateResponsePropertyForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.txtBoundEntityName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cdsCustomApiName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -54,8 +56,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.lblCustomizable = new System.Windows.Forms.Label();
-            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -94,6 +94,26 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(525, 345);
             this.panel2.TabIndex = 5;
+            // 
+            // lblCustomizable
+            // 
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(26, 270);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 108;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API Request Parameter can be customized or deleted wh" +
+        "en deployed as managed.");
+            // 
+            // chkIsCustomizable
+            // 
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(106, 270);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 4;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // txtBoundEntityName
             // 
@@ -167,7 +187,7 @@
             this.btnCancel.Location = new System.Drawing.Point(412, 285);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -182,7 +202,7 @@
             this.btnOk.Location = new System.Drawing.Point(328, 285);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
-            this.btnOk.TabIndex = 72;
+            this.btnOk.TabIndex = 5;
             this.btnOk.Text = "Update";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOk.UseVisualStyleBackColor = true;
@@ -245,7 +265,7 @@
             this.txtDisplayName.Location = new System.Drawing.Point(104, 127);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(319, 20);
-            this.txtDisplayName.TabIndex = 51;
+            this.txtDisplayName.TabIndex = 2;
             // 
             // label9
             // 
@@ -300,7 +320,7 @@
             this.txtName.Location = new System.Drawing.Point(104, 101);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(319, 20);
-            this.txtName.TabIndex = 40;
+            this.txtName.TabIndex = 1;
             // 
             // label3
             // 
@@ -320,7 +340,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(319, 49);
-            this.txtDescription.TabIndex = 38;
+            this.txtDescription.TabIndex = 3;
             // 
             // ttInfo
             // 
@@ -329,26 +349,6 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // lblCustomizable
-            // 
-            this.lblCustomizable.AutoSize = true;
-            this.lblCustomizable.Location = new System.Drawing.Point(26, 270);
-            this.lblCustomizable.Name = "lblCustomizable";
-            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
-            this.lblCustomizable.TabIndex = 108;
-            this.lblCustomizable.Text = "IsCustomizable";
-            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API Request Parameter can be customized or deleted wh" +
-        "en deployed as managed.");
-            // 
-            // chkIsCustomizable
-            // 
-            this.chkIsCustomizable.AutoSize = true;
-            this.chkIsCustomizable.Location = new System.Drawing.Point(106, 270);
-            this.chkIsCustomizable.Name = "chkIsCustomizable";
-            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
-            this.chkIsCustomizable.TabIndex = 107;
-            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // UpdateResponsePropertyForm
             // 

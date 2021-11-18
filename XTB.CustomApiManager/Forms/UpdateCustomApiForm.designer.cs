@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UpdateCustomApiForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lblCustomizable = new System.Windows.Forms.Label();
+            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.chkWFEnabled = new System.Windows.Forms.CheckBox();
@@ -70,8 +72,6 @@
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.lblCustomizable = new System.Windows.Forms.Label();
-            this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -128,6 +128,26 @@
             this.panel2.Size = new System.Drawing.Size(500, 439);
             this.panel2.TabIndex = 5;
             // 
+            // lblCustomizable
+            // 
+            this.lblCustomizable.AutoSize = true;
+            this.lblCustomizable.Location = new System.Drawing.Point(29, 378);
+            this.lblCustomizable.Name = "lblCustomizable";
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
+            this.lblCustomizable.TabIndex = 104;
+            this.lblCustomizable.Text = "IsCustomizable";
+            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API can be customized or deleted when deployed as man" +
+        "aged.");
+            // 
+            // chkIsCustomizable
+            // 
+            this.chkIsCustomizable.AutoSize = true;
+            this.chkIsCustomizable.Location = new System.Drawing.Point(142, 378);
+            this.chkIsCustomizable.Name = "chkIsCustomizable";
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
+            this.chkIsCustomizable.TabIndex = 8;
+            this.chkIsCustomizable.UseVisualStyleBackColor = true;
+            // 
             // pictureBox6
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
@@ -175,7 +195,7 @@
             this.cdsCboPrivileges.Name = "cdsCboPrivileges";
             this.cdsCboPrivileges.OrganizationService = null;
             this.cdsCboPrivileges.Size = new System.Drawing.Size(220, 21);
-            this.cdsCboPrivileges.TabIndex = 76;
+            this.cdsCboPrivileges.TabIndex = 6;
             // 
             // label17
             // 
@@ -216,7 +236,7 @@
             this.btnCancel.Location = new System.Drawing.Point(403, 355);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -231,7 +251,7 @@
             this.btnOk.Location = new System.Drawing.Point(319, 355);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
-            this.btnOk.TabIndex = 72;
+            this.btnOk.TabIndex = 9;
             this.btnOk.Text = "Update";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOk.UseVisualStyleBackColor = true;
@@ -313,7 +333,7 @@
             this.txtLookupPluginType.Name = "txtLookupPluginType";
             this.txtLookupPluginType.OrganizationService = null;
             this.txtLookupPluginType.Size = new System.Drawing.Size(232, 20);
-            this.txtLookupPluginType.TabIndex = 57;
+            this.txtLookupPluginType.TabIndex = 4;
             // 
             // btnLookupPluginType
             // 
@@ -321,7 +341,7 @@
             this.btnLookupPluginType.Location = new System.Drawing.Point(342, 264);
             this.btnLookupPluginType.Name = "btnLookupPluginType";
             this.btnLookupPluginType.Size = new System.Drawing.Size(23, 23);
-            this.btnLookupPluginType.TabIndex = 56;
+            this.btnLookupPluginType.TabIndex = 5;
             this.btnLookupPluginType.UseVisualStyleBackColor = true;
             this.btnLookupPluginType.Click += new System.EventHandler(this.btnLookupPluginType_Click);
             // 
@@ -363,7 +383,7 @@
             this.txtDisplayName.Location = new System.Drawing.Point(104, 101);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(359, 20);
-            this.txtDisplayName.TabIndex = 51;
+            this.txtDisplayName.TabIndex = 2;
             // 
             // label9
             // 
@@ -440,7 +460,7 @@
             this.chkIsPrivate.Location = new System.Drawing.Point(142, 360);
             this.chkIsPrivate.Name = "chkIsPrivate";
             this.chkIsPrivate.Size = new System.Drawing.Size(15, 14);
-            this.chkIsPrivate.TabIndex = 44;
+            this.chkIsPrivate.TabIndex = 7;
             this.chkIsPrivate.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -479,7 +499,7 @@
             this.txtName.Location = new System.Drawing.Point(104, 75);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(359, 20);
-            this.txtName.TabIndex = 40;
+            this.txtName.TabIndex = 1;
             // 
             // label3
             // 
@@ -498,7 +518,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(359, 49);
-            this.txtDescription.TabIndex = 38;
+            this.txtDescription.TabIndex = 3;
             // 
             // dlgLookupPublisher
             // 
@@ -526,26 +546,6 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // lblCustomizable
-            // 
-            this.lblCustomizable.AutoSize = true;
-            this.lblCustomizable.Location = new System.Drawing.Point(29, 378);
-            this.lblCustomizable.Name = "lblCustomizable";
-            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
-            this.lblCustomizable.TabIndex = 104;
-            this.lblCustomizable.Text = "IsCustomizable";
-            this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API can be customized or deleted when deployed as man" +
-        "aged.");
-            // 
-            // chkIsCustomizable
-            // 
-            this.chkIsCustomizable.AutoSize = true;
-            this.chkIsCustomizable.Location = new System.Drawing.Point(142, 378);
-            this.chkIsCustomizable.Name = "chkIsCustomizable";
-            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
-            this.chkIsCustomizable.TabIndex = 103;
-            this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // UpdateCustomApiForm
             // 

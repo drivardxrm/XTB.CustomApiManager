@@ -64,11 +64,7 @@ namespace XTB.CustomApiManager.Forms
 
         private void linkLabel5_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show(@"The evolution of Custom Action Tester is based on feedback issues and anonymous statistics collected about usage.
-The statistics are a valuable source of information for continuing the development to make the tool even easier to use and improve the most popular features.
-
-Thank You,
-Jonas", "Anonymous statistics", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            System.Diagnostics.Process.Start("https://twitter.com/david_rivard");
         }
     }
 }

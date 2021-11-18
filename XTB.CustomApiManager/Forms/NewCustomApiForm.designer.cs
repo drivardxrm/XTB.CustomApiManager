@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewCustomApiForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.lblCustomizable = new System.Windows.Forms.Label();
             this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -76,8 +78,6 @@
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
@@ -140,6 +140,30 @@
             this.panel2.Size = new System.Drawing.Size(500, 511);
             this.panel2.TabIndex = 5;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(29, 427);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 13);
+            this.label12.TabIndex = 104;
+            this.label12.Text = "Add to unmanaged solution (optional)";
+            this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
+        "aged.");
+            // 
+            // cdsCboSolutions
+            // 
+            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
+            this.cdsCboSolutions.FormattingEnabled = true;
+            this.cdsCboSolutions.ItemHeight = 13;
+            this.cdsCboSolutions.Location = new System.Drawing.Point(32, 443);
+            this.cdsCboSolutions.Name = "cdsCboSolutions";
+            this.cdsCboSolutions.OrganizationService = null;
+            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
+            this.cdsCboSolutions.TabIndex = 17;
+            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
+            this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
+            // 
             // lblCustomizable
             // 
             this.lblCustomizable.AutoSize = true;
@@ -157,7 +181,7 @@
             this.chkIsCustomizable.Location = new System.Drawing.Point(142, 407);
             this.chkIsCustomizable.Name = "chkIsCustomizable";
             this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
-            this.chkIsCustomizable.TabIndex = 101;
+            this.chkIsCustomizable.TabIndex = 16;
             this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // pictureBox6
@@ -186,7 +210,7 @@
             this.chkWFEnabled.Location = new System.Drawing.Point(142, 371);
             this.chkWFEnabled.Name = "chkWFEnabled";
             this.chkWFEnabled.Size = new System.Drawing.Size(15, 14);
-            this.chkWFEnabled.TabIndex = 77;
+            this.chkWFEnabled.TabIndex = 14;
             this.chkWFEnabled.UseVisualStyleBackColor = true;
             // 
             // cdsCboPrivileges
@@ -197,7 +221,7 @@
             this.cdsCboPrivileges.Name = "cdsCboPrivileges";
             this.cdsCboPrivileges.OrganizationService = null;
             this.cdsCboPrivileges.Size = new System.Drawing.Size(220, 21);
-            this.cdsCboPrivileges.TabIndex = 76;
+            this.cdsCboPrivileges.TabIndex = 12;
             // 
             // label17
             // 
@@ -330,7 +354,7 @@
             this.cboEntities.Service = null;
             this.cboEntities.Size = new System.Drawing.Size(265, 25);
             this.cboEntities.SolutionFilter = null;
-            this.cboEntities.TabIndex = 63;
+            this.cboEntities.TabIndex = 9;
             // 
             // txtPrefix
             // 
@@ -356,7 +380,7 @@
             this.txtLookupPublisher.Name = "txtLookupPublisher";
             this.txtLookupPublisher.OrganizationService = null;
             this.txtLookupPublisher.Size = new System.Drawing.Size(232, 20);
-            this.txtLookupPublisher.TabIndex = 61;
+            this.txtLookupPublisher.TabIndex = 1;
             // 
             // btnLookupPublisher
             // 
@@ -364,7 +388,7 @@
             this.btnLookupPublisher.Location = new System.Drawing.Point(342, 46);
             this.btnLookupPublisher.Name = "btnLookupPublisher";
             this.btnLookupPublisher.Size = new System.Drawing.Size(23, 23);
-            this.btnLookupPublisher.TabIndex = 60;
+            this.btnLookupPublisher.TabIndex = 2;
             this.btnLookupPublisher.UseVisualStyleBackColor = true;
             this.btnLookupPublisher.Click += new System.EventHandler(this.btnLookupPublisher_Click);
             // 
@@ -393,7 +417,7 @@
             this.txtLookupPluginType.Name = "txtLookupPluginType";
             this.txtLookupPluginType.OrganizationService = null;
             this.txtLookupPluginType.Size = new System.Drawing.Size(232, 20);
-            this.txtLookupPluginType.TabIndex = 57;
+            this.txtLookupPluginType.TabIndex = 10;
             this.txtLookupPluginType.TextChanged += new System.EventHandler(this.txtLookupPluginType_TextChanged);
             // 
             // btnLookupPluginType
@@ -402,7 +426,7 @@
             this.btnLookupPluginType.Location = new System.Drawing.Point(342, 291);
             this.btnLookupPluginType.Name = "btnLookupPluginType";
             this.btnLookupPluginType.Size = new System.Drawing.Size(23, 23);
-            this.btnLookupPluginType.TabIndex = 56;
+            this.btnLookupPluginType.TabIndex = 11;
             this.btnLookupPluginType.UseVisualStyleBackColor = true;
             this.btnLookupPluginType.Click += new System.EventHandler(this.btnLookupPluginType_Click);
             // 
@@ -445,7 +469,7 @@
             this.txtDisplayName.Location = new System.Drawing.Point(104, 127);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(359, 20);
-            this.txtDisplayName.TabIndex = 51;
+            this.txtDisplayName.TabIndex = 5;
             // 
             // label9
             // 
@@ -474,7 +498,7 @@
             this.cboAllowedCustomProcessingStep.Location = new System.Drawing.Point(221, 208);
             this.cboAllowedCustomProcessingStep.Name = "cboAllowedCustomProcessingStep";
             this.cboAllowedCustomProcessingStep.Size = new System.Drawing.Size(180, 21);
-            this.cboAllowedCustomProcessingStep.TabIndex = 48;
+            this.cboAllowedCustomProcessingStep.TabIndex = 7;
             // 
             // cboBindingType
             // 
@@ -482,7 +506,7 @@
             this.cboBindingType.Location = new System.Drawing.Point(104, 235);
             this.cboBindingType.Name = "cboBindingType";
             this.cboBindingType.Size = new System.Drawing.Size(180, 21);
-            this.cboBindingType.TabIndex = 37;
+            this.cboBindingType.TabIndex = 8;
             this.cboBindingType.SelectedIndexChanged += new System.EventHandler(this.cboBindingType_SelectedIndexChanged);
             // 
             // label7
@@ -511,7 +535,7 @@
             this.txtUniqueName.Location = new System.Drawing.Point(161, 75);
             this.txtUniqueName.Name = "txtUniqueName";
             this.txtUniqueName.Size = new System.Drawing.Size(302, 20);
-            this.txtUniqueName.TabIndex = 45;
+            this.txtUniqueName.TabIndex = 3;
             this.txtUniqueName.Leave += new System.EventHandler(this.txtUniqueName_Leave);
             // 
             // chkIsPrivate
@@ -520,7 +544,7 @@
             this.chkIsPrivate.Location = new System.Drawing.Point(142, 390);
             this.chkIsPrivate.Name = "chkIsPrivate";
             this.chkIsPrivate.Size = new System.Drawing.Size(15, 14);
-            this.chkIsPrivate.TabIndex = 44;
+            this.chkIsPrivate.TabIndex = 15;
             this.chkIsPrivate.UseVisualStyleBackColor = true;
             // 
             // label5
@@ -539,7 +563,7 @@
             this.chkIsFunction.Location = new System.Drawing.Point(142, 352);
             this.chkIsFunction.Name = "chkIsFunction";
             this.chkIsFunction.Size = new System.Drawing.Size(15, 14);
-            this.chkIsFunction.TabIndex = 42;
+            this.chkIsFunction.TabIndex = 13;
             this.chkIsFunction.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -558,7 +582,7 @@
             this.txtName.Location = new System.Drawing.Point(104, 101);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(359, 20);
-            this.txtName.TabIndex = 40;
+            this.txtName.TabIndex = 4;
             // 
             // label3
             // 
@@ -577,7 +601,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(359, 49);
-            this.txtDescription.TabIndex = 38;
+            this.txtDescription.TabIndex = 6;
             // 
             // dlgLookupPublisher
             // 
@@ -605,29 +629,6 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // cdsCboSolutions
-            // 
-            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
-            this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(32, 443);
-            this.cdsCboSolutions.Name = "cdsCboSolutions";
-            this.cdsCboSolutions.OrganizationService = null;
-            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
-            this.cdsCboSolutions.TabIndex = 103;
-            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
-            this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(29, 427);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(182, 13);
-            this.label12.TabIndex = 104;
-            this.label12.Text = "Add to unmanaged solution (optional)";
-            this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
-        "aged.");
             // 
             // NewCustomApiForm
             // 

@@ -89,12 +89,33 @@ namespace XTB.CustomApiManager.Forms
             {
                 cboEntities.LoadData();
                 cboEntities.Enabled = true;
+                chkExpando.Enabled = true;
+                chkExpando.Checked = false;
             }
             else
             {
                 cboEntities.ClearData();
                 cboEntities.Enabled = false;
+                chkExpando.Enabled = false;
+                chkExpando.Checked = false;
             }
+
+        }
+
+        private void chkExpando_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkExpando.Checked)
+            {
+                cboEntities.ClearData();
+                cboEntities.Enabled = false;
+
+            }
+            else
+            {
+                cboEntities.LoadData();
+                cboEntities.Enabled = true;
+            }
+
 
         }
 
@@ -191,5 +212,6 @@ namespace XTB.CustomApiManager.Forms
                 cdsCboSolutions.SelectedIndex = -1;
             }
         }
+
     }
 }

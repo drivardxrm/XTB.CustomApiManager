@@ -40,9 +40,11 @@ namespace XTB.CustomApiManager.Proxy
                                                     RequestParameterRow[CustomAPIRequestParameter.Description].ToString() :
                                                     string.Empty;
 
-        public string BoundEntityLogicalName => RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.BoundEntityLogicalName) ?
-                                                    RequestParameterRow[CustomAPIRequestParameter.BoundEntityLogicalName].ToString() :
-                                                    string.Empty;
+        public string BoundEntityLogicalName => RequestParameterRow == null ? string.Empty :
+                                                    (RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.BoundEntityLogicalName) && 
+                                                        !string.IsNullOrEmpty(RequestParameterRow.Attributes[CustomAPIRequestParameter.BoundEntityLogicalName].ToString()) ?
+                                                        RequestParameterRow[CustomAPIRequestParameter.BoundEntityLogicalName]?.ToString() :
+                                                        (IsBoundToEntity() ? "expando" : string.Empty));
 
 
         public bool IsOptional => RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.IsOptional) &&
@@ -59,6 +61,13 @@ namespace XTB.CustomApiManager.Proxy
 
 
         public bool CanCustomize => !IsManaged || (IsManaged && IsCustomizable);
+
+        public bool IsBoundToEntity()
+        {
+            return Type == CustomAPIRequestParameter.Type_OptionSet.Entity
+                    ||
+                    Type == CustomAPIRequestParameter.Type_OptionSet.EntityReference;
+        }
 
 
     }

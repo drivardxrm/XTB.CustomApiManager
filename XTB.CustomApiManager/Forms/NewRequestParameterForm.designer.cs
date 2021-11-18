@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewRequestParameterForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.lblCustomizable = new System.Windows.Forms.Label();
             this.chkIsCustomizable = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -59,8 +61,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.label12 = new System.Windows.Forms.Label();
-            this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
+            this.chkExpando = new System.Windows.Forms.CheckBox();
+            this.lnkInfo = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -71,6 +73,8 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.lnkInfo);
+            this.panel2.Controls.Add(this.chkExpando);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.cdsCboSolutions);
             this.panel2.Controls.Add(this.lblCustomizable);
@@ -106,6 +110,30 @@
             this.panel2.Size = new System.Drawing.Size(525, 370);
             this.panel2.TabIndex = 5;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(28, 319);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(182, 13);
+            this.label12.TabIndex = 106;
+            this.label12.Text = "Add to unmanaged solution (optional)";
+            this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
+        "aged.");
+            // 
+            // cdsCboSolutions
+            // 
+            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
+            this.cdsCboSolutions.FormattingEnabled = true;
+            this.cdsCboSolutions.ItemHeight = 13;
+            this.cdsCboSolutions.Location = new System.Drawing.Point(31, 335);
+            this.cdsCboSolutions.Name = "cdsCboSolutions";
+            this.cdsCboSolutions.OrganizationService = null;
+            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
+            this.cdsCboSolutions.TabIndex = 10;
+            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
+            this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
+            // 
             // lblCustomizable
             // 
             this.lblCustomizable.AutoSize = true;
@@ -123,7 +151,7 @@
             this.chkIsCustomizable.Location = new System.Drawing.Point(108, 285);
             this.chkIsCustomizable.Name = "chkIsCustomizable";
             this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
-            this.chkIsCustomizable.TabIndex = 103;
+            this.chkIsCustomizable.TabIndex = 9;
             this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
             // label2
@@ -149,7 +177,7 @@
             this.cdsCustomApiName.Name = "cdsCustomApiName";
             this.cdsCustomApiName.OrganizationService = null;
             this.cdsCustomApiName.Size = new System.Drawing.Size(317, 20);
-            this.cdsCustomApiName.TabIndex = 77;
+            this.cdsCustomApiName.TabIndex = 0;
             // 
             // label17
             // 
@@ -190,7 +218,7 @@
             this.btnCancel.Location = new System.Drawing.Point(390, 324);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(78, 32);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 12;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -205,7 +233,7 @@
             this.btnOk.Location = new System.Drawing.Point(306, 324);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(78, 32);
-            this.btnOk.TabIndex = 72;
+            this.btnOk.TabIndex = 11;
             this.btnOk.Text = "Create";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnOk.UseVisualStyleBackColor = true;
@@ -262,11 +290,12 @@
             this.cboEntities.Service = null;
             this.cboEntities.Size = new System.Drawing.Size(215, 25);
             this.cboEntities.SolutionFilter = null;
-            this.cboEntities.TabIndex = 63;
+            this.cboEntities.TabIndex = 6;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
+            this.label11.Enabled = false;
             this.label11.Location = new System.Drawing.Point(26, 241);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(101, 13);
@@ -291,7 +320,7 @@
             this.txtDisplayName.Location = new System.Drawing.Point(104, 127);
             this.txtDisplayName.Name = "txtDisplayName";
             this.txtDisplayName.Size = new System.Drawing.Size(319, 20);
-            this.txtDisplayName.TabIndex = 51;
+            this.txtDisplayName.TabIndex = 3;
             // 
             // label9
             // 
@@ -309,7 +338,7 @@
             this.cboType.Location = new System.Drawing.Point(104, 209);
             this.cboType.Name = "cboType";
             this.cboType.Size = new System.Drawing.Size(211, 21);
-            this.cboType.TabIndex = 48;
+            this.cboType.TabIndex = 5;
             this.cboType.SelectedIndexChanged += new System.EventHandler(this.cboType_SelectedIndexChanged);
             // 
             // label6
@@ -328,7 +357,7 @@
             this.txtUniqueName.Location = new System.Drawing.Point(104, 74);
             this.txtUniqueName.Name = "txtUniqueName";
             this.txtUniqueName.Size = new System.Drawing.Size(319, 20);
-            this.txtUniqueName.TabIndex = 45;
+            this.txtUniqueName.TabIndex = 1;
             this.txtUniqueName.Leave += new System.EventHandler(this.txtUniqueName_Leave);
             // 
             // label5
@@ -347,7 +376,7 @@
             this.chkIsOptional.Location = new System.Drawing.Point(108, 266);
             this.chkIsOptional.Name = "chkIsOptional";
             this.chkIsOptional.Size = new System.Drawing.Size(15, 14);
-            this.chkIsOptional.TabIndex = 42;
+            this.chkIsOptional.TabIndex = 8;
             this.chkIsOptional.UseVisualStyleBackColor = true;
             // 
             // label4
@@ -365,7 +394,7 @@
             this.txtName.Location = new System.Drawing.Point(104, 101);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(319, 20);
-            this.txtName.TabIndex = 40;
+            this.txtName.TabIndex = 2;
             // 
             // label3
             // 
@@ -382,7 +411,7 @@
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(319, 49);
-            this.txtDescription.TabIndex = 38;
+            this.txtDescription.TabIndex = 4;
             this.ttInfo.SetToolTip(this.txtDescription, "Localized description for custom API request parameter instances. \r\nFor use when " +
         "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
         "lTip.");
@@ -395,28 +424,28 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
-            // label12
+            // chkExpando
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 319);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(182, 13);
-            this.label12.TabIndex = 106;
-            this.label12.Text = "Add to unmanaged solution (optional)";
-            this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
-        "aged.");
+            this.chkExpando.AutoSize = true;
+            this.chkExpando.Enabled = false;
+            this.chkExpando.Location = new System.Drawing.Point(359, 239);
+            this.chkExpando.Name = "chkExpando";
+            this.chkExpando.Size = new System.Drawing.Size(67, 17);
+            this.chkExpando.TabIndex = 7;
+            this.chkExpando.Text = "expando";
+            this.chkExpando.UseVisualStyleBackColor = true;
+            this.chkExpando.CheckedChanged += new System.EventHandler(this.chkExpando_CheckedChanged);
             // 
-            // cdsCboSolutions
+            // lnkInfo
             // 
-            this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
-            this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(31, 335);
-            this.cdsCboSolutions.Name = "cdsCboSolutions";
-            this.cdsCboSolutions.OrganizationService = null;
-            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
-            this.cdsCboSolutions.TabIndex = 105;
-            this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
-            this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
+            this.lnkInfo.AutoSize = true;
+            this.lnkInfo.Location = new System.Drawing.Point(425, 240);
+            this.lnkInfo.Name = "lnkInfo";
+            this.lnkInfo.Size = new System.Drawing.Size(24, 13);
+            this.lnkInfo.TabIndex = 107;
+            this.lnkInfo.TabStop = true;
+            this.lnkInfo.Text = "info";
+            this.lnkInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkInfo_LinkClicked);
             // 
             // NewRequestParameterForm
             // 
@@ -477,5 +506,7 @@
         private System.Windows.Forms.CheckBox chkIsCustomizable;
         private System.Windows.Forms.Label label12;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox cdsCboSolutions;
+        private System.Windows.Forms.CheckBox chkExpando;
+        private System.Windows.Forms.LinkLabel lnkInfo;
     }
 }

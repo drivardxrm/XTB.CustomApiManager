@@ -105,7 +105,6 @@ namespace XTB.CustomApiManager
             cdsTxtRequestDisplayName.OrganizationService = Service;
             cdsTxtRequestDescription.OrganizationService = Service;
             cdsTxtRequestIsOptional.OrganizationService = Service;
-            cdsTxtRequestBoundEntity.OrganizationService = Service;
             cdsTxtRequestType.OrganizationService = Service;
             cdsTxtRequestIsCustomizable.OrganizationService = Service;
             cdsTxtRequestIsManaged.OrganizationService = Service;
@@ -116,7 +115,6 @@ namespace XTB.CustomApiManager
             cdsTxtResponseName.OrganizationService = Service;
             cdsTxtResponseDisplayName.OrganizationService = Service;
             cdsTxtResponseDescription.OrganizationService = Service;
-            cdsTxtResponseBoundEntity.OrganizationService = Service;
             cdsTxtResponseType.OrganizationService = Service;
             cdsTxtResponseIsCustomizable.OrganizationService = Service;
             cdsTxtResponseIsManaged.OrganizationService = Service;
@@ -609,7 +607,8 @@ namespace XTB.CustomApiManager
             cdsTxtRequestName.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestDisplayName.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestDescription.Entity = _selectedRequestParameter?.RequestParameterRow;
-            cdsTxtRequestBoundEntity.Entity = _selectedRequestParameter?.RequestParameterRow;
+            // cdsTxtRequestBoundEntity.Entity = _selectedRequestParameter?.RequestParameterRow;
+            txtRequestBoundEntity.Text = _selectedRequestParameter?.BoundEntityLogicalName;
             cdsTxtRequestType.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestIsOptional.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestIsCustomizable.Entity = _selectedRequestParameter?.RequestParameterRow;
@@ -682,7 +681,8 @@ namespace XTB.CustomApiManager
             cdsTxtResponseName.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseDisplayName.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseDescription.Entity = _selectedResponseProperty.ResponsePropertyRow;
-            cdsTxtResponseBoundEntity.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            //cdsTxtResponseBoundEntity.Entity = _selectedResponseProperty.ResponsePropertyRow;
+            txtResponseBoundEntity.Text = _selectedResponseProperty?.BoundEntityLogicalName;
             cdsTxtResponseType.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseIsCustomizable.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseIsManaged.Entity = _selectedResponseProperty.ResponsePropertyRow;

@@ -54,8 +54,12 @@
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imgGrpCustomApi = new XTB.CustomApiManager.Controls.ImageGroupBox();
             this.imgGrpOutputs = new XTB.CustomApiManager.Controls.ImageGroupBox();
+            this.txtResponseBoundEntity = new System.Windows.Forms.TextBox();
+            this.cdsTxtResponseIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.btnDeleteOutput = new System.Windows.Forms.Button();
             this.cdsTxtResponseIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -64,7 +68,6 @@
             this.cdsGridOutputs = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.label20 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
-            this.cdsTxtResponseBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.cdsTxtResponseDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -79,6 +82,9 @@
             this.cdsTxtResponseType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.imgGrpInputs = new XTB.CustomApiManager.Controls.ImageGroupBox();
+            this.txtRequestBoundEntity = new System.Windows.Forms.TextBox();
+            this.cdsTxtRequestIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.cdsTxtRequestIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnDeleteInput = new System.Windows.Forms.Button();
@@ -87,7 +93,6 @@
             this.cdsGridInputs = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.label19 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.cdsTxtRequestBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtRequestUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtRequestDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -141,10 +146,6 @@
             this.cdsTxtIsPrivate = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBindingType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.cdsTxtRequestIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.cdsTxtResponseIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.label33 = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imgGrpCustomApi.SuspendLayout();
@@ -261,7 +262,7 @@
             this.btnNewApi.Location = new System.Drawing.Point(518, 26);
             this.btnNewApi.Name = "btnNewApi";
             this.btnNewApi.Size = new System.Drawing.Size(131, 29);
-            this.btnNewApi.TabIndex = 83;
+            this.btnNewApi.TabIndex = 5;
             this.btnNewApi.Text = "Create New API";
             this.btnNewApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNewApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -287,7 +288,7 @@
             this.cdsCboSolutions.Name = "cdsCboSolutions";
             this.cdsCboSolutions.OrganizationService = null;
             this.cdsCboSolutions.Size = new System.Drawing.Size(295, 21);
-            this.cdsCboSolutions.TabIndex = 40;
+            this.cdsCboSolutions.TabIndex = 3;
             this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
             // 
             // rbSolution
@@ -296,7 +297,7 @@
             this.rbSolution.Location = new System.Drawing.Point(89, 15);
             this.rbSolution.Name = "rbSolution";
             this.rbSolution.Size = new System.Drawing.Size(78, 17);
-            this.rbSolution.TabIndex = 39;
+            this.rbSolution.TabIndex = 2;
             this.rbSolution.TabStop = true;
             this.rbSolution.Text = "By Solution";
             this.rbSolution.UseVisualStyleBackColor = true;
@@ -308,7 +309,7 @@
             this.rbAll.Location = new System.Drawing.Point(50, 15);
             this.rbAll.Name = "rbAll";
             this.rbAll.Size = new System.Drawing.Size(36, 17);
-            this.rbAll.TabIndex = 38;
+            this.rbAll.TabIndex = 1;
             this.rbAll.TabStop = true;
             this.rbAll.Text = "All";
             this.rbAll.UseVisualStyleBackColor = true;
@@ -323,7 +324,7 @@
             this.cdsCboCustomApi.Name = "cdsCboCustomApi";
             this.cdsCboCustomApi.OrganizationService = null;
             this.cdsCboCustomApi.Size = new System.Drawing.Size(333, 21);
-            this.cdsCboCustomApi.TabIndex = 24;
+            this.cdsCboCustomApi.TabIndex = 4;
             this.cdsCboCustomApi.SelectedIndexChanged += new System.EventHandler(this.cdsCboCustomApi_SelectedIndexChanged);
             // 
             // label12
@@ -363,6 +364,11 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // imgGrpCustomApi
             // 
@@ -417,6 +423,7 @@
             // 
             // imgGrpOutputs
             // 
+            this.imgGrpOutputs.Controls.Add(this.txtResponseBoundEntity);
             this.imgGrpOutputs.Controls.Add(this.cdsTxtResponseIsManaged);
             this.imgGrpOutputs.Controls.Add(this.label33);
             this.imgGrpOutputs.Controls.Add(this.label30);
@@ -427,7 +434,6 @@
             this.imgGrpOutputs.Controls.Add(this.cdsGridOutputs);
             this.imgGrpOutputs.Controls.Add(this.label20);
             this.imgGrpOutputs.Controls.Add(this.label27);
-            this.imgGrpOutputs.Controls.Add(this.cdsTxtResponseBoundEntity);
             this.imgGrpOutputs.Controls.Add(this.pictureBox17);
             this.imgGrpOutputs.Controls.Add(this.cdsTxtResponseDescription);
             this.imgGrpOutputs.Controls.Add(this.label26);
@@ -448,6 +454,38 @@
             this.imgGrpOutputs.TabStop = false;
             this.imgGrpOutputs.Text = "Response Properties (Output)";
             // 
+            // txtResponseBoundEntity
+            // 
+            this.txtResponseBoundEntity.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtResponseBoundEntity.Location = new System.Drawing.Point(433, 221);
+            this.txtResponseBoundEntity.Name = "txtResponseBoundEntity";
+            this.txtResponseBoundEntity.ReadOnly = true;
+            this.txtResponseBoundEntity.Size = new System.Drawing.Size(218, 20);
+            this.txtResponseBoundEntity.TabIndex = 42;
+            // 
+            // cdsTxtResponseIsManaged
+            // 
+            this.cdsTxtResponseIsManaged.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTxtResponseIsManaged.DisplayFormat = "ismanaged";
+            this.cdsTxtResponseIsManaged.Entity = null;
+            this.cdsTxtResponseIsManaged.EntityReference = null;
+            this.cdsTxtResponseIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTxtResponseIsManaged.Location = new System.Drawing.Point(408, 273);
+            this.cdsTxtResponseIsManaged.LogicalName = "customapiresponseproperty";
+            this.cdsTxtResponseIsManaged.Name = "cdsTxtResponseIsManaged";
+            this.cdsTxtResponseIsManaged.OrganizationService = null;
+            this.cdsTxtResponseIsManaged.Size = new System.Drawing.Size(68, 20);
+            this.cdsTxtResponseIsManaged.TabIndex = 44;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(326, 276);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(60, 13);
+            this.label33.TabIndex = 97;
+            this.label33.Text = "IsManaged";
+            // 
             // label30
             // 
             this.label30.AutoSize = true;
@@ -466,7 +504,7 @@
             this.btnDeleteOutput.Location = new System.Drawing.Point(471, 34);
             this.btnDeleteOutput.Name = "btnDeleteOutput";
             this.btnDeleteOutput.Size = new System.Drawing.Size(164, 29);
-            this.btnDeleteOutput.TabIndex = 85;
+            this.btnDeleteOutput.TabIndex = 36;
             this.btnDeleteOutput.Text = "Delete Response Prop";
             this.btnDeleteOutput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -485,7 +523,7 @@
             this.cdsTxtResponseIsCustomizable.Name = "cdsTxtResponseIsCustomizable";
             this.cdsTxtResponseIsCustomizable.OrganizationService = null;
             this.cdsTxtResponseIsCustomizable.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtResponseIsCustomizable.TabIndex = 94;
+            this.cdsTxtResponseIsCustomizable.TabIndex = 43;
             // 
             // cdsTxtResponseUniqueName
             // 
@@ -500,7 +538,7 @@
             this.cdsTxtResponseUniqueName.Name = "cdsTxtResponseUniqueName";
             this.cdsTxtResponseUniqueName.OrganizationService = null;
             this.cdsTxtResponseUniqueName.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtResponseUniqueName.TabIndex = 56;
+            this.cdsTxtResponseUniqueName.TabIndex = 37;
             // 
             // pictureBox10
             // 
@@ -581,25 +619,11 @@
             this.ttInfo.SetToolTip(this.label27, "Unique name for the custom API response property . \r\nThis will be the name of the" +
         " parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
             // 
-            // cdsTxtResponseBoundEntity
-            // 
-            this.cdsTxtResponseBoundEntity.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtResponseBoundEntity.DisplayFormat = "logicalentityname";
-            this.cdsTxtResponseBoundEntity.Entity = null;
-            this.cdsTxtResponseBoundEntity.EntityReference = null;
-            this.cdsTxtResponseBoundEntity.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtResponseBoundEntity.Location = new System.Drawing.Point(434, 221);
-            this.cdsTxtResponseBoundEntity.LogicalName = "customapiresponseproperty";
-            this.cdsTxtResponseBoundEntity.Name = "cdsTxtResponseBoundEntity";
-            this.cdsTxtResponseBoundEntity.OrganizationService = null;
-            this.cdsTxtResponseBoundEntity.Size = new System.Drawing.Size(219, 20);
-            this.cdsTxtResponseBoundEntity.TabIndex = 76;
-            // 
             // pictureBox17
             // 
             this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
             this.pictureBox17.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox17.InitialImage")));
-            this.pictureBox17.Location = new System.Drawing.Point(653, 73);
+            this.pictureBox17.Location = new System.Drawing.Point(654, 73);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(20, 19);
             this.pictureBox17.TabIndex = 57;
@@ -618,7 +642,7 @@
             this.cdsTxtResponseDescription.Name = "cdsTxtResponseDescription";
             this.cdsTxtResponseDescription.OrganizationService = null;
             this.cdsTxtResponseDescription.Size = new System.Drawing.Size(245, 40);
-            this.cdsTxtResponseDescription.TabIndex = 75;
+            this.cdsTxtResponseDescription.TabIndex = 40;
             // 
             // label26
             // 
@@ -654,7 +678,7 @@
             this.cdsTxtResponseName.Name = "cdsTxtResponseName";
             this.cdsTxtResponseName.OrganizationService = null;
             this.cdsTxtResponseName.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtResponseName.TabIndex = 59;
+            this.cdsTxtResponseName.TabIndex = 38;
             // 
             // btnEditOutput
             // 
@@ -665,7 +689,7 @@
             this.btnEditOutput.Location = new System.Drawing.Point(315, 34);
             this.btnEditOutput.Name = "btnEditOutput";
             this.btnEditOutput.Size = new System.Drawing.Size(149, 30);
-            this.btnEditOutput.TabIndex = 71;
+            this.btnEditOutput.TabIndex = 35;
             this.btnEditOutput.Text = "Edit Response Prop";
             this.btnEditOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditOutput.UseVisualStyleBackColor = true;
@@ -690,7 +714,7 @@
             this.btnAddOutput.Location = new System.Drawing.Point(37, 35);
             this.btnAddOutput.Name = "btnAddOutput";
             this.btnAddOutput.Size = new System.Drawing.Size(155, 29);
-            this.btnAddOutput.TabIndex = 70;
+            this.btnAddOutput.TabIndex = 34;
             this.btnAddOutput.Text = "New Response Prop";
             this.btnAddOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddOutput.UseVisualStyleBackColor = true;
@@ -708,13 +732,13 @@
             this.cdsTxtResponseDisplayName.Name = "cdsTxtResponseDisplayName";
             this.cdsTxtResponseDisplayName.OrganizationService = null;
             this.cdsTxtResponseDisplayName.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtResponseDisplayName.TabIndex = 62;
+            this.cdsTxtResponseDisplayName.TabIndex = 39;
             // 
             // pictureBox16
             // 
             this.pictureBox16.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox16.Image")));
             this.pictureBox16.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox16.InitialImage")));
-            this.pictureBox16.Location = new System.Drawing.Point(653, 196);
+            this.pictureBox16.Location = new System.Drawing.Point(655, 196);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(20, 19);
             this.pictureBox16.TabIndex = 66;
@@ -742,7 +766,7 @@
             this.cdsTxtResponseType.Name = "cdsTxtResponseType";
             this.cdsTxtResponseType.OrganizationService = null;
             this.cdsTxtResponseType.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtResponseType.TabIndex = 65;
+            this.cdsTxtResponseType.TabIndex = 41;
             // 
             // cdsTxtIsManaged
             // 
@@ -756,10 +780,11 @@
             this.cdsTxtIsManaged.Name = "cdsTxtIsManaged";
             this.cdsTxtIsManaged.OrganizationService = null;
             this.cdsTxtIsManaged.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtIsManaged.TabIndex = 83;
+            this.cdsTxtIsManaged.TabIndex = 21;
             // 
             // imgGrpInputs
             // 
+            this.imgGrpInputs.Controls.Add(this.txtRequestBoundEntity);
             this.imgGrpInputs.Controls.Add(this.cdsTxtRequestIsManaged);
             this.imgGrpInputs.Controls.Add(this.label32);
             this.imgGrpInputs.Controls.Add(this.label31);
@@ -770,7 +795,6 @@
             this.imgGrpInputs.Controls.Add(this.cdsGridInputs);
             this.imgGrpInputs.Controls.Add(this.label19);
             this.imgGrpInputs.Controls.Add(this.label11);
-            this.imgGrpInputs.Controls.Add(this.cdsTxtRequestBoundEntity);
             this.imgGrpInputs.Controls.Add(this.cdsTxtRequestUniqueName);
             this.imgGrpInputs.Controls.Add(this.cdsTxtRequestDescription);
             this.imgGrpInputs.Controls.Add(this.pictureBox8);
@@ -794,6 +818,38 @@
             this.imgGrpInputs.TabStop = false;
             this.imgGrpInputs.Text = "Request Parameters (Input)";
             // 
+            // txtRequestBoundEntity
+            // 
+            this.txtRequestBoundEntity.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtRequestBoundEntity.Location = new System.Drawing.Point(448, 241);
+            this.txtRequestBoundEntity.Name = "txtRequestBoundEntity";
+            this.txtRequestBoundEntity.ReadOnly = true;
+            this.txtRequestBoundEntity.Size = new System.Drawing.Size(218, 20);
+            this.txtRequestBoundEntity.TabIndex = 31;
+            // 
+            // cdsTxtRequestIsManaged
+            // 
+            this.cdsTxtRequestIsManaged.BackColor = System.Drawing.SystemColors.Window;
+            this.cdsTxtRequestIsManaged.DisplayFormat = "ismanaged";
+            this.cdsTxtRequestIsManaged.Entity = null;
+            this.cdsTxtRequestIsManaged.EntityReference = null;
+            this.cdsTxtRequestIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
+            this.cdsTxtRequestIsManaged.Location = new System.Drawing.Point(424, 288);
+            this.cdsTxtRequestIsManaged.LogicalName = "customapirequestparameter";
+            this.cdsTxtRequestIsManaged.Name = "cdsTxtRequestIsManaged";
+            this.cdsTxtRequestIsManaged.OrganizationService = null;
+            this.cdsTxtRequestIsManaged.Size = new System.Drawing.Size(68, 20);
+            this.cdsTxtRequestIsManaged.TabIndex = 33;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(342, 291);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(60, 13);
+            this.label32.TabIndex = 95;
+            this.label32.Text = "IsManaged";
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -815,7 +871,7 @@
             this.cdsTxtRequestIsCustomizable.Name = "cdsTxtRequestIsCustomizable";
             this.cdsTxtRequestIsCustomizable.OrganizationService = null;
             this.cdsTxtRequestIsCustomizable.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtRequestIsCustomizable.TabIndex = 87;
+            this.cdsTxtRequestIsCustomizable.TabIndex = 32;
             // 
             // btnDeleteInput
             // 
@@ -826,7 +882,7 @@
             this.btnDeleteInput.Location = new System.Drawing.Point(490, 34);
             this.btnDeleteInput.Name = "btnDeleteInput";
             this.btnDeleteInput.Size = new System.Drawing.Size(164, 29);
-            this.btnDeleteInput.TabIndex = 84;
+            this.btnDeleteInput.TabIndex = 24;
             this.btnDeleteInput.Text = "Delete Request Param";
             this.btnDeleteInput.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -842,7 +898,7 @@
             this.btnEditInput.Location = new System.Drawing.Point(339, 33);
             this.btnEditInput.Name = "btnEditInput";
             this.btnEditInput.Size = new System.Drawing.Size(145, 30);
-            this.btnEditInput.TabIndex = 71;
+            this.btnEditInput.TabIndex = 23;
             this.btnEditInput.Text = "Edit Request Param";
             this.btnEditInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditInput.UseVisualStyleBackColor = true;
@@ -927,20 +983,6 @@
             this.ttInfo.SetToolTip(this.label11, "Unique name for the custom API request parameter. \r\nThis will be the name of the " +
         "parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
             // 
-            // cdsTxtRequestBoundEntity
-            // 
-            this.cdsTxtRequestBoundEntity.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtRequestBoundEntity.DisplayFormat = "logicalentityname";
-            this.cdsTxtRequestBoundEntity.Entity = null;
-            this.cdsTxtRequestBoundEntity.EntityReference = null;
-            this.cdsTxtRequestBoundEntity.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtRequestBoundEntity.Location = new System.Drawing.Point(443, 241);
-            this.cdsTxtRequestBoundEntity.LogicalName = "customapirequestparameter";
-            this.cdsTxtRequestBoundEntity.Name = "cdsTxtRequestBoundEntity";
-            this.cdsTxtRequestBoundEntity.OrganizationService = null;
-            this.cdsTxtRequestBoundEntity.Size = new System.Drawing.Size(223, 20);
-            this.cdsTxtRequestBoundEntity.TabIndex = 76;
-            // 
             // cdsTxtRequestUniqueName
             // 
             this.cdsTxtRequestUniqueName.BackColor = System.Drawing.SystemColors.Window;
@@ -954,7 +996,7 @@
             this.cdsTxtRequestUniqueName.Name = "cdsTxtRequestUniqueName";
             this.cdsTxtRequestUniqueName.OrganizationService = null;
             this.cdsTxtRequestUniqueName.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtRequestUniqueName.TabIndex = 56;
+            this.cdsTxtRequestUniqueName.TabIndex = 25;
             // 
             // cdsTxtRequestDescription
             // 
@@ -969,7 +1011,7 @@
             this.cdsTxtRequestDescription.Name = "cdsTxtRequestDescription";
             this.cdsTxtRequestDescription.OrganizationService = null;
             this.cdsTxtRequestDescription.Size = new System.Drawing.Size(245, 40);
-            this.cdsTxtRequestDescription.TabIndex = 75;
+            this.cdsTxtRequestDescription.TabIndex = 28;
             // 
             // pictureBox8
             // 
@@ -1015,7 +1057,7 @@
             this.cdsTxtRequestName.Name = "cdsTxtRequestName";
             this.cdsTxtRequestName.OrganizationService = null;
             this.cdsTxtRequestName.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtRequestName.TabIndex = 59;
+            this.cdsTxtRequestName.TabIndex = 26;
             // 
             // btnAddInput
             // 
@@ -1025,7 +1067,7 @@
             this.btnAddInput.Location = new System.Drawing.Point(51, 33);
             this.btnAddInput.Name = "btnAddInput";
             this.btnAddInput.Size = new System.Drawing.Size(163, 29);
-            this.btnAddInput.TabIndex = 70;
+            this.btnAddInput.TabIndex = 22;
             this.btnAddInput.Text = "New Request Param";
             this.btnAddInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddInput.UseVisualStyleBackColor = true;
@@ -1064,7 +1106,7 @@
             this.cdsTxtRequestDisplayName.Name = "cdsTxtRequestDisplayName";
             this.cdsTxtRequestDisplayName.OrganizationService = null;
             this.cdsTxtRequestDisplayName.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtRequestDisplayName.TabIndex = 62;
+            this.cdsTxtRequestDisplayName.TabIndex = 27;
             // 
             // cdsTxtRequestIsOptional
             // 
@@ -1078,7 +1120,7 @@
             this.cdsTxtRequestIsOptional.Name = "cdsTxtRequestIsOptional";
             this.cdsTxtRequestIsOptional.OrganizationService = null;
             this.cdsTxtRequestIsOptional.Size = new System.Drawing.Size(67, 20);
-            this.cdsTxtRequestIsOptional.TabIndex = 68;
+            this.cdsTxtRequestIsOptional.TabIndex = 29;
             // 
             // label15
             // 
@@ -1112,7 +1154,7 @@
             this.cdsTxtRequestType.Name = "cdsTxtRequestType";
             this.cdsTxtRequestType.OrganizationService = null;
             this.cdsTxtRequestType.Size = new System.Drawing.Size(245, 20);
-            this.cdsTxtRequestType.TabIndex = 65;
+            this.cdsTxtRequestType.TabIndex = 30;
             // 
             // pictureBox11
             // 
@@ -1132,7 +1174,7 @@
             this.btnEditCustomApi.Location = new System.Drawing.Point(93, 33);
             this.btnEditCustomApi.Name = "btnEditCustomApi";
             this.btnEditCustomApi.Size = new System.Drawing.Size(98, 29);
-            this.btnEditCustomApi.TabIndex = 19;
+            this.btnEditCustomApi.TabIndex = 6;
             this.btnEditCustomApi.Text = "Edit API";
             this.btnEditCustomApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditCustomApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1192,7 +1234,7 @@
             this.cdsTxtIsWFEnabled.Name = "cdsTxtIsWFEnabled";
             this.cdsTxtIsWFEnabled.OrganizationService = null;
             this.cdsTxtIsWFEnabled.Size = new System.Drawing.Size(59, 20);
-            this.cdsTxtIsWFEnabled.TabIndex = 92;
+            this.cdsTxtIsWFEnabled.TabIndex = 18;
             // 
             // label8
             // 
@@ -1256,7 +1298,7 @@
             this.cdsTxtIsCustomizable.Name = "cdsTxtIsCustomizable";
             this.cdsTxtIsCustomizable.OrganizationService = null;
             this.cdsTxtIsCustomizable.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtIsCustomizable.TabIndex = 85;
+            this.cdsTxtIsCustomizable.TabIndex = 20;
             // 
             // label4
             // 
@@ -1302,7 +1344,7 @@
             this.btnDeleteApi.Location = new System.Drawing.Point(237, 33);
             this.btnDeleteApi.Name = "btnDeleteApi";
             this.btnDeleteApi.Size = new System.Drawing.Size(98, 29);
-            this.btnDeleteApi.TabIndex = 82;
+            this.btnDeleteApi.TabIndex = 7;
             this.btnDeleteApi.Text = "Delete API";
             this.btnDeleteApi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDeleteApi.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1383,7 +1425,7 @@
             this.cdsTxtPluginType.Name = "cdsTxtPluginType";
             this.cdsTxtPluginType.OrganizationService = null;
             this.cdsTxtPluginType.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtPluginType.TabIndex = 40;
+            this.cdsTxtPluginType.TabIndex = 15;
             // 
             // pictureBox6
             // 
@@ -1408,7 +1450,7 @@
             this.cdsTxtUniqueName.Name = "cdsTxtUniqueName";
             this.cdsTxtUniqueName.OrganizationService = null;
             this.cdsTxtUniqueName.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtUniqueName.TabIndex = 41;
+            this.cdsTxtUniqueName.TabIndex = 8;
             // 
             // pictureBox5
             // 
@@ -1432,7 +1474,7 @@
             this.cdsTxtName.Name = "cdsTxtName";
             this.cdsTxtName.OrganizationService = null;
             this.cdsTxtName.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtName.TabIndex = 42;
+            this.cdsTxtName.TabIndex = 9;
             // 
             // label2
             // 
@@ -1457,7 +1499,7 @@
             this.cdsTxtDisplayName.Name = "cdsTxtDisplayName";
             this.cdsTxtDisplayName.OrganizationService = null;
             this.cdsTxtDisplayName.Size = new System.Drawing.Size(242, 20);
-            this.cdsTxtDisplayName.TabIndex = 43;
+            this.cdsTxtDisplayName.TabIndex = 10;
             // 
             // pictureBox4
             // 
@@ -1482,7 +1524,7 @@
             this.cdsTxtDescription.Name = "cdsTxtDescription";
             this.cdsTxtDescription.OrganizationService = null;
             this.cdsTxtDescription.Size = new System.Drawing.Size(242, 40);
-            this.cdsTxtDescription.TabIndex = 44;
+            this.cdsTxtDescription.TabIndex = 11;
             // 
             // pictureBox3
             // 
@@ -1506,7 +1548,7 @@
             this.cdsTxtAllowedCustomProcessingStep.Name = "cdsTxtAllowedCustomProcessingStep";
             this.cdsTxtAllowedCustomProcessingStep.OrganizationService = null;
             this.cdsTxtAllowedCustomProcessingStep.Size = new System.Drawing.Size(128, 20);
-            this.cdsTxtAllowedCustomProcessingStep.TabIndex = 45;
+            this.cdsTxtAllowedCustomProcessingStep.TabIndex = 12;
             // 
             // cdsTxtIsFunction
             // 
@@ -1520,7 +1562,7 @@
             this.cdsTxtIsFunction.Name = "cdsTxtIsFunction";
             this.cdsTxtIsFunction.OrganizationService = null;
             this.cdsTxtIsFunction.Size = new System.Drawing.Size(59, 20);
-            this.cdsTxtIsFunction.TabIndex = 46;
+            this.cdsTxtIsFunction.TabIndex = 17;
             // 
             // cdsTxtExecutePrivilegeName
             // 
@@ -1534,7 +1576,7 @@
             this.cdsTxtExecutePrivilegeName.Name = "cdsTxtExecutePrivilegeName";
             this.cdsTxtExecutePrivilegeName.OrganizationService = null;
             this.cdsTxtExecutePrivilegeName.Size = new System.Drawing.Size(197, 20);
-            this.cdsTxtExecutePrivilegeName.TabIndex = 50;
+            this.cdsTxtExecutePrivilegeName.TabIndex = 16;
             // 
             // cdsTxtIsPrivate
             // 
@@ -1548,7 +1590,7 @@
             this.cdsTxtIsPrivate.Name = "cdsTxtIsPrivate";
             this.cdsTxtIsPrivate.OrganizationService = null;
             this.cdsTxtIsPrivate.Size = new System.Drawing.Size(59, 20);
-            this.cdsTxtIsPrivate.TabIndex = 47;
+            this.cdsTxtIsPrivate.TabIndex = 19;
             // 
             // cdsTxtBoundEntity
             // 
@@ -1562,7 +1604,7 @@
             this.cdsTxtBoundEntity.Name = "cdsTxtBoundEntity";
             this.cdsTxtBoundEntity.OrganizationService = null;
             this.cdsTxtBoundEntity.Size = new System.Drawing.Size(144, 20);
-            this.cdsTxtBoundEntity.TabIndex = 49;
+            this.cdsTxtBoundEntity.TabIndex = 14;
             // 
             // cdsTxtBindingType
             // 
@@ -1576,53 +1618,7 @@
             this.cdsTxtBindingType.Name = "cdsTxtBindingType";
             this.cdsTxtBindingType.OrganizationService = null;
             this.cdsTxtBindingType.Size = new System.Drawing.Size(89, 20);
-            this.cdsTxtBindingType.TabIndex = 48;
-            // 
-            // cdsTxtRequestIsManaged
-            // 
-            this.cdsTxtRequestIsManaged.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtRequestIsManaged.DisplayFormat = "ismanaged";
-            this.cdsTxtRequestIsManaged.Entity = null;
-            this.cdsTxtRequestIsManaged.EntityReference = null;
-            this.cdsTxtRequestIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtRequestIsManaged.Location = new System.Drawing.Point(424, 288);
-            this.cdsTxtRequestIsManaged.LogicalName = "customapirequestparameter";
-            this.cdsTxtRequestIsManaged.Name = "cdsTxtRequestIsManaged";
-            this.cdsTxtRequestIsManaged.OrganizationService = null;
-            this.cdsTxtRequestIsManaged.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtRequestIsManaged.TabIndex = 94;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(342, 291);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(60, 13);
-            this.label32.TabIndex = 95;
-            this.label32.Text = "IsManaged";
-            // 
-            // cdsTxtResponseIsManaged
-            // 
-            this.cdsTxtResponseIsManaged.BackColor = System.Drawing.SystemColors.Window;
-            this.cdsTxtResponseIsManaged.DisplayFormat = "ismanaged";
-            this.cdsTxtResponseIsManaged.Entity = null;
-            this.cdsTxtResponseIsManaged.EntityReference = null;
-            this.cdsTxtResponseIsManaged.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.cdsTxtResponseIsManaged.Location = new System.Drawing.Point(408, 273);
-            this.cdsTxtResponseIsManaged.LogicalName = "customapiresponseproperty";
-            this.cdsTxtResponseIsManaged.Name = "cdsTxtResponseIsManaged";
-            this.cdsTxtResponseIsManaged.OrganizationService = null;
-            this.cdsTxtResponseIsManaged.Size = new System.Drawing.Size(68, 20);
-            this.cdsTxtResponseIsManaged.TabIndex = 96;
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(326, 276);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(60, 13);
-            this.label33.TabIndex = 97;
-            this.label33.Text = "IsManaged";
+            this.cdsTxtBindingType.TabIndex = 13;
             // 
             // CustomApiManagerControl
             // 
@@ -1711,7 +1707,6 @@
         private System.Windows.Forms.Button btnDeleteApi;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.Label label20;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseBoundEntity;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseDescription;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button btnEditOutput;
@@ -1729,7 +1724,6 @@
         private xrmtb.XrmToolBox.Controls.CRMGridView cdsGridOutputs;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label19;
-        private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtRequestBoundEntity;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtRequestDescription;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button btnEditInput;
@@ -1778,5 +1772,8 @@
         private System.Windows.Forms.Label label32;
         private xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox cdsTxtResponseIsManaged;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox txtResponseBoundEntity;
+        private System.Windows.Forms.TextBox txtRequestBoundEntity;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }
