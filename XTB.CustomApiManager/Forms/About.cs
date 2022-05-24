@@ -66,5 +66,16 @@ namespace XTB.CustomApiManager.Forms
         {
             System.Diagnostics.Process.Start("https://twitter.com/david_rivard");
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.flaticon.com/free-icons/api");
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.flaticon.com/free-icons/settings");
+        }
     }
 }
+

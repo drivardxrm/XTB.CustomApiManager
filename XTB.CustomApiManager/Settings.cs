@@ -15,5 +15,14 @@ namespace XTB.CustomApiManager
     public class Settings
     {
         public string LastUsedOrganizationWebappUrl { get; set; }
+
+        public string RequestParameterDefaultName { get; set; } = "{customapiname}-In-{uniquename}";
+        public string ResponsePropertyDefaultName { get; set; } = "{customapiname}-Out-{uniquename}";
+
+        public Guid DefaultPublisherId { get; set; } // connection based setting
+        public string DefaultPublisherName { get; set; } // connection based setting
+
+        public string DefaultPublisherPrefix { get; set; } // connection based setting
+
     }
 }

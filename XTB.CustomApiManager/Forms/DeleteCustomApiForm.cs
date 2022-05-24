@@ -53,14 +53,9 @@ namespace XTB.CustomApiManager.Forms
 
         }
 
+        private void DeleteCustomApiForm_Load(object sender, EventArgs e)
+        {
 
-
-
-
-
-
-
-
-
+        }
     }
 }

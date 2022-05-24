@@ -43,6 +43,8 @@
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
@@ -140,7 +142,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listAssemblies);
-            this.groupBox1.Location = new System.Drawing.Point(49, 176);
+            this.groupBox1.Location = new System.Drawing.Point(43, 214);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(390, 235);
             this.groupBox1.TabIndex = 14;
@@ -172,6 +174,7 @@
             this.imgLogo.Location = new System.Drawing.Point(34, 12);
             this.imgLogo.Name = "imgLogo";
             this.imgLogo.Size = new System.Drawing.Size(105, 99);
+            this.imgLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgLogo.TabIndex = 12;
             this.imgLogo.TabStop = false;
             // 
@@ -185,6 +188,28 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Custom API Manager";
             // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(168, 160);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(187, 13);
+            this.linkLabel3.TabIndex = 26;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Api icons created by Eucalyp -Flaticon";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(168, 184);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(210, 13);
+            this.linkLabel4.TabIndex = 27;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Settings icons created by Freepik - Flaticon";
+            this.linkLabel4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,6 +217,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(644, 448);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.label6);
@@ -231,5 +258,7 @@
         private System.Windows.Forms.LinkLabel linkLabel5;
         internal System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.LinkLabel linkLabel3;
+        private System.Windows.Forms.LinkLabel linkLabel4;
     }
 }

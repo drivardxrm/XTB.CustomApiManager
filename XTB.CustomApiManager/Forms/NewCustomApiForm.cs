@@ -18,15 +18,17 @@ namespace XTB.CustomApiManager.Forms
         //private Control focus;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
+        private Settings _connectionsettings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution)
+        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution, Settings connectionsettings)
         {
             InitializeComponent();
             _service = service;
+            _connectionsettings = connectionsettings;
             
 
             dlgLookupPublisher.Service = service;
@@ -48,7 +50,16 @@ namespace XTB.CustomApiManager.Forms
             cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
 
-            if (solution?.PublisherRef != null)
+            // Set default publisher, Takes it from Settings file or from the solution
+            if (_connectionsettings.DefaultPublisherId != Guid.Empty) 
+            {
+                var publisher = _service.GetPublisher(_connectionsettings.DefaultPublisherId);
+
+                txtLookupPublisher.EntityReference = new EntityReference(Publisher.EntityName, _connectionsettings.DefaultPublisherId);
+                txtLookupPublisher.Text = publisher.Attributes[Publisher.Name].ToString();
+                txtPrefix.Text = publisher.Attributes[Publisher.Prefix].ToString();
+            }
+            else if (solution?.PublisherRef != null)
             {
                 txtLookupPublisher.EntityReference = solution.PublisherRef;
                 txtLookupPublisher.Text = solution.PublisherRef.Name;
