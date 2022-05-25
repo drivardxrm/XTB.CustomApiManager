@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnPublisherClear = new System.Windows.Forms.Button();
             this.lblConnection = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtPrefix = new System.Windows.Forms.TextBox();
@@ -54,8 +56,6 @@
             this.txtResponsePropertyTemplate = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
-            this.btnPublisherClear = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -90,11 +90,34 @@
             this.panel2.Size = new System.Drawing.Size(668, 456);
             this.panel2.TabIndex = 5;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(33, 68);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(70, 13);
+            this.label12.TabIndex = 97;
+            this.label12.Text = "Connection : ";
+            // 
+            // btnPublisherClear
+            // 
+            this.btnPublisherClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPublisherClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPublisherClear.Image = ((System.Drawing.Image)(resources.GetObject("btnPublisherClear.Image")));
+            this.btnPublisherClear.Location = new System.Drawing.Point(540, 42);
+            this.btnPublisherClear.Name = "btnPublisherClear";
+            this.btnPublisherClear.Size = new System.Drawing.Size(25, 25);
+            this.btnPublisherClear.TabIndex = 96;
+            this.btnPublisherClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPublisherClear.UseVisualStyleBackColor = true;
+            this.btnPublisherClear.Click += new System.EventHandler(this.btnPublisherClear_Click);
+            // 
             // lblConnection
             // 
             this.lblConnection.AutoSize = true;
             this.lblConnection.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConnection.Location = new System.Drawing.Point(131, 75);
+            this.lblConnection.Location = new System.Drawing.Point(107, 68);
             this.lblConnection.Name = "lblConnection";
             this.lblConnection.Size = new System.Drawing.Size(93, 13);
             this.lblConnection.TabIndex = 94;
@@ -323,29 +346,6 @@
         "publisher"};
             this.dlgLookupPublisher.Service = null;
             this.dlgLookupPublisher.Title = null;
-            // 
-            // btnPublisherClear
-            // 
-            this.btnPublisherClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPublisherClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPublisherClear.Image = ((System.Drawing.Image)(resources.GetObject("btnPublisherClear.Image")));
-            this.btnPublisherClear.Location = new System.Drawing.Point(540, 42);
-            this.btnPublisherClear.Name = "btnPublisherClear";
-            this.btnPublisherClear.Size = new System.Drawing.Size(25, 25);
-            this.btnPublisherClear.TabIndex = 96;
-            this.btnPublisherClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnPublisherClear.UseVisualStyleBackColor = true;
-            this.btnPublisherClear.Click += new System.EventHandler(this.btnPublisherClear_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(57, 75);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(70, 13);
-            this.label12.TabIndex = 97;
-            this.label12.Text = "Connection : ";
             // 
             // SettingsForm
             // 
