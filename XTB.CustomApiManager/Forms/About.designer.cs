@@ -56,7 +56,7 @@
             this.linkLabel1.Location = new System.Drawing.Point(158, 50);
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(459, 19);
+            this.linkLabel1.Size = new System.Drawing.Size(560, 23);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "https://github.com/drivardxrm/XTB.CustomApiManager";
@@ -68,7 +68,7 @@
             this.label2.Location = new System.Drawing.Point(168, 110);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Developer:\r\n";
             // 
@@ -77,7 +77,7 @@
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Location = new System.Drawing.Point(265, 110);
             this.linkLabel2.Name = "linkLabel2";
-            this.linkLabel2.Size = new System.Drawing.Size(69, 13);
+            this.linkLabel2.Size = new System.Drawing.Size(89, 17);
             this.linkLabel2.TabIndex = 4;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "David Rivard";
@@ -98,7 +98,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(168, 86);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 10;
             this.label5.Text = "Version:";
             // 
@@ -107,7 +107,7 @@
             this.lblVersion.AutoSize = true;
             this.lblVersion.Location = new System.Drawing.Point(265, 86);
             this.lblVersion.Name = "lblVersion";
-            this.lblVersion.Size = new System.Drawing.Size(22, 13);
+            this.lblVersion.Size = new System.Drawing.Size(28, 17);
             this.lblVersion.TabIndex = 11;
             this.lblVersion.Text = "1.0";
             // 
@@ -121,10 +121,10 @@
             this.listAssemblies.FullRowSelect = true;
             this.listAssemblies.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.listAssemblies.HideSelection = false;
-            this.listAssemblies.Location = new System.Drawing.Point(3, 16);
+            this.listAssemblies.Location = new System.Drawing.Point(3, 19);
             this.listAssemblies.Name = "listAssemblies";
             this.listAssemblies.ShowGroups = false;
-            this.listAssemblies.Size = new System.Drawing.Size(384, 216);
+            this.listAssemblies.Size = new System.Drawing.Size(384, 213);
             this.listAssemblies.TabIndex = 0;
             this.listAssemblies.UseCompatibleStateImageBehavior = false;
             this.listAssemblies.View = System.Windows.Forms.View.Details;
@@ -153,7 +153,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(168, 134);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(39, 13);
+            this.label6.Size = new System.Drawing.Size(50, 17);
             this.label6.TabIndex = 15;
             this.label6.Text = "Twitter";
             // 
@@ -162,7 +162,7 @@
             this.linkLabel5.AutoSize = true;
             this.linkLabel5.Location = new System.Drawing.Point(265, 134);
             this.linkLabel5.Name = "linkLabel5";
-            this.linkLabel5.Size = new System.Drawing.Size(76, 13);
+            this.linkLabel5.Size = new System.Drawing.Size(100, 17);
             this.linkLabel5.TabIndex = 16;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "@david_rivard";
@@ -184,7 +184,7 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(158, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(206, 24);
+            this.label1.Size = new System.Drawing.Size(257, 29);
             this.label1.TabIndex = 25;
             this.label1.Text = "Custom API Manager";
             // 
@@ -193,7 +193,7 @@
             this.linkLabel3.AutoSize = true;
             this.linkLabel3.Location = new System.Drawing.Point(168, 160);
             this.linkLabel3.Name = "linkLabel3";
-            this.linkLabel3.Size = new System.Drawing.Size(187, 13);
+            this.linkLabel3.Size = new System.Drawing.Size(248, 17);
             this.linkLabel3.TabIndex = 26;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Api icons created by Eucalyp -Flaticon";
@@ -204,7 +204,7 @@
             this.linkLabel4.AutoSize = true;
             this.linkLabel4.Location = new System.Drawing.Point(168, 184);
             this.linkLabel4.Name = "linkLabel4";
-            this.linkLabel4.Size = new System.Drawing.Size(210, 13);
+            this.linkLabel4.Size = new System.Drawing.Size(280, 17);
             this.linkLabel4.TabIndex = 27;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Settings icons created by Freepik - Flaticon";
@@ -212,11 +212,11 @@
             // 
             // About
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(644, 448);
+            this.ClientSize = new System.Drawing.Size(746, 481);
             this.Controls.Add(this.linkLabel4);
             this.Controls.Add(this.linkLabel3);
             this.Controls.Add(this.label1);

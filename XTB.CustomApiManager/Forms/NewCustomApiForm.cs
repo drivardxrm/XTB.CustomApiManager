@@ -57,7 +57,7 @@ namespace XTB.CustomApiManager.Forms
 
                 txtLookupPublisher.EntityReference = new EntityReference(Publisher.EntityName, _connectionsettings.DefaultPublisherId);
                 txtLookupPublisher.Text = publisher.Attributes[Publisher.Name].ToString();
-                txtPrefix.Text = publisher.Attributes[Publisher.Prefix].ToString();
+                txtPrefix.Text = $"{publisher.Attributes[Publisher.Prefix]}_";
             }
             else if (solution?.PublisherRef != null)
             {
