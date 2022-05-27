@@ -24,10 +24,7 @@ namespace XTB.CustomApiManager
 {
     public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
-        
-        private Settings _globalsettings;
-
-        private Settings _connectionsettings;
+        private Settings mySettings;
 
         private SolutionProxy _selectedSolution;
 
@@ -54,8 +51,18 @@ namespace XTB.CustomApiManager
 
         private void CustomApiManagerControl_Load(object sender, EventArgs e)
         {
-            LoadGlobalSettings();
-            LoadConnectionSettings();
+            
+            // Loads or creates the settings for the plugin
+            if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
+            {
+                mySettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
 
             ExecuteMethod(InitializeService);
 
@@ -65,37 +72,10 @@ namespace XTB.CustomApiManager
             cdsCboCustomApi.Select();
         }
 
-        private void LoadConnectionSettings()
-        {
-            if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail.ConnectionId.ToString()))
-            {
-                _connectionsettings = new Settings();
-
-                LogWarning("Settings not found => a new settings file has been created!");
-            }
-            else
-            {
-                LogInfo("Settings found and loaded");
-            }
-        }
-
-        private void LoadGlobalSettings()
-        {
-            // Loads or creates the settings for the plugin
-            if (!SettingsManager.Instance.TryLoad(GetType(), out _globalsettings))
-            {
-                _globalsettings = new Settings();
-
-                LogWarning("Settings not found => a new settings file has been created!");
-            }
-            else
-            {
-                LogInfo("Settings found and loaded");
-            }
-        }
-
         private void InitializeService()
         {
+
+
 
             dlgLookupPluginType.Service = Service;
             dlgLookupPublisher.Service = Service;
@@ -164,7 +144,7 @@ namespace XTB.CustomApiManager
         private void CustomApiManagerControl_OnCloseTool(object sender, EventArgs e)
         {
             // Before leaving, save the settings
-            SettingsManager.Instance.Save(GetType(), _globalsettings);
+            SettingsManager.Instance.Save(GetType(), mySettings);
         }
 
         /// <summary>
@@ -175,11 +155,9 @@ namespace XTB.CustomApiManager
             base.UpdateConnection(newService, detail, actionName, parameter);
             
 
-            if (_globalsettings != null && detail != null)
+            if (mySettings != null && detail != null)
             {
-                LoadConnectionSettings();
-                
-                _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
+                mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 SetCdsCboCustomApiDataSource(null);
@@ -221,11 +199,6 @@ namespace XTB.CustomApiManager
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
 
-        }
-
-        private void menuSettings_Click(object sender, EventArgs e)
-        {
-            SettingsDialog();
         }
 
         private void btnNewApi_Click(object sender, EventArgs e)
@@ -744,16 +717,10 @@ namespace XTB.CustomApiManager
             return index;
         }
 
-        private void SettingsDialog()
-        {
-            var inputdlg = new SettingsForm(Service,ConnectionDetail, _globalsettings, _connectionsettings);
-            var dlgresult = inputdlg.ShowDialog();
-           
-        }
 
         private void CreateApiDialog() 
         {
-            var inputdlg = new NewCustomApiForm(Service, _selectedSolution, _connectionsettings);
+            var inputdlg = new NewCustomApiForm(Service, _selectedSolution);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -825,7 +792,7 @@ namespace XTB.CustomApiManager
 
         private void CreateRequestParameterDialog()
         {
-            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings);
+            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -910,7 +877,7 @@ namespace XTB.CustomApiManager
 
         private void CreateResponsePropertyDialog()
         {
-            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings);
+            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -951,7 +918,6 @@ namespace XTB.CustomApiManager
 
             }
         }
-
 
 
 

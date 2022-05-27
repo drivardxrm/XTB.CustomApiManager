@@ -42,7 +42,6 @@
             this.menuTestApi = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
-            this.menuSettings = new System.Windows.Forms.ToolStripButton();
             this.grpFilter = new System.Windows.Forms.GroupBox();
             this.label22 = new System.Windows.Forms.Label();
             this.btnNewApi = new System.Windows.Forms.Button();
@@ -55,31 +54,6 @@
             this.dlgLookupPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.label20 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblPlugintype = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.imgGrpCustomApi = new XTB.CustomApiManager.Controls.ImageGroupBox();
             this.imgGrpOutputs = new XTB.CustomApiManager.Controls.ImageGroupBox();
@@ -92,13 +66,19 @@
             this.cdsTxtResponseUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.cdsGridOutputs = new xrmtb.XrmToolBox.Controls.CRMGridView();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.cdsTxtResponseDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.cdsTxtResponseName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnEditOutput = new System.Windows.Forms.Button();
+            this.label25 = new System.Windows.Forms.Label();
             this.btnAddOutput = new System.Windows.Forms.Button();
             this.cdsTxtResponseDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.cdsTxtResponseType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtIsManaged = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.imgGrpInputs = new XTB.CustomApiManager.Controls.ImageGroupBox();
@@ -111,32 +91,51 @@
             this.btnEditInput = new System.Windows.Forms.Button();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.cdsGridInputs = new xrmtb.XrmToolBox.Controls.CRMGridView();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.cdsTxtRequestUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtRequestDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.cdsTxtRequestName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.btnAddInput = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.cdsTxtRequestDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtRequestIsOptional = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.cdsTxtRequestType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.btnEditCustomApi = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cdsTxtIsWFEnabled = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.cdsTxtIsCustomizable = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.txtCustomizableWarning = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.btnDeleteApi = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.lblInfoLock = new System.Windows.Forms.Label();
+            this.lblPlugintype = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.cdsTxtPluginType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.cdsTxtUniqueName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.cdsTxtName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.cdsTxtDisplayName = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.cdsTxtDescription = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
@@ -178,8 +177,7 @@
             this.menuNewApi,
             this.menuTestApi,
             this.tssSeparator1,
-            this.tslAbout,
-            this.menuSettings});
+            this.tslAbout});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
             this.toolStripMenu.Size = new System.Drawing.Size(1129, 31);
@@ -228,15 +226,6 @@
             this.tslAbout.Size = new System.Drawing.Size(113, 28);
             this.tslAbout.Text = "by David Rivard";
             this.tslAbout.Click += new System.EventHandler(this.tslAbout_Click);
-            // 
-            // menuSettings
-            // 
-            this.menuSettings.Image = ((System.Drawing.Image)(resources.GetObject("menuSettings.Image")));
-            this.menuSettings.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuSettings.Name = "menuSettings";
-            this.menuSettings.Size = new System.Drawing.Size(77, 28);
-            this.menuSettings.Text = "Settings";
-            this.menuSettings.Click += new System.EventHandler(this.menuSettings_Click);
             // 
             // grpFilter
             // 
@@ -375,276 +364,6 @@
             this.ttInfo.ReshowDelay = 100;
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(328, 225);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(101, 13);
-            this.label20.TabIndex = 77;
-            this.label20.Text = "Logical Entity Name";
-            this.ttInfo.SetToolTip(this.label20, "The logical name of the entity bound to the custom API response property .\r\nCanno" +
-        "t be changed after it is saved.");
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label27.Location = new System.Drawing.Point(326, 75);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(83, 13);
-            this.label27.TabIndex = 55;
-            this.label27.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label27, "Unique name for the custom API response property . \r\nThis will be the name of the" +
-        " parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(326, 99);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(35, 13);
-            this.label26.TabIndex = 58;
-            this.label26.Text = "Name";
-            this.ttInfo.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(326, 152);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(60, 13);
-            this.label21.TabIndex = 74;
-            this.label21.Text = "Description";
-            this.ttInfo.SetToolTip(this.label21, "Localized description for custom API response property instances. \r\nFor use when " +
-        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
-        "lTip.");
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(326, 125);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(69, 13);
-            this.label25.TabIndex = 61;
-            this.label25.Text = "DisplayName";
-            this.ttInfo.SetToolTip(this.label25, "Localized display name for custom API response property instances. \r\nFor use when" +
-        " the message parameter is exposed to be called in an app.");
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(326, 200);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(31, 13);
-            this.label24.TabIndex = 64;
-            this.label24.Text = "Type";
-            this.ttInfo.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(342, 246);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(101, 13);
-            this.label19.TabIndex = 77;
-            this.label19.Text = "Logical Entity Name";
-            this.ttInfo.SetToolTip(this.label19, "The logical name of the entity bound to the custom API request parameter.\r\nCannot" +
-        " be changed after it is saved.");
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(339, 73);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(83, 13);
-            this.label11.TabIndex = 55;
-            this.label11.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label11, "Unique name for the custom API request parameter. \r\nThis will be the name of the " +
-        "parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(340, 150);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(60, 13);
-            this.label18.TabIndex = 74;
-            this.label18.Text = "Description";
-            this.ttInfo.SetToolTip(this.label18, "Localized description for custom API request parameter instances. \r\nFor use when " +
-        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
-        "lTip.");
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(340, 97);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(35, 13);
-            this.label13.TabIndex = 58;
-            this.label13.Text = "Name";
-            this.ttInfo.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(340, 123);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(69, 13);
-            this.label14.TabIndex = 61;
-            this.label14.Text = "DisplayName";
-            this.ttInfo.SetToolTip(this.label14, "Localized display name for custom API request parameter instances. \r\nFor use when" +
-        " the message parameter is exposed to be called in an app.");
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(340, 221);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(31, 13);
-            this.label15.TabIndex = 64;
-            this.label15.Text = "Type";
-            this.ttInfo.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(343, 195);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(54, 13);
-            this.label16.TabIndex = 67;
-            this.label16.Text = "IsOptional";
-            this.ttInfo.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 375);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(48, 13);
-            this.label7.TabIndex = 16;
-            this.label7.Text = "IsPrivate";
-            this.ttInfo.SetToolTip(this.label7, "Indicates if the custom API is private (hidden from metadata and documentation) M" +
-        "ore information: Private Messages\r\nValue: 0 Label: No\r\nValue: 1 Label: Yes");
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(10, 72);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Unique Name";
-            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(65, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Binding type";
-            this.ttInfo.SetToolTip(this.label8, "The binding type of the custom API.\r\nValue: 0 Label: Global\r\nValue: 1 Label: Enti" +
-        "ty\r\nValue: 2 Label: EntityCollection\r\nCannot be changed after it is saved.");
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(12, 195);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(189, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Allowed Custom Processing Step Type";
-            this.ttInfo.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(13, 354);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(112, 13);
-            this.label29.TabIndex = 91;
-            this.label29.Text = "Enabled For Workflow";
-            this.ttInfo.SetToolTip(this.label29, resources.GetString("label29.ToolTip"));
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(14, 333);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 13);
-            this.label5.TabIndex = 12;
-            this.label5.Text = "IsFunction";
-            this.ttInfo.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "Name";
-            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
-        "s when viewed in the solution.");
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 124);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(72, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Display Name";
-            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
-        " to be called in an app.");
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 150);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Description";
-            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
-        "to be called in an app. \r\nFor example, as a ToolTip.");
-            // 
-            // lblPlugintype
-            // 
-            this.lblPlugintype.AutoSize = true;
-            this.lblPlugintype.Location = new System.Drawing.Point(12, 277);
-            this.lblPlugintype.Name = "lblPlugintype";
-            this.lblPlugintype.Size = new System.Drawing.Size(60, 13);
-            this.lblPlugintype.TabIndex = 26;
-            this.lblPlugintype.Text = "PluginType";
-            this.ttInfo.SetToolTip(this.lblPlugintype, "A reference to the plug-in type that provides the main operation for this Custom " +
-        "API");
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 305);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 38;
-            this.label1.Text = "Execute Privilege Name";
-            this.ttInfo.SetToolTip(this.label1, "(Optional) Name of the privilege that allows execution of the custom API");
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 250);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(67, 13);
-            this.label2.TabIndex = 56;
-            this.label2.Text = "Bound Entity";
-            this.ttInfo.SetToolTip(this.label2, "The logical name of the entity bound to the custom API if it is not Global.\r\nCann" +
-        "ot be changed after it is saved.");
             // 
             // contextMenuStrip1
             // 
@@ -877,6 +596,29 @@
             this.cdsGridOutputs.TabIndex = 0;
             this.cdsGridOutputs.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridOutputs_RecordEnter);
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(328, 225);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(101, 13);
+            this.label20.TabIndex = 77;
+            this.label20.Text = "Logical Entity Name";
+            this.ttInfo.SetToolTip(this.label20, "The logical name of the entity bound to the custom API response property .\r\nCanno" +
+        "t be changed after it is saved.");
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.Location = new System.Drawing.Point(326, 75);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(83, 13);
+            this.label27.TabIndex = 55;
+            this.label27.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label27, "Unique name for the custom API response property . \r\nThis will be the name of the" +
+        " parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
+            // 
             // pictureBox17
             // 
             this.pictureBox17.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox17.Image")));
@@ -901,6 +643,28 @@
             this.cdsTxtResponseDescription.OrganizationService = null;
             this.cdsTxtResponseDescription.Size = new System.Drawing.Size(245, 40);
             this.cdsTxtResponseDescription.TabIndex = 40;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(326, 99);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(35, 13);
+            this.label26.TabIndex = 58;
+            this.label26.Text = "Name";
+            this.ttInfo.SetToolTip(this.label26, resources.GetString("label26.ToolTip"));
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(326, 152);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(60, 13);
+            this.label21.TabIndex = 74;
+            this.label21.Text = "Description";
+            this.ttInfo.SetToolTip(this.label21, "Localized description for custom API response property instances. \r\nFor use when " +
+        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
+        "lTip.");
             // 
             // cdsTxtResponseName
             // 
@@ -930,6 +694,17 @@
             this.btnEditOutput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEditOutput.UseVisualStyleBackColor = true;
             this.btnEditOutput.Click += new System.EventHandler(this.btnEditOutput_Click);
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(326, 125);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(69, 13);
+            this.label25.TabIndex = 61;
+            this.label25.Text = "DisplayName";
+            this.ttInfo.SetToolTip(this.label25, "Localized display name for custom API response property instances. \r\nFor use when" +
+        " the message parameter is exposed to be called in an app.");
             // 
             // btnAddOutput
             // 
@@ -968,6 +743,16 @@
             this.pictureBox16.Size = new System.Drawing.Size(20, 19);
             this.pictureBox16.TabIndex = 66;
             this.pictureBox16.TabStop = false;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(326, 200);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(31, 13);
+            this.label24.TabIndex = 64;
+            this.label24.Text = "Type";
+            this.ttInfo.SetToolTip(this.label24, resources.GetString("label24.ToolTip"));
             // 
             // cdsTxtResponseType
             // 
@@ -1175,6 +960,29 @@
             this.cdsGridInputs.TabIndex = 0;
             this.cdsGridInputs.RecordEnter += new xrmtb.XrmToolBox.Controls.CRMRecordEventHandler(this.cdsGridInputs_RecordEnter);
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(342, 246);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(101, 13);
+            this.label19.TabIndex = 77;
+            this.label19.Text = "Logical Entity Name";
+            this.ttInfo.SetToolTip(this.label19, "The logical name of the entity bound to the custom API request parameter.\r\nCannot" +
+        " be changed after it is saved.");
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(339, 73);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(83, 13);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label11, "Unique name for the custom API request parameter. \r\nThis will be the name of the " +
+        "parameter when you call the Custom API.\r\nCannot be changed after it is saved.");
+            // 
             // cdsTxtRequestUniqueName
             // 
             this.cdsTxtRequestUniqueName.BackColor = System.Drawing.SystemColors.Window;
@@ -1215,6 +1023,28 @@
             this.pictureBox8.TabIndex = 57;
             this.pictureBox8.TabStop = false;
             // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(340, 150);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(60, 13);
+            this.label18.TabIndex = 74;
+            this.label18.Text = "Description";
+            this.ttInfo.SetToolTip(this.label18, "Localized description for custom API request parameter instances. \r\nFor use when " +
+        "the message parameter is exposed to be called in an app. \r\nFor example, as a Too" +
+        "lTip.");
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(340, 97);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(35, 13);
+            this.label13.TabIndex = 58;
+            this.label13.Text = "Name";
+            this.ttInfo.SetToolTip(this.label13, resources.GetString("label13.ToolTip"));
+            // 
             // cdsTxtRequestName
             // 
             this.cdsTxtRequestName.BackColor = System.Drawing.SystemColors.Window;
@@ -1242,6 +1072,17 @@
             this.btnAddInput.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAddInput.UseVisualStyleBackColor = true;
             this.btnAddInput.Click += new System.EventHandler(this.btnAddInput_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(340, 123);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(69, 13);
+            this.label14.TabIndex = 61;
+            this.label14.Text = "DisplayName";
+            this.ttInfo.SetToolTip(this.label14, "Localized display name for custom API request parameter instances. \r\nFor use when" +
+        " the message parameter is exposed to be called in an app.");
             // 
             // pictureBox12
             // 
@@ -1280,6 +1121,26 @@
             this.cdsTxtRequestIsOptional.OrganizationService = null;
             this.cdsTxtRequestIsOptional.Size = new System.Drawing.Size(67, 20);
             this.cdsTxtRequestIsOptional.TabIndex = 29;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(340, 221);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(31, 13);
+            this.label15.TabIndex = 64;
+            this.label15.Text = "Type";
+            this.ttInfo.SetToolTip(this.label15, resources.GetString("label15.ToolTip"));
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(343, 195);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 13);
+            this.label16.TabIndex = 67;
+            this.label16.Text = "IsOptional";
+            this.ttInfo.SetToolTip(this.label16, resources.GetString("label16.ToolTip"));
             // 
             // cdsTxtRequestType
             // 
@@ -1329,6 +1190,17 @@
             this.label23.TabIndex = 84;
             this.label23.Text = "IsManaged";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(15, 375);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(48, 13);
+            this.label7.TabIndex = 16;
+            this.label7.Text = "IsPrivate";
+            this.ttInfo.SetToolTip(this.label7, "Indicates if the custom API is private (hidden from metadata and documentation) M" +
+        "ore information: Private Messages\r\nValue: 0 Label: No\r\nValue: 1 Label: Yes");
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -1338,6 +1210,17 @@
             this.pictureBox1.Size = new System.Drawing.Size(20, 19);
             this.pictureBox1.TabIndex = 93;
             this.pictureBox1.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(10, 72);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Unique Name";
+            this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // cdsTxtIsWFEnabled
             // 
@@ -1353,6 +1236,17 @@
             this.cdsTxtIsWFEnabled.Size = new System.Drawing.Size(59, 20);
             this.cdsTxtIsWFEnabled.TabIndex = 18;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(12, 223);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(65, 13);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Binding type";
+            this.ttInfo.SetToolTip(this.label8, "The binding type of the custom API.\r\nValue: 0 Label: Global\r\nValue: 1 Label: Enti" +
+        "ty\r\nValue: 2 Label: EntityCollection\r\nCannot be changed after it is saved.");
+            // 
             // label28
             // 
             this.label28.AutoSize = true;
@@ -1361,6 +1255,36 @@
             this.label28.Size = new System.Drawing.Size(77, 13);
             this.label28.TabIndex = 86;
             this.label28.Text = "IsCustomizable";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(12, 195);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(189, 13);
+            this.label9.TabIndex = 20;
+            this.label9.Text = "Allowed Custom Processing Step Type";
+            this.ttInfo.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(13, 354);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(112, 13);
+            this.label29.TabIndex = 91;
+            this.label29.Text = "Enabled For Workflow";
+            this.ttInfo.SetToolTip(this.label29, resources.GetString("label29.ToolTip"));
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(14, 333);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(56, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "IsFunction";
+            this.ttInfo.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // cdsTxtIsCustomizable
             // 
@@ -1376,6 +1300,17 @@
             this.cdsTxtIsCustomizable.Size = new System.Drawing.Size(68, 20);
             this.cdsTxtIsCustomizable.TabIndex = 20;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Name";
+            this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
+        "s when viewed in the solution.");
+            // 
             // txtCustomizableWarning
             // 
             this.txtCustomizableWarning.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -1389,6 +1324,17 @@
             this.txtCustomizableWarning.Text = "Warning : Status makes this API not customizable.";
             this.txtCustomizableWarning.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCustomizableWarning.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 124);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(72, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Display Name";
+            this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
+        " to be called in an app.");
             // 
             // btnDeleteApi
             // 
@@ -1405,6 +1351,17 @@
             this.btnDeleteApi.UseVisualStyleBackColor = true;
             this.btnDeleteApi.Click += new System.EventHandler(this.btnDeleteApi_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 150);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Description";
+            this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
+        "to be called in an app. \r\nFor example, as a ToolTip.");
+            // 
             // lblInfoLock
             // 
             this.lblInfoLock.AutoSize = true;
@@ -1415,6 +1372,17 @@
             this.lblInfoLock.TabIndex = 53;
             this.lblInfoLock.Text = "Fields that cannot be modified after creation";
             // 
+            // lblPlugintype
+            // 
+            this.lblPlugintype.AutoSize = true;
+            this.lblPlugintype.Location = new System.Drawing.Point(12, 277);
+            this.lblPlugintype.Name = "lblPlugintype";
+            this.lblPlugintype.Size = new System.Drawing.Size(60, 13);
+            this.lblPlugintype.TabIndex = 26;
+            this.lblPlugintype.Text = "PluginType";
+            this.ttInfo.SetToolTip(this.lblPlugintype, "A reference to the plug-in type that provides the main operation for this Custom " +
+        "API");
+            // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
@@ -1424,6 +1392,16 @@
             this.pictureBox2.Size = new System.Drawing.Size(20, 19);
             this.pictureBox2.TabIndex = 52;
             this.pictureBox2.TabStop = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 305);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(120, 13);
+            this.label1.TabIndex = 38;
+            this.label1.Text = "Execute Privilege Name";
+            this.ttInfo.SetToolTip(this.label1, "(Optional) Name of the privilege that allows execution of the custom API");
             // 
             // pictureBox7
             // 
@@ -1497,6 +1475,17 @@
             this.cdsTxtName.OrganizationService = null;
             this.cdsTxtName.Size = new System.Drawing.Size(242, 20);
             this.cdsTxtName.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(14, 250);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(67, 13);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Bound Entity";
+            this.ttInfo.SetToolTip(this.label2, "The logical name of the entity bound to the custom API if it is not Global.\r\nCann" +
+        "ot be changed after it is saved.");
             // 
             // cdsTxtDisplayName
             // 
@@ -1786,6 +1775,5 @@
         private System.Windows.Forms.TextBox txtResponseBoundEntity;
         private System.Windows.Forms.TextBox txtRequestBoundEntity;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripButton menuSettings;
     }
 }

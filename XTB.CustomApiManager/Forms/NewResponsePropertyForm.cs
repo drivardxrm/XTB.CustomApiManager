@@ -19,17 +19,15 @@ namespace XTB.CustomApiManager.Forms
         //private Control focus;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
-        private Settings _settings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public NewResponsePropertyForm(IOrganizationService service,CustomApiProxy customapi, SolutionProxy solution, Settings settings)
+        public NewResponsePropertyForm(IOrganizationService service,CustomApiProxy customapi, SolutionProxy solution)
         {
             InitializeComponent();
             _service = service;
-            _settings = settings;
 
 
             cboEntities.Service = service;
@@ -71,10 +69,8 @@ namespace XTB.CustomApiManager.Forms
 
         private void txtUniqueName_Leave(object sender, EventArgs e)
         {
-            var compositename = _settings.ResponsePropertyDefaultName
-                            .Replace("{customapiname}", cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName].ToString())
-                            .Replace("{uniquename}", txtUniqueName.Text);
-
+            //todo make compositename configurable in settings
+            var compositename = $"{cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName]}-Out-{txtUniqueName.Text}";
             if (txtName.Text == string.Empty)
             {
                 txtName.Text = compositename;
