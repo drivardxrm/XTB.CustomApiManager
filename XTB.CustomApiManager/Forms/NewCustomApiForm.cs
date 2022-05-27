@@ -18,16 +18,18 @@ namespace XTB.CustomApiManager.Forms
         //private Control focus;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
+        private Settings _connectionsettings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution)
+        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution, Settings connectionsettings)
         {
             InitializeComponent();
             _service = service;
-            
+            _connectionsettings = connectionsettings;
+
 
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
@@ -38,17 +40,26 @@ namespace XTB.CustomApiManager.Forms
             cdsCboSolutions.SelectedIndexChanged -= new EventHandler(cdsCboSolutions_SelectedIndexChanged);
             cdsCboSolutions.DataSource = unmanagedsolutions;
             cdsCboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
-            
+
             cdsCboSolutions.SelectedIndex = unmanagedsolutions.Entities.Select(e => e.Id).ToList().IndexOf(solution?.SolutionRow?.Id ?? Guid.Empty);
-            
+
 
             cboEntities.Service = service;
 
 
-            cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
+            cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
 
-            if (solution?.PublisherRef != null)
+            // Set default publisher, Takes it from Settings file or from the solution
+            if (_connectionsettings.DefaultPublisherId != Guid.Empty)
+            {
+                var publisher = _service.GetPublisher(_connectionsettings.DefaultPublisherId);
+
+                txtLookupPublisher.EntityReference = new EntityReference(Publisher.EntityName, _connectionsettings.DefaultPublisherId);
+                txtLookupPublisher.Text = publisher.Attributes[Publisher.Name].ToString();
+                txtPrefix.Text = $"{publisher.Attributes[Publisher.Prefix]}_";
+            }
+            else if (solution?.PublisherRef != null)
             {
                 txtLookupPublisher.EntityReference = solution.PublisherRef;
                 txtLookupPublisher.Text = solution.PublisherRef.Name;
@@ -62,7 +73,7 @@ namespace XTB.CustomApiManager.Forms
             cboBindingType.SelectedIndex = (int)CustomAPI.BindingType_OptionSet.Global;
             cboAllowedCustomProcessingStep.SelectedIndex = (int)CustomAPI.AllowedCustomProcessingStepType_OptionSet.None;
 
-            chkIsCustomizable.Checked = true; 
+            chkIsCustomizable.Checked = true;
         }
 
         #endregion Public Constructors
@@ -89,7 +100,7 @@ namespace XTB.CustomApiManager.Forms
                 {
                     Target = CustomApiToCreate()
                 };
-                if (_selectedSolution != null) 
+                if (_selectedSolution != null)
                 {
                     createRequest["SolutionUniqueName"] = _selectedSolution.UniqueName;
                 }
@@ -192,14 +203,14 @@ namespace XTB.CustomApiManager.Forms
 
 
 
-        private Entity CustomApiToCreate() 
+        private Entity CustomApiToCreate()
         {
             var api = new Entity(CustomAPI.EntityName);
 
-            api[CustomAPI.UniqueName] = txtPrefix.Text + txtUniqueName.Text;  
+            api[CustomAPI.UniqueName] = txtPrefix.Text + txtUniqueName.Text;
 
-            api[CustomAPI.AllowedCustomProcessingStepType] = new OptionSetValue(cboAllowedCustomProcessingStep.SelectedIndex);  
-            api[CustomAPI.BindingType] = new OptionSetValue(cboBindingType.SelectedIndex); 
+            api[CustomAPI.AllowedCustomProcessingStepType] = new OptionSetValue(cboAllowedCustomProcessingStep.SelectedIndex);
+            api[CustomAPI.BindingType] = new OptionSetValue(cboBindingType.SelectedIndex);
             api[CustomAPI.Description] = txtDescription.Text;
             api[CustomAPI.DisplayName] = txtDisplayName.Text;
             api[CustomAPI.ExecutePrivilegeName] = cdsCboPrivileges.Text;
@@ -209,12 +220,12 @@ namespace XTB.CustomApiManager.Forms
             api[CustomAPI.PrimaryName] = txtName.Text;
             api[CustomAPI.IsCustomizable] = chkIsCustomizable.Checked;
 
-            if (IsBoundToEntity()) 
+            if (IsBoundToEntity())
             {
                 api[CustomAPI.BoundEntityLogicalName] = cboEntities.SelectedEntity?.LogicalName;
             }
 
-            if (!string.IsNullOrEmpty(txtLookupPluginType.Text)) 
+            if (!string.IsNullOrEmpty(txtLookupPluginType.Text))
             {
                 api[CustomAPI.PluginType] = new EntityReference(Plug_inType.EntityName, txtLookupPluginType.Id);
             }
@@ -223,9 +234,9 @@ namespace XTB.CustomApiManager.Forms
             return api;
         }
 
-        
 
-        
+
+
         private bool IsBoundToEntity()
         {
             return cboBindingType.SelectedIndex == (int)CustomAPI.BindingType_OptionSet.Entity
@@ -238,12 +249,12 @@ namespace XTB.CustomApiManager.Forms
             return !string.IsNullOrEmpty(txtLookupPublisher.Text);
         }
 
-        
+
 
         private void LoadPrivileges()
         {
-            
-             var privileges = _service.GetPrivileges();
+
+            var privileges = _service.GetPrivileges();
 
 
             cdsCboPrivileges.DataSource = privileges;
@@ -271,7 +282,7 @@ namespace XTB.CustomApiManager.Forms
 
         private void cdsCboSolutions_TextUpdate(object sender, EventArgs e)
         {
-            if (cdsCboSolutions.SelectedText == "") 
+            if (cdsCboSolutions.SelectedText == "")
             {
                 cdsCboSolutions.SelectedIndex = -1;
             }

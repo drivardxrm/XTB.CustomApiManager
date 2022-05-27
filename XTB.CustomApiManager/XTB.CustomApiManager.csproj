@@ -261,6 +261,12 @@
     <Compile Include="Forms\DeleteCustomApiForm.designer.cs">
       <DependentUpon>DeleteCustomApiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\SettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SettingsForm.designer.cs">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UpdateResponsePropertyForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -342,6 +348,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeleteCustomApiForm.resx">
       <DependentUpon>DeleteCustomApiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SettingsForm.resx">
+      <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UpdateResponsePropertyForm.resx">
       <DependentUpon>UpdateResponsePropertyForm.cs</DependentUpon>

@@ -19,20 +19,21 @@ namespace XTB.CustomApiManager.Forms
         //private Control focus;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
+        private Settings _settings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public NewRequestParameterForm(IOrganizationService service,CustomApiProxy customapi, SolutionProxy solution)
+        public NewRequestParameterForm(IOrganizationService service, CustomApiProxy customapi, SolutionProxy solution, Settings settings)
         {
             InitializeComponent();
             _service = service;
-
+            _settings = settings;
 
             cboEntities.Service = service;
 
-            cboType.DataSource = Enum.GetValues(typeof(CustomAPIRequestParameter.Type_OptionSet));           
+            cboType.DataSource = Enum.GetValues(typeof(CustomAPIRequestParameter.Type_OptionSet));
 
             cboType.SelectedIndex = (int)CustomAPIRequestParameter.Type_OptionSet.Boolean;
 
@@ -63,13 +64,16 @@ namespace XTB.CustomApiManager.Forms
 
 
         #region Private Event Handlers
-        
+
 
 
         private void txtUniqueName_Leave(object sender, EventArgs e)
         {
-            //todo make compositename configurable in settings
-            var compositename = $"{cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName]}-In-{txtUniqueName.Text}"; 
+
+            var compositename = _settings.RequestParameterDefaultName
+                            .Replace("{customapiname}", cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName].ToString())
+                            .Replace("{uniquename}", txtUniqueName.Text);
+
             if (txtName.Text == string.Empty)
             {
                 txtName.Text = compositename;
@@ -91,11 +95,11 @@ namespace XTB.CustomApiManager.Forms
                 chkExpando.Enabled = true;
                 chkExpando.Checked = false;
             }
-            else 
+            else
             {
                 cboEntities.ClearData();
                 cboEntities.Enabled = false;
-                chkExpando.Enabled= false;
+                chkExpando.Enabled = false;
                 chkExpando.Checked = false;
             }
 
@@ -162,7 +166,7 @@ namespace XTB.CustomApiManager.Forms
 
 
 
-        private Entity RequestParameterToCreate() 
+        private Entity RequestParameterToCreate()
         {
             var requestparam = new Entity(CustomAPIRequestParameter.EntityName);
             requestparam[CustomAPIRequestParameter.CustomAPI] = cdsCustomApiName.EntityReference;
@@ -172,28 +176,28 @@ namespace XTB.CustomApiManager.Forms
             requestparam[CustomAPIRequestParameter.Description] = txtDescription.Text;
 
 
-            requestparam[CustomAPIRequestParameter.Type] = new OptionSetValue(cboType.SelectedIndex); 
-            
-            
-           
+            requestparam[CustomAPIRequestParameter.Type] = new OptionSetValue(cboType.SelectedIndex);
+
+
+
             requestparam[CustomAPIRequestParameter.IsOptional] = chkIsOptional.Checked;
             requestparam[CustomAPIRequestParameter.IsCustomizable] = chkIsCustomizable.Checked;
 
 
-            if (IsBoundToEntity()) 
+            if (IsBoundToEntity())
             {
                 requestparam[CustomAPIRequestParameter.BoundEntityLogicalName] = cboEntities.SelectedEntity?.LogicalName;
             }
 
-            
+
 
 
             return requestparam;
         }
 
-        
 
-        
+
+
         private bool IsBoundToEntity()
         {
             return cboType.SelectedIndex == (int)CustomAPIRequestParameter.Type_OptionSet.Entity
@@ -201,11 +205,11 @@ namespace XTB.CustomApiManager.Forms
                     cboType.SelectedIndex == (int)CustomAPIRequestParameter.Type_OptionSet.EntityReference;
         }
 
-        
 
-        private bool CanCreate() 
+
+        private bool CanCreate()
         {
-            return 
+            return
                     !string.IsNullOrEmpty(txtUniqueName.Text) &&
                     !string.IsNullOrEmpty(txtName.Text) &&
                     !string.IsNullOrEmpty(txtDisplayName.Text) &&

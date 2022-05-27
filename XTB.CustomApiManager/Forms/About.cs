@@ -9,7 +9,7 @@ namespace XTB.CustomApiManager.Forms
 {
     public partial class About : Form
     {
-        
+
 
         public About()
         {
@@ -48,7 +48,7 @@ namespace XTB.CustomApiManager.Forms
                 assemblyName.Equals("XrmToolBox") ? "AAAAAAAAAAAA" :
                 assemblyName.Contains("XrmToolBox") ? "AAAAAAAAAAAB" :
                 assemblyName.Equals(Assembly.GetExecutingAssembly().GetName().Name) ? "AAAAAAAAAAAC" :
-     
+
                 assemblyName;
         }
 
@@ -66,5 +66,16 @@ namespace XTB.CustomApiManager.Forms
         {
             System.Diagnostics.Process.Start("https://twitter.com/david_rivard");
         }
+
+        private void linkLabel3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.flaticon.com/free-icons/api");
+        }
+
+        private void linkLabel4_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.flaticon.com/free-icons/settings");
+        }
     }
 }
+

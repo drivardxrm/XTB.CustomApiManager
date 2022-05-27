@@ -19,21 +19,23 @@ namespace XTB.CustomApiManager.Forms
         //private Control focus;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
+        private Settings _settings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public NewResponsePropertyForm(IOrganizationService service,CustomApiProxy customapi, SolutionProxy solution)
+        public NewResponsePropertyForm(IOrganizationService service, CustomApiProxy customapi, SolutionProxy solution, Settings settings)
         {
             InitializeComponent();
             _service = service;
+            _settings = settings;
 
 
             cboEntities.Service = service;
             cboEntities.Update();
 
-            cboType.DataSource = Enum.GetValues(typeof(CustomAPIResponseProperty.Type_OptionSet));           
+            cboType.DataSource = Enum.GetValues(typeof(CustomAPIResponseProperty.Type_OptionSet));
 
             cboType.SelectedIndex = (int)CustomAPIResponseProperty.Type_OptionSet.Boolean;
 
@@ -64,13 +66,15 @@ namespace XTB.CustomApiManager.Forms
 
 
         #region Private Event Handlers
-       
+
 
 
         private void txtUniqueName_Leave(object sender, EventArgs e)
         {
-            //todo make compositename configurable in settings
-            var compositename = $"{cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName]}-Out-{txtUniqueName.Text}";
+            var compositename = _settings.ResponsePropertyDefaultName
+                            .Replace("{customapiname}", cdsCustomApiName.Entity.Attributes[CustomAPI.PrimaryName].ToString())
+                            .Replace("{uniquename}", txtUniqueName.Text);
+
             if (txtName.Text == string.Empty)
             {
                 txtName.Text = compositename;
@@ -162,7 +166,7 @@ namespace XTB.CustomApiManager.Forms
 
 
 
-        private Entity ResponsePropertyToCreate() 
+        private Entity ResponsePropertyToCreate()
         {
             var requestparam = new Entity(CustomAPIResponseProperty.EntityName);
             requestparam[CustomAPIResponseProperty.CustomAPI] = cdsCustomApiName.EntityReference;
@@ -176,20 +180,20 @@ namespace XTB.CustomApiManager.Forms
             requestparam[CustomAPIResponseProperty.IsCustomizable] = chkIsCustomizable.Checked;
 
 
-            if (IsBoundToEntity()) 
+            if (IsBoundToEntity())
             {
                 requestparam[CustomAPIResponseProperty.BoundEntityLogicalName] = cboEntities.SelectedEntity?.LogicalName;
             }
 
-            
+
 
 
             return requestparam;
         }
 
-        
 
-        
+
+
         private bool IsBoundToEntity()
         {
             return cboType.SelectedIndex == (int)CustomAPIResponseProperty.Type_OptionSet.Entity

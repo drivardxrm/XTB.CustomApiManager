@@ -41,10 +41,12 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
             this.linkLabel5 = new System.Windows.Forms.LinkLabel();
-            this.imgLogo = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.linkLabel4 = new System.Windows.Forms.LinkLabel();
+            this.linkLabel3 = new System.Windows.Forms.LinkLabel();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // linkLabel1
@@ -63,7 +65,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(168, 110);
+            this.label2.Location = new System.Drawing.Point(168, 105);
             this.label2.Margin = new System.Windows.Forms.Padding(1, 0, 1, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(59, 13);
@@ -73,7 +75,7 @@
             // linkLabel2
             // 
             this.linkLabel2.AutoSize = true;
-            this.linkLabel2.Location = new System.Drawing.Point(265, 110);
+            this.linkLabel2.Location = new System.Drawing.Point(265, 105);
             this.linkLabel2.Name = "linkLabel2";
             this.linkLabel2.Size = new System.Drawing.Size(69, 13);
             this.linkLabel2.TabIndex = 4;
@@ -140,7 +142,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listAssemblies);
-            this.groupBox1.Location = new System.Drawing.Point(49, 176);
+            this.groupBox1.Location = new System.Drawing.Point(34, 188);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(390, 235);
             this.groupBox1.TabIndex = 14;
@@ -149,7 +151,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(168, 134);
+            this.label6.Location = new System.Drawing.Point(168, 123);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(39, 13);
             this.label6.TabIndex = 15;
@@ -158,22 +160,13 @@
             // linkLabel5
             // 
             this.linkLabel5.AutoSize = true;
-            this.linkLabel5.Location = new System.Drawing.Point(265, 134);
+            this.linkLabel5.Location = new System.Drawing.Point(265, 123);
             this.linkLabel5.Name = "linkLabel5";
             this.linkLabel5.Size = new System.Drawing.Size(76, 13);
             this.linkLabel5.TabIndex = 16;
             this.linkLabel5.TabStop = true;
             this.linkLabel5.Text = "@david_rivard";
             this.linkLabel5.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel5_LinkClicked);
-            // 
-            // imgLogo
-            // 
-            this.imgLogo.Image = ((System.Drawing.Image)(resources.GetObject("imgLogo.Image")));
-            this.imgLogo.Location = new System.Drawing.Point(34, 12);
-            this.imgLogo.Name = "imgLogo";
-            this.imgLogo.Size = new System.Drawing.Size(105, 99);
-            this.imgLogo.TabIndex = 12;
-            this.imgLogo.TabStop = false;
             // 
             // label1
             // 
@@ -185,6 +178,39 @@
             this.label1.TabIndex = 25;
             this.label1.Text = "Custom API Manager";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(34, 12);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 101);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 26;
+            this.pictureBox1.TabStop = false;
+            // 
+            // linkLabel4
+            // 
+            this.linkLabel4.AutoSize = true;
+            this.linkLabel4.Location = new System.Drawing.Point(173, 163);
+            this.linkLabel4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel4.Name = "linkLabel4";
+            this.linkLabel4.Size = new System.Drawing.Size(210, 13);
+            this.linkLabel4.TabIndex = 29;
+            this.linkLabel4.TabStop = true;
+            this.linkLabel4.Text = "Settings icons created by Freepik - Flaticon";
+            // 
+            // linkLabel3
+            // 
+            this.linkLabel3.AutoSize = true;
+            this.linkLabel3.Location = new System.Drawing.Point(173, 144);
+            this.linkLabel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.linkLabel3.Name = "linkLabel3";
+            this.linkLabel3.Size = new System.Drawing.Size(187, 13);
+            this.linkLabel3.TabIndex = 28;
+            this.linkLabel3.TabStop = true;
+            this.linkLabel3.Text = "Api icons created by Eucalyp -Flaticon";
+            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -192,11 +218,13 @@
             this.BackColor = System.Drawing.Color.White;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(644, 448);
+            this.Controls.Add(this.linkLabel4);
+            this.Controls.Add(this.linkLabel3);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.linkLabel5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.imgLogo);
             this.Controls.Add(this.lblVersion);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
@@ -210,7 +238,7 @@
             this.Name = "About";
             this.Text = "About";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,7 +257,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.LinkLabel linkLabel5;
-        internal System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.LinkLabel linkLabel4;
+        private System.Windows.Forms.LinkLabel linkLabel3;
     }
 }
