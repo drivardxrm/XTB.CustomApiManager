@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NewRequestParameterForm));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lnkInfo = new System.Windows.Forms.LinkLabel();
+            this.chkExpando = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.cdsCboSolutions = new xrmtb.XrmToolBox.Controls.Controls.CDSDataComboBox();
             this.lblCustomizable = new System.Windows.Forms.Label();
@@ -61,8 +63,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.chkExpando = new System.Windows.Forms.CheckBox();
-            this.lnkInfo = new System.Windows.Forms.LinkLabel();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -109,6 +109,29 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(525, 370);
             this.panel2.TabIndex = 5;
+            // 
+            // lnkInfo
+            // 
+            this.lnkInfo.AutoSize = true;
+            this.lnkInfo.Location = new System.Drawing.Point(425, 240);
+            this.lnkInfo.Name = "lnkInfo";
+            this.lnkInfo.Size = new System.Drawing.Size(24, 13);
+            this.lnkInfo.TabIndex = 107;
+            this.lnkInfo.TabStop = true;
+            this.lnkInfo.Text = "info";
+            this.lnkInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkInfo_LinkClicked);
+            // 
+            // chkExpando
+            // 
+            this.chkExpando.AutoSize = true;
+            this.chkExpando.Enabled = false;
+            this.chkExpando.Location = new System.Drawing.Point(359, 239);
+            this.chkExpando.Name = "chkExpando";
+            this.chkExpando.Size = new System.Drawing.Size(67, 17);
+            this.chkExpando.TabIndex = 7;
+            this.chkExpando.Text = "expando";
+            this.chkExpando.UseVisualStyleBackColor = true;
+            this.chkExpando.CheckedChanged += new System.EventHandler(this.chkExpando_CheckedChanged);
             // 
             // label12
             // 
@@ -424,29 +447,6 @@
             this.ttInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.ttInfo.ToolTipTitle = "Attribute Info";
             // 
-            // chkExpando
-            // 
-            this.chkExpando.AutoSize = true;
-            this.chkExpando.Enabled = false;
-            this.chkExpando.Location = new System.Drawing.Point(359, 239);
-            this.chkExpando.Name = "chkExpando";
-            this.chkExpando.Size = new System.Drawing.Size(67, 17);
-            this.chkExpando.TabIndex = 7;
-            this.chkExpando.Text = "expando";
-            this.chkExpando.UseVisualStyleBackColor = true;
-            this.chkExpando.CheckedChanged += new System.EventHandler(this.chkExpando_CheckedChanged);
-            // 
-            // lnkInfo
-            // 
-            this.lnkInfo.AutoSize = true;
-            this.lnkInfo.Location = new System.Drawing.Point(425, 240);
-            this.lnkInfo.Name = "lnkInfo";
-            this.lnkInfo.Size = new System.Drawing.Size(24, 13);
-            this.lnkInfo.TabIndex = 107;
-            this.lnkInfo.TabStop = true;
-            this.lnkInfo.Text = "info";
-            this.lnkInfo.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lnkInfo_LinkClicked);
-            // 
             // NewRequestParameterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -456,7 +456,6 @@
             this.ClientSize = new System.Drawing.Size(525, 371);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewRequestParameterForm";

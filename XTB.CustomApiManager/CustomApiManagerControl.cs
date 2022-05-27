@@ -24,7 +24,10 @@ namespace XTB.CustomApiManager
 {
     public partial class CustomApiManagerControl : PluginControlBase, IMessageBusHost, IGitHubPlugin
     {
-        private Settings mySettings;
+
+        private Settings _globalsettings;
+
+        private Settings _connectionsettings;
 
         private SolutionProxy _selectedSolution;
 
@@ -40,7 +43,7 @@ namespace XTB.CustomApiManager
 
         public string UserName => "drivardxrm";
 
-       
+
 
         public event EventHandler<MessageBusEventArgs> OnOutgoingMessage;
 
@@ -51,18 +54,8 @@ namespace XTB.CustomApiManager
 
         private void CustomApiManagerControl_Load(object sender, EventArgs e)
         {
-            
-            // Loads or creates the settings for the plugin
-            if (!SettingsManager.Instance.TryLoad(GetType(), out mySettings))
-            {
-                mySettings = new Settings();
-
-                LogWarning("Settings not found => a new settings file has been created!");
-            }
-            else
-            {
-                LogInfo("Settings found and loaded");
-            }
+            LoadGlobalSettings();
+            LoadConnectionSettings();
 
             ExecuteMethod(InitializeService);
 
@@ -72,10 +65,37 @@ namespace XTB.CustomApiManager
             cdsCboCustomApi.Select();
         }
 
+        private void LoadConnectionSettings()
+        {
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _connectionsettings, ConnectionDetail.ConnectionId.ToString()))
+            {
+                _connectionsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
+        }
+
+        private void LoadGlobalSettings()
+        {
+            // Loads or creates the settings for the plugin
+            if (!SettingsManager.Instance.TryLoad(GetType(), out _globalsettings))
+            {
+                _globalsettings = new Settings();
+
+                LogWarning("Settings not found => a new settings file has been created!");
+            }
+            else
+            {
+                LogInfo("Settings found and loaded");
+            }
+        }
+
         private void InitializeService()
         {
-
-
 
             dlgLookupPluginType.Service = Service;
             dlgLookupPublisher.Service = Service;
@@ -83,7 +103,7 @@ namespace XTB.CustomApiManager
             cdsCboCustomApi.OrganizationService = Service;
             cdsTxtPluginType.OrganizationService = Service;
             cdsTxtUniqueName.OrganizationService = Service;
-            
+
             cdsTxtName.OrganizationService = Service;
             cdsTxtDisplayName.OrganizationService = Service;
             cdsTxtDescription.OrganizationService = Service;
@@ -126,12 +146,12 @@ namespace XTB.CustomApiManager
         //TargetArgumet = GUID of Custom API to display (string format)	Id
         public void OnIncomingMessage(MessageBusEventArgs message)
         {
-            
+
             if (message.TargetArgument is string arg && Guid.TryParse(arg, out Guid argid))
             {
                 var customapi = Service.GetCustomApi(argid);
                 SetSelectedCustomApi(customapi);
-                
+
             }
         }
 
@@ -144,7 +164,7 @@ namespace XTB.CustomApiManager
         private void CustomApiManagerControl_OnCloseTool(object sender, EventArgs e)
         {
             // Before leaving, save the settings
-            SettingsManager.Instance.Save(GetType(), mySettings);
+            SettingsManager.Instance.Save(GetType(), _globalsettings);
         }
 
         /// <summary>
@@ -153,11 +173,13 @@ namespace XTB.CustomApiManager
         public override void UpdateConnection(IOrganizationService newService, ConnectionDetail detail, string actionName, object parameter)
         {
             base.UpdateConnection(newService, detail, actionName, parameter);
-            
 
-            if (mySettings != null && detail != null)
+
+            if (_globalsettings != null && detail != null)
             {
-                mySettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
+                LoadConnectionSettings();
+
+                _globalsettings.LastUsedOrganizationWebappUrl = detail.WebApplicationUrl;
                 LogInfo("Connection has changed to: {0}", detail.WebApplicationUrl);
 
                 SetCdsCboCustomApiDataSource(null);
@@ -165,7 +187,7 @@ namespace XTB.CustomApiManager
 
                 //LoadSolutions();
                 ExecuteMethod(InitializeService);
-                
+
 
                 //select the all radio button
                 rbAll.Checked = true;
@@ -199,6 +221,11 @@ namespace XTB.CustomApiManager
                 MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
 
+        }
+
+        private void menuSettings_Click(object sender, EventArgs e)
+        {
+            SettingsDialog();
         }
 
         private void btnNewApi_Click(object sender, EventArgs e)
@@ -243,7 +270,7 @@ namespace XTB.CustomApiManager
             DeleteApiDialog();
         }
 
-       
+
 
         private void btnDeleteInput_Click(object sender, EventArgs e)
         {
@@ -315,9 +342,9 @@ namespace XTB.CustomApiManager
 
         }
 
-        
 
-        
+
+
 
 
 
@@ -342,7 +369,7 @@ namespace XTB.CustomApiManager
 
         }
 
-        
+
 
         private void cdsGridInputs_RecordEnter(object sender, CRMRecordEventArgs e)
         {
@@ -393,8 +420,8 @@ namespace XTB.CustomApiManager
                             var index = solutions.Entities.Select(e => e.Id).ToList().IndexOf(selected);
 
                             SetCdsCboSolutionsDataSource(solutions);
-                           
-                            
+
+
                             cdsCboSolutions.SelectedIndex = index;
                             cdsCboSolutions.Enabled = true;
 
@@ -421,17 +448,17 @@ namespace XTB.CustomApiManager
                     {
                         args.Result = Service.GetAllCustomApis();
                     }
-                    else if (rbSolution.Checked && _selectedSolution != null) 
+                    else if (rbSolution.Checked && _selectedSolution != null)
                     {
                         args.Result = Service.GetCustomApisFor(_selectedSolution.SolutionRow.Id);
                     }
-                    else 
+                    else
                     {
                         args.Result = null;
                     }
-                        
-                    
-                    
+
+
+
 
                 },
                 PostWorkCallBack = (args) =>
@@ -450,9 +477,9 @@ namespace XTB.CustomApiManager
                             var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
 
                             SetCdsCboCustomApiDataSource(customapis);
-                            
+
                             //hack to force a refresh... must be a better way
-                            if (cdsCboCustomApi.SelectedIndex == index) 
+                            if (cdsCboCustomApi.SelectedIndex == index)
                             {
                                 cdsCboCustomApi.SelectedIndex = -1;
                             }
@@ -481,7 +508,7 @@ namespace XTB.CustomApiManager
             cdsCboSolutions.SelectedIndexChanged += new EventHandler(cdsCboSolutions_SelectedIndexChanged);
         }
 
-        
+
         private void SetCdsCboCustomApiDataSource(object datasource)
         {
             cdsCboCustomApi.SelectedIndexChanged -= new EventHandler(cdsCboCustomApi_SelectedIndexChanged);
@@ -490,7 +517,7 @@ namespace XTB.CustomApiManager
         }
 
 
-        
+
         private void SetGridInputsDataSource(object datasource)
         {
             cdsGridInputs.RecordEnter -= new CRMRecordEventHandler(cdsGridInputs_RecordEnter);
@@ -504,11 +531,11 @@ namespace XTB.CustomApiManager
             cdsGridOutputs.RecordEnter += new CRMRecordEventHandler(cdsGridOutputs_RecordEnter);
         }
 
-        private void SetSelectedCustomApi(Entity customapi) 
+        private void SetSelectedCustomApi(Entity customapi)
         {
             _selectedCustomApi = customapi != null ? new CustomApiProxy(customapi) : null;
 
-            
+
 
             cdsTxtUniqueName.Entity = _selectedCustomApi?.CustomApiRow;
             cdsTxtName.Entity = _selectedCustomApi?.CustomApiRow;
@@ -536,23 +563,23 @@ namespace XTB.CustomApiManager
                 btnAddOutput.Enabled = _selectedCustomApi.CanCustomize;
 
             }
-            
-            
+
+
             imgGrpCustomApi.Enabled = _selectedCustomApi != null;
             imgGrpInputs.Enabled = _selectedCustomApi != null;
             imgGrpOutputs.Enabled = _selectedCustomApi != null;
 
 
-          
+
         }
 
-        private void LoadRequestParameters(Guid? selected = null) 
+        private void LoadRequestParameters(Guid? selected = null)
         {
 
             SetGridInputsDataSource(null);
 
             SetSelectedRequestParameter(null);
-            
+
             //Get Inputs
             WorkAsync(new WorkAsyncInfo
             {
@@ -585,7 +612,7 @@ namespace XTB.CustomApiManager
                                 cdsGridInputs.CurrentCell = cdsGridInputs.Rows[index].Cells[2];
 
                             }
-                            else 
+                            else
                             {
                                 SetSelectedRequestParameter(null);
                             }
@@ -596,9 +623,9 @@ namespace XTB.CustomApiManager
         }
 
 
-        
 
-        private void SetSelectedRequestParameter(Entity requestparameter) 
+
+        private void SetSelectedRequestParameter(Entity requestparameter)
         {
 
             _selectedRequestParameter = new CustomApiRequestParameterProxy(requestparameter);
@@ -662,7 +689,7 @@ namespace XTB.CustomApiManager
                                 cdsGridOutputs.CurrentCell = cdsGridOutputs.Rows[index].Cells[2];
 
                             }
-                            else 
+                            else
                             {
                                 SetSelectedResponseProperty(null);
                             }
@@ -676,7 +703,7 @@ namespace XTB.CustomApiManager
         private void SetSelectedResponseProperty(Entity responseproperty)
         {
             _selectedResponseProperty = new CustomApiResponsePropertyProxy(responseproperty);
-            
+
             cdsTxtResponseUniqueName.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseName.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseDisplayName.Entity = _selectedResponseProperty.ResponsePropertyRow;
@@ -717,10 +744,16 @@ namespace XTB.CustomApiManager
             return index;
         }
 
-
-        private void CreateApiDialog() 
+        private void SettingsDialog()
         {
-            var inputdlg = new NewCustomApiForm(Service, _selectedSolution);
+            var inputdlg = new SettingsForm(Service, ConnectionDetail, _globalsettings, _connectionsettings);
+            var dlgresult = inputdlg.ShowDialog();
+
+        }
+
+        private void CreateApiDialog()
+        {
+            var inputdlg = new NewCustomApiForm(Service, _selectedSolution, _connectionsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -735,7 +768,7 @@ namespace XTB.CustomApiManager
             }
             else if (dlgresult == DialogResult.Ignore)
             {
-                
+
             }
         }
 
@@ -759,7 +792,7 @@ namespace XTB.CustomApiManager
             }
             else if (dlgresult == DialogResult.Ignore)
             {
-                
+
             }
         }
 
@@ -781,7 +814,7 @@ namespace XTB.CustomApiManager
 
                 ExecuteMethod(LoadCustomApis);
 
-                
+
             }
             else if (dlgresult == DialogResult.Ignore)
             {
@@ -792,7 +825,7 @@ namespace XTB.CustomApiManager
 
         private void CreateRequestParameterDialog()
         {
-            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution);
+            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -877,7 +910,7 @@ namespace XTB.CustomApiManager
 
         private void CreateResponsePropertyDialog()
         {
-            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution);
+            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -920,24 +953,7 @@ namespace XTB.CustomApiManager
         }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         #endregion
 
-        
     }
 }
