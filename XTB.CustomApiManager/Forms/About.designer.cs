@@ -199,6 +199,7 @@
             this.linkLabel4.TabIndex = 29;
             this.linkLabel4.TabStop = true;
             this.linkLabel4.Text = "Settings icons created by Freepik - Flaticon";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel4_LinkClicked);
             // 
             // linkLabel3
             // 
@@ -210,6 +211,7 @@
             this.linkLabel3.TabIndex = 28;
             this.linkLabel3.TabStop = true;
             this.linkLabel3.Text = "Api icons created by Eucalyp -Flaticon";
+            this.linkLabel3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel3_LinkClicked);
             // 
             // About
             // 

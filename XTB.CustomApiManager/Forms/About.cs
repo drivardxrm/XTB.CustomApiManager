@@ -76,6 +76,8 @@ namespace XTB.CustomApiManager.Forms
         {
             System.Diagnostics.Process.Start("https://www.flaticon.com/free-icons/settings");
         }
+
+
     }
 }
 
