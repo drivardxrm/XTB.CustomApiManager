@@ -1,6 +1,5 @@
 # XTB.CustomApiManager
 ### Dataverse Custom Api Manager for XrmToolBox
-![Nuget](https://img.shields.io/nuget/dt/XTB.CustomApiManager) ![Nuget](https://img.shields.io/nuget/v/XTB.CustomApiManager)
 
 Management tool that provides 360° View of Dataverse Custom APIs. Provides CRUD operations on Custom API, Request Parameters (Inputs) and Response Properties (Outputs).
 
