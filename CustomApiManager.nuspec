@@ -7,7 +7,7 @@
     <authors>David Rivard</authors>
     <owners>drivardxrm</owners>
     <projectUrl>https://github.com/drivardxrm/XTB.CustomApiManager</projectUrl>
-    <iconUrl>https://github.com/drivardxrm/XTB.CustomApiManager/blob/main/XTB.CustomApiManager/Resources/hub-80.png?raw=true</iconUrl>
+    <iconUrl>https://github.com/drivardxrm/XTB.CustomApiManager/blob/main/images/logo_customapi_80.png?raw=true</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Management tool for Dataverse Custom APIs.</summary>
     <description>
@@ -18,7 +18,7 @@
       Full release notes:
       https://github.com/drivardxrm/XTB.CustomApiManager/releases/latest
     </releaseNotes>
-    <copyright>Copyright David Rivard 2020-2021</copyright>
+    <copyright>Copyright David Rivard 2022</copyright>
     <tags>XrmToolBox Plugins Dataverse Custom API</tags>
     <dependencies>
       <dependency id="XrmToolBox" version="1.2020.12.43" />
