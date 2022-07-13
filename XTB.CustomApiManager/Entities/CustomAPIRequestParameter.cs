@@ -105,7 +105,9 @@ namespace XTB.CustomApiManager.Entities
             Integer = 7,
             Money = 8,
             Picklist = 9,
-            String = 10
+            String = 10,
+            StringArray = 11,
+            Guid = 12
         }
 
         #endregion OptionSets
