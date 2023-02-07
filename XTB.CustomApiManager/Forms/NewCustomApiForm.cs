@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using McTools.Xrm.Connection;
+using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using System;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace XTB.CustomApiManager.Forms
         #region Private Fields
 
         //private Control focus;
+        private ConnectionDetail _connection;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
         private Settings _connectionsettings;
@@ -24,11 +26,12 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution, Settings connectionsettings)
+        public NewCustomApiForm(IOrganizationService service, SolutionProxy solution, Settings connectionsettings, ConnectionDetail connection)
         {
             InitializeComponent();
             _service = service;
             _connectionsettings = connectionsettings;
+            _connection = connection;
 
 
             dlgLookupPublisher.Service = service;
@@ -66,6 +69,12 @@ namespace XTB.CustomApiManager.Forms
                 txtPrefix.Text = $"{solution.Prefix}_";
             }
 
+            if (!_connection.UseOnline) // WFEnabled is not supported onPrem
+            {
+                label2.Visible = false;
+                chkWFEnabled.Visible = false;
+                pictureBox6.Visible = false;
+            }
 
             LoadPrivileges();
 
@@ -215,7 +224,10 @@ namespace XTB.CustomApiManager.Forms
             api[CustomAPI.DisplayName] = txtDisplayName.Text;
             api[CustomAPI.ExecutePrivilegeName] = cdsCboPrivileges.Text;
             api[CustomAPI.IsFunction] = chkIsFunction.Checked;
-            api[CustomAPI.EnabledforWorkflow] = chkWFEnabled.Checked;
+            if (_connection.UseOnline) // WFEnabled is not supported onPrem
+            {
+                api[CustomAPI.EnabledforWorkflow] = chkWFEnabled.Checked;
+            }
             api[CustomAPI.IsPrivate] = chkIsPrivate.Checked;
             api[CustomAPI.PrimaryName] = txtName.Text;
             api[CustomAPI.IsCustomizable] = chkIsCustomizable.Checked;
