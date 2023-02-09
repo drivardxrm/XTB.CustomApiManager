@@ -455,11 +455,11 @@ namespace XTB.CustomApiManager
                 {
                     if (rbAll.Checked)
                     {
-                        args.Result = Service.GetAllCustomApis();
+                        args.Result = ConnectionDetail.UseOnline ? Service.GetAllCustomApis() : Service.GetAllCustomApisOnPrem();
                     }
                     else if (rbSolution.Checked && _selectedSolution != null)
                     {
-                        args.Result = Service.GetCustomApisFor(_selectedSolution.SolutionRow.Id);
+                        args.Result = ConnectionDetail.UseOnline ? Service.GetCustomApisFor(_selectedSolution.SolutionRow.Id) : Service.GetCustomApisOnPremFor(_selectedSolution.SolutionRow.Id);
                     }
                     else
                     {
