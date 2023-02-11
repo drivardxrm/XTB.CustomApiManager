@@ -137,5 +137,7 @@ namespace XTB.CustomApiManager.Forms
             txtLookupPublisher.Text = string.Empty;
             txtPrefix.Text = string.Empty;
         }
+
+        
     }
 }
