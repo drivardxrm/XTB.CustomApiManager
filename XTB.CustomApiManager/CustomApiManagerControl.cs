@@ -113,7 +113,16 @@ namespace XTB.CustomApiManager
             cdsTxtExecutePrivilegeName.OrganizationService = Service;
 
             cdsTxtIsFunction.OrganizationService = Service;
-            cdsTxtIsWFEnabled.OrganizationService = Service;
+            if (ConnectionDetail.UseOnline) // WFEnabled is not available in OnPremise
+            {
+                cdsTxtIsWFEnabled.OrganizationService = Service;
+            }
+            else 
+            {
+                cdsTxtIsWFEnabled.Visible = false;
+                pictureBox1.Visible = false;
+                label29.Visible = false;
+            }
             cdsTxtIsPrivate.OrganizationService = Service;
             cdsTxtIsManaged.OrganizationService = Service;
             cdsTxtIsCustomizable.OrganizationService = Service;
@@ -446,11 +455,11 @@ namespace XTB.CustomApiManager
                 {
                     if (rbAll.Checked)
                     {
-                        args.Result = Service.GetAllCustomApis();
+                        args.Result = ConnectionDetail.UseOnline ? Service.GetAllCustomApis() : Service.GetAllCustomApisOnPrem();
                     }
                     else if (rbSolution.Checked && _selectedSolution != null)
                     {
-                        args.Result = Service.GetCustomApisFor(_selectedSolution.SolutionRow.Id);
+                        args.Result = ConnectionDetail.UseOnline ? Service.GetCustomApisFor(_selectedSolution.SolutionRow.Id) : Service.GetCustomApisOnPremFor(_selectedSolution.SolutionRow.Id);
                     }
                     else
                     {
@@ -753,7 +762,7 @@ namespace XTB.CustomApiManager
 
         private void CreateApiDialog()
         {
-            var inputdlg = new NewCustomApiForm(Service, _selectedSolution, _connectionsettings);
+            var inputdlg = new NewCustomApiForm(Service, _selectedSolution, _connectionsettings, ConnectionDetail);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -775,7 +784,7 @@ namespace XTB.CustomApiManager
         private void UpdateApiDialog()
         {
             //todo validations = api must be selected
-            var inputdlg = new UpdateCustomApiForm(Service, _selectedCustomApi);
+            var inputdlg = new UpdateCustomApiForm(Service, _selectedCustomApi, ConnectionDetail);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {

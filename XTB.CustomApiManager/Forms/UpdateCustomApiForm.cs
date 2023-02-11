@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using McTools.Xrm.Connection;
+using Microsoft.Xrm.Sdk;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,7 +16,7 @@ namespace XTB.CustomApiManager.Forms
     {
         #region Private Fields
 
-      
+        private ConnectionDetail _connection;
         private IOrganizationService _service;
         private CustomApiProxy _customapiproxy;
         private bool _shouldupdate;
@@ -24,22 +25,27 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public UpdateCustomApiForm(IOrganizationService service, CustomApiProxy customapitoupdate)
+        public UpdateCustomApiForm(IOrganizationService service, CustomApiProxy customapitoupdate, ConnectionDetail connection)
         {
             InitializeComponent();
             _service = service;
             _customapiproxy = customapitoupdate;
+            _connection = connection;
 
             dlgLookupPublisher.Service = service;
             dlgLookupPluginType.Service = service;
             cdsCboPrivileges.OrganizationService = service;
-            cdsCboPrivileges.DataSource = 
 
-            
 
             cboBindingType.DataSource = Enum.GetValues(typeof(CustomAPI.BindingType_OptionSet));           
             cboAllowedCustomProcessingStep.DataSource = Enum.GetValues(typeof(CustomAPI.AllowedCustomProcessingStepType_OptionSet));
 
+            if (!_connection.UseOnline) // WFEnabled is not supported onPrem
+            {
+                label2.Visible = false;
+                chkWFEnabled.Visible = false;
+                pictureBox6.Visible = false;
+            }
 
             LoadPrivileges();
 
@@ -55,7 +61,10 @@ namespace XTB.CustomApiManager.Forms
 
             cdsCboPrivileges.Text = _customapiproxy.ExecutePrivilegeName;
             chkIsFunction.Checked = _customapiproxy.IsFunction;
-            chkWFEnabled.Checked = _customapiproxy.EnabledforWorkflow;
+            if (_connection.UseOnline) 
+            {
+                chkWFEnabled.Checked = _customapiproxy.EnabledforWorkflow;
+            }  
             chkIsPrivate.Checked = _customapiproxy.IsPrivate;
             chkIsCustomizable.Checked = _customapiproxy.IsCustomizable;
 
