@@ -1,4 +1,5 @@
-﻿using Microsoft.Xrm.Sdk;
+﻿using McTools.Xrm.Connection;
+using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Messages;
 using System;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace XTB.CustomApiManager.Forms
         #region Private Fields
 
         //private Control focus;
+        private ConnectionDetail _connection;
         private IOrganizationService _service;
         private SolutionProxy _selectedSolution;
         private Settings _settings;
@@ -25,11 +27,12 @@ namespace XTB.CustomApiManager.Forms
 
         #region Public Constructors
 
-        public NewResponsePropertyForm(IOrganizationService service, CustomApiProxy customapi, SolutionProxy solution, Settings settings)
+        public NewResponsePropertyForm(IOrganizationService service, CustomApiProxy customapi, SolutionProxy solution, Settings settings, ConnectionDetail connection)
         {
             InitializeComponent();
             _service = service;
             _settings = settings;
+            _connection = connection;
 
 
             cboEntities.Service = service;
@@ -182,7 +185,8 @@ namespace XTB.CustomApiManager.Forms
 
             if (IsBoundToEntity())
             {
-                requestparam[CustomAPIResponseProperty.BoundEntityLogicalName] = cboEntities.SelectedEntity?.LogicalName;
+                var boundEntityLogicalName = _connection.UseOnline ? CustomAPIResponseProperty.BoundEntityLogicalName : CustomApiHelper.OnPremBoundEntityLogicalName;
+                requestparam[boundEntityLogicalName] = cboEntities.SelectedEntity?.LogicalName;
             }
 
 
