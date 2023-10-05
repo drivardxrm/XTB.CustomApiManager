@@ -185,7 +185,6 @@
             this.txtBoundEntity.Name = "txtBoundEntity";
             this.txtBoundEntity.Size = new System.Drawing.Size(232, 20);
             this.txtBoundEntity.TabIndex = 77;
-            this.txtBoundEntity.Visible = false;
             // 
             // cdsCboPrivileges
             // 
