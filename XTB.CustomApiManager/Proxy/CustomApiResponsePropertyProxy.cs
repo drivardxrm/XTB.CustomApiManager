@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XTB.CustomApiManager.Entities;
+using XTB.CustomApiManager.Helpers;
 
 namespace XTB.CustomApiManager.Proxy
 {
@@ -13,12 +14,17 @@ namespace XTB.CustomApiManager.Proxy
 
 
         public Entity ResponsePropertyRow;
+        /// <summary>
+        /// Whether we are working against online env or on-premises?
+        /// </summary>
+        readonly bool _isOnline;
 
 
 
-        public CustomApiResponsePropertyProxy(Entity responseproperty)
+        public CustomApiResponsePropertyProxy(Entity responseproperty, bool isOnline)
         {
             ResponsePropertyRow = responseproperty;
+            _isOnline = isOnline;
         }
 
 
@@ -40,11 +46,18 @@ namespace XTB.CustomApiManager.Proxy
                                                     ResponsePropertyRow[CustomAPIResponseProperty.Description].ToString() :
                                                     string.Empty;
 
-        public string BoundEntityLogicalName => ResponsePropertyRow == null ? string.Empty :
-                                                (ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.BoundEntityLogicalName) &&
-                                                !string.IsNullOrEmpty(ResponsePropertyRow.Attributes[CustomAPIResponseProperty.BoundEntityLogicalName].ToString()) ?
-                                                    ResponsePropertyRow[CustomAPIResponseProperty.BoundEntityLogicalName].ToString() :
-                                                    (IsBoundToEntity() ? "expando" : string.Empty));
+        public string BoundEntityLogicalName
+        {
+            get
+            {
+                var boundEntityLogicalName = _isOnline ? CustomAPIResponseProperty.BoundEntityLogicalName : CustomApiHelper.OnPremBoundEntityLogicalName;
+                return ResponsePropertyRow == null ? string.Empty :
+                    (ResponsePropertyRow.Attributes.Contains(boundEntityLogicalName) &&
+                        !string.IsNullOrEmpty(ResponsePropertyRow.Attributes[boundEntityLogicalName].ToString()) ?
+                        ResponsePropertyRow[boundEntityLogicalName]?.ToString() :
+                        (IsBoundToEntity() ? "expando" : string.Empty));
+            }
+        }
 
         public bool IsManaged => ResponsePropertyRow.Attributes.Contains(CustomAPIResponseProperty.IsManaged) &&
                            (bool)ResponsePropertyRow[CustomAPIResponseProperty.IsManaged];

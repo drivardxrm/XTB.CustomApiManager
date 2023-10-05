@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XTB.CustomApiManager.Entities;
+using XTB.CustomApiManager.Helpers;
 
 namespace XTB.CustomApiManager.Proxy
 {
@@ -13,12 +14,16 @@ namespace XTB.CustomApiManager.Proxy
 
 
         public Entity RequestParameterRow;
+        /// <summary>
+        /// Whether we are working against online env or on-premises?
+        /// </summary>
+        readonly bool _isOnline;
 
 
-
-        public CustomApiRequestParameterProxy(Entity requestparameter)
+        public CustomApiRequestParameterProxy(Entity requestparameter, bool isOnline)
         {
             RequestParameterRow = requestparameter;
+            _isOnline = isOnline;
         }
 
 
@@ -40,11 +45,16 @@ namespace XTB.CustomApiManager.Proxy
                                                     RequestParameterRow[CustomAPIRequestParameter.Description].ToString() :
                                                     string.Empty;
 
-        public string BoundEntityLogicalName => RequestParameterRow == null ? string.Empty :
-                                                    (RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.BoundEntityLogicalName) && 
-                                                        !string.IsNullOrEmpty(RequestParameterRow.Attributes[CustomAPIRequestParameter.BoundEntityLogicalName].ToString()) ?
-                                                        RequestParameterRow[CustomAPIRequestParameter.BoundEntityLogicalName]?.ToString() :
-                                                        (IsBoundToEntity() ? "expando" : string.Empty));
+        public string BoundEntityLogicalName {
+            get {
+                var boundEntityLogicalName = _isOnline ? CustomAPIRequestParameter.BoundEntityLogicalName : CustomApiHelper.OnPremBoundEntityLogicalName;
+                return RequestParameterRow == null ? string.Empty :
+                    (RequestParameterRow.Attributes.Contains(boundEntityLogicalName) && 
+                        !string.IsNullOrEmpty(RequestParameterRow.Attributes[boundEntityLogicalName].ToString()) ?
+                        RequestParameterRow[boundEntityLogicalName]?.ToString() :
+                        (IsBoundToEntity() ? "expando" : string.Empty));
+            }
+        }
 
 
         public bool IsOptional => RequestParameterRow.Attributes.Contains(CustomAPIRequestParameter.IsOptional) &&

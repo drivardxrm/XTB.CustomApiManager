@@ -637,7 +637,7 @@ namespace XTB.CustomApiManager
         private void SetSelectedRequestParameter(Entity requestparameter)
         {
 
-            _selectedRequestParameter = new CustomApiRequestParameterProxy(requestparameter);
+            _selectedRequestParameter = new CustomApiRequestParameterProxy(requestparameter, ConnectionDetail.UseOnline);
 
             cdsTxtRequestUniqueName.Entity = _selectedRequestParameter?.RequestParameterRow;
             cdsTxtRequestName.Entity = _selectedRequestParameter?.RequestParameterRow;
@@ -711,7 +711,7 @@ namespace XTB.CustomApiManager
 
         private void SetSelectedResponseProperty(Entity responseproperty)
         {
-            _selectedResponseProperty = new CustomApiResponsePropertyProxy(responseproperty);
+            _selectedResponseProperty = new CustomApiResponsePropertyProxy(responseproperty, ConnectionDetail.UseOnline);
 
             cdsTxtResponseUniqueName.Entity = _selectedResponseProperty.ResponsePropertyRow;
             cdsTxtResponseName.Entity = _selectedResponseProperty.ResponsePropertyRow;
@@ -834,7 +834,7 @@ namespace XTB.CustomApiManager
 
         private void CreateRequestParameterDialog()
         {
-            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings);
+            var inputdlg = new NewRequestParameterForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings, ConnectionDetail);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {
@@ -919,7 +919,7 @@ namespace XTB.CustomApiManager
 
         private void CreateResponsePropertyDialog()
         {
-            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings);
+            var inputdlg = new NewResponsePropertyForm(Service, _selectedCustomApi, _selectedSolution, _globalsettings, ConnectionDetail);
             var dlgresult = inputdlg.ShowDialog();
             if (dlgresult == DialogResult.Cancel)
             {

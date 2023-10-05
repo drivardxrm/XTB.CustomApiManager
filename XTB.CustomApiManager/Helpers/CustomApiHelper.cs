@@ -12,6 +12,8 @@ namespace XTB.CustomApiManager.Helpers
 {
     public static class CustomApiHelper
     {
+        /// <summary>For on-premises, bound entity logical name the logical name for request/response parameters is different than <see cref="CustomAPIRequestParameter.BoundEntityLogicalName"/> or <see cref="CustomAPIResponseProperty.BoundEntityLogicalName"/></summary>
+        public const string OnPremBoundEntityLogicalName = "entitylogicalname";
 
         public static Entity GetCustomApi(this IOrganizationService service, Guid customapiid)
             => service.Retrieve(CustomAPI.EntityName, customapiid, new ColumnSet() { AllColumns = true });
