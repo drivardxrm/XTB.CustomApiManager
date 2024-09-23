@@ -56,6 +56,8 @@
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.chkManaged = new System.Windows.Forms.CheckBox();
+            this.chkUnmanaged = new System.Windows.Forms.CheckBox();
             this.imgGrpCustomApi = new XTB.CustomApiManager.Controls.ImageGroupBox();
             this.imgGrpOutputs = new XTB.CustomApiManager.Controls.ImageGroupBox();
             this.txtResponseBoundEntity = new System.Windows.Forms.TextBox();
@@ -147,6 +149,7 @@
             this.cdsTxtIsPrivate = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBindingType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
+            this.Show = new System.Windows.Forms.Label();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imgGrpCustomApi.SuspendLayout();
@@ -240,6 +243,9 @@
             // 
             // grpFilter
             // 
+            this.grpFilter.Controls.Add(this.Show);
+            this.grpFilter.Controls.Add(this.chkUnmanaged);
+            this.grpFilter.Controls.Add(this.chkManaged);
             this.grpFilter.Controls.Add(this.label22);
             this.grpFilter.Controls.Add(this.btnNewApi);
             this.grpFilter.Controls.Add(this.label17);
@@ -250,7 +256,7 @@
             this.grpFilter.Controls.Add(this.label12);
             this.grpFilter.Location = new System.Drawing.Point(3, 36);
             this.grpFilter.Name = "grpFilter";
-            this.grpFilter.Size = new System.Drawing.Size(688, 75);
+            this.grpFilter.Size = new System.Drawing.Size(756, 75);
             this.grpFilter.TabIndex = 21;
             this.grpFilter.TabStop = false;
             this.grpFilter.Text = "Select API";
@@ -270,7 +276,7 @@
             this.btnNewApi.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNewApi.Image = ((System.Drawing.Image)(resources.GetObject("btnNewApi.Image")));
             this.btnNewApi.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNewApi.Location = new System.Drawing.Point(518, 26);
+            this.btnNewApi.Location = new System.Drawing.Point(609, 24);
             this.btnNewApi.Name = "btnNewApi";
             this.btnNewApi.Size = new System.Drawing.Size(131, 29);
             this.btnNewApi.TabIndex = 5;
@@ -284,7 +290,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(479, 32);
+            this.label17.Location = new System.Drawing.Point(570, 30);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(24, 17);
             this.label17.TabIndex = 41;
@@ -380,6 +386,32 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // chkManaged
+            // 
+            this.chkManaged.AutoSize = true;
+            this.chkManaged.Checked = true;
+            this.chkManaged.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkManaged.Location = new System.Drawing.Point(477, 29);
+            this.chkManaged.Name = "chkManaged";
+            this.chkManaged.Size = new System.Drawing.Size(71, 17);
+            this.chkManaged.TabIndex = 85;
+            this.chkManaged.Text = "Managed";
+            this.chkManaged.UseVisualStyleBackColor = true;
+            this.chkManaged.CheckedChanged += new System.EventHandler(this.chkManaged_CheckedChanged);
+            // 
+            // chkUnmanaged
+            // 
+            this.chkUnmanaged.AutoSize = true;
+            this.chkUnmanaged.Checked = true;
+            this.chkUnmanaged.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkUnmanaged.Location = new System.Drawing.Point(477, 46);
+            this.chkUnmanaged.Name = "chkUnmanaged";
+            this.chkUnmanaged.Size = new System.Drawing.Size(84, 17);
+            this.chkUnmanaged.TabIndex = 86;
+            this.chkUnmanaged.Text = "Unmanaged";
+            this.chkUnmanaged.UseVisualStyleBackColor = true;
+            this.chkUnmanaged.CheckedChanged += new System.EventHandler(this.chkUnmanaged_CheckedChanged);
             // 
             // imgGrpCustomApi
             // 
@@ -1631,6 +1663,17 @@
             this.cdsTxtBindingType.Size = new System.Drawing.Size(89, 20);
             this.cdsTxtBindingType.TabIndex = 13;
             // 
+            // Show
+            // 
+            this.Show.AutoSize = true;
+            this.Show.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Show.Location = new System.Drawing.Point(474, 13);
+            this.Show.Name = "Show";
+            this.Show.Size = new System.Drawing.Size(38, 13);
+            this.Show.TabIndex = 96;
+            this.Show.Text = "Show";
+            this.ttInfo.SetToolTip(this.Show, resources.GetString("Show.ToolTip"));
+            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1787,5 +1830,8 @@
         private System.Windows.Forms.TextBox txtRequestBoundEntity;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripButton menuSettings;
+        private System.Windows.Forms.CheckBox chkUnmanaged;
+        private System.Windows.Forms.CheckBox chkManaged;
+        private System.Windows.Forms.Label Show;
     }
 }
