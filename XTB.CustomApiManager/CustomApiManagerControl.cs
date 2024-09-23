@@ -482,6 +482,23 @@ namespace XTB.CustomApiManager
                         {
 
                             var customapis = (EntityCollection)args.Result;
+                            //Remove managed apis from list
+                            if (!chkManaged.Checked) 
+                            {
+                                var entities = customapis.Entities.ToList();
+                                entities.RemoveAll(e => e.GetAttributeValue<bool>(CustomAPI.IsManaged));
+
+                                customapis = new EntityCollection(entities);
+                            }
+                            //Remove unmanaged apis from list
+                            if (!chkUnmanaged.Checked)
+                            {
+                                var entities = customapis.Entities.ToList();
+                                entities.RemoveAll(e => !e.GetAttributeValue<bool>(CustomAPI.IsManaged));
+
+                                customapis = new EntityCollection(entities);
+                            }
+
                             //Find the index of the selected API in the list
                             var index = customapis.Entities.Select(e => e.Id).ToList().IndexOf(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
 
@@ -964,5 +981,14 @@ namespace XTB.CustomApiManager
 
         #endregion
 
+        private void chkManaged_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadCustomApis();
+        }
+
+        private void chkUnmanaged_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadCustomApis();
+        }
     }
 }
