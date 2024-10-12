@@ -95,7 +95,11 @@ namespace XTB.CustomApiManager.Helpers
 
 
             var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
+            var query = service.QueryFromFetch(fetch);
+            var result = service.RetrieveAll(query);
+
+            return new EntityCollection(result);
+
         }
 
         // ON prem as a slightly different schema (workflowsdkstepenabled is not a column)
@@ -169,7 +173,10 @@ namespace XTB.CustomApiManager.Helpers
 
 
             var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
+            var query = service.QueryFromFetch(fetch);
+            var result = service.RetrieveAll(query);
+
+            return new EntityCollection(result);
         }
 
         public static EntityCollection GetAllCustomApis(this IOrganizationService service)
@@ -236,7 +243,10 @@ namespace XTB.CustomApiManager.Helpers
 
 
             var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
+            var query = service.QueryFromFetch(fetch);
+            var result = service.RetrieveAll(query);
+
+            return new EntityCollection(result);
         }
 
         // ON prem as a slightly different schema (workflowsdkstepenabled is not a column)
@@ -303,7 +313,10 @@ namespace XTB.CustomApiManager.Helpers
 
 
             var fetch = new FetchExpression(fetchXml);
-            return service.RetrieveMultiple(fetch);
+            var query = service.QueryFromFetch(fetch);
+            var result = service.RetrieveAll(query);
+
+            return new EntityCollection(result);
         }
 
         //For Grid

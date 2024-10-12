@@ -24,7 +24,11 @@ namespace XTB.CustomApiManager.Helpers
                             </fetch>";
 
             var fetch = new FetchExpression(fetchxml);
-            return service.RetrieveMultiple(fetch);
+            var query = service.QueryFromFetch(fetch);
+            var result = service.RetrieveAll(query);
+
+            return new EntityCollection(result);
+
         }
 
 
