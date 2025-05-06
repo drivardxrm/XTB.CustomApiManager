@@ -19,6 +19,8 @@ using xrmtb.XrmToolBox.Controls.Controls;
 using xrmtb.XrmToolBox.Controls;
 using XTB.CustomApiManager.Forms;
 using XrmToolBox.Extensibility.Interfaces;
+using System.Web.Services.Description;
+using static ScintillaNET.Style;
 
 namespace XTB.CustomApiManager
 {
@@ -36,6 +38,8 @@ namespace XTB.CustomApiManager
         private CustomApiRequestParameterProxy _selectedRequestParameter;
 
         private CustomApiResponsePropertyProxy _selectedResponseProperty;
+
+        private FxExpressionProxy _selectedFxExpression;
 
         //private Entity _selectedPublisher;
 
@@ -590,6 +594,31 @@ namespace XTB.CustomApiManager
 
             }
 
+            if (_selectedCustomApi?.IsPowerFxFunc == true)
+            {
+                var fxExpression = Service.GetFxExpression(_selectedCustomApi.FxExpressionRef.Id);
+                _selectedFxExpression = new FxExpressionProxy(fxExpression);
+                imgPowerFxFunction.Visible = true;
+                txtFxContext.Text = _selectedFxExpression.Context;
+                
+                txtFxExpression.Text = _selectedFxExpression.Expression;
+                txtFxWarning.Visible = true;
+                btnAddInput.Enabled = false;
+                btnAddOutput.Enabled = false;
+               
+                btnDeleteApi.Enabled = false;
+            }
+            else 
+            {
+                _selectedFxExpression = null;
+                imgPowerFxFunction.Visible = false;
+
+                txtFxContext.Text = string.Empty;
+                
+                txtFxExpression.Text = string.Empty;
+                txtFxWarning.Visible = false;
+            }
+
 
             imgGrpCustomApi.Enabled = _selectedCustomApi != null;
             imgGrpInputs.Enabled = _selectedCustomApi != null;
@@ -670,10 +699,10 @@ namespace XTB.CustomApiManager
 
             //enable buttons
             btnEditInput.Enabled = _selectedRequestParameter?.RequestParameterRow != null
-                                        && _selectedRequestParameter.CanCustomize;
+                                        && _selectedRequestParameter.CanCustomize && _selectedFxExpression == null;
 
             btnDeleteInput.Enabled = _selectedRequestParameter?.RequestParameterRow != null
-                                        && _selectedRequestParameter.CanCustomize;
+                                        && _selectedRequestParameter.CanCustomize && _selectedFxExpression == null;
 
         }
 

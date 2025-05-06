@@ -240,6 +240,7 @@
     <Compile Include="Controls\ImageGroupBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Entities\FxExpression.cs" />
     <Compile Include="Forms\About.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -293,6 +294,7 @@
     </Compile>
     <Compile Include="Helpers\EntityHelper.cs" />
     <Compile Include="Helpers\PrivilegeHelper.cs" />
+    <Compile Include="Helpers\FxExpressionHelper.cs" />
     <Compile Include="Helpers\SolutionHelper.cs" />
     <Compile Include="Helpers\PublisherHelper.cs" />
     <Compile Include="Helpers\CustomApiHelper.cs" />
@@ -336,6 +338,7 @@
     <Compile Include="Proxy\CustomApiResponsePropertyProxy.cs" />
     <Compile Include="Proxy\CustomApiRequestParameterProxy.cs" />
     <Compile Include="Proxy\CustomApiProxy.cs" />
+    <Compile Include="Proxy\FxExpressionProxy.cs" />
     <Compile Include="Proxy\SolutionProxy.cs" />
     <Compile Include="Settings.cs" />
   </ItemGroup>

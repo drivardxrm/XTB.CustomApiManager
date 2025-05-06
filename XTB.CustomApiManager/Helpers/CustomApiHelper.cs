@@ -81,6 +81,8 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='executeprivilegename' />
                 <attribute name='isprivatename' />
                 <attribute name='ownerid' />
+                <attribute name='fxexpressionid' />
+                <attribute name='fxexpressionidname' />
                 <link-entity name='solutioncomponent' from='objectid' to='customapiid' link-type='inner' alias='SC'>
                     <attribute name='componenttype' />
                     <attribute name='solutionid' />
@@ -236,6 +238,8 @@ namespace XTB.CustomApiManager.Helpers
                 <attribute name='executeprivilegename' />
                 <attribute name='isprivatename' />
                 <attribute name='ownerid' />
+                <attribute name='fxexpressionid' />
+                <attribute name='fxexpressionidname' />
                 <order attribute='name' />
 
               </entity>
