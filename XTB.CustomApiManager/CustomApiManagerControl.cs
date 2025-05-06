@@ -236,6 +236,25 @@ namespace XTB.CustomApiManager
 
         }
 
+        private void menuPluginTrace_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var filter = new PTVFilter
+                {
+                    FilterMessage = true,
+                    Message = _selectedCustomApi.UniqueName
+                };
+
+                OnOutgoingMessage(this, new MessageBusEventArgs("Plugin Trace Viewer") { TargetArgument = filter });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
+
         private void menuSettings_Click(object sender, EventArgs e)
         {
             SettingsDialog();
@@ -379,6 +398,7 @@ namespace XTB.CustomApiManager
             LoadResponseProperties();
 
             menuTestApi.Enabled = cdsCboCustomApi.SelectedIndex != -1;
+            menuPluginTrace.Enabled = cdsCboCustomApi.SelectedIndex != -1;
 
         }
 
@@ -1019,5 +1039,7 @@ namespace XTB.CustomApiManager
         {
             LoadCustomApis();
         }
+
+        
     }
 }
