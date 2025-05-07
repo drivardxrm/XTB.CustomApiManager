@@ -295,7 +295,6 @@
     <Compile Include="Helpers\EntityHelper.cs" />
     <Compile Include="Helpers\PrivilegeHelper.cs" />
     <Compile Include="Helpers\FxExpressionHelper.cs" />
-    <Compile Include="Helpers\PTVFilter.cs" />
     <Compile Include="Helpers\SolutionHelper.cs" />
     <Compile Include="Helpers\PublisherHelper.cs" />
     <Compile Include="Helpers\CustomApiHelper.cs" />

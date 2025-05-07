@@ -49,7 +49,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.cboEntities = new xrmtb.XrmToolBox.Controls.EntitiesDropdownControl();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblEntityName = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDisplayName = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -91,7 +91,7 @@
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.pictureBox3);
             this.panel2.Controls.Add(this.cboEntities);
-            this.panel2.Controls.Add(this.label11);
+            this.panel2.Controls.Add(this.lblEntityName);
             this.panel2.Controls.Add(this.label10);
             this.panel2.Controls.Add(this.txtDisplayName);
             this.panel2.Controls.Add(this.label9);
@@ -315,16 +315,16 @@
             this.cboEntities.SolutionFilter = null;
             this.cboEntities.TabIndex = 6;
             // 
-            // label11
+            // lblEntityName
             // 
-            this.label11.AutoSize = true;
-            this.label11.Enabled = false;
-            this.label11.Location = new System.Drawing.Point(26, 241);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(101, 13);
-            this.label11.TabIndex = 54;
-            this.label11.Text = "Logical Entity Name";
-            this.ttInfo.SetToolTip(this.label11, "The logical name of the entity bound to the custom API request parameter.\r\nCannot" +
+            this.lblEntityName.AutoSize = true;
+            this.lblEntityName.Enabled = false;
+            this.lblEntityName.Location = new System.Drawing.Point(26, 241);
+            this.lblEntityName.Name = "lblEntityName";
+            this.lblEntityName.Size = new System.Drawing.Size(101, 13);
+            this.lblEntityName.TabIndex = 54;
+            this.lblEntityName.Text = "Logical Entity Name";
+            this.ttInfo.SetToolTip(this.lblEntityName, "The logical name of the entity bound to the custom API request parameter.\r\nCannot" +
         " be changed after it is saved.");
             // 
             // label10
@@ -476,7 +476,7 @@
         #endregion
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblEntityName;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtDisplayName;
         private System.Windows.Forms.Label label9;

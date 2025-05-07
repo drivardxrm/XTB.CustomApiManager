@@ -97,6 +97,7 @@ namespace XTB.CustomApiManager.Forms
                 cboEntities.Enabled = true;
                 chkExpando.Enabled = true;
                 chkExpando.Checked = false;
+                lblEntityName.Enabled = true;
             }
             else
             {
@@ -104,6 +105,7 @@ namespace XTB.CustomApiManager.Forms
                 cboEntities.Enabled = false;
                 chkExpando.Enabled = false;
                 chkExpando.Checked = false;
+                lblEntityName.Enabled = false;
             }
 
         }
