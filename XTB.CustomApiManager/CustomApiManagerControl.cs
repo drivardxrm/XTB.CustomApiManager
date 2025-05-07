@@ -241,12 +241,8 @@ namespace XTB.CustomApiManager
         {
             try
             {
-                var filter = new PTVFilter
-                {
-                    FilterMessage = true,
-                    Message = _selectedCustomApi.UniqueName
-                };
-
+                var filter = $"message={_selectedCustomApi.UniqueName}";
+                
                 OnOutgoingMessage(this, new MessageBusEventArgs("Plugin Trace Viewer") { TargetArgument = filter });
             }
             catch (Exception ex)
