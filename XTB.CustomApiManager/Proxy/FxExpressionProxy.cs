@@ -1,10 +1,12 @@
 ﻿using Microsoft.Xrm.Sdk;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using XTB.CustomApiManager.Entities;
+using XTB.CustomApiManager.Helpers;
 
 namespace XTB.CustomApiManager.Proxy
 {
@@ -37,6 +39,15 @@ namespace XTB.CustomApiManager.Proxy
         public string Dependencies => FxEpressionRow[FxExpression.PowerFxExpressiondependencies].ToString();
 
         public string Parameters => FxEpressionRow[FxExpression.Inputandoutputparametersassociatedwiththeexpression].ToString();
+
+        public FxExpressionContext ContextObject
+        {
+            get
+            {
+                var context = JsonConvert.DeserializeObject<FxExpressionContext>(FxEpressionRow[FxExpression.Context].ToString());
+                return context;
+            }
+        }
 
     }
 }

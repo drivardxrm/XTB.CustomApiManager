@@ -21,6 +21,7 @@ using XTB.CustomApiManager.Forms;
 using XrmToolBox.Extensibility.Interfaces;
 using System.Web.Services.Description;
 using static ScintillaNET.Style;
+using System.ComponentModel.Composition.Hosting;
 
 namespace XTB.CustomApiManager
 {
@@ -619,7 +620,7 @@ namespace XTB.CustomApiManager
                 var fxExpression = Service.GetFxExpression(_selectedCustomApi.FxExpressionRef.Id);
                 _selectedFxExpression = new FxExpressionProxy(fxExpression);
                 imgPowerFxFunction.Visible = true;
-                txtFxContext.Text = _selectedFxExpression.Context;
+               
                 
                 txtFxExpression.Text = _selectedFxExpression.Expression;
                 txtFxWarning.Visible = true;
@@ -627,17 +628,19 @@ namespace XTB.CustomApiManager
                 btnAddOutput.Enabled = false;
                
                 btnDeleteApi.Enabled = false;
+                
             }
             else 
             {
                 _selectedFxExpression = null;
                 imgPowerFxFunction.Visible = false;
 
-                txtFxContext.Text = string.Empty;
+                
                 
                 txtFxExpression.Text = string.Empty;
                 txtFxWarning.Visible = false;
             }
+            UpdateTreeContext();
 
 
             imgGrpCustomApi.Enabled = _selectedCustomApi != null;
@@ -1025,6 +1028,41 @@ namespace XTB.CustomApiManager
             {
 
             }
+        }
+
+        private void UpdateTreeContext()
+        {
+            treeContext.Nodes.Clear();
+
+            if (_selectedFxExpression != null)
+            {
+                //var rootname = $"{_selectedFxExpression.Name} ({_selectedFxExpression.UniqueName})";
+
+                //var rootnode = treeContext.Nodes.Add(rootname);
+
+                //rootnode.ImageIndex = 0;
+                //rootnode.SelectedImageIndex = 0;
+
+
+
+
+                var tablesnode = treeContext.Nodes.Add("Tables");
+                
+
+                foreach (var table in _selectedFxExpression.ContextObject.Tables)
+                {
+                    var tablenode = tablesnode.Nodes.Add(table);
+                    //tablenode.ImageIndex = 100;
+                    //tablenode.SelectedImageIndex = 100;
+                }
+
+                tablesnode.ImageIndex = 1;
+                tablesnode.SelectedImageIndex = 1;
+            }
+            treeContext.ExpandAll();
+
+
+
         }
 
 
