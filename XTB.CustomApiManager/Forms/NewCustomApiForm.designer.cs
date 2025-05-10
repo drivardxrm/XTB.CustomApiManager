@@ -136,18 +136,16 @@
             this.panel2.Controls.Add(this.txtDescription);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(667, 629);
+            this.panel2.Size = new System.Drawing.Size(500, 511);
             this.panel2.TabIndex = 5;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(39, 526);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Location = new System.Drawing.Point(29, 427);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(229, 16);
+            this.label12.Size = new System.Drawing.Size(182, 13);
             this.label12.TabIndex = 104;
             this.label12.Text = "Add to unmanaged solution (optional)";
             this.ttInfo.SetToolTip(this.label12, "Controls whether the Custom API can be customized or deleted when deployed as man" +
@@ -157,12 +155,11 @@
             // 
             this.cdsCboSolutions.DisplayFormat = "{{friendlyname}} ({{P.customizationprefix}})";
             this.cdsCboSolutions.FormattingEnabled = true;
-            this.cdsCboSolutions.ItemHeight = 16;
-            this.cdsCboSolutions.Location = new System.Drawing.Point(43, 545);
-            this.cdsCboSolutions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cdsCboSolutions.ItemHeight = 13;
+            this.cdsCboSolutions.Location = new System.Drawing.Point(32, 443);
             this.cdsCboSolutions.Name = "cdsCboSolutions";
             this.cdsCboSolutions.OrganizationService = null;
-            this.cdsCboSolutions.Size = new System.Drawing.Size(335, 24);
+            this.cdsCboSolutions.Size = new System.Drawing.Size(252, 21);
             this.cdsCboSolutions.TabIndex = 17;
             this.cdsCboSolutions.SelectedIndexChanged += new System.EventHandler(this.cdsCboSolutions_SelectedIndexChanged);
             this.cdsCboSolutions.TextUpdate += new System.EventHandler(this.cdsCboSolutions_TextUpdate);
@@ -170,10 +167,9 @@
             // lblCustomizable
             // 
             this.lblCustomizable.AutoSize = true;
-            this.lblCustomizable.Location = new System.Drawing.Point(39, 501);
-            this.lblCustomizable.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCustomizable.Location = new System.Drawing.Point(29, 407);
             this.lblCustomizable.Name = "lblCustomizable";
-            this.lblCustomizable.Size = new System.Drawing.Size(98, 16);
+            this.lblCustomizable.Size = new System.Drawing.Size(77, 13);
             this.lblCustomizable.TabIndex = 102;
             this.lblCustomizable.Text = "IsCustomizable";
             this.ttInfo.SetToolTip(this.lblCustomizable, "Controls whether the Custom API can be customized or deleted when deployed as man" +
@@ -182,10 +178,9 @@
             // chkIsCustomizable
             // 
             this.chkIsCustomizable.AutoSize = true;
-            this.chkIsCustomizable.Location = new System.Drawing.Point(189, 501);
-            this.chkIsCustomizable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkIsCustomizable.Location = new System.Drawing.Point(142, 407);
             this.chkIsCustomizable.Name = "chkIsCustomizable";
-            this.chkIsCustomizable.Size = new System.Drawing.Size(18, 17);
+            this.chkIsCustomizable.Size = new System.Drawing.Size(15, 14);
             this.chkIsCustomizable.TabIndex = 16;
             this.chkIsCustomizable.UseVisualStyleBackColor = true;
             // 
@@ -193,20 +188,18 @@
             // 
             this.pictureBox6.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox6.Image")));
             this.pictureBox6.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.InitialImage")));
-            this.pictureBox6.Location = new System.Drawing.Point(211, 453);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(158, 368);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox6.Size = new System.Drawing.Size(20, 19);
             this.pictureBox6.TabIndex = 79;
             this.pictureBox6.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(37, 458);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(28, 372);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(139, 16);
+            this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 78;
             this.label2.Text = "Enabled For Workflow";
             this.ttInfo.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
@@ -214,32 +207,31 @@
             // chkWFEnabled
             // 
             this.chkWFEnabled.AutoSize = true;
-            this.chkWFEnabled.Location = new System.Drawing.Point(189, 457);
-            this.chkWFEnabled.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkWFEnabled.Location = new System.Drawing.Point(142, 371);
             this.chkWFEnabled.Name = "chkWFEnabled";
-            this.chkWFEnabled.Size = new System.Drawing.Size(18, 17);
+            this.chkWFEnabled.Size = new System.Drawing.Size(15, 14);
             this.chkWFEnabled.TabIndex = 14;
             this.chkWFEnabled.UseVisualStyleBackColor = true;
             // 
             // cdsCboPrivileges
             // 
+            this.cdsCboPrivileges.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cdsCboPrivileges.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cdsCboPrivileges.DisplayFormat = "";
             this.cdsCboPrivileges.FormattingEnabled = true;
-            this.cdsCboPrivileges.Location = new System.Drawing.Point(193, 391);
-            this.cdsCboPrivileges.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cdsCboPrivileges.Location = new System.Drawing.Point(145, 318);
             this.cdsCboPrivileges.Name = "cdsCboPrivileges";
             this.cdsCboPrivileges.OrganizationService = null;
-            this.cdsCboPrivileges.Size = new System.Drawing.Size(292, 24);
+            this.cdsCboPrivileges.Size = new System.Drawing.Size(220, 21);
             this.cdsCboPrivileges.TabIndex = 12;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(367, 20);
-            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label17.Location = new System.Drawing.Point(275, 16);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(285, 17);
+            this.label17.Size = new System.Drawing.Size(213, 13);
             this.label17.TabIndex = 75;
             this.label17.Text = "Fields that cannot be modified after creation";
             // 
@@ -247,10 +239,9 @@
             // 
             this.pictureBox13.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox13.Image")));
             this.pictureBox13.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox13.InitialImage")));
-            this.pictureBox13.Location = new System.Drawing.Point(344, 16);
-            this.pictureBox13.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox13.Location = new System.Drawing.Point(258, 13);
             this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox13.Size = new System.Drawing.Size(20, 19);
             this.pictureBox13.TabIndex = 74;
             this.pictureBox13.TabStop = false;
             // 
@@ -258,10 +249,9 @@
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(25, 14);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTitle.Location = new System.Drawing.Point(19, 11);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(246, 25);
+            this.lblTitle.Size = new System.Drawing.Size(202, 20);
             this.lblTitle.TabIndex = 73;
             this.lblTitle.Text = "Create New Custom API";
             // 
@@ -271,10 +261,9 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.Image")));
-            this.btnCancel.Location = new System.Drawing.Point(523, 532);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancel.Location = new System.Drawing.Point(392, 432);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(104, 39);
+            this.btnCancel.Size = new System.Drawing.Size(78, 32);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -287,10 +276,9 @@
             this.btnOk.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOk.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.Image")));
             this.btnOk.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOk.Location = new System.Drawing.Point(411, 532);
-            this.btnOk.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnOk.Location = new System.Drawing.Point(308, 432);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(104, 39);
+            this.btnOk.Size = new System.Drawing.Size(78, 32);
             this.btnOk.TabIndex = 72;
             this.btnOk.Text = "Create";
             this.btnOk.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -301,20 +289,18 @@
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
             this.pictureBox5.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.InitialImage")));
-            this.pictureBox5.Location = new System.Drawing.Point(211, 428);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(158, 348);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox5.Size = new System.Drawing.Size(20, 19);
             this.pictureBox5.TabIndex = 70;
             this.pictureBox5.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 398);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(26, 323);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 16);
+            this.label1.Size = new System.Drawing.Size(120, 13);
             this.label1.TabIndex = 69;
             this.label1.Text = "Execute Privilege Name";
             this.ttInfo.SetToolTip(this.label1, "(Optional) Name of the privilege that allows execution of the custom API");
@@ -323,10 +309,9 @@
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
             this.pictureBox4.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.InitialImage")));
-            this.pictureBox4.Location = new System.Drawing.Point(488, 325);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(366, 264);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox4.Size = new System.Drawing.Size(20, 19);
             this.pictureBox4.TabIndex = 67;
             this.pictureBox4.TabStop = false;
             // 
@@ -334,10 +319,9 @@
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
             this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(381, 290);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(286, 236);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox2.Size = new System.Drawing.Size(20, 19);
             this.pictureBox2.TabIndex = 66;
             this.pictureBox2.TabStop = false;
             // 
@@ -345,10 +329,9 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(537, 257);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(403, 209);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox1.Size = new System.Drawing.Size(20, 19);
             this.pictureBox1.TabIndex = 65;
             this.pictureBox1.TabStop = false;
             // 
@@ -356,10 +339,9 @@
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
             this.pictureBox3.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.InitialImage")));
-            this.pictureBox3.Location = new System.Drawing.Point(617, 94);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(463, 76);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(27, 23);
+            this.pictureBox3.Size = new System.Drawing.Size(20, 19);
             this.pictureBox3.TabIndex = 64;
             this.pictureBox3.TabStop = false;
             // 
@@ -368,21 +350,20 @@
             this.cboEntities.AutoLoadData = false;
             this.cboEntities.Enabled = false;
             this.cboEntities.LanguageCode = 1033;
-            this.cboEntities.Location = new System.Drawing.Point(133, 320);
-            this.cboEntities.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.cboEntities.Location = new System.Drawing.Point(100, 260);
+            this.cboEntities.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.cboEntities.Name = "cboEntities";
             this.cboEntities.Service = null;
-            this.cboEntities.Size = new System.Drawing.Size(353, 31);
+            this.cboEntities.Size = new System.Drawing.Size(265, 25);
             this.cboEntities.SolutionFilter = null;
             this.cboEntities.TabIndex = 9;
             // 
             // txtPrefix
             // 
             this.txtPrefix.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.txtPrefix.Location = new System.Drawing.Point(139, 92);
-            this.txtPrefix.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPrefix.Location = new System.Drawing.Point(104, 75);
             this.txtPrefix.Name = "txtPrefix";
-            this.txtPrefix.Size = new System.Drawing.Size(72, 22);
+            this.txtPrefix.Size = new System.Drawing.Size(55, 20);
             this.txtPrefix.TabIndex = 62;
             // 
             // txtLookupPublisher
@@ -396,21 +377,19 @@
             this.txtLookupPublisher.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline);
             this.txtLookupPublisher.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtLookupPublisher.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtLookupPublisher.Location = new System.Drawing.Point(139, 59);
+            this.txtLookupPublisher.Location = new System.Drawing.Point(104, 48);
             this.txtLookupPublisher.LogicalName = "plugintype";
-            this.txtLookupPublisher.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLookupPublisher.Name = "txtLookupPublisher";
             this.txtLookupPublisher.OrganizationService = null;
-            this.txtLookupPublisher.Size = new System.Drawing.Size(308, 23);
+            this.txtLookupPublisher.Size = new System.Drawing.Size(232, 20);
             this.txtLookupPublisher.TabIndex = 1;
             // 
             // btnLookupPublisher
             // 
             this.btnLookupPublisher.Image = ((System.Drawing.Image)(resources.GetObject("btnLookupPublisher.Image")));
-            this.btnLookupPublisher.Location = new System.Drawing.Point(456, 57);
-            this.btnLookupPublisher.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLookupPublisher.Location = new System.Drawing.Point(342, 46);
             this.btnLookupPublisher.Name = "btnLookupPublisher";
-            this.btnLookupPublisher.Size = new System.Drawing.Size(31, 28);
+            this.btnLookupPublisher.Size = new System.Drawing.Size(23, 23);
             this.btnLookupPublisher.TabIndex = 2;
             this.btnLookupPublisher.UseVisualStyleBackColor = true;
             this.btnLookupPublisher.Click += new System.EventHandler(this.btnLookupPublisher_Click);
@@ -418,10 +397,9 @@
             // lblPublisher
             // 
             this.lblPublisher.AutoSize = true;
-            this.lblPublisher.Location = new System.Drawing.Point(35, 60);
-            this.lblPublisher.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPublisher.Location = new System.Drawing.Point(26, 49);
             this.lblPublisher.Name = "lblPublisher";
-            this.lblPublisher.Size = new System.Drawing.Size(63, 16);
+            this.lblPublisher.Size = new System.Drawing.Size(50, 13);
             this.lblPublisher.TabIndex = 59;
             this.lblPublisher.Text = "Publisher";
             // 
@@ -436,22 +414,20 @@
             this.txtLookupPluginType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline);
             this.txtLookupPluginType.ForeColor = System.Drawing.SystemColors.HotTrack;
             this.txtLookupPluginType.Id = new System.Guid("00000000-0000-0000-0000-000000000000");
-            this.txtLookupPluginType.Location = new System.Drawing.Point(139, 359);
+            this.txtLookupPluginType.Location = new System.Drawing.Point(104, 292);
             this.txtLookupPluginType.LogicalName = "plugintype";
-            this.txtLookupPluginType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtLookupPluginType.Name = "txtLookupPluginType";
             this.txtLookupPluginType.OrganizationService = null;
-            this.txtLookupPluginType.Size = new System.Drawing.Size(308, 23);
+            this.txtLookupPluginType.Size = new System.Drawing.Size(232, 20);
             this.txtLookupPluginType.TabIndex = 10;
             this.txtLookupPluginType.TextChanged += new System.EventHandler(this.txtLookupPluginType_TextChanged);
             // 
             // btnLookupPluginType
             // 
             this.btnLookupPluginType.Image = ((System.Drawing.Image)(resources.GetObject("btnLookupPluginType.Image")));
-            this.btnLookupPluginType.Location = new System.Drawing.Point(456, 358);
-            this.btnLookupPluginType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLookupPluginType.Location = new System.Drawing.Point(342, 291);
             this.btnLookupPluginType.Name = "btnLookupPluginType";
-            this.btnLookupPluginType.Size = new System.Drawing.Size(31, 28);
+            this.btnLookupPluginType.Size = new System.Drawing.Size(23, 23);
             this.btnLookupPluginType.TabIndex = 11;
             this.btnLookupPluginType.UseVisualStyleBackColor = true;
             this.btnLookupPluginType.Click += new System.EventHandler(this.btnLookupPluginType_Click);
@@ -459,10 +435,9 @@
             // lblPlugintype
             // 
             this.lblPlugintype.AutoSize = true;
-            this.lblPlugintype.Location = new System.Drawing.Point(35, 363);
-            this.lblPlugintype.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlugintype.Location = new System.Drawing.Point(26, 295);
             this.lblPlugintype.Name = "lblPlugintype";
-            this.lblPlugintype.Size = new System.Drawing.Size(76, 16);
+            this.lblPlugintype.Size = new System.Drawing.Size(60, 13);
             this.lblPlugintype.TabIndex = 55;
             this.lblPlugintype.Text = "PluginType";
             this.ttInfo.SetToolTip(this.lblPlugintype, "A reference to the plug-in type that provides the main operation for this Custom " +
@@ -472,10 +447,9 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(35, 330);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Location = new System.Drawing.Point(26, 268);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(78, 16);
+            this.label11.Size = new System.Drawing.Size(64, 13);
             this.label11.TabIndex = 54;
             this.label11.Text = "BoundEntity";
             this.ttInfo.SetToolTip(this.label11, "The logical name of the entity bound to the custom API if it is not Global.\r\nCann" +
@@ -484,10 +458,9 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 160);
-            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Location = new System.Drawing.Point(26, 130);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(93, 16);
+            this.label10.Size = new System.Drawing.Size(72, 13);
             this.label10.TabIndex = 52;
             this.label10.Text = "Display Name";
             this.ttInfo.SetToolTip(this.label10, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
@@ -495,19 +468,17 @@
             // 
             // txtDisplayName
             // 
-            this.txtDisplayName.Location = new System.Drawing.Point(139, 156);
-            this.txtDisplayName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDisplayName.Location = new System.Drawing.Point(104, 127);
             this.txtDisplayName.Name = "txtDisplayName";
-            this.txtDisplayName.Size = new System.Drawing.Size(477, 22);
+            this.txtDisplayName.Size = new System.Drawing.Size(359, 20);
             this.txtDisplayName.TabIndex = 5;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 260);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(26, 211);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(240, 16);
+            this.label9.Size = new System.Drawing.Size(189, 13);
             this.label9.TabIndex = 50;
             this.label9.Text = "Allowed Custom Processing Step Type";
             this.ttInfo.SetToolTip(this.label9, resources.GetString("label9.ToolTip"));
@@ -515,10 +486,9 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 293);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Location = new System.Drawing.Point(26, 238);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(81, 16);
+            this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 49;
             this.label8.Text = "Binding type";
             this.ttInfo.SetToolTip(this.label8, "The binding type of the custom API.\r\nValue: 0 Label: Global\r\nValue: 1 Label: Enti" +
@@ -527,29 +497,26 @@
             // cboAllowedCustomProcessingStep
             // 
             this.cboAllowedCustomProcessingStep.FormattingEnabled = true;
-            this.cboAllowedCustomProcessingStep.Location = new System.Drawing.Point(295, 256);
-            this.cboAllowedCustomProcessingStep.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboAllowedCustomProcessingStep.Location = new System.Drawing.Point(221, 208);
             this.cboAllowedCustomProcessingStep.Name = "cboAllowedCustomProcessingStep";
-            this.cboAllowedCustomProcessingStep.Size = new System.Drawing.Size(239, 24);
+            this.cboAllowedCustomProcessingStep.Size = new System.Drawing.Size(180, 21);
             this.cboAllowedCustomProcessingStep.TabIndex = 7;
             // 
             // cboBindingType
             // 
             this.cboBindingType.FormattingEnabled = true;
-            this.cboBindingType.Location = new System.Drawing.Point(139, 289);
-            this.cboBindingType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboBindingType.Location = new System.Drawing.Point(104, 235);
             this.cboBindingType.Name = "cboBindingType";
-            this.cboBindingType.Size = new System.Drawing.Size(239, 24);
+            this.cboBindingType.Size = new System.Drawing.Size(180, 21);
             this.cboBindingType.TabIndex = 8;
             this.cboBindingType.SelectedIndexChanged += new System.EventHandler(this.cboBindingType_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(39, 480);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Location = new System.Drawing.Point(29, 390);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 16);
+            this.label7.Size = new System.Drawing.Size(48, 13);
             this.label7.TabIndex = 47;
             this.label7.Text = "IsPrivate";
             this.ttInfo.SetToolTip(this.label7, "Indicates if the custom API is private (hidden from metadata and documentation) \r" +
@@ -558,40 +525,36 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 96);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Location = new System.Drawing.Point(26, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(90, 16);
+            this.label6.Size = new System.Drawing.Size(72, 13);
             this.label6.TabIndex = 46;
             this.label6.Text = "Unique Name";
             this.ttInfo.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
             // 
             // txtUniqueName
             // 
-            this.txtUniqueName.Location = new System.Drawing.Point(215, 92);
-            this.txtUniqueName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtUniqueName.Location = new System.Drawing.Point(161, 75);
             this.txtUniqueName.Name = "txtUniqueName";
-            this.txtUniqueName.Size = new System.Drawing.Size(401, 22);
+            this.txtUniqueName.Size = new System.Drawing.Size(302, 20);
             this.txtUniqueName.TabIndex = 3;
             this.txtUniqueName.Leave += new System.EventHandler(this.txtUniqueName_Leave);
             // 
             // chkIsPrivate
             // 
             this.chkIsPrivate.AutoSize = true;
-            this.chkIsPrivate.Location = new System.Drawing.Point(189, 480);
-            this.chkIsPrivate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkIsPrivate.Location = new System.Drawing.Point(142, 390);
             this.chkIsPrivate.Name = "chkIsPrivate";
-            this.chkIsPrivate.Size = new System.Drawing.Size(18, 17);
+            this.chkIsPrivate.Size = new System.Drawing.Size(15, 14);
             this.chkIsPrivate.TabIndex = 15;
             this.chkIsPrivate.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(37, 433);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Location = new System.Drawing.Point(28, 352);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 16);
+            this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 43;
             this.label5.Text = "IsFunction";
             this.ttInfo.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
@@ -599,20 +562,18 @@
             // chkIsFunction
             // 
             this.chkIsFunction.AutoSize = true;
-            this.chkIsFunction.Location = new System.Drawing.Point(189, 433);
-            this.chkIsFunction.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.chkIsFunction.Location = new System.Drawing.Point(142, 352);
             this.chkIsFunction.Name = "chkIsFunction";
-            this.chkIsFunction.Size = new System.Drawing.Size(18, 17);
+            this.chkIsFunction.Size = new System.Drawing.Size(15, 14);
             this.chkIsFunction.TabIndex = 13;
             this.chkIsFunction.UseVisualStyleBackColor = true;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 128);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Location = new System.Drawing.Point(26, 104);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 16);
+            this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 41;
             this.label4.Text = "Name";
             this.ttInfo.SetToolTip(this.label4, "The primary name of the custom API. \r\nThis will display in the list of custom api" +
@@ -620,19 +581,17 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(139, 124);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(104, 101);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(477, 22);
+            this.txtName.Size = new System.Drawing.Size(359, 20);
             this.txtName.TabIndex = 4;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 192);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Location = new System.Drawing.Point(26, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(75, 16);
+            this.label3.Size = new System.Drawing.Size(60, 13);
             this.label3.TabIndex = 39;
             this.label3.Text = "Description";
             this.ttInfo.SetToolTip(this.label3, "Localized description for this Custom API. \r\nFor use when the message is exposed " +
@@ -640,11 +599,10 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(139, 188);
-            this.txtDescription.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtDescription.Location = new System.Drawing.Point(104, 153);
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.Size = new System.Drawing.Size(477, 59);
+            this.txtDescription.Size = new System.Drawing.Size(359, 49);
             this.txtDescription.TabIndex = 6;
             // 
             // dlgLookupPublisher
@@ -676,14 +634,13 @@
             // 
             // NewCustomApiForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(667, 633);
+            this.ClientSize = new System.Drawing.Size(500, 514);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "NewCustomApiForm";
