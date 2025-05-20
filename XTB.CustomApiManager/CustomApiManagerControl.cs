@@ -40,6 +40,8 @@ namespace XTB.CustomApiManager
 
         private CustomApiResponsePropertyProxy _selectedResponseProperty;
 
+        private CatalogAssignmentProxy _selectedCatalogAssignment;
+
         private FxExpressionProxy _selectedFxExpression;
 
         //private Entity _selectedPublisher;
@@ -393,6 +395,7 @@ namespace XTB.CustomApiManager
             //Refresh Inputs / Outputs
             LoadRequestParameters();
             LoadResponseProperties();
+            LoadBusinessEvents();
 
             menuTestApi.Enabled = cdsCboCustomApi.SelectedIndex != -1;
             menuPluginTrace.Enabled = cdsCboCustomApi.SelectedIndex != -1;
@@ -409,6 +412,12 @@ namespace XTB.CustomApiManager
         private void cdsGridOutputs_RecordEnter(object sender, CRMRecordEventArgs e)
         {
             SetSelectedResponseProperty(Service.GetResponseProperty(e.Entity.Id));
+        }
+
+        private void cdsGridBusinessEvents_RecordEnter(object sender, CRMRecordEventArgs e)
+        {
+            SetCatalogAssignment(Service.GetCatalogAssignmentFor(e.Entity.Id));
+
         }
 
 
@@ -577,6 +586,15 @@ namespace XTB.CustomApiManager
             cdsGridOutputs.DataSource = datasource;
             cdsGridOutputs.RecordEnter += new CRMRecordEventHandler(cdsGridOutputs_RecordEnter);
         }
+
+        private void SetGridBusinessEventsDataSource(object datasource)
+        {
+            cdsGridBusinessEvents.RecordEnter -= new CRMRecordEventHandler(cdsGridBusinessEvents_RecordEnter);
+            cdsGridBusinessEvents.DataSource = datasource;
+            cdsGridBusinessEvents.RecordEnter += new CRMRecordEventHandler(cdsGridBusinessEvents_RecordEnter);
+        }
+
+
 
         private void SetSelectedCustomApi(Entity customapi)
         {
@@ -795,6 +813,63 @@ namespace XTB.CustomApiManager
             btnDeleteOutput.Enabled = _selectedResponseProperty?.ResponsePropertyRow != null
                                         && _selectedResponseProperty.CanCustomize;
 
+        }
+
+        private void SetCatalogAssignment(Entity requestparameter)
+        {
+
+            _selectedCatalogAssignment = new CatalogAssignmentProxy(requestparameter);
+
+           
+
+        }
+
+        private void LoadBusinessEvents()
+        {
+
+            SetGridBusinessEventsDataSource(null);
+
+            SetCatalogAssignment(null);
+
+            //Get Inputs
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading catalogassignments...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCatalogAssignmentsFor(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var catalogAssignments = (EntityCollection)args.Result;
+
+                            SetGridBusinessEventsDataSource(catalogAssignments);
+
+                            cdsGridBusinessEvents.ClearSelection();
+
+                            //if (cdsGridBusinessEvents.Rows.Count > 0)
+                            //{
+                                
+
+                            //}
+                            //else
+                            //{
+                            //    SetCatalogAssignment(null);
+                            //}
+
+                        }
+                    }
+                }
+            });
         }
 
 
