@@ -1148,7 +1148,7 @@ namespace XTB.CustomApiManager
         {
             try
             {
-                OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = _selectedCatalogAssignment.CatalogAssignmentRow.Id });
+                OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = _selectedCatalogAssignment.CatalogAssignmentRow.Id.ToString() });
             }
             catch (Exception ex)
             {
