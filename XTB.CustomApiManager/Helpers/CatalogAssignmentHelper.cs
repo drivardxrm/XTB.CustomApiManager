@@ -16,7 +16,7 @@ namespace XTB.CustomApiManager.Helpers
             var fetchXml = $@"<?xml version='1.0' encoding='utf-16'?>
                                 <fetch >
                                   <entity name='catalogassignment'>
-                                    
+                                    <attribute name='name' />
                                     <filter>
                                       <condition attribute='object' operator='eq' value='{customApiId}' />
                                     </filter>

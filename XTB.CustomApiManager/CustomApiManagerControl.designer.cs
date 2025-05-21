@@ -69,6 +69,7 @@
             this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
             this.imgGrpCustomApi = new XTB.CustomApiManager.Controls.ImageGroupBox();
             this.imgBusinessEvents = new XTB.CustomApiManager.Controls.ImageGroupBox();
+            this.btnCatalogManager = new System.Windows.Forms.Button();
             this.cdsGridBusinessEvents = new xrmtb.XrmToolBox.Controls.CRMGridView();
             this.imgPowerFxFunction = new XTB.CustomApiManager.Controls.ImageGroupBox();
             this.treeContext = new System.Windows.Forms.TreeView();
@@ -528,14 +529,28 @@
             // 
             // imgBusinessEvents
             // 
+            this.imgBusinessEvents.Controls.Add(this.btnCatalogManager);
             this.imgBusinessEvents.Controls.Add(this.cdsGridBusinessEvents);
             this.imgBusinessEvents.Icon = ((System.Drawing.Icon)(resources.GetObject("imgBusinessEvents.Icon")));
             this.imgBusinessEvents.Location = new System.Drawing.Point(12, 460);
             this.imgBusinessEvents.Name = "imgBusinessEvents";
-            this.imgBusinessEvents.Size = new System.Drawing.Size(355, 233);
+            this.imgBusinessEvents.Size = new System.Drawing.Size(355, 160);
             this.imgBusinessEvents.TabIndex = 95;
             this.imgBusinessEvents.TabStop = false;
             this.imgBusinessEvents.Text = "Business Events (Catalogs)";
+            // 
+            // btnCatalogManager
+            // 
+            this.btnCatalogManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCatalogManager.Image = ((System.Drawing.Image)(resources.GetObject("btnCatalogManager.Image")));
+            this.btnCatalogManager.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnCatalogManager.Location = new System.Drawing.Point(158, 120);
+            this.btnCatalogManager.Name = "btnCatalogManager";
+            this.btnCatalogManager.Size = new System.Drawing.Size(185, 29);
+            this.btnCatalogManager.TabIndex = 35;
+            this.btnCatalogManager.Text = "Open in Catalog Manager";
+            this.btnCatalogManager.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCatalogManager.UseVisualStyleBackColor = true;
             // 
             // cdsGridBusinessEvents
             // 
@@ -552,7 +567,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.cdsGridBusinessEvents.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cdsGridBusinessEvents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.cdsGridBusinessEvents.ColumnOrder = "parentcatalog.name, catalog.name";
+            this.cdsGridBusinessEvents.ColumnOrder = "parentcatalog.name, catalog.name, name";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -576,6 +591,7 @@
             this.cdsGridBusinessEvents.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.cdsGridBusinessEvents.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.cdsGridBusinessEvents.ShowAllColumnsInColumnOrder = true;
+            this.cdsGridBusinessEvents.ShowColumnsNotInColumnOrder = false;
             this.cdsGridBusinessEvents.ShowFriendlyNames = true;
             this.cdsGridBusinessEvents.ShowIdColumn = false;
             this.cdsGridBusinessEvents.ShowIndexColumn = false;
@@ -2029,5 +2045,6 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.ComponentModel.BackgroundWorker backgroundWorker2;
         private xrmtb.XrmToolBox.Controls.CRMGridView cdsGridBusinessEvents;
+        private System.Windows.Forms.Button btnCatalogManager;
     }
 }

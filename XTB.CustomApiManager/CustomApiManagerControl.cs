@@ -1,27 +1,28 @@
-﻿using System;
+﻿using McTools.Xrm.Connection;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
+using System.ComponentModel.Composition.Hosting;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Services.Description;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
+using xrmtb.XrmToolBox.Controls;
+using xrmtb.XrmToolBox.Controls.Controls;
 using XrmToolBox.Extensibility;
-using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Sdk;
-using McTools.Xrm.Connection;
-using System.Reflection;
+using XrmToolBox.Extensibility.Interfaces;
+using XTB.CustomApiManager.Entities;
+using XTB.CustomApiManager.Forms;
 using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
-using XTB.CustomApiManager.Entities;
-using xrmtb.XrmToolBox.Controls.Controls;
-using xrmtb.XrmToolBox.Controls;
-using XTB.CustomApiManager.Forms;
-using XrmToolBox.Extensibility.Interfaces;
-using System.Web.Services.Description;
 using static ScintillaNET.Style;
-using System.ComponentModel.Composition.Hosting;
 
 namespace XTB.CustomApiManager
 {
@@ -834,7 +835,7 @@ namespace XTB.CustomApiManager
             //Get Inputs
             WorkAsync(new WorkAsyncInfo
             {
-                Message = "Loading catalogassignments...",
+                Message = "Loading Business Events...",
                 Work = (worker, args) =>
                 {
                     args.Result = Service.GetCatalogAssignmentsFor(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
@@ -854,11 +855,20 @@ namespace XTB.CustomApiManager
 
                             SetGridBusinessEventsDataSource(catalogAssignments);
 
-                            cdsGridBusinessEvents.ClearSelection();
+                            if (cdsGridBusinessEvents.Rows.Count > 0)
+                            {
+
+                                cdsGridBusinessEvents.CurrentCell = cdsGridBusinessEvents.Rows[0].Cells[2];
+
+                            }
+
+
+
+                            //cdsGridBusinessEvents.ClearSelection();
 
                             //if (cdsGridBusinessEvents.Rows.Count > 0)
                             //{
-                                
+
 
                             //}
                             //else
