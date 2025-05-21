@@ -861,21 +861,6 @@ namespace XTB.CustomApiManager
                                 cdsGridBusinessEvents.CurrentCell = cdsGridBusinessEvents.Rows[0].Cells[2];
 
                             }
-
-
-
-                            //cdsGridBusinessEvents.ClearSelection();
-
-                            //if (cdsGridBusinessEvents.Rows.Count > 0)
-                            //{
-
-
-                            //}
-                            //else
-                            //{
-                            //    SetCatalogAssignment(null);
-                            //}
-
                         }
                     }
                 }
@@ -1159,6 +1144,17 @@ namespace XTB.CustomApiManager
             LoadCustomApis();
         }
 
-        
+        private void btnCatalogManager_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = _selectedCatalogAssignment.CatalogAssignmentRow.Id });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
     }
 }
