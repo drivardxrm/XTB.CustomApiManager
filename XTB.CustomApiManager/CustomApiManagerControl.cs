@@ -827,7 +827,7 @@ namespace XTB.CustomApiManager
 
         private void LoadBusinessEvents()
         {
-
+            imgBusinessEvents.Visible = false;
             SetGridBusinessEventsDataSource(null);
 
             SetCatalogAssignment(null);
@@ -857,7 +857,7 @@ namespace XTB.CustomApiManager
 
                             if (cdsGridBusinessEvents.Rows.Count > 0)
                             {
-
+                                imgBusinessEvents.Visible = true;
                                 cdsGridBusinessEvents.CurrentCell = cdsGridBusinessEvents.Rows[0].Cells[2];
 
                             }
