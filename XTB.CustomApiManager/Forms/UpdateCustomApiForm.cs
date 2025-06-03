@@ -74,6 +74,12 @@ namespace XTB.CustomApiManager.Forms
                 txtLookupPluginType.Text = _customapiproxy.PluginType.Name;
             }
 
+            if (_customapiproxy.IsPowerFxFunc) 
+            {
+                txtLookupPluginType.Enabled = false;
+                btnLookupPluginType.Enabled = false;
+            }
+
 
         }
 

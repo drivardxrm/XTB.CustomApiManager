@@ -78,6 +78,11 @@ namespace XTB.CustomApiManager.Proxy
 
         public bool CanCustomize => !IsManaged || (IsManaged && IsCustomizable);
 
+        public bool IsPowerFxFunc => CustomApiRow.Attributes.Contains(CustomAPI.FxExpression) &&
+                                   ((EntityReference)CustomApiRow[CustomAPI.FxExpression]) != null;
+
+        public EntityReference FxExpressionRef => IsPowerFxFunc ? ((EntityReference)CustomApiRow[CustomAPI.FxExpression]) : null;
+
 
     }
 }

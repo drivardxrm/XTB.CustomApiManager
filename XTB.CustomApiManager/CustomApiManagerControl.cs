@@ -1,24 +1,28 @@
-﻿using System;
+﻿using McTools.Xrm.Connection;
+using Microsoft.Xrm.Sdk;
+using Microsoft.Xrm.Sdk.Query;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
+using System.ComponentModel.Composition.Hosting;
 using System.Data;
+using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Services.Description;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
+using xrmtb.XrmToolBox.Controls;
+using xrmtb.XrmToolBox.Controls.Controls;
 using XrmToolBox.Extensibility;
-using Microsoft.Xrm.Sdk.Query;
-using Microsoft.Xrm.Sdk;
-using McTools.Xrm.Connection;
-using System.Reflection;
+using XrmToolBox.Extensibility.Interfaces;
+using XTB.CustomApiManager.Entities;
+using XTB.CustomApiManager.Forms;
 using XTB.CustomApiManager.Helpers;
 using XTB.CustomApiManager.Proxy;
-using XTB.CustomApiManager.Entities;
-using xrmtb.XrmToolBox.Controls.Controls;
-using xrmtb.XrmToolBox.Controls;
-using XTB.CustomApiManager.Forms;
-using XrmToolBox.Extensibility.Interfaces;
+using static ScintillaNET.Style;
 
 namespace XTB.CustomApiManager
 {
@@ -36,6 +40,10 @@ namespace XTB.CustomApiManager
         private CustomApiRequestParameterProxy _selectedRequestParameter;
 
         private CustomApiResponsePropertyProxy _selectedResponseProperty;
+
+        private CatalogAssignmentProxy _selectedCatalogAssignment;
+
+        private FxExpressionProxy _selectedFxExpression;
 
         //private Entity _selectedPublisher;
 
@@ -232,6 +240,21 @@ namespace XTB.CustomApiManager
 
         }
 
+        private void menuPluginTrace_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                var filter = $"message={_selectedCustomApi.UniqueName}";
+                
+                OnOutgoingMessage(this, new MessageBusEventArgs("Plugin Trace Viewer") { TargetArgument = filter });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
+
         private void menuSettings_Click(object sender, EventArgs e)
         {
             SettingsDialog();
@@ -373,8 +396,10 @@ namespace XTB.CustomApiManager
             //Refresh Inputs / Outputs
             LoadRequestParameters();
             LoadResponseProperties();
+            LoadBusinessEvents();
 
             menuTestApi.Enabled = cdsCboCustomApi.SelectedIndex != -1;
+            menuPluginTrace.Enabled = cdsCboCustomApi.SelectedIndex != -1;
 
         }
 
@@ -388,6 +413,12 @@ namespace XTB.CustomApiManager
         private void cdsGridOutputs_RecordEnter(object sender, CRMRecordEventArgs e)
         {
             SetSelectedResponseProperty(Service.GetResponseProperty(e.Entity.Id));
+        }
+
+        private void cdsGridBusinessEvents_RecordEnter(object sender, CRMRecordEventArgs e)
+        {
+            SetCatalogAssignment(Service.GetCatalogAssignmentFor(e.Entity.Id));
+
         }
 
 
@@ -557,6 +588,15 @@ namespace XTB.CustomApiManager
             cdsGridOutputs.RecordEnter += new CRMRecordEventHandler(cdsGridOutputs_RecordEnter);
         }
 
+        private void SetGridBusinessEventsDataSource(object datasource)
+        {
+            cdsGridBusinessEvents.RecordEnter -= new CRMRecordEventHandler(cdsGridBusinessEvents_RecordEnter);
+            cdsGridBusinessEvents.DataSource = datasource;
+            cdsGridBusinessEvents.RecordEnter += new CRMRecordEventHandler(cdsGridBusinessEvents_RecordEnter);
+        }
+
+
+
         private void SetSelectedCustomApi(Entity customapi)
         {
             _selectedCustomApi = customapi != null ? new CustomApiProxy(customapi) : null;
@@ -589,6 +629,33 @@ namespace XTB.CustomApiManager
                 btnAddOutput.Enabled = _selectedCustomApi.CanCustomize;
 
             }
+
+            if (_selectedCustomApi?.IsPowerFxFunc == true)
+            {
+                var fxExpression = Service.GetFxExpression(_selectedCustomApi.FxExpressionRef.Id);
+                _selectedFxExpression = new FxExpressionProxy(fxExpression);
+                imgPowerFxFunction.Visible = true;
+               
+                
+                txtFxExpression.Text = _selectedFxExpression.Expression;
+                txtFxWarning.Visible = true;
+                btnAddInput.Enabled = false;
+                btnAddOutput.Enabled = false;
+               
+                btnDeleteApi.Enabled = false;
+                
+            }
+            else 
+            {
+                _selectedFxExpression = null;
+                imgPowerFxFunction.Visible = false;
+
+                
+                
+                txtFxExpression.Text = string.Empty;
+                txtFxWarning.Visible = false;
+            }
+            UpdateTreeContext();
 
 
             imgGrpCustomApi.Enabled = _selectedCustomApi != null;
@@ -670,10 +737,10 @@ namespace XTB.CustomApiManager
 
             //enable buttons
             btnEditInput.Enabled = _selectedRequestParameter?.RequestParameterRow != null
-                                        && _selectedRequestParameter.CanCustomize;
+                                        && _selectedRequestParameter.CanCustomize && _selectedFxExpression == null;
 
             btnDeleteInput.Enabled = _selectedRequestParameter?.RequestParameterRow != null
-                                        && _selectedRequestParameter.CanCustomize;
+                                        && _selectedRequestParameter.CanCustomize && _selectedFxExpression == null;
 
         }
 
@@ -747,6 +814,57 @@ namespace XTB.CustomApiManager
             btnDeleteOutput.Enabled = _selectedResponseProperty?.ResponsePropertyRow != null
                                         && _selectedResponseProperty.CanCustomize;
 
+        }
+
+        private void SetCatalogAssignment(Entity requestparameter)
+        {
+
+            _selectedCatalogAssignment = new CatalogAssignmentProxy(requestparameter);
+
+           
+
+        }
+
+        private void LoadBusinessEvents()
+        {
+            imgBusinessEvents.Visible = false;
+            SetGridBusinessEventsDataSource(null);
+
+            SetCatalogAssignment(null);
+
+            //Get Inputs
+            WorkAsync(new WorkAsyncInfo
+            {
+                Message = "Loading Business Events...",
+                Work = (worker, args) =>
+                {
+                    args.Result = Service.GetCatalogAssignmentsFor(_selectedCustomApi?.CustomApiRow.Id ?? Guid.Empty);
+
+                },
+                PostWorkCallBack = (args) =>
+                {
+                    if (args.Error != null)
+                    {
+                        MessageBox.Show(args.Error.Message);
+                    }
+                    else
+                    {
+                        if (args.Result is EntityCollection)
+                        {
+                            var catalogAssignments = (EntityCollection)args.Result;
+
+                            SetGridBusinessEventsDataSource(catalogAssignments);
+
+                            if (cdsGridBusinessEvents.Rows.Count > 0)
+                            {
+                                imgBusinessEvents.Visible = true;
+                                cdsGridBusinessEvents.CurrentCell = cdsGridBusinessEvents.Rows[0].Cells[2];
+
+                            }
+                        }
+                    }
+                }
+            });
         }
 
 
@@ -978,6 +1096,41 @@ namespace XTB.CustomApiManager
             }
         }
 
+        private void UpdateTreeContext()
+        {
+            treeContext.Nodes.Clear();
+
+            if (_selectedFxExpression != null)
+            {
+                //var rootname = $"{_selectedFxExpression.Name} ({_selectedFxExpression.UniqueName})";
+
+                //var rootnode = treeContext.Nodes.Add(rootname);
+
+                //rootnode.ImageIndex = 0;
+                //rootnode.SelectedImageIndex = 0;
+
+
+
+
+                var tablesnode = treeContext.Nodes.Add("Tables");
+                
+
+                foreach (var table in _selectedFxExpression.ContextObject.Tables)
+                {
+                    var tablenode = tablesnode.Nodes.Add(table);
+                    //tablenode.ImageIndex = 100;
+                    //tablenode.SelectedImageIndex = 100;
+                }
+
+                tablesnode.ImageIndex = 1;
+                tablesnode.SelectedImageIndex = 1;
+            }
+            treeContext.ExpandAll();
+
+
+
+        }
+
 
         #endregion
 
@@ -989,6 +1142,24 @@ namespace XTB.CustomApiManager
         private void chkUnmanaged_CheckedChanged(object sender, EventArgs e)
         {
             LoadCustomApis();
+        }
+
+        private void btnCatalogManager_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = _selectedCatalogAssignment.CatalogAssignmentRow.Id.ToString() });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+            }
+
+        }
+
+        private void menuCatalogManager_Click(object sender, EventArgs e)
+        {
+            OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = null });
         }
     }
 }

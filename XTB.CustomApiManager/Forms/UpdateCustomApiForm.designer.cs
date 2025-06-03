@@ -188,6 +188,8 @@
             // 
             // cdsCboPrivileges
             // 
+            this.cdsCboPrivileges.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cdsCboPrivileges.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cdsCboPrivileges.DisplayFormat = "";
             this.cdsCboPrivileges.FormattingEnabled = true;
             this.cdsCboPrivileges.Location = new System.Drawing.Point(145, 291);
