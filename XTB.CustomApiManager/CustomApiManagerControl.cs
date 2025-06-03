@@ -1156,5 +1156,10 @@ namespace XTB.CustomApiManager
             }
 
         }
+
+        private void menuCatalogManager_Click(object sender, EventArgs e)
+        {
+            OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = null });
+        }
     }
 }
