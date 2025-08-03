@@ -44,8 +44,12 @@ namespace XTB.CustomApiManager.Proxy
         {
             get
             {
-                var context = JsonConvert.DeserializeObject<FxExpressionContext>(FxEpressionRow[FxExpression.Context].ToString());
-                return context;
+                if (FxEpressionRow.Contains(FxExpression.Context) && FxEpressionRow[FxExpression.Context] != null)
+                {
+                    var context = JsonConvert.DeserializeObject<FxExpressionContext>(FxEpressionRow[FxExpression.Context].ToString());
+                    return context;
+                }
+                return null;
             }
         }
 

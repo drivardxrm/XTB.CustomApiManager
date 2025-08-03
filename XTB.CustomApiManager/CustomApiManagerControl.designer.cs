@@ -44,6 +44,7 @@
             this.menuNewApi = new System.Windows.Forms.ToolStripButton();
             this.menuTestApi = new System.Windows.Forms.ToolStripButton();
             this.menuPluginTrace = new System.Windows.Forms.ToolStripButton();
+            this.menuCatalogManager = new System.Windows.Forms.ToolStripButton();
             this.tssSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.tslAbout = new System.Windows.Forms.ToolStripLabel();
             this.menuSettings = new System.Windows.Forms.ToolStripButton();
@@ -167,7 +168,6 @@
             this.cdsTxtIsPrivate = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBoundEntity = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
             this.cdsTxtBindingType = new xrmtb.XrmToolBox.Controls.Controls.CDSDataTextBox();
-            this.menuCatalogManager = new System.Windows.Forms.ToolStripButton();
             this.toolStripMenu.SuspendLayout();
             this.grpFilter.SuspendLayout();
             this.imgGrpCustomApi.SuspendLayout();
@@ -208,7 +208,7 @@
             this.menuSettings});
             this.toolStripMenu.Location = new System.Drawing.Point(0, 0);
             this.toolStripMenu.Name = "toolStripMenu";
-            this.toolStripMenu.Size = new System.Drawing.Size(1129, 31);
+            this.toolStripMenu.Size = new System.Drawing.Size(1124, 31);
             this.toolStripMenu.TabIndex = 4;
             this.toolStripMenu.Text = "toolStrip1";
             // 
@@ -250,6 +250,16 @@
             this.menuPluginTrace.Text = "Plugin Trace Viewer";
             this.menuPluginTrace.ToolTipText = "Latest executions in  Plugin Trace Viewer";
             this.menuPluginTrace.Click += new System.EventHandler(this.menuPluginTrace_Click);
+            // 
+            // menuCatalogManager
+            // 
+            this.menuCatalogManager.Image = ((System.Drawing.Image)(resources.GetObject("menuCatalogManager.Image")));
+            this.menuCatalogManager.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.menuCatalogManager.Name = "menuCatalogManager";
+            this.menuCatalogManager.Size = new System.Drawing.Size(158, 28);
+            this.menuCatalogManager.Text = "Open Catalog Manager";
+            this.menuCatalogManager.ToolTipText = "Open Catalog Manager to create Business Events with Custom APIs";
+            this.menuCatalogManager.Click += new System.EventHandler(this.menuCatalogManager_Click);
             // 
             // tssSeparator1
             // 
@@ -1873,26 +1883,17 @@
             this.cdsTxtBindingType.Size = new System.Drawing.Size(89, 20);
             this.cdsTxtBindingType.TabIndex = 13;
             // 
-            // menuCatalogManager
-            // 
-            this.menuCatalogManager.Image = ((System.Drawing.Image)(resources.GetObject("menuCatalogManager.Image")));
-            this.menuCatalogManager.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.menuCatalogManager.Name = "menuCatalogManager";
-            this.menuCatalogManager.Size = new System.Drawing.Size(158, 28);
-            this.menuCatalogManager.Text = "Open Catalog Manager";
-            this.menuCatalogManager.ToolTipText = "Open Catalog Manager to create Business Events with Custom APIs";
-            this.menuCatalogManager.Click += new System.EventHandler(this.menuCatalogManager_Click);
-            // 
             // CustomApiManagerControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.Controls.Add(this.imgGrpCustomApi);
             this.Controls.Add(this.toolStripMenu);
             this.Controls.Add(this.grpFilter);
             this.Name = "CustomApiManagerControl";
-            this.Size = new System.Drawing.Size(1129, 1059);
+            this.Size = new System.Drawing.Size(1112, 1042);
             this.ttInfo.SetToolTip(this, "Localized display name for this Custom API. \r\nFor use when the message is exposed" +
         " to be called in an app.");
             this.Load += new System.EventHandler(this.CustomApiManagerControl_Load);

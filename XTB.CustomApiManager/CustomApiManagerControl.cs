@@ -1100,7 +1100,7 @@ namespace XTB.CustomApiManager
         {
             treeContext.Nodes.Clear();
 
-            if (_selectedFxExpression != null)
+            if (_selectedFxExpression != null && _selectedFxExpression.ContextObject != null)
             {
                 //var rootname = $"{_selectedFxExpression.Name} ({_selectedFxExpression.UniqueName})";
 
