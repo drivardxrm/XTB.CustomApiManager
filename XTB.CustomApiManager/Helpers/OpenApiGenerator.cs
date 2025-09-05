@@ -4,8 +4,11 @@ using System.Linq;
 using System.Text;
 using Microsoft.Xrm.Sdk;
 using Newtonsoft.Json;
+using YamlDotNet.Serialization;
 using XTB.CustomApiManager.Entities;
 using XTB.CustomApiManager.Proxy;
+
+
 
 namespace XTB.CustomApiManager.Helpers
 {
@@ -13,189 +16,289 @@ namespace XTB.CustomApiManager.Helpers
     public class OpenApiDocument
     {
         [JsonProperty("openapi")]
+        [YamlMember(Alias = "openapi")]
         public string OpenApi { get; set; }
 
         [JsonProperty("info")]
+        [YamlMember(Alias = "info")]
         public OpenApiInfo Info { get; set; }
 
         [JsonProperty("servers")]
+        [YamlMember(Alias = "servers")]
         public OpenApiServer[] Servers { get; set; }
 
         [JsonProperty("paths")]
-        public Dictionary<string, object> Paths { get; set; }
+        [YamlMember(Alias = "paths")]
+        public Dictionary<string, OpenApiPathItem> Paths { get; set; } // Changed from Dictionary<string, object>
 
         [JsonProperty("components")]
+        [YamlMember(Alias = "components")]
         public OpenApiComponents Components { get; set; }
 
-        [JsonProperty("security")]
-        public OpenApiSecurityRequirement[] Security { get; set; }
+        //[JsonProperty("security")]
+        //[YamlMember(Alias = "security")]
+        //public OpenApiSecurityRequirement[] Security { get; set; } // Changed back to array
     }
 
     public class OpenApiInfo
     {
         [JsonProperty("title")]
+        [YamlMember(Alias = "title")]
         public string Title { get; set; }
 
         [JsonProperty("description")]
+        [YamlMember(Alias = "description")]
         public string Description { get; set; }
 
         [JsonProperty("version")]
+        [YamlMember(Alias = "version")]
         public string Version { get; set; }
     }
 
     public class OpenApiServer
     {
         [JsonProperty("url")]
+        [YamlMember(Alias = "url")]
         public string Url { get; set; }
     }
 
     public class OpenApiComponents
     {
         [JsonProperty("schemas")]
+        [YamlMember(Alias = "schemas")]
         public Dictionary<string, object> Schemas { get; set; }
 
-        [JsonProperty("securitySchemes")]
-        public Dictionary<string, OpenApiSecurityScheme> SecuritySchemes { get; set; }
+        //[JsonProperty("securitySchemes")]
+        //[YamlMember(Alias = "securitySchemes")]
+        //public Dictionary<string, OpenApiSecurityScheme> SecuritySchemes { get; set; }
+    }
+
+
+    public class OpenApiPathItem
+    {
+        [JsonProperty("get", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "get")]
+        public OpenApiOperation Get { get; set; }
+
+        [JsonProperty("post", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "post")]
+        public OpenApiOperation Post { get; set; }
+
+        [JsonProperty("put", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "put")]
+        public OpenApiOperation Put { get; set; }
+
+        [JsonProperty("delete", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "delete")]
+        public OpenApiOperation Delete { get; set; }
+
+        [JsonProperty("patch", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "patch")]
+        public OpenApiOperation Patch { get; set; }
+    }
+
+    public class OpenApiOperation
+    {
+        [JsonProperty("tags", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "tags")]
+        public string[] Tags { get; set; }
+
+        [JsonProperty("summary", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "summary")]
+        public string Summary { get; set; }
+
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "description")]
+        public string Description { get; set; }
+
+        [JsonProperty("operationId", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "operationId")]
+        public string OperationId { get; set; }
+
+        [JsonProperty("parameters", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "parameters")]
+        public OpenApiParameter[] Parameters { get; set; }
+
+        [JsonProperty("requestBody", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "requestBody")]
+        public OpenApiRequestBody RequestBody { get; set; }
+
+        [JsonProperty("responses")]
+        [YamlMember(Alias = "responses")]
+        public OpenApiResponses Responses { get; set; }
     }
 
     public class OpenApiRequestBody
     {
         [JsonProperty("required")]
+        [YamlMember(Alias = "required")]
         public bool Required { get; set; }
 
         [JsonProperty("content")]
+        [YamlMember(Alias = "content")]
         public Dictionary<string, OpenApiMediaType> Content { get; set; }
     }
 
     public class OpenApiMediaType
     {
         [JsonProperty("schema")]
+        [YamlMember(Alias = "schema")]
         public OpenApiSchema Schema { get; set; }
     }
 
-    public class OpenApiProperty
-    {
-        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
-        public string Type { get; set; }
-
-        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
-        public string Description { get; set; }
-
-        [JsonProperty("format", NullValueHandling = NullValueHandling.Ignore)]
-        public string Format { get; set; }
-
-        [JsonProperty("pattern", NullValueHandling = NullValueHandling.Ignore)]
-        public string Pattern { get; set; }
-
-        [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
-        public OpenApiSchema Items { get; set; }
-    }
 
     public class OpenApiSchema
     {
+        
+        [JsonProperty(@"$ref", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "$ref")]
+        public string Ref { get; set; }
+
         [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "type")]
         public string Type { get; set; }
 
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "description")]
+        public string Description { get; set; }
+
         [JsonProperty("properties", NullValueHandling = NullValueHandling.Ignore)]
-        public Dictionary<string, OpenApiProperty> Properties { get; set; }
+        [YamlMember(Alias = "properties")]
+        public Dictionary<string, OpenApiSchema> Properties { get; set; }
 
         [JsonProperty("required", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "required")]
         public string[] Required { get; set; }
 
         [JsonProperty("format", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "format")]
         public string Format { get; set; }
 
         [JsonProperty("pattern", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "pattern")]
         public string Pattern { get; set; }
 
         [JsonProperty("items", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "items")]
         public OpenApiSchema Items { get; set; }
+
+        [JsonProperty("maximum", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "maximum")]
+        public int? Maximum { get; internal set; }
+
+
+        [JsonProperty("minimum", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "minimum")]
+        public int? Minimum { get; internal set; }
     }
 
     public class OpenApiParameter
     {
         [JsonProperty("name", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "name")]
         public string Name { get; set; }
 
         [JsonProperty("in", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "in")]
         public string In { get; set; }
 
-        [JsonProperty("required")]
+        [JsonProperty("required", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "required")]
         public bool Required { get; set; }
 
         [JsonProperty("schema", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "schema")]
         public OpenApiSchema Schema { get; set; }
 
         [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "description")]
         public string Description { get; set; }
+
+        [JsonProperty("x-ms-docs-key-type", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "x-ms-docs-key-type")]
+        public string XMsDocsKeyType { get; set; }
     }
 
     public class OpenApiSecurityScheme
     {
         [JsonProperty("type")]
+        [YamlMember(Alias = "type")]
         public string Type { get; set; }
 
         [JsonProperty("flows")]
+        [YamlMember(Alias = "flows")]
         public OpenApiOAuthFlows Flows { get; set; }
 
         [JsonProperty("description")]
+        [YamlMember(Alias = "description")]
         public string Description { get; set; }
     }
 
     public class OpenApiOAuthFlows
     {
         [JsonProperty("authorizationCode")]
+        [YamlMember(Alias = "authorizationCode")]
         public OpenApiOAuthFlow AuthorizationCode { get; set; }
 
         [JsonProperty("clientCredentials")]
+        [YamlMember(Alias = "clientCredentials")]
         public OpenApiOAuthFlow ClientCredentials { get; set; }
     }
 
     public class OpenApiOAuthFlow
     {
-        [JsonProperty("authorizationUrl")]
+        [JsonProperty("authorizationUrl", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "authorizationUrl")]
         public string AuthorizationUrl { get; set; }
 
-        [JsonProperty("tokenUrl")]
+        [JsonProperty("tokenUrl", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "tokenUrl")]
         public string TokenUrl { get; set; }
 
-        [JsonProperty("scopes")]
+        [JsonProperty("scopes", NullValueHandling = NullValueHandling.Ignore)]
+        [YamlMember(Alias = "scopes")]
         public Dictionary<string, string> Scopes { get; set; }
     }
 
-    public class OpenApiSecurityRequirement
+    public class OpenApiSecurityRequirement : Dictionary<string, string[]>
     {
-        [JsonProperty]
-        public Dictionary<string, string[]> Requirements { get; set; }
+        // This class now inherits from Dictionary directly
+        // Remove the Requirements property as it's not needed
     }
 
     public class OpenApiResponses
     {
         [JsonProperty("200")]
+        [YamlMember(Alias = "200")]
         public OpenApiResponse Success { get; set; }
 
         [JsonProperty("400")]
+        [YamlMember(Alias = "400")]
         public OpenApiResponse BadRequest { get; set; }
 
         [JsonProperty("401")]
+        [YamlMember(Alias = "401")]
         public OpenApiResponse Unauthorized { get; set; }
 
         [JsonProperty("500")]
+        [YamlMember(Alias = "500")]
         public OpenApiResponse InternalServerError { get; set; }
     }
 
     public class OpenApiResponse
     {
         [JsonProperty("description")]
+        [YamlMember(Alias = "description")]
         public string Description { get; set; }
 
         [JsonProperty("content")]
+        [YamlMember(Alias = "content")]
         public Dictionary<string, OpenApiMediaType> Content { get; set; }
     }
 
     public static class OpenApiGenerator
     {
-        public static string GenerateOpenApiJson(CustomApiProxy customApi, EntityCollection requestParameters, EntityCollection responseProperties, string baseUrl, string tenantId, string boundEntitySetName)
+        public static string GenerateOpenApiJson(CustomApiProxy customApi, List<CustomApiRequestParameterProxy> requestParameters, List<CustomApiResponsePropertyProxy> responseProperties, string baseUrl, string tenantId, string boundEntitySetName)
         {
             var openapi = OpenApiDocumentFor(customApi, requestParameters, responseProperties, baseUrl, tenantId, boundEntitySetName);
 
@@ -208,17 +311,35 @@ namespace XTB.CustomApiManager.Helpers
             return JsonConvert.SerializeObject(openapi, settings);
         }
 
-        public static string GenerateOpenApiYaml(CustomApiProxy customApi, EntityCollection requestParameters, EntityCollection responseProperties, string baseUrl, string tenantId, string boundEntitySetName)
+        public static string GenerateOpenApiYaml(CustomApiProxy customApi, List<CustomApiRequestParameterProxy> requestParameters, List<CustomApiResponsePropertyProxy> responseProperties, string baseUrl, string tenantId, string boundEntitySetName)
         {
             var openapi = OpenApiDocumentFor(customApi, requestParameters, responseProperties, baseUrl, tenantId, boundEntitySetName);
 
-            return ConvertToYaml(openapi);
+            // OPTION 1: Current manual YAML generation (keep as fallback)
+            //return ConvertToYaml(openapi);
+
+            // OPTION 2: YamlDotNet implementation (uncomment when ready)
+            return ConvertToYamlWithYamlDotNet(openapi);
         }
 
-        private static OpenApiDocument OpenApiDocumentFor(CustomApiProxy customApi, EntityCollection requestParameters, EntityCollection responseProperties, string baseUrl, string tenantId, string boundEntitySetName)
+
+        // YamlDotNet Implementation - COMMENTED OUT FOR NOW
+        private static string ConvertToYamlWithYamlDotNet(OpenApiDocument document)
         {
-            
-            
+            var serializer = new SerializerBuilder()
+                .ConfigureDefaultValuesHandling(DefaultValuesHandling.OmitNull)
+                .Build();
+
+            return serializer.Serialize(document);
+        }
+
+
+        private static OpenApiDocument OpenApiDocumentFor(CustomApiProxy customApi, List<CustomApiRequestParameterProxy> requestParameters, List<CustomApiResponsePropertyProxy> responseProperties, string baseUrl, string tenantId, string boundEntitySetName)
+        {
+            // Extract environment host for the security scope
+            var uri = new Uri(baseUrl);
+            var environmentHost = uri.Host;
+
             return new OpenApiDocument
             {
                 OpenApi = "3.0.0",
@@ -235,25 +356,22 @@ namespace XTB.CustomApiManager.Helpers
                 Paths = GeneratePaths(customApi, requestParameters, responseProperties, boundEntitySetName),
                 Components = new OpenApiComponents
                 {
-                    Schemas = GenerateSchemas(customApi, requestParameters, responseProperties),
-                    SecuritySchemes = GenerateSecuritySchemes(tenantId)
+                    Schemas = GenerateComponentsSchemas(customApi, requestParameters, responseProperties),
+                    //SecuritySchemes = GenerateSecuritySchemes(tenantId, baseUrl)
                 },
-                Security = new[]
-                {
-                    new OpenApiSecurityRequirement
-                    {
-                        Requirements = new Dictionary<string, string[]>
-                        {
-                            ["oauth2"] = new string[] { "https://service.powerapps.com/user_impersonation" }
-                        }
-                    }
-                }
+                //Security = new[]
+                //{
+                //    new OpenApiSecurityRequirement
+                //    {
+                //        ["azuread"] = new string[] { $"https://{environmentHost}/.default" }
+                //    }
+                //}
             };
-        }
+         }
 
-        private static Dictionary<string, object> GeneratePaths(CustomApiProxy customApi, EntityCollection requestParameters, EntityCollection responseProperties, string boundEntitySetName)
+        private static Dictionary<string, OpenApiPathItem> GeneratePaths(CustomApiProxy customApi, List<CustomApiRequestParameterProxy> requestParameters, List<CustomApiResponsePropertyProxy> responseProperties, string boundEntitySetName)
         {
-            var paths = new Dictionary<string, object>();
+            var paths = new Dictionary<string, OpenApiPathItem>();
 
             // Generate the API path
             string apiPath = $"/api/data/v9.2/{customApi.UniqueName}";
@@ -262,23 +380,34 @@ namespace XTB.CustomApiManager.Helpers
                 apiPath = $"/api/data/v9.2/{boundEntitySetName}({{{customApi.BoundEntityLogicalName}id}})/Microsoft.Dynamics.CRM.{customApi.UniqueName}";
             }
 
-            var httpMethod = customApi.IsFunction ? "get" : "post";
-            var operation = new
+            var operation = new OpenApiOperation
             {
-                tags = new[] { customApi.UniqueName },
-                summary = customApi.DisplayName,
-                description = customApi.Description,
-                operationId = customApi.UniqueName,
-                parameters = GenerateParameters(customApi, requestParameters),
-                requestBody = !customApi.IsFunction ? GenerateRequestBody(requestParameters) : null,
-                responses = GenerateResponses(responseProperties)
+                Tags = new[] { customApi.UniqueName },
+                Summary = customApi.DisplayName,
+                Description = customApi.Description,
+                OperationId = customApi.UniqueName,
+                Parameters = GenerateParameters(customApi, requestParameters),
+                RequestBody = !customApi.IsFunction ? GenerateRequestBody(requestParameters) : null,
+                Responses = GenerateResponses(responseProperties)
             };
 
-            paths[apiPath] = new Dictionary<string, object> { { httpMethod, operation } };
+            var pathItem = new OpenApiPathItem();
+
+            // Set the appropriate HTTP method based on whether it's a function or action
+            if (customApi.IsFunction)
+            {
+                pathItem.Get = operation;
+            }
+            else
+            {
+                pathItem.Post = operation;
+            }
+
+            paths[apiPath] = pathItem;
             return paths;
         }
 
-        private static OpenApiParameter[] GenerateParameters(CustomApiProxy customApi, EntityCollection requestParameters)
+        private static OpenApiParameter[] GenerateParameters(CustomApiProxy customApi, List<CustomApiRequestParameterProxy> requestParameters)
         {
             var parameters = new List<OpenApiParameter>();
 
@@ -290,29 +419,31 @@ namespace XTB.CustomApiManager.Helpers
                     Name = $"{customApi.BoundEntityLogicalName}id",
                     In = "path",
                     Required = true,
-                    Schema = new OpenApiSchema 
-                    { 
-                        Type = "string", 
-                        Format = "uuid",
-                        Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                    Schema = new OpenApiSchema
+                    {
+                        //Type = "string",
+                        //Format = "uuid",
+                        //Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                        Ref = "#/components/schemas/Uuid" 
                     },
-                    Description = $"key: {customApi.BoundEntityLogicalName}id"
+                    Description = $"key: {customApi.BoundEntityLogicalName}id",
+                    XMsDocsKeyType = customApi.BoundEntityLogicalName
+
                 });
             }
 
             // Add query parameters for functions
             if (customApi.IsFunction)
             {
-                foreach (Entity param in requestParameters.Entities)
+                foreach (var param in requestParameters)
                 {
-                    var paramProxy = new CustomApiRequestParameterProxy(param, true);
                     parameters.Add(new OpenApiParameter
                     {
-                        Name = paramProxy.UniqueName,
+                        Name = param.UniqueName,
                         In = "query",
-                        Required = !paramProxy.IsOptional,
-                        Schema = GetSchemaForType(paramProxy.Type),
-                        Description = paramProxy.Description
+                        Required = !param.IsOptional,
+                        Schema = GetSchemaForType(param),
+                        Description = param.Description
                     });
                 }
             }
@@ -320,23 +451,22 @@ namespace XTB.CustomApiManager.Helpers
             return parameters.ToArray();
         }
 
-        private static OpenApiRequestBody GenerateRequestBody(EntityCollection requestParameters)
+        private static OpenApiRequestBody GenerateRequestBody(List<CustomApiRequestParameterProxy> requestParameters)
         {
-            if (requestParameters.Entities.Count == 0)
+            if (requestParameters.Count == 0)
                 return null;
 
-            var properties = new Dictionary<string, OpenApiProperty>();
+            var properties = new Dictionary<string, OpenApiSchema>();
             var required = new List<string>();
 
-            foreach (Entity param in requestParameters.Entities)
+            foreach (var param in requestParameters)
             {
-                var paramProxy = new CustomApiRequestParameterProxy(param, true);
-                var property = CreatePropertyForType(paramProxy.Type, paramProxy.Description);
+                var property = CreatePropertyForType(param);
 
-                properties[paramProxy.UniqueName] = property;
+                properties[param.UniqueName] = property;
 
-                if (!paramProxy.IsOptional)
-                    required.Add(paramProxy.UniqueName);
+                if (!param.IsOptional)
+                    required.Add(param.UniqueName);
             }
 
             return new OpenApiRequestBody
@@ -357,7 +487,7 @@ namespace XTB.CustomApiManager.Helpers
             };
         }
 
-        private static OpenApiResponses GenerateResponses(EntityCollection responseProperties)
+        private static OpenApiResponses GenerateResponses(List<CustomApiResponsePropertyProxy> responseProperties)
         {
             var responses = new OpenApiResponses
             {
@@ -366,15 +496,15 @@ namespace XTB.CustomApiManager.Helpers
                 InternalServerError = new OpenApiResponse { Description = "Internal Server Error" }
             };
 
-            if (responseProperties.Entities.Count > 0)
+            if (responseProperties.Count > 0)
             {
-                var properties = new Dictionary<string, OpenApiProperty>();
-                foreach (Entity prop in responseProperties.Entities)
+                var properties = new Dictionary<string, OpenApiSchema>();
+                foreach (var responseProperty in responseProperties)
                 {
-                    var propProxy = new CustomApiResponsePropertyProxy(prop, true);
-                    var property = CreatePropertyForResponseType(propProxy.Type, propProxy.Description);
 
-                    properties[propProxy.UniqueName] = property;
+                    var property = CreatePropertyForResponseType(responseProperty);
+
+                    properties[responseProperty.UniqueName] = property;
                 }
 
                 responses.Success = new OpenApiResponse
@@ -404,576 +534,261 @@ namespace XTB.CustomApiManager.Helpers
             return responses;
         }
 
-        private static Dictionary<string, object> GenerateSchemas(CustomApiProxy customApi, EntityCollection requestParameters, EntityCollection responseProperties)
+        private static Dictionary<string, object> GenerateComponentsSchemas(CustomApiProxy customApi, List<CustomApiRequestParameterProxy> requestParameters, List<CustomApiResponsePropertyProxy> responseProperties)
         {
-            // Could be expanded to include reusable schema definitions
-            return new Dictionary<string, object>();
+            var schemas = new Dictionary<string, object>();
+
+            if (!string.IsNullOrEmpty(customApi.BoundEntityLogicalName)) 
+            {
+                AddGuidSchema(schemas);
+            }
+
+
+            //request params
+            foreach (var param in requestParameters)
+            {
+                switch (param.Type)
+                {
+                    case CustomAPIRequestParameter.Type_OptionSet.Guid:
+
+                        AddGuidSchema(schemas);
+
+                        break;
+
+                    case CustomAPIRequestParameter.Type_OptionSet.DateTime:
+                        AddDateTimeSchema(schemas);
+                        break;
+
+                    case CustomAPIRequestParameter.Type_OptionSet.Integer:
+                    case CustomAPIRequestParameter.Type_OptionSet.Picklist:
+                        AddIntSchema(schemas);
+                        break;
+
+                    case CustomAPIRequestParameter.Type_OptionSet.EntityReference:
+
+                        AddEntityReferenceSchema(schemas, param.BoundEntityLogicalName);
+                        AddGuidSchema(schemas);
+                        break;
+
+                        // TODO EntityList
+                }
+            }
+
+
+            // response properties
+            foreach (var property in responseProperties)
+            {
+                switch (property.Type)
+                {
+                    case CustomAPIResponseProperty.Type_OptionSet.Guid:
+
+                        AddGuidSchema(schemas);
+
+                        break;
+
+                    case CustomAPIResponseProperty.Type_OptionSet.DateTime:
+                        AddDateTimeSchema(schemas);
+                        break;
+
+                    case CustomAPIResponseProperty.Type_OptionSet.Integer:
+                    case CustomAPIResponseProperty.Type_OptionSet.Picklist:
+                        AddIntSchema(schemas);
+                        break;
+
+                    case CustomAPIResponseProperty.Type_OptionSet.EntityReference:
+
+                        AddEntityReferenceSchema(schemas, property.BoundEntityLogicalName);
+                        AddGuidSchema(schemas);
+                        break;
+
+                        // TODO EntityList
+                }
+            }
+
+
+            return schemas;
         }
 
-        private static OpenApiSchema GetSchemaForType(CustomAPIRequestParameter.Type_OptionSet type)
+        private static void AddGuidSchema(Dictionary<string, object> schemas)
         {
-            var schema = new OpenApiSchema 
-            { 
-                Type = GetJsonTypeForDataverseType(type) 
-            };
-
-            // Handle specific type formatting
-            switch (type)
+            if (!schemas.ContainsKey($"Uuid"))
             {
+                schemas[$"Uuid"] = new OpenApiSchema
+                {
+                    Type = "string",
+                    Format = "uuid",
+                    Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                };
+            }
+        }
+
+        private static void AddIntSchema(Dictionary<string, object> schemas)
+        {
+            if (!schemas.ContainsKey($"Int32"))
+            {
+                schemas[$"Int32"] = new OpenApiSchema
+                {
+                    Type = "integer",
+                    Format = "int32",
+                    Maximum = 2147483647,
+                    Minimum = -2147483648
+                };
+            }
+        }
+
+        private static void AddDateTimeSchema(Dictionary<string, object> schemas)
+        {
+            if (!schemas.ContainsKey($"DateTime"))
+            {
+                schemas[$"DateTime"] = new OpenApiSchema
+                {
+                    Type = "string",
+                    Format = "date-time",
+                    Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$"
+                };
+            }
+        }
+
+        private static void AddEntityReferenceSchema(Dictionary<string, object> schemas, string entityName)
+        {
+
+            if (!schemas.ContainsKey($"Microsoft.Dynamics.CRM.{entityName}"))
+            {
+                schemas[$"Microsoft.Dynamics.CRM.{entityName}"] = new OpenApiSchema
+                {
+                    Type = "object",
+                    Properties = new Dictionary<string, OpenApiSchema>
+                    {
+                        ["@odata.type"] = new OpenApiSchema
+                        {
+                            Type = "string",
+                            Description = $"The OData type identifier for {entityName} entity",
+                            Pattern = $@"^Microsoft\.Dynamics\.CRM\.{entityName}$"
+                        },
+                        [$"{entityName}id"] = new OpenApiSchema
+                        {
+                            //Type = "string",
+                            //Format = "uuid",
+                            //Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+                            Ref = "#/components/schemas/Uuid",
+                            Description = $"The unique identifier of the {entityName}"
+                        }
+                    },
+                    Required = new[] { "@odata.type", $"{entityName}id" }
+                };
+            }
+        }
+
+        private static OpenApiSchema GetSchemaForType(CustomApiRequestParameterProxy param)
+        {
+            var schema = new OpenApiSchema();
+
+            switch (param.Type)
+            {
+                case CustomAPIRequestParameter.Type_OptionSet.Boolean:
+                    schema.Type = "boolean";
+                    break;
+
                 case CustomAPIRequestParameter.Type_OptionSet.DateTime:
-                    schema.Format = "date-time";
-                    schema.Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$";
+                    //schema.Type = "string";
+                    //schema.Format = "date-time";
+                    //schema.Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$";
+                    schema.Ref = $"#/components/schemas/DateTime";
                     break;
-                case CustomAPIRequestParameter.Type_OptionSet.Guid:
-                    schema.Format = "uuid";
-                    schema.Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
+
+                case CustomAPIRequestParameter.Type_OptionSet.Decimal:
+                    schema.Type = "number";
                     break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Entity:
+                    schema.Type = "object";
+
+                    break;
+
                 case CustomAPIRequestParameter.Type_OptionSet.EntityCollection:
+                    schema.Type = "array";
                     schema.Items = new OpenApiSchema { Type = "object" };
                     break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.EntityReference:
+                    //schema.Type = "object";
+                    schema.Ref = $"#/components/schemas/Microsoft.Dynamics.CRM.{param.BoundEntityLogicalName}";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Float:
+                    schema.Type = "number";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Integer:
+                    //schema.Type = "integer";
+                    schema.Ref = $"#/components/schemas/Int32";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Money:
+                    schema.Type = "number";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Picklist:
+                    schema.Ref = $"#/components/schemas/Int32";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.String:
+                    schema.Type = "string";
+                    break;
+
                 case CustomAPIRequestParameter.Type_OptionSet.StringArray:
+                    schema.Type = "array";
                     schema.Items = new OpenApiSchema { Type = "string" };
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Guid:
+                    //schema.Type = "string";
+                    //schema.Format = "uuid";
+                    //schema.Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
+                    schema.Ref = $"#/components/schemas/Uuid";
+                    break;
+
+                default:
+                    schema.Type = "string";
                     break;
             }
 
             return schema;
         }
 
-        private static string GetJsonTypeForDataverseType(CustomAPIRequestParameter.Type_OptionSet type)
+
+
+        
+
+
+        private static Dictionary<string, OpenApiSecurityScheme> GenerateSecuritySchemes(string tenantId, string baseurl)
         {
-            switch (type)
-            {
-                case CustomAPIRequestParameter.Type_OptionSet.Boolean:
-                    return "boolean";
-                case CustomAPIRequestParameter.Type_OptionSet.DateTime:
-                    return "string";
-                case CustomAPIRequestParameter.Type_OptionSet.Decimal:
-                    return "number";
-                case CustomAPIRequestParameter.Type_OptionSet.Float:
-                    return "number";
-                case CustomAPIRequestParameter.Type_OptionSet.Integer:
-                    return "integer";
-                case CustomAPIRequestParameter.Type_OptionSet.Money:
-                    return "number";
-                case CustomAPIRequestParameter.Type_OptionSet.String:
-                    return "string";
-                case CustomAPIRequestParameter.Type_OptionSet.Guid:
-                    return "string";
-                case CustomAPIRequestParameter.Type_OptionSet.Entity:
-                    return "object";
-                case CustomAPIRequestParameter.Type_OptionSet.EntityCollection:
-                    return "array";
-                case CustomAPIRequestParameter.Type_OptionSet.EntityReference:
-                    return "object";
-                case CustomAPIRequestParameter.Type_OptionSet.StringArray:
-                    return "array";
-                case CustomAPIRequestParameter.Type_OptionSet.Picklist:
-                    return "integer";
-                default:
-                    return "string";
-            }
-        }
+            // Extract environment name from baseUrl (e.g., "org12345.crm.dynamics.com" from "https://org12345.crm.dynamics.com")
+            var uri = new Uri(baseurl);
+            var environmentHost = uri.Host; // Gets "org12345.crm.dynamics.com"
 
-        private static string GetJsonTypeForDataverseType(CustomAPIResponseProperty.Type_OptionSet type)
-        {
-            switch (type)
-            {
-                case CustomAPIResponseProperty.Type_OptionSet.Boolean:
-                    return "boolean";
-                case CustomAPIResponseProperty.Type_OptionSet.DateTime:
-                    return "string";
-                case CustomAPIResponseProperty.Type_OptionSet.Decimal:
-                    return "number";
-                case CustomAPIResponseProperty.Type_OptionSet.Float:
-                    return "number";
-                case CustomAPIResponseProperty.Type_OptionSet.Integer:
-                    return "integer";
-                case CustomAPIResponseProperty.Type_OptionSet.Money:
-                    return "number";
-                case CustomAPIResponseProperty.Type_OptionSet.String:
-                    return "string";
-                case CustomAPIResponseProperty.Type_OptionSet.Entity:
-                    return "object";
-                case CustomAPIResponseProperty.Type_OptionSet.EntityCollection:
-                    return "array";
-                case CustomAPIResponseProperty.Type_OptionSet.EntityReference:
-                    return "object";
-                default:
-                    return "string";
-            }
-        }
-
-        private static string ConvertToYaml(object obj, int indentLevel = 0)
-        {
-            var yaml = new StringBuilder();
-            var indent = new string(' ', indentLevel * 2);
-
-            if (obj == null)
-            {
-                return "null";
-            }
-
-            var type = obj.GetType();
-
-            if (type.IsArray || (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>)))
-            {
-                var enumerable = obj as System.Collections.IEnumerable;
-                foreach (var item in enumerable)
-                {
-                    yaml.AppendLine($"{indent}- {ConvertToYaml(item, indentLevel + 1).TrimStart()}");
-                }
-            }
-            else if (type == typeof(Dictionary<string, object>))
-            {
-                var dict = obj as Dictionary<string, object>;
-                foreach (var kvp in dict)
-                {
-                    var value = ConvertToYaml(kvp.Value, indentLevel + 1);
-                    if (IsComplexType(kvp.Value))
-                    {
-                        yaml.AppendLine($"{indent}{EscapeYamlKey(kvp.Key)}:");
-                        yaml.Append(value);
-                    }
-                    else
-                    {
-                        yaml.AppendLine($"{indent}{EscapeYamlKey(kvp.Key)}: {value.TrimStart()}");
-                    }
-                }
-            }
-            else if (type.IsAnonymousType())
-            {
-                var properties = type.GetProperties();
-                foreach (var prop in properties)
-                {
-                    var value = prop.GetValue(obj);
-                    var yamlValue = ConvertToYaml(value, indentLevel + 1);
-                    var propertyName = prop.Name == "in" ? "in" : prop.Name; // Handle @in parameter
-
-                    if (IsComplexType(value))
-                    {
-                        yaml.AppendLine($"{indent}{EscapeYamlKey(propertyName)}:");
-                        yaml.Append(yamlValue);
-                    }
-                    else
-                    {
-                        yaml.AppendLine($"{indent}{EscapeYamlKey(propertyName)}: {yamlValue.TrimStart()}");
-                    }
-                }
-            }
-            else if (type == typeof(OpenApiDocument) || type == typeof(OpenApiInfo) || type == typeof(OpenApiServer) || 
-                     type == typeof(OpenApiComponents) || type == typeof(OpenApiSecurityScheme) || 
-                     type == typeof(OpenApiOAuthFlows) || type == typeof(OpenApiOAuthFlow) || 
-                     type == typeof(OpenApiSecurityRequirement) || type == typeof(OpenApiResponses) || 
-                     type == typeof(OpenApiResponse) || type == typeof(OpenApiRequestBody) || 
-                     type == typeof(OpenApiMediaType) || type == typeof(OpenApiSchema) || 
-                     type == typeof(OpenApiProperty) || type == typeof(OpenApiParameter))
-            {
-                var properties = type.GetProperties();
-                foreach (var prop in properties)
-                {
-                    var value = prop.GetValue(obj);
-                    if (value == null) continue;
-
-                    var yamlValue = ConvertToYaml(value, indentLevel + 1);
-                    var propertyName = GetJsonPropertyName(prop) ?? prop.Name.ToLowerInvariant();
-
-                    if (IsComplexType(value))
-                    {
-                        yaml.AppendLine($"{indent}{EscapeYamlKey(propertyName)}:");
-                        yaml.Append(yamlValue);
-                    }
-                    else
-                    {
-                        yaml.AppendLine($"{indent}{EscapeYamlKey(propertyName)}: {yamlValue.TrimStart()}");
-                    }
-                }
-            }
-            else if (type == typeof(string))
-            {
-                var str = obj.ToString();
-                if (str.Contains('\n') || str.Contains('\r') || str.Contains('"') || str.Contains('\''))
-                {
-                    return $"\"{str.Replace("\"", "\\\"")}\"";
-                }
-                return str;
-            }
-            else if (type == typeof(bool))
-            {
-                return obj.ToString().ToLowerInvariant();
-            }
-            else if (type.IsNumeric())
-            {
-                return obj.ToString();
-            }
-            else
-            {
-                return obj.ToString();
-            }
-
-            return yaml.ToString();
-        }
-
-        private static string GetJsonPropertyName(System.Reflection.PropertyInfo property)
-        {
-            var jsonPropertyAttribute = property.GetCustomAttributes(typeof(JsonPropertyAttribute), false).FirstOrDefault() as JsonPropertyAttribute;
-            return jsonPropertyAttribute?.PropertyName;
-        }
-
-        private static bool IsComplexType(object value)
-        {
-            if (value == null) return false;
-
-            var type = value.GetType();
-            return type.IsAnonymousType() ||
-                   type == typeof(Dictionary<string, object>) ||
-                   type.IsArray ||
-                   (type.IsGenericType && type.GetGenericTypeDefinition() == typeof(List<>)) ||
-                   type == typeof(OpenApiDocument) ||
-                   type == typeof(OpenApiInfo) ||
-                   type == typeof(OpenApiServer) ||
-                   type == typeof(OpenApiComponents) ||
-                   type == typeof(OpenApiRequestBody) ||
-                   type == typeof(OpenApiMediaType) ||
-                   type == typeof(OpenApiSchema) ||
-                   type == typeof(OpenApiProperty) ||
-                   type == typeof(OpenApiParameter) ||
-                   type == typeof(OpenApiSecurityScheme) ||
-                   type == typeof(OpenApiOAuthFlows) ||
-                   type == typeof(OpenApiOAuthFlow) ||
-                   type == typeof(OpenApiSecurityRequirement) ||
-                   type == typeof(OpenApiResponses) ||
-                   type == typeof(OpenApiResponse);
-        }
-
-        private static string ConvertToYaml(OpenApiDocument document)
-        {
-            var yaml = new StringBuilder();
-            
-            yaml.AppendLine($"openapi: {document.OpenApi}");
-            
-            // Info section
-            yaml.AppendLine("info:");
-            yaml.AppendLine($"  title: {EscapeYamlValue(document.Info.Title)}");
-            yaml.AppendLine($"  description: {EscapeYamlValue(document.Info.Description)}");
-            yaml.AppendLine($"  version: {document.Info.Version}");
-            
-            // Servers section
-            yaml.AppendLine("servers:");
-            foreach (var server in document.Servers)
-            {
-                yaml.AppendLine($"  - url: {server.Url}");
-            }
-            
-            // Security section
-            if (document.Security != null && document.Security.Length > 0)
-            {
-                yaml.AppendLine("security:");
-                foreach (var securityReq in document.Security)
-                {
-                    yaml.AppendLine("  - oauth2:");
-                    foreach (var requirement in securityReq.Requirements)
-                    {
-                        foreach (var scope in requirement.Value)
-                        {
-                            yaml.AppendLine($"      - {scope}");
-                        }
-                    }
-                }
-            }
-            
-            // Paths section
-            yaml.AppendLine("paths:");
-            foreach (var path in document.Paths)
-            {
-                yaml.AppendLine($"  {EscapeYamlKey(path.Key)}:");
-                var pathItem = path.Value as Dictionary<string, object>;
-                if (pathItem != null)
-                {
-                    foreach (var operation in pathItem)
-                    {
-                        yaml.AppendLine($"    {operation.Key}:");
-                        AppendOperation(yaml, operation.Value, 6);
-                    }
-                }
-            }
-            
-            // Components section
-            yaml.AppendLine("components:");
-            yaml.AppendLine("  schemas: {}");
-            
-            // Security schemes section
-            if (document.Components.SecuritySchemes != null && document.Components.SecuritySchemes.Any())
-            {
-                yaml.AppendLine("  securitySchemes:");
-                foreach (var securityScheme in document.Components.SecuritySchemes)
-                {
-                    yaml.AppendLine($"    {securityScheme.Key}:");
-                    yaml.AppendLine($"      type: {securityScheme.Value.Type}");
-                    yaml.AppendLine($"      description: {EscapeYamlValue(securityScheme.Value.Description)}");
-                    yaml.AppendLine("      flows:");
-                    
-                    if (securityScheme.Value.Flows.AuthorizationCode != null)
-                    {
-                        yaml.AppendLine("        authorizationCode:");
-                        yaml.AppendLine($"          authorizationUrl: {securityScheme.Value.Flows.AuthorizationCode.AuthorizationUrl}");
-                        yaml.AppendLine($"          tokenUrl: {securityScheme.Value.Flows.AuthorizationCode.TokenUrl}");
-                        yaml.AppendLine("          scopes:");
-                        foreach (var scope in securityScheme.Value.Flows.AuthorizationCode.Scopes)
-                        {
-                            yaml.AppendLine($"            {EscapeYamlKey(scope.Key)}: {EscapeYamlValue(scope.Value)}");
-                        }
-                    }
-                    
-                    if (securityScheme.Value.Flows.ClientCredentials != null)
-                    {
-                        yaml.AppendLine("        clientCredentials:");
-                        yaml.AppendLine($"          tokenUrl: {securityScheme.Value.Flows.ClientCredentials.TokenUrl}");
-                        yaml.AppendLine("          scopes:");
-                        foreach (var scope in securityScheme.Value.Flows.ClientCredentials.Scopes)
-                        {
-                            yaml.AppendLine($"            {EscapeYamlKey(scope.Key)}: {EscapeYamlValue(scope.Value)}");
-                        }
-                    }
-                }
-            }
-            
-            return yaml.ToString();
-        }
-
-        private static void AppendOperation(StringBuilder yaml, object operation, int indent)
-        {
-            var indentStr = new string(' ', indent);
-            
-            if (operation.GetType().IsAnonymousType())
-            {
-                var properties = operation.GetType().GetProperties();
-                foreach (var prop in properties)
-                {
-                    var value = prop.GetValue(operation);
-                    if (value == null) continue;
-                    
-                    var propertyName = prop.Name;
-                    
-                    switch (propertyName.ToLowerInvariant())
-                    {
-                        case "tags":
-                            if (value is string[] tags && tags.Length > 0)
-                            {
-                                yaml.AppendLine($"{indentStr}tags:");
-                                foreach (var tag in tags)
-                                {
-                                    yaml.AppendLine($"{indentStr}  - {EscapeYamlValue(tag)}");
-                                }
-                            }
-                            break;
-                        case "summary":
-                        case "description":
-                        case "operationid":
-                            yaml.AppendLine($"{indentStr}{propertyName}: {EscapeYamlValue(value.ToString())}");
-                            break;
-                        case "parameters":
-                            AppendParameters(yaml, value as OpenApiParameter[], indent);
-                            break;
-                        case "requestbody":
-                            if (value != null)
-                                AppendRequestBody(yaml, value as OpenApiRequestBody, indent);
-                            break;
-                        case "responses":
-                            AppendResponses(yaml, value, indent);
-                            break;
-                    }
-                }
-            }
-        }
-
-        private static void AppendParameters(StringBuilder yaml, OpenApiParameter[] parameters, int indent)
-        {
-            if (parameters == null || parameters.Length == 0) return;
-            
-            var indentStr = new string(' ', indent);
-            yaml.AppendLine($"{indentStr}parameters:");
-            
-            foreach (var param in parameters)
-            {
-                yaml.AppendLine($"{indentStr}  - name: {param.Name}");
-                yaml.AppendLine($"{indentStr}    in: {param.In}");
-                yaml.AppendLine($"{indentStr}    required: {param.Required.ToString().ToLowerInvariant()}");
-                yaml.AppendLine($"{indentStr}    schema:");
-                yaml.AppendLine($"{indentStr}      type: {param.Schema.Type}");
-                
-                if (!string.IsNullOrEmpty(param.Schema.Format))
-                    yaml.AppendLine($"{indentStr}      format: {param.Schema.Format}");
-                
-                if (!string.IsNullOrEmpty(param.Schema.Pattern))
-                    yaml.AppendLine($"{indentStr}      pattern: {EscapeYamlValue(param.Schema.Pattern)}");
-                
-                // Handle array items (only if not null)
-                if (param.Schema.Items != null)
-                {
-                    yaml.AppendLine($"{indentStr}      items:");
-                    yaml.AppendLine($"{indentStr}        type: {param.Schema.Items.Type}");
-                }
-                
-                if (!string.IsNullOrEmpty(param.Description))
-                    yaml.AppendLine($"{indentStr}    description: {EscapeYamlValue(param.Description)}");
-            }
-        }
-
-        private static void AppendRequestBody(StringBuilder yaml, OpenApiRequestBody requestBody, int indent)
-        {
-            var indentStr = new string(' ', indent);
-            yaml.AppendLine($"{indentStr}requestBody:");
-            yaml.AppendLine($"{indentStr}  required: {requestBody.Required.ToString().ToLowerInvariant()}");
-            yaml.AppendLine($"{indentStr}  content:");
-            
-            foreach (var content in requestBody.Content)
-            {
-                yaml.AppendLine($"{indentStr}    {EscapeYamlKey(content.Key)}:");
-                yaml.AppendLine($"{indentStr}      schema:");
-                yaml.AppendLine($"{indentStr}        type: {content.Value.Schema.Type}");
-                
-                if (content.Value.Schema.Properties != null && content.Value.Schema.Properties.Any())
-                {
-                    yaml.AppendLine($"{indentStr}        properties:");
-                    foreach (var prop in content.Value.Schema.Properties)
-                    {
-                        yaml.AppendLine($"{indentStr}          {prop.Key}:");
-                        yaml.AppendLine($"{indentStr}            type: {prop.Value.Type}");
-                        
-                        // Only add format if not null/empty
-                        if (!string.IsNullOrEmpty(prop.Value.Format))
-                            yaml.AppendLine($"{indentStr}            format: {prop.Value.Format}");
-                        
-                        // Only add pattern if not null/empty
-                        if (!string.IsNullOrEmpty(prop.Value.Pattern))
-                            yaml.AppendLine($"{indentStr}            pattern: {EscapeYamlValue(prop.Value.Pattern)}");
-                        
-                        // Only add items if not null and type is array
-                        if (prop.Value.Type == "array" && prop.Value.Items != null)
-                        {
-                            yaml.AppendLine($"{indentStr}            items:");
-                            yaml.AppendLine($"{indentStr}              type: {prop.Value.Items.Type}");
-                        }
-                        
-                        // Only add description if not null/empty
-                        if (!string.IsNullOrEmpty(prop.Value.Description))
-                            yaml.AppendLine($"{indentStr}            description: {EscapeYamlValue(prop.Value.Description)}");
-                    }
-                }
-                
-                if (content.Value.Schema.Required != null && content.Value.Schema.Required.Any())
-                {
-                    yaml.AppendLine($"{indentStr}        required:");
-                    foreach (var req in content.Value.Schema.Required)
-                    {
-                        yaml.AppendLine($"{indentStr}          - {req}");
-                    }
-                }
-            }
-        }
-
-        private static void AppendResponses(StringBuilder yaml, object responses, int indent)
-        {
-            var indentStr = new string(' ', indent);
-            yaml.AppendLine($"{indentStr}responses:");
-            
-            if (responses is OpenApiResponses apiResponses)
-            {
-                // Success response (200)
-                if (apiResponses.Success != null)
-                {
-                    yaml.AppendLine($"{indentStr}  \"200\":");
-                    yaml.AppendLine($"{indentStr}    description: {EscapeYamlValue(apiResponses.Success.Description)}");
-                    
-                    if (apiResponses.Success.Content != null && apiResponses.Success.Content.Any())
-                    {
-                        yaml.AppendLine($"{indentStr}    content:");
-                        foreach (var content in apiResponses.Success.Content)
-                        {
-                            yaml.AppendLine($"{indentStr}      {EscapeYamlKey(content.Key)}:");
-                            yaml.AppendLine($"{indentStr}        schema:");
-                            yaml.AppendLine($"{indentStr}          type: {content.Value.Schema.Type}");
-                            
-                            if (content.Value.Schema.Properties != null && content.Value.Schema.Properties.Any())
-                            {
-                                yaml.AppendLine($"{indentStr}          properties:");
-                                foreach (var prop in content.Value.Schema.Properties)
-                                {
-                                    yaml.AppendLine($"{indentStr}            {prop.Key}:");
-                                    yaml.AppendLine($"{indentStr}              type: {prop.Value.Type}");
-                                    
-                                    // Only add format if not null/empty
-                                    if (!string.IsNullOrEmpty(prop.Value.Format))
-                                        yaml.AppendLine($"{indentStr}              format: {prop.Value.Format}");
-                                    
-                                    // Only add pattern if not null/empty
-                                    if (!string.IsNullOrEmpty(prop.Value.Pattern))
-                                        yaml.AppendLine($"{indentStr}              pattern: {EscapeYamlValue(prop.Value.Pattern)}");
-                                    
-                                    // Only add items if not null and type is array
-                                    if (prop.Value.Type == "array" && prop.Value.Items != null)
-                                    {
-                                        yaml.AppendLine($"{indentStr}              items:");
-                                        yaml.AppendLine($"{indentStr}                type: {prop.Value.Items.Type}");
-                                    }
-                                    
-                                    // Only add description if not null/empty
-                                    if (!string.IsNullOrEmpty(prop.Value.Description))
-                                        yaml.AppendLine($"{indentStr}              description: {EscapeYamlValue(prop.Value.Description)}");
-                                }
-                            }
-                        }
-                    }
-                }
-                
-                // Error responses (same pattern - only include if not null)
-                if (apiResponses.BadRequest != null)
-                {
-                    yaml.AppendLine($"{indentStr}  \"400\":");
-                    yaml.AppendLine($"{indentStr}    description: {EscapeYamlValue(apiResponses.BadRequest.Description)}");
-                }
-                
-                if (apiResponses.Unauthorized != null)
-                {
-                    yaml.AppendLine($"{indentStr}  \"401\":");
-                    yaml.AppendLine($"{indentStr}    description: {EscapeYamlValue(apiResponses.Unauthorized.Description)}");
-                }
-                
-                if (apiResponses.InternalServerError != null)
-                {
-                    yaml.AppendLine($"{indentStr}  \"500\":");
-                    yaml.AppendLine($"{indentStr}    description: {EscapeYamlValue(apiResponses.InternalServerError.Description)}");
-                }
-            }
-        }
-
-       
-
-        private static Dictionary<string, OpenApiSecurityScheme> GenerateSecuritySchemes(string tenantId)
-        {
             return new Dictionary<string, OpenApiSecurityScheme>
             {
-                ["oauth2"] = new OpenApiSecurityScheme
+                ["azuread"] = new OpenApiSecurityScheme
                 {
                     Type = "oauth2",
-                    Description = "OAuth2 authentication for Microsoft Dataverse",
                     Flows = new OpenApiOAuthFlows
                     {
+                        ClientCredentials = new OpenApiOAuthFlow
+                        {
+                            TokenUrl = $"https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
+                            Scopes = new Dictionary<string, string>
+                            {
+                                [$"https://{environmentHost}/.default"] = "Access Dataverse APIs"
+                            }
+                        },
                         AuthorizationCode = new OpenApiOAuthFlow
                         {
                             AuthorizationUrl = $"https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/authorize",
                             TokenUrl = $"https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
                             Scopes = new Dictionary<string, string>
                             {
-                                ["https://service.powerapps.com/user_impersonation"] = "Access Dataverse as the signed-in user"
-                            }
-                        },
-                        ClientCredentials = new OpenApiOAuthFlow
-                        {
-                            TokenUrl = $"https://login.microsoftonline.com/{tenantId}/oauth2/v2.0/token",
-                            Scopes = new Dictionary<string, string>
-                            {
-                                ["https://service.powerapps.com/.default"] = "Access Dataverse with application permissions"
+                                [$"https://{environmentHost}/.default"] = "Access Dataverse APIs"
                             }
                         }
                     }
@@ -981,167 +796,159 @@ namespace XTB.CustomApiManager.Helpers
             };
         }
 
-        private static OpenApiProperty CreatePropertyForType(CustomAPIRequestParameter.Type_OptionSet type, string description)
+
+        private static OpenApiSchema CreatePropertyForType(CustomApiRequestParameterProxy param)
         {
-            var property = new OpenApiProperty
+            var property = new OpenApiSchema
             {
-                Type = GetJsonTypeForDataverseType(type),
-                Description = description
+                Description = param.Description
             };
 
-            // Handle specific type formatting
-            switch (type)
+            switch (param.Type)
             {
+                case CustomAPIRequestParameter.Type_OptionSet.Boolean:
+                    property.Type = "boolean";
+                    break;
+
                 case CustomAPIRequestParameter.Type_OptionSet.DateTime:
-                    property.Format = "date-time";
-                    property.Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$";
+                    //property.Type = "string";
+                    //property.Format = "date-time";
+                    //property.Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$";
+                    property.Ref = $"#/components/schemas/DateTime";
                     break;
-                case CustomAPIRequestParameter.Type_OptionSet.Guid:
-                    property.Format = "uuid";
-                    property.Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
+
+                case CustomAPIRequestParameter.Type_OptionSet.Decimal:
+                    property.Type = "number";
                     break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Entity:
+                    property.Type = "object";
+                    break;
+
                 case CustomAPIRequestParameter.Type_OptionSet.EntityCollection:
+                    property.Type = "array";
                     property.Items = new OpenApiSchema { Type = "object" };
                     break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.EntityReference:
+                    //property.Type = "object";
+                    property.Ref = $"#/components/schemas/Microsoft.Dynamics.CRM.{param.BoundEntityLogicalName}";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Float:
+                    property.Type = "number";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Integer:
+                    //property.Type = "integer";
+                    property.Ref = $"#/components/schemas/Int32";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Money:
+                    property.Type = "number";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Picklist:
+                    //property.Type = "integer";
+                    property.Ref = $"#/components/schemas/Int32";
+                    break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.String:
+                    property.Type = "string";
+                    break;
+
                 case CustomAPIRequestParameter.Type_OptionSet.StringArray:
+                    property.Type = "array";
                     property.Items = new OpenApiSchema { Type = "string" };
                     break;
+
+                case CustomAPIRequestParameter.Type_OptionSet.Guid:
+                    //property.Type = "string";
+                    //property.Format = "uuid";
+                    //property.Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
+                    property.Ref = $"#/components/schemas/Uuid";
+                    break;
+
+                default:
+                    property.Type = "string";
+                    break;
             }
 
             return property;
         }
 
-        private static OpenApiProperty CreatePropertyForResponseType(CustomAPIResponseProperty.Type_OptionSet type, string description)
+        private static OpenApiSchema CreatePropertyForResponseType(CustomApiResponsePropertyProxy responseProperty)
         {
-            var property = new OpenApiProperty
+            var property = new OpenApiSchema
             {
-                Type = GetJsonTypeForDataverseType(type),
-                Description = description
+                Description = responseProperty.Description
             };
 
-            // Handle specific type formatting
-            switch (type)
+            switch (responseProperty.Type)
             {
+                case CustomAPIResponseProperty.Type_OptionSet.Boolean:
+                    property.Type = "boolean";
+                    break;
+
                 case CustomAPIResponseProperty.Type_OptionSet.DateTime:
-                    property.Format = "date-time";
-                    property.Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$";
+                    //property.Type = "string";
+                    //property.Format = "date-time";
+                    //property.Pattern = @"^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$";
+                    property.Ref = $"#/components/schemas/DateTime";
                     break;
-                case CustomAPIResponseProperty.Type_OptionSet.Guid:
-                    property.Format = "uuid";
-                    property.Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
+
+                case CustomAPIResponseProperty.Type_OptionSet.Decimal:
+                    property.Type = "number";
                     break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.Entity:
+                    property.Type = "object";
+                    break;
+
                 case CustomAPIResponseProperty.Type_OptionSet.EntityCollection:
+                    property.Type = "array";
                     property.Items = new OpenApiSchema { Type = "object" };
+                    break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.EntityReference:
+                    //property.Type = "object";
+                    property.Ref = $"#/components/schemas/Microsoft.Dynamics.CRM.{responseProperty.BoundEntityLogicalName}";
+
+                    break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.Float:
+                    property.Type = "number";
+                    break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.Integer:
+                case CustomAPIResponseProperty.Type_OptionSet.Picklist:
+                    //property.Type = "integer";
+                    property.Ref = $"#/components/schemas/Int32";
+                    break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.Money:
+                    property.Type = "number";
+                    break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.String:
+                    property.Type = "string";
+                    break;
+
+                case CustomAPIResponseProperty.Type_OptionSet.Guid:
+                    //property.Type = "string";
+                    //property.Format = "uuid";
+                    //property.Pattern = "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$";
+                    property.Ref = $"#/components/schemas/Uuid";
+                    break;
+
+                default:
+                    property.Type = "string";
                     break;
             }
 
             return property;
-        }
-
-        private static string EscapeYamlValue(string value)
-        {
-            if (string.IsNullOrEmpty(value)) 
-                return "\"\"";
-            
-            // Check if the value needs to be quoted
-            if (value.Contains('\n') || 
-                value.Contains('\r') || 
-                value.Contains('"') || 
-                value.Contains('\'') || 
-                value.Contains(':') || 
-                value.Contains('#') || 
-                value.Contains('|') ||
-                value.Contains('>') ||
-                value.Contains('[') ||
-                value.Contains(']') ||
-                value.Contains('{') ||
-                value.Contains('}') ||
-                value.Contains('&') ||
-                value.Contains('*') ||
-                value.Contains('!') ||
-                value.Contains('@') ||
-                value.Contains('`') ||
-                value.StartsWith(" ") || 
-                value.EndsWith(" ") ||
-                value.StartsWith("-") ||
-                value.StartsWith("?") ||
-                value.StartsWith("%") ||
-                value.Trim() != value)
-            {
-                // Escape internal quotes and wrap in quotes
-                return $"\"{value.Replace("\"", "\\\"")}\"";
-            }
-            
-            // Check for YAML reserved words that need quoting
-            var lowerValue = value.ToLowerInvariant();
-            if (lowerValue == "true" || 
-                lowerValue == "false" || 
-                lowerValue == "null" || 
-                lowerValue == "yes" || 
-                lowerValue == "no" || 
-                lowerValue == "on" || 
-                lowerValue == "off")
-            {
-                return $"\"{value}\"";
-            }
-            
-            // Check if it looks like a number
-            if (decimal.TryParse(value, out _) || 
-                int.TryParse(value, out _) || 
-                double.TryParse(value, out _))
-            {
-                return $"\"{value}\"";
-            }
-            
-            return value;
-        }
-
-        private static string EscapeYamlKey(string key)
-        {
-            if (string.IsNullOrEmpty(key)) 
-                return "\"\"";
-            
-            // Check if the key needs to be quoted
-            if (key.Contains(' ') || 
-                key.Contains(':') || 
-                key.Contains('-') || 
-                key.Contains('[') || 
-                key.Contains(']') || 
-                key.Contains('{') || 
-                key.Contains('}') || 
-                key.Contains('(') || 
-                key.Contains(')') || 
-                key.Contains(',') || 
-                key.Contains('.') || 
-                key.Contains('/') || 
-                key.Contains('\\') ||
-                key.Contains('"') || 
-                key.Contains('\'') || 
-                key.Contains('#') || 
-                key.Contains('&') || 
-                key.Contains('*') || 
-                key.Contains('!') || 
-                key.Contains('|') || 
-                key.Contains('>') || 
-                key.Contains('<') || 
-                key.Contains('=') || 
-                key.Contains('%') || 
-                key.Contains('@') || 
-                key.Contains('`') || 
-                key.Contains('~') || 
-                key.Contains('?') ||
-                key.StartsWith(" ") || 
-                key.EndsWith(" ") ||
-                key.StartsWith("-") ||
-                key.StartsWith("0") ||
-                char.IsDigit(key[0]))
-            {
-                // Escape internal quotes and wrap in quotes
-                return $"\"{key.Replace("\"", "\\\"")}\"";
-            }
-    
-            return key;
-        }
+        } 
     }
 }
+
 
