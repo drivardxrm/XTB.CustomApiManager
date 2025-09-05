@@ -42,6 +42,15 @@ namespace XTB.CustomApiManager.Forms
             txtRequestParameterTemplate.Text = _globalsettings.RequestParameterDefaultName;
             txtResponsePropertyTemplate.Text = _globalsettings.ResponsePropertyDefaultName;
 
+            if (_globalsettings.OpenApiDefaultFormat == "yaml") 
+            {
+                rdYaml.Checked = true;
+            }
+            else 
+            {
+                rdJson.Checked = true;
+            }
+
             if (_connectionsettings.DefaultPublisherId != Guid.Empty) 
             {
                 var publisher  = _service.GetPublisher(_connectionsettings.DefaultPublisherId);
@@ -99,6 +108,15 @@ namespace XTB.CustomApiManager.Forms
             {
                 _globalsettings.ResponsePropertyDefaultName = txtResponsePropertyTemplate.Text;
             }
+
+            if (rdYaml.Checked && _globalsettings.OpenApiDefaultFormat != "yaml") 
+            {
+                _globalsettings.OpenApiDefaultFormat = "yaml";
+            }else if (rdJson.Checked && _globalsettings.OpenApiDefaultFormat != "json") 
+            {
+                _globalsettings.OpenApiDefaultFormat = "json";
+            }
+
             SettingsManager.Instance.Save(typeof(CustomApiManagerPlugin), _globalsettings);
 
             // connection related settings

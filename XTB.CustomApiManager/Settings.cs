@@ -21,5 +21,7 @@ namespace XTB.CustomApiManager
 
         public Guid DefaultPublisherId { get; set; } // connection based setting
 
+        public string OpenApiDefaultFormat { get; set; } = "yaml"; // yaml or json
+
     }
 }

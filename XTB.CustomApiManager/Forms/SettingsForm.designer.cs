@@ -56,11 +56,18 @@
             this.txtResponsePropertyTemplate = new System.Windows.Forms.TextBox();
             this.ttInfo = new System.Windows.Forms.ToolTip(this.components);
             this.dlgLookupPublisher = new xrmtb.XrmToolBox.Controls.Controls.CDSLookupDialog();
+            this.grpFormat = new System.Windows.Forms.GroupBox();
+            this.rdYaml = new System.Windows.Forms.RadioButton();
+            this.rdJson = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
+            this.grpFormat.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label13);
+            this.panel2.Controls.Add(this.grpFormat);
             this.panel2.Controls.Add(this.label12);
             this.panel2.Controls.Add(this.btnPublisherClear);
             this.panel2.Controls.Add(this.lblConnection);
@@ -347,6 +354,51 @@
             this.dlgLookupPublisher.Service = null;
             this.dlgLookupPublisher.Title = null;
             // 
+            // grpFormat
+            // 
+            this.grpFormat.Controls.Add(this.rdYaml);
+            this.grpFormat.Controls.Add(this.rdJson);
+            this.grpFormat.Location = new System.Drawing.Point(169, 386);
+            this.grpFormat.Name = "grpFormat";
+            this.grpFormat.Size = new System.Drawing.Size(139, 45);
+            this.grpFormat.TabIndex = 98;
+            this.grpFormat.TabStop = false;
+            this.grpFormat.Text = "Format";
+            // 
+            // rdYaml
+            // 
+            this.rdYaml.AutoSize = true;
+            this.rdYaml.Location = new System.Drawing.Point(6, 19);
+            this.rdYaml.Name = "rdYaml";
+            this.rdYaml.Size = new System.Drawing.Size(54, 17);
+            this.rdYaml.TabIndex = 1;
+            this.rdYaml.Text = "YAML";
+            this.rdYaml.UseVisualStyleBackColor = true;
+            // 
+            // rdJson
+            // 
+            this.rdJson.AutoSize = true;
+            this.rdJson.Checked = true;
+            this.rdJson.Location = new System.Drawing.Point(66, 19);
+            this.rdJson.Name = "rdJson";
+            this.rdJson.Size = new System.Drawing.Size(53, 17);
+            this.rdJson.TabIndex = 0;
+            this.rdJson.TabStop = true;
+            this.rdJson.Text = "JSON";
+            this.rdJson.UseVisualStyleBackColor = true;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.label13.Location = new System.Drawing.Point(20, 386);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(143, 13);
+            this.label13.TabIndex = 99;
+            this.label13.Text = "Open API default format";
+            this.ttInfo.SetToolTip(this.label13, "Template for Response Property Name");
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +416,8 @@
             this.Text = "Custom Api Manager - Settings";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.grpFormat.ResumeLayout(false);
+            this.grpFormat.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -395,5 +449,9 @@
         private System.Windows.Forms.TextBox txtPrefix;
         private System.Windows.Forms.Button btnPublisherClear;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox grpFormat;
+        private System.Windows.Forms.RadioButton rdYaml;
+        private System.Windows.Forms.RadioButton rdJson;
     }
 }

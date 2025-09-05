@@ -1165,7 +1165,7 @@ namespace XTB.CustomApiManager
 
         private void menuOpenApi_Click(object sender, EventArgs e)
         {
-            var inputdlg = new OpenApiViewerForm(Service, _selectedCustomApi, ConnectionDetail);
+            var inputdlg = new OpenApiViewerForm(Service, _selectedCustomApi, ConnectionDetail, _globalsettings);
             var dlgresult = inputdlg.ShowDialog();
            
         }

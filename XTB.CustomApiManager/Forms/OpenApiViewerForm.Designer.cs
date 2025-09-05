@@ -56,9 +56,9 @@
             // 
             this.grpFormat.Controls.Add(this.rdYaml);
             this.grpFormat.Controls.Add(this.rdJson);
-            this.grpFormat.Location = new System.Drawing.Point(83, 12);
+            this.grpFormat.Location = new System.Drawing.Point(83, 15);
             this.grpFormat.Name = "grpFormat";
-            this.grpFormat.Size = new System.Drawing.Size(139, 54);
+            this.grpFormat.Size = new System.Drawing.Size(139, 42);
             this.grpFormat.TabIndex = 3;
             this.grpFormat.TabStop = false;
             this.grpFormat.Text = "Format";
@@ -66,7 +66,7 @@
             // rdYaml
             // 
             this.rdYaml.AutoSize = true;
-            this.rdYaml.Location = new System.Drawing.Point(77, 20);
+            this.rdYaml.Location = new System.Drawing.Point(6, 19);
             this.rdYaml.Name = "rdYaml";
             this.rdYaml.Size = new System.Drawing.Size(54, 17);
             this.rdYaml.TabIndex = 1;
@@ -78,7 +78,7 @@
             // 
             this.rdJson.AutoSize = true;
             this.rdJson.Checked = true;
-            this.rdJson.Location = new System.Drawing.Point(18, 20);
+            this.rdJson.Location = new System.Drawing.Point(66, 19);
             this.rdJson.Name = "rdJson";
             this.rdJson.Size = new System.Drawing.Size(53, 17);
             this.rdJson.TabIndex = 0;
@@ -110,7 +110,7 @@
             // 
             this.btnCopy.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCopy.BackgroundImage")));
             this.btnCopy.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnCopy.Location = new System.Drawing.Point(228, 25);
+            this.btnCopy.Location = new System.Drawing.Point(228, 16);
             this.btnCopy.Name = "btnCopy";
             this.btnCopy.Size = new System.Drawing.Size(56, 41);
             this.btnCopy.TabIndex = 6;
@@ -122,7 +122,7 @@
             // 
             this.btnSave.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSave.BackgroundImage")));
             this.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnSave.Location = new System.Drawing.Point(290, 25);
+            this.btnSave.Location = new System.Drawing.Point(290, 16);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(56, 41);
             this.btnSave.TabIndex = 7;

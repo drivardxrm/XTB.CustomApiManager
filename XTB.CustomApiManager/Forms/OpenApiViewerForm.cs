@@ -30,20 +30,22 @@ namespace XTB.CustomApiManager.Forms
         private string _baseUrl = string.Empty;
         private string _tenantid = string.Empty;
         private string _boundEntitySetName = string.Empty;
+        private Settings _settings;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public OpenApiViewerForm(IOrganizationService service, CustomApiProxy customapi, ConnectionDetail connection)
+        public OpenApiViewerForm(IOrganizationService service, CustomApiProxy customapi, ConnectionDetail connection, Settings settings)
         {
             InitializeComponent();
 
             _service = service;
             _customapiproxy = customapi;
             _connection = connection;
+            _settings = settings;
 
-            
+
 
             //// Set font
             //scinJson.StyleResetDefault();
@@ -64,7 +66,7 @@ namespace XTB.CustomApiManager.Forms
             //scinJson.Margins[0].Sensitive = true;
             //scinJson.Margins[0].Mask = Marker.MaskAll;
 
-           
+
 
 
 
@@ -92,9 +94,18 @@ namespace XTB.CustomApiManager.Forms
                 _boundEntitySetName = _service.GetEntityCollectionName(_customapiproxy.BoundEntityLogicalName);               
             }
 
+            if (_settings.OpenApiDefaultFormat == "yaml")
+            {
+                rdYaml.Checked = true;
+                DisplayOpenApiYaml();
+            }
+            else
+            {
+                rdJson.Checked = true;
+                DisplayOpenApiJson();
+            }
 
-
-            DisplayOpenApiJson();
+            
             
 
         }
