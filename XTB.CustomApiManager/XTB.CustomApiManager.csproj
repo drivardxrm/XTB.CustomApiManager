@@ -276,6 +276,12 @@
     <Compile Include="Forms\DeleteCustomApiForm.designer.cs">
       <DependentUpon>DeleteCustomApiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\OpenApiViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OpenApiViewerForm.Designer.cs">
+      <DependentUpon>OpenApiViewerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,7 @@
     </Compile>
     <Compile Include="Helpers\CatalogAssignmentHelper.cs" />
     <Compile Include="Helpers\EntityHelper.cs" />
+    <Compile Include="Helpers\MetadataHelper.cs" />
     <Compile Include="Helpers\PrivilegeHelper.cs" />
     <Compile Include="Helpers\FxExpressionHelper.cs" />
     <Compile Include="Helpers\SolutionHelper.cs" />
@@ -332,6 +339,8 @@
     <Compile Include="Forms\NewCustomApiForm.designer.cs">
       <DependentUpon>NewCustomApiForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\OpenApiGenerator.cs" />
+    <Compile Include="Helpers\TypeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -368,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DeleteCustomApiForm.resx">
       <DependentUpon>DeleteCustomApiForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\OpenApiViewerForm.resx">
+      <DependentUpon>OpenApiViewerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

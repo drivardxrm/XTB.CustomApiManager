@@ -399,6 +399,7 @@ namespace XTB.CustomApiManager
             LoadBusinessEvents();
 
             menuTestApi.Enabled = cdsCboCustomApi.SelectedIndex != -1;
+            menuOpenApi.Enabled = cdsCboCustomApi.SelectedIndex != -1;
             menuPluginTrace.Enabled = cdsCboCustomApi.SelectedIndex != -1;
 
         }
@@ -1160,6 +1161,13 @@ namespace XTB.CustomApiManager
         private void menuCatalogManager_Click(object sender, EventArgs e)
         {
             OnOutgoingMessage(this, new MessageBusEventArgs("Catalog Manager") { TargetArgument = null });
+        }
+
+        private void menuOpenApi_Click(object sender, EventArgs e)
+        {
+            var inputdlg = new OpenApiViewerForm(Service, _selectedCustomApi, ConnectionDetail);
+            var dlgresult = inputdlg.ShowDialog();
+           
         }
     }
 }
