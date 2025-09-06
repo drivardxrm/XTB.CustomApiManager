@@ -418,7 +418,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>ilmerge.exe /target:library /targetplatform:v4,"C:\Windows\Microsoft.NET\Framework\v4.0.30319" "/out:XTB.CustomApiManager.dll" "$(TargetFileName)"  "xrmtb.XrmToolBox.Controls.dll"
+    <PostBuildEvent>ilmerge.exe /target:library /targetplatform:v4,"C:\Windows\Microsoft.NET\Framework\v4.0.30319" "/out:XTB.CustomApiManager.dll" "$(TargetFileName)"  "xrmtb.XrmToolBox.Controls.dll" "YamlDotNet.dll"
 
 IF $(ConfigurationName) == Debug (
       IF NOT EXIST Plugins mkdir Plugins
